@@ -521,7 +521,45 @@ body {
 .benefit-card:nth-child(2) { animation-delay: 0.1s; }
 .benefit-card:nth-child(3) { animation-delay: 0.15s; }
 .benefit-card:nth-child(4) { animation-delay: 0.2s; }
-</style>
+
+    /* Product Video Section */
+    .product-video-section {
+      margin: 40px 0;
+      padding: 32px;
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: var(--shadow-2);
+    }
+    .product-video-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--on-surface);
+    }
+    .product-video-container {
+      position: relative;
+      width: 100%;
+      max-width: 512px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-3);
+      background: #000;
+    }
+    .product-video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+    .product-video-caption {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--on-surface-variant);
+    }
+
+  </style>
 </head>
 <body>
   <header class="top-app-bar">
@@ -558,6 +596,18 @@ body {
         <p class="review-intro">Stell dir vor, du setzt dir die Kopfhörer auf — und die Welt schaltet sich aus. Nicht metaphorisch. Buchstäblich. Das ist das Versprechen der Sony WH-1000XM5, und ehrlich gesagt? Sie halten es ein.</p>
       </div>
     </div>
+
+    <!-- Product Video -->
+    <section class="product-video-section">
+      <h2 class="product-video-title">🎬 Sony WH-1000XM5 — Produkt-Video</h2>
+      <div class="product-video-container">
+        <video controls preload="metadata" poster="https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_SL1500_.jpg">
+          <source src="/videos/sony_wh1000xm5_review.mp4" type="video/mp4">
+          Ihr Browser unterstützt kein Video.
+        </video>
+      </div>
+      <p class="product-video-caption">Sony WH-1000XM5 — Premium Wireless Noise Cancelling Kopfhörer</p>
+    </section>
 
     <!-- Benefits -->
     <section class="benefits-section">
