@@ -3,32 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MMOFinds — Die besten Tech-Deals gefunden</title>
-  <meta name="description" content="MMOFinds kuratiert die besten Angebote für Kopfhörer, Earbuds, Lautsprecher und Smartphones. Handgeprüfte Deals bei Amazon.de.">
+  <title>MMOFinds — Handgeprüfte Tech-Reviews</title>
+  <meta name="description" content="MMOFinds kuratiert handgeprüfte Tech-Reviews für Kopfhörer, Earbuds, Lautsprecher und Smartphones. Ehrlich. Detailliert. Unbestochen.">
   <meta name="theme-color" content="#1a73e8">
+  
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="MMOFinds — Die besten Tech-Deals gefunden">
-  <meta property="og:description" content="Handgeprüfte Deals für Kopfhörer, Earbuds, Lautsprecher und Smartphones.">
+  <meta property="og:title" content="MMOFinds — Handgeprüfte Tech-Reviews">
+  <meta property="og:description" content="Ehrliche Tech-Reviews für Kopfhörer, Earbuds, Lautsprecher und Smartphones.">
   <meta property="og:url" content="https://mmofinds.de/">
   <meta property="og:site_name" content="MMOFinds">
+  
+  <!-- JSON-LD -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"MMOFinds","url":"https://mmofinds.de/","description":"Kuratierte Tech-Deals","publisher":{"@type":"Organization","name":"MMOFinds","url":"https://mmofinds.de/"}}
+  {"@context":"https://schema.org","@type":"WebSite","name":"MMOFinds","url":"https://mmofinds.de/","description":"Handgeprüfte Tech-Reviews","publisher":{"@type":"Organization","name":"MMOFinds","url":"https://mmofinds.de/"}}
   </script>
+  
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   --primary: #1a73e8;
+  --primary-dark: #1557b0;
   --surface: #ffffff;
-  --surface-variant: #f1f3f4;
+  --surface-variant: #f8f9fa;
   --on-surface: #202124;
   --on-surface-variant: #5f6368;
-  --outline: #dadce0;
+  --outline: #e8eaed;
   --secondary-container: #e8f0fe;
   --on-secondary-container: #1967d2;
-  --shadow-1: 0 1px 2px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-2: 0 2px 4px rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.06);
-  --shadow-3: 0 4px 8px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.06);
+  --success: #34a853;
+  --warning: #fbbc04;
+  --shadow-1: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-2: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-3: 0 10px 20px rgba(0,0,0,0.08), 0 6px 6px rgba(0,0,0,0.06);
+  --shadow-4: 0 20px 40px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.06);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,7 +46,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: var(--surface-variant);
   color: var(--on-surface);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -52,6 +61,8 @@ body {
   top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--outline);
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.95);
 }
 
 .logo {
@@ -92,50 +103,34 @@ body {
 .nav-link.active { background: var(--secondary-container); color: var(--on-secondary-container); }
 
 /* Main */
-.main-content { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.main-content { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
 
-/* Hero */
-.hero-section { margin-bottom: 32px; }
-
-.hero-card {
+/* Hero Section */
+.review-hero {
   background: var(--surface);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: var(--shadow-2);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 400px;
+  box-shadow: var(--shadow-3);
+  margin-bottom: 40px;
 }
 
-.hero-image {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.review-hero-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e8eaed 100%);
   padding: 40px;
-  position: relative;
-}
-
-.hero-image::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-.hero-emoji { font-size: 120px; z-index: 1; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
-
-.hero-content {
-  padding: 48px 40px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.review-hero-content {
+  padding: 40px;
+}
+
+.review-category {
+  display: inline-block;
   background: var(--secondary-container);
   color: var(--on-secondary-container);
   padding: 6px 14px;
@@ -143,168 +138,337 @@ body {
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  width: fit-content;
+  letter-spacing: 0.8px;
   margin-bottom: 16px;
 }
 
-.hero-title {
-  font-size: 36px;
-  font-weight: 700;
+.review-headline {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 12px;
   color: var(--on-surface);
-  line-height: 1.2;
+}
+
+.review-subheadline {
+  font-size: 20px;
+  color: var(--on-surface-variant);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+/* Rating */
+.rating-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 20px;
+  background: var(--surface-variant);
+  border-radius: 16px;
+}
+
+.rating-score {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.star { color: var(--warning); font-size: 20px; }
+.star.empty { color: var(--outline); }
+
+.rating-meta {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+}
+
+/* Review Content */
+.review-intro {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--on-surface);
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--outline);
+}
+
+/* Benefits Section */
+.benefits-section {
+  margin-bottom: 48px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--on-surface);
+}
+
+.benefit-card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-1);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  box-shadow: var(--shadow-3);
+  transform: translateY(-2px);
+}
+
+.benefit-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin-bottom: 12px;
 }
 
-.hero-subtitle {
+.benefit-emoji {
+  font-size: 32px;
+  width: 56px;
+  height: 56px;
+  background: var(--secondary-container);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.benefit-text {
   font-size: 16px;
   color: var(--on-surface-variant);
-  margin-bottom: 24px;
+  line-height: 1.7;
+  padding-left: 72px;
+}
+
+/* Use Cases */
+.use-cases-section {
+  margin-bottom: 48px;
+}
+
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.use-case-card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow-1);
+  transition: all 0.3s ease;
+}
+
+.use-case-card:hover {
+  box-shadow: var(--shadow-3);
+  transform: translateY(-2px);
+}
+
+.use-case-emoji {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.use-case-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--on-surface);
+}
+
+.use-case-text {
+  font-size: 14px;
+  color: var(--on-surface-variant);
   line-height: 1.6;
 }
 
-.hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--primary);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 24px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  width: fit-content;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(26,115,232,0.3);
+/* Pros & Cons */
+.pros-cons-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 48px;
 }
 
-.hero-cta:hover { box-shadow: 0 4px 12px rgba(26,115,232,0.4); transform: translateY(-1px); }
+.pros-card, .cons-card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: var(--shadow-1);
+}
 
-/* Section */
-.section-header {
+.pros-card { border-top: 4px solid var(--success); }
+.cons-card { border-top: 4px solid var(--warning); }
+
+.pros-title, .cons-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding: 0 4px;
+  gap: 8px;
 }
 
-.section-title { font-size: 22px; font-weight: 700; color: var(--on-surface); }
-.section-count { font-size: 14px; color: var(--on-surface-variant); }
+.pros-title { color: var(--success); }
+.cons-title { color: var(--warning); }
 
-/* Cards Grid */
-.cards-grid {
+.pros-list, .cons-list {
+  list-style: none;
+}
+
+.pros-list li, .cons-list li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.pros-list li::before {
+  content: '✓';
+  color: var(--success);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cons-list li::before {
+  content: '–';
+  color: var(--warning);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Verdict */
+.verdict-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 48px;
+  color: white;
+}
+
+.verdict-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.verdict-text {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+/* Product Cards */
+.products-section {
+  margin-bottom: 48px;
+}
+
+.products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
 }
 
 .product-card {
   background: var(--surface);
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: var(--shadow-1);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  display: block;
+  box-shadow: var(--shadow-2);
+  transition: all 0.3s ease;
 }
 
 .product-card:hover {
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--shadow-4);
   transform: translateY(-4px);
 }
 
-.product-card-image {
+.product-image {
   width: 100%;
   aspect-ratio: 1;
   background: #f8f9fa;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  padding: 24px;
 }
 
-.product-card-image img {
-  width: 80%;
-  height: 80%;
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  transition: transform 0.3s ease;
 }
 
-.product-card:hover .product-card-image img { transform: scale(1.05); }
-
-.product-card-body { padding: 16px; }
-
-.product-card-category {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--primary);
-  margin-bottom: 6px;
+.product-body {
+  padding: 24px;
 }
 
-.product-card-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--on-surface);
+.product-name {
+  font-size: 18px;
+  font-weight: 700;
   margin-bottom: 8px;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  color: var(--on-surface);
 }
 
-.product-card-price {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
+.product-price {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  margin-bottom: 16px;
 }
 
-.price-label { font-size: 13px; color: var(--on-surface-variant); }
-.price-check {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--primary);
-  background: var(--secondary-container);
-  padding: 2px 10px;
-  border-radius: 12px;
-}
-
-.product-card-cta {
+.product-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 8px;
   width: 100%;
-  padding: 10px;
+  padding: 14px;
   background: var(--primary);
   color: white;
   border: none;
-  border-radius: 12px;
-  font-size: 14px;
+  border-radius: 14px;
+  font-size: 15px;
   font-weight: 600;
-  cursor: pointer;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.product-card:hover .product-card-cta { box-shadow: 0 2px 8px rgba(26,115,232,0.3); }
+.product-btn:hover {
+  box-shadow: 0 4px 12px rgba(26,115,232,0.3);
+  transform: translateY(-1px);
+}
 
 /* Disclosure */
 .affiliate-disclosure {
   background: var(--surface-variant);
   border-radius: 16px;
-  padding: 16px 20px;
-  margin: 24px 0;
+  padding: 20px 24px;
+  margin: 32px 0;
   font-size: 13px;
   color: var(--on-surface-variant);
   border-left: 4px solid var(--primary);
+  line-height: 1.6;
 }
 
 /* Footer */
@@ -316,7 +480,7 @@ body {
 }
 
 .footer-content {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -329,308 +493,160 @@ body {
 .footer-link { color: var(--on-surface-variant); text-decoration: none; font-size: 14px; }
 .footer-link:hover { color: var(--primary); }
 
-/* Detail Pages */
-.detail-hero {
-  background: var(--surface);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--shadow-2);
-  margin-bottom: 32px;
-}
-
-.detail-hero-image { width: 100%; max-height: 500px; object-fit: contain; background: #f8f9fa; padding: 40px; }
-.detail-hero-content { padding: 32px; }
-.detail-category {
-  display: inline-block;
-  background: var(--secondary-container);
-  color: var(--on-secondary-container);
-  padding: 4px 12px;
-  border-radius: 16px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 12px;
-}
-.detail-title { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
-.detail-subtitle { font-size: 16px; color: var(--on-surface-variant); margin-bottom: 24px; }
-
-.detail-products {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.detail-product-card {
-  background: var(--surface);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow-1);
-  transition: all 0.3s ease;
-}
-
-.detail-product-card:hover { box-shadow: var(--shadow-3); }
-.detail-product-image { width: 100%; aspect-ratio: 1; background: #f8f9fa; display: flex; align-items: center; justify-content: center; padding: 24px; }
-.detail-product-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.detail-product-body { padding: 20px; }
-.detail-product-name { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
-.detail-product-price { font-size: 14px; color: var(--on-surface-variant); margin-bottom: 16px; }
-
-.detail-product-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 12px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.detail-product-btn:hover { box-shadow: 0 2px 8px rgba(26,115,232,0.3); }
-
-/* Legal */
-.legal-content {
-  background: var(--surface);
-  border-radius: 24px;
-  padding: 40px;
-  box-shadow: var(--shadow-1);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.legal-content h1 { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
-.legal-content h2 { font-size: 20px; font-weight: 600; margin: 24px 0 12px; }
-.legal-content p { color: var(--on-surface-variant); margin-bottom: 16px; line-height: 1.7; }
-
 /* Responsive */
 @media (max-width: 768px) {
-  .hero-card { grid-template-columns: 1fr; }
-  .hero-image { min-height: 200px; }
-  .hero-emoji { font-size: 80px; }
-  .hero-title { font-size: 28px; }
-  .hero-content { padding: 24px; }
-  .cards-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
-  .product-card-body { padding: 12px; }
-  .product-card-title { font-size: 14px; }
-  .top-app-bar { padding: 8px 16px; }
+  .review-headline { font-size: 32px; }
+  .review-hero-content { padding: 24px; }
+  .benefit-text { padding-left: 0; margin-top: 12px; }
+  .pros-cons-section { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .use-case-grid { grid-template-columns: 1fr; }
 }
 
+/* Animations */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.product-card { animation: fadeInUp 0.4s ease forwards; }
-.product-card:nth-child(1) { animation-delay: 0.05s; }
-.product-card:nth-child(2) { animation-delay: 0.1s; }
-.product-card:nth-child(3) { animation-delay: 0.15s; }
-.product-card:nth-child(4) { animation-delay: 0.2s; }
-.product-card:nth-child(5) { animation-delay: 0.25s; }
-.product-card:nth-child(6) { animation-delay: 0.3s; }
+.benefit-card, .use-case-card, .product-card {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.benefit-card:nth-child(1) { animation-delay: 0.05s; }
+.benefit-card:nth-child(2) { animation-delay: 0.1s; }
+.benefit-card:nth-child(3) { animation-delay: 0.15s; }
+.benefit-card:nth-child(4) { animation-delay: 0.2s; }
 </style>
 </head>
 <body>
   <header class="top-app-bar">
     <a href="/" class="logo"><span class="logo-icon">🎧</span> MMOFinds</a>
     <nav class="nav-links">
-      <a href="/" class="nav-link active">Entdecken</a>
+      <a href="/" class="nav-link active">Reviews</a>
       <a href="/impressum.html" class="nav-link">Impressum</a>
       <a href="/datenschutz.html" class="nav-link">Datenschutz</a>
     </nav>
   </header>
+
   <main class="main-content">
-    <section class="hero-section">
-      <div class="hero-card">
-        <div class="hero-image"><span class="hero-emoji">🔥</span></div>
-        <div class="hero-content">
-          <span class="hero-badge">⭐ Kuratiert</span>
-          <h1 class="hero-title">Die besten Tech-Deals gefunden</h1>
-          <p class="hero-subtitle">Handgeprüfte Angebote für Kopfhörer, Earbuds, Lautsprecher und Smartphones — direkt bei Amazon.de.</p>
-          <a href="#deals" class="hero-cta">Deals entdecken ↓</a>
+    <!-- Hero -->
+    <section class="hero-section" style="margin-bottom: 48px;">
+      <div class="review-hero" style="border-radius: 24px;">
+        <div class="review-hero-content" style="text-align: center; padding: 60px 40px;">
+          <span class="review-category" style="margin-bottom: 20px;">⭐ Handgeprüft</span>
+          <h1 class="review-headline" style="font-size: 48px; margin-bottom: 16px;">Tech-Reviews, die du lesen willst</h1>
+          <p style="font-size: 20px; color: var(--on-surface-variant); max-width: 600px; margin: 0 auto 32px; line-height: 1.6;">Kein Marketing-Sprech. Keine bezahlten Tests. Ehrliche Reviews von echten Nutzern — mit allen Vor- und Nachteilen.</p>
+          <a href="#reviews" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: white; padding: 14px 28px; border-radius: 28px; text-decoration: none; font-size: 16px; font-weight: 600; box-shadow: 0 4px 12px rgba(26,115,232,0.3);">Reviews entdecken ↓</a>
         </div>
       </div>
     </section>
-    <section id="deals">
-      <div class="section-header">
-        <h2 class="section-title">Beliebte Kategorien</h2>
-        <span class="section-count">5 Kategorien</span>
+
+    <!-- Reviews Grid -->
+    <section id="reviews">
+      <div class="section-header" style="margin-bottom: 24px;">
+        <h2 class="section-title">Aktuelle Reviews</h2>
+        <span class="section-count">5 Produkte getestet</span>
       </div>
-      <div class="cards-grid">    <a href="/pages/sony-wh-1000xm5.html" class="product-card" rel="noopener">
+      <div class="products-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+            <a href="/pages/sony-wh-1000xm5.html" class="product-card" rel="noopener">
       <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_SL1500_.jpg" alt="Sony WH-1000XM5 — Schwarz" loading="lazy" width="400" height="400">
+        <img src="https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_SL1500_.jpg" alt="Sony WH-1000XM5" loading="lazy" width="400" height="400">
       </div>
       <div class="product-card-body">
         <div class="product-card-category">Kopfhörer</div>
-        <div class="product-card-title">Sony WH-1000XM5 — Schwarz</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
+        <div class="product-card-title">Der stille König der Kopfhörer</div>
+        <div style="margin-bottom: 8px;">
+          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
+          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.8</span>
         </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B09XS7JWHH?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
-        </button>
-      </div>
-    </a>
-    <a href="/pages/sony-wh-1000xm5.html" class="product-card" rel="noopener">
-      <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/51MRfl8SSFL._AC_SL1500_.jpg" alt="Sony WH-1000XM5 — Silber" loading="lazy" width="400" height="400">
-      </div>
-      <div class="product-card-body">
-        <div class="product-card-category">Kopfhörer</div>
-        <div class="product-card-title">Sony WH-1000XM5 — Silber</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
-        </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B09XS8JWHH?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
+        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Sony WH-1000XM5 im Test: Noise Cancelling, wie es sein soll</p>
+        <button class="product-card-cta" onclick="window.open('/pages/sony-wh-1000xm5.html', '_self')">
+          Zum Review →
         </button>
       </div>
     </a>
     <a href="/pages/bose-quietcomfort-ultra.html" class="product-card" rel="noopener">
       <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/51QeS0jHJqL._AC_SL1500_.jpg" alt="Bose QuietComfort Ultra — Black" loading="lazy" width="400" height="400">
+        <img src="https://m.media-amazon.com/images/I/51QeS0jHJqL._AC_SL1500_.jpg" alt="Bose QuietComfort Ultra" loading="lazy" width="400" height="400">
       </div>
       <div class="product-card-body">
         <div class="product-card-category">Kopfhörer</div>
-        <div class="product-card-title">Bose QuietComfort Ultra — Black</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
+        <div class="product-card-title">Bose macht's nochmal besser</div>
+        <div style="margin-bottom: 8px;">
+          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
+          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.7</span>
         </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B0CCZ26V5V?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
-        </button>
-      </div>
-    </a>
-    <a href="/pages/bose-quietcomfort-ultra.html" class="product-card" rel="noopener">
-      <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/41bG9m3q1CL._AC_SL1500_.jpg" alt="Bose QuietComfort Ultra — White Smoke" loading="lazy" width="400" height="400">
-      </div>
-      <div class="product-card-body">
-        <div class="product-card-category">Kopfhörer</div>
-        <div class="product-card-title">Bose QuietComfort Ultra — White Smoke</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
-        </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B0CCZ1L419?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
+        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">QuietComfort Ultra im Test: Immersiver Sound, den du fühlen kannst</p>
+        <button class="product-card-cta" onclick="window.open('/pages/bose-quietcomfort-ultra.html', '_self')">
+          Zum Review →
         </button>
       </div>
     </a>
     <a href="/pages/apple-airpods-pro-2.html" class="product-card" rel="noopener">
       <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SL1500_.jpg" alt="Apple AirPods Pro 2 — Lightning" loading="lazy" width="400" height="400">
+        <img src="https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SL1500_.jpg" alt="Apple AirPods Pro 2" loading="lazy" width="400" height="400">
       </div>
       <div class="product-card-body">
         <div class="product-card-category">Earbuds</div>
-        <div class="product-card-title">Apple AirPods Pro 2 — Lightning</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
+        <div class="product-card-title">Klein. Kraftvoll. Magisch.</div>
+        <div style="margin-bottom: 8px;">
+          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
+          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.9</span>
         </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B0D1XD1ZV3?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
-        </button>
-      </div>
-    </a>
-    <a href="/pages/apple-airpods-pro-2.html" class="product-card" rel="noopener">
-      <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/61f1YfTkTDL._AC_SL1500_.jpg" alt="Apple AirPods Pro 2 — USB-C" loading="lazy" width="400" height="400">
-      </div>
-      <div class="product-card-body">
-        <div class="product-card-category">Earbuds</div>
-        <div class="product-card-title">Apple AirPods Pro 2 — USB-C</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
-        </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B0CHWRXH8B?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
+        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">AirPods Pro 2 im Test: So funktionieren In-Ears, die du nicht mehr ablegen willst</p>
+        <button class="product-card-cta" onclick="window.open('/pages/apple-airpods-pro-2.html', '_self')">
+          Zum Review →
         </button>
       </div>
     </a>
     <a href="/pages/jbl-charge-5.html" class="product-card" rel="noopener">
       <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/81aOga8oRdL._AC_SL1500_.jpg" alt="JBL Charge 5 — Schwarz" loading="lazy" width="400" height="400">
+        <img src="https://m.media-amazon.com/images/I/81A7C4QHPUL._AC_SL1500_.jpg" alt="JBL Charge 5" loading="lazy" width="400" height="400">
       </div>
       <div class="product-card-body">
         <div class="product-card-category">Bluetooth Lautsprecher</div>
-        <div class="product-card-title">JBL Charge 5 — Schwarz</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
+        <div class="product-card-title">Der kleine Titan mit großem Sound</div>
+        <div style="margin-bottom: 8px;">
+          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
+          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.7</span>
         </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B09YCGH6HW?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
-        </button>
-      </div>
-    </a>
-    <a href="/pages/jbl-charge-5.html" class="product-card" rel="noopener">
-      <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/81xQ4bM0jOL._AC_SL1500_.jpg" alt="JBL Charge 5 — Blau" loading="lazy" width="400" height="400">
-      </div>
-      <div class="product-card-body">
-        <div class="product-card-category">Bluetooth Lautsprecher</div>
-        <div class="product-card-title">JBL Charge 5 — Blau</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
-        </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B09YCFH7D8?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
+        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">JBL Charge 5 im Test: Lautsprecher, der zum Leben erweckt</p>
+        <button class="product-card-cta" onclick="window.open('/pages/jbl-charge-5.html', '_self')">
+          Zum Review →
         </button>
       </div>
     </a>
     <a href="/pages/samsung-galaxy-s24-ultra.html" class="product-card" rel="noopener">
       <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/71Rx2e5aOyL._AC_SL1500_.jpg" alt="Samsung Galaxy S24 Ultra — Titan Gray" loading="lazy" width="400" height="400">
+        <img src="https://m.media-amazon.com/images/I/71Rx2e5aOyL._AC_SL1500_.jpg" alt="Samsung Galaxy S24 Ultra" loading="lazy" width="400" height="400">
       </div>
       <div class="product-card-body">
         <div class="product-card-category">Smartphone</div>
-        <div class="product-card-title">Samsung Galaxy S24 Ultra — Titan Gray</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
+        <div class="product-card-title">Das Smartphone, das alles kann</div>
+        <div style="margin-bottom: 8px;">
+          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
+          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.8</span>
         </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B0CMDGP43K?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
+        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Galaxy S24 Ultra im Test: Wenn Technologie zur Magie wird</p>
+        <button class="product-card-cta" onclick="window.open('/pages/samsung-galaxy-s24-ultra.html', '_self')">
+          Zum Review →
         </button>
       </div>
     </a>
-    <a href="/pages/samsung-galaxy-s24-ultra.html" class="product-card" rel="noopener">
-      <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/71sNNCT3MuL._AC_SL1500_.jpg" alt="Samsung Galaxy S24 Ultra — Titan Black" loading="lazy" width="400" height="400">
+
       </div>
-      <div class="product-card-body">
-        <div class="product-card-category">Smartphone</div>
-        <div class="product-card-title">Samsung Galaxy S24 Ultra — Titan Black</div>
-        <div class="product-card-price">
-          <span class="price-label">Preis:</span>
-          <span class="price-check">Prüfen →</span>
-        </div>
-        <button class="product-card-cta" onclick="window.open('https://www.amazon.de/dp/B0CMDKX8RQ?tag=mmofinds-20&linkCode=ogi&th=1', '_blank', 'noopener')">
-          Bei Amazon ansehen
-        </button>
-      </div>
-    </a>
-</div>
     </section>
+
+    <!-- Disclosure -->
     <div class="affiliate-disclosure">
       <strong>📢 Affiliate-Disclaimer:</strong> Als Amazon-Partner erhalten wir von qualifizierten Verkäufen eine Provision. Für euch entstehen keine zusätzliche Kosten. Die Preise und Verfügbarkeit können sich ändern. <a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201899390" target="_blank" rel="nofollow sponsored noopener" style="color: var(--primary);">Mehr Infos</a>
     </div>
   </main>
+
   <footer class="site-footer">
     <div class="footer-content">
-      <span style="font-size: 14px; color: var(--on-surface-variant);">© 2026 MMOFinds — Curated Tech Deals</span>
+      <span style="font-size: 14px; color: var(--on-surface-variant);">© 2026 MMOFinds — Curated Tech Reviews</span>
       <div class="footer-links">
         <a href="/impressum.html" class="footer-link">Impressum</a>
         <a href="/datenschutz.html" class="footer-link">Datenschutz</a>
