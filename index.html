@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MMOFinds — Handgeprüfte Tech-Reviews</title>
-  <meta name="description" content="MMOFinds kuratiert handgeprüfte Tech-Reviews für Kopfhörer, Earbuds, Lautsprecher und Smartphones. Ehrlich. Detailliert. Unbestochen.">
+  <meta name="description" content="MMOFinds kuratiert handgeprüfte Tech-Reviews für Kopfhörer, Earbuds, Lautsprecher, Smartphones und Küchengeräte. Ehrlich. Detailliert. Unbestochen.">
   <meta name="theme-color" content="#1a73e8">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="MMOFinds — Handgeprüfte Tech-Reviews">
-  <meta property="og:description" content="Ehrliche Tech-Reviews für Kopfhörer, Earbuds, Lautsprecher und Smartphones.">
+  <meta property="og:description" content="Ehrliche Tech-Reviews für Kopfhörer, Earbuds, Lautsprecher, Smartphones und Küchengeräte.">
   <meta property="og:url" content="https://mmofinds.de/">
   <meta property="og:site_name" content="MMOFinds">
   
@@ -103,30 +103,21 @@ body {
 .nav-link.active { background: var(--secondary-container); color: var(--on-secondary-container); }
 
 /* Main */
-.main-content { max-width: 900px; margin: 0 auto; padding: 32px 20px; }
+.main-content { max-width: 1200px; margin: 0 auto; padding: 32px 20px; }
 
-/* Hero Section */
+/* Hero */
+.hero-section { margin-bottom: 48px; }
+
 .review-hero {
   background: var(--surface);
   border-radius: 24px;
   overflow: hidden;
   box-shadow: var(--shadow-3);
-  margin-bottom: 40px;
-}
-
-.review-hero-image {
-  width: 100%;
-  max-height: 500px;
-  object-fit: contain;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e8eaed 100%);
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .review-hero-content {
-  padding: 40px;
+  text-align: center;
+  padding: 60px 40px;
 }
 
 .review-category {
@@ -139,256 +130,58 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .review-headline {
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 800;
   line-height: 1.15;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   color: var(--on-surface);
 }
 
 .review-subheadline {
   font-size: 20px;
   color: var(--on-surface-variant);
-  margin-bottom: 24px;
-  font-weight: 400;
-}
-
-/* Rating */
-.rating-section {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 32px;
-  padding: 20px;
-  background: var(--surface-variant);
-  border-radius: 16px;
-}
-
-.rating-score {
-  font-size: 48px;
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1;
-}
-
-.rating-stars {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 4px;
-}
-
-.star { color: var(--warning); font-size: 20px; }
-.star.empty { color: var(--outline); }
-
-.rating-meta {
-  font-size: 14px;
-  color: var(--on-surface-variant);
-}
-
-/* Review Content */
-.review-intro {
-  font-size: 18px;
-  line-height: 1.8;
-  color: var(--on-surface);
-  margin-bottom: 40px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--outline);
-}
-
-/* Benefits Section */
-.benefits-section {
-  margin-bottom: 48px;
-}
-
-.section-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: var(--on-surface);
-}
-
-.benefit-card {
-  background: var(--surface);
-  border-radius: 20px;
-  padding: 32px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-1);
-  transition: all 0.3s ease;
-}
-
-.benefit-card:hover {
-  box-shadow: var(--shadow-3);
-  transform: translateY(-2px);
-}
-
-.benefit-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 12px;
-}
-
-.benefit-emoji {
-  font-size: 32px;
-  width: 56px;
-  height: 56px;
-  background: var(--secondary-container);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.benefit-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--on-surface);
-}
-
-.benefit-text {
-  font-size: 16px;
-  color: var(--on-surface-variant);
-  line-height: 1.7;
-  padding-left: 72px;
-}
-
-/* Use Cases */
-.use-cases-section {
-  margin-bottom: 48px;
-}
-
-.use-case-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.use-case-card {
-  background: var(--surface);
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: var(--shadow-1);
-  transition: all 0.3s ease;
-}
-
-.use-case-card:hover {
-  box-shadow: var(--shadow-3);
-  transform: translateY(-2px);
-}
-
-.use-case-emoji {
-  font-size: 36px;
-  margin-bottom: 12px;
-}
-
-.use-case-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--on-surface);
-}
-
-.use-case-text {
-  font-size: 14px;
-  color: var(--on-surface-variant);
+  max-width: 600px;
+  margin: 0 auto 32px;
   line-height: 1.6;
 }
 
-/* Pros & Cons */
-.pros-cons-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 48px;
-}
-
-.pros-card, .cons-card {
-  background: var(--surface);
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: var(--shadow-1);
-}
-
-.pros-card { border-top: 4px solid var(--success); }
-.cons-card { border-top: 4px solid var(--warning); }
-
-.pros-title, .cons-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  display: flex;
+.hero-cta {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-}
-
-.pros-title { color: var(--success); }
-.cons-title { color: var(--warning); }
-
-.pros-list, .cons-list {
-  list-style: none;
-}
-
-.pros-list li, .cons-list li {
-  padding: 8px 0;
-  font-size: 14px;
-  color: var(--on-surface-variant);
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  line-height: 1.5;
-}
-
-.pros-list li::before {
-  content: '✓';
-  color: var(--success);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.cons-list li::before {
-  content: '–';
-  color: var(--warning);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-/* Verdict */
-.verdict-section {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  border-radius: 24px;
-  padding: 40px;
-  margin-bottom: 48px;
+  background: var(--primary);
   color: white;
+  padding: 14px 28px;
+  border-radius: 28px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(26,115,232,0.3);
 }
 
-.verdict-title {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 16px;
+.hero-cta:hover { box-shadow: 0 6px 16px rgba(26,115,232,0.4); transform: translateY(-2px); }
+
+/* Section */
+.section-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 24px;
 }
 
-.verdict-text {
-  font-size: 16px;
-  line-height: 1.8;
-  opacity: 0.95;
-}
+.section-title { font-size: 28px; font-weight: 700; color: var(--on-surface); }
+.section-count { font-size: 14px; color: var(--on-surface-variant); }
 
-/* Product Cards */
-.products-section {
-  margin-bottom: 48px;
-}
-
+/* Cards Grid */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
+  margin-bottom: 48px;
 }
 
 .product-card {
@@ -397,6 +190,10 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow-2);
   transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .product-card:hover {
@@ -404,60 +201,80 @@ body {
   transform: translateY(-4px);
 }
 
-.product-image {
+.product-card-image {
   width: 100%;
   aspect-ratio: 1;
   background: #f8f9fa;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  overflow: hidden;
 }
 
-.product-image img {
-  max-width: 100%;
-  max-height: 100%;
+.product-card-image img {
+  width: 80%;
+  height: 80%;
   object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-.product-body {
-  padding: 24px;
+.product-card:hover .product-card-image img { transform: scale(1.05); }
+
+.product-card-body { padding: 20px; }
+
+.product-card-category {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--primary);
+  margin-bottom: 8px;
 }
 
-.product-name {
+.product-card-title {
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 8px;
   color: var(--on-surface);
+  margin-bottom: 8px;
+  line-height: 1.3;
 }
 
-.product-price {
-  font-size: 14px;
+.product-card-subtitle {
+  font-size: 13px;
   color: var(--on-surface-variant);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.product-btn {
+.product-stars {
+  margin-bottom: 12px;
+}
+
+.stars { color: var(--warning); font-size: 16px; }
+.rating-num { font-size: 13px; color: var(--on-surface-variant); margin-left: 4px; }
+
+.product-cta {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   background: var(--primary);
   color: white;
   border: none;
   border-radius: 14px;
   font-size: 15px;
   font-weight: 600;
-  text-decoration: none;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.product-btn:hover {
-  box-shadow: 0 4px 12px rgba(26,115,232,0.3);
-  transform: translateY(-1px);
-}
+.product-card:hover .product-cta { box-shadow: 0 2px 8px rgba(26,115,232,0.3); }
 
 /* Disclosure */
 .affiliate-disclosure {
@@ -480,7 +297,7 @@ body {
 }
 
 .footer-content {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -496,11 +313,11 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .review-headline { font-size: 32px; }
-  .review-hero-content { padding: 24px; }
-  .benefit-text { padding-left: 0; margin-top: 12px; }
-  .pros-cons-section { grid-template-columns: 1fr; }
-  .products-grid { grid-template-columns: 1fr; }
-  .use-case-grid { grid-template-columns: 1fr; }
+  .review-hero-content { padding: 32px 20px; }
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .product-card-body { padding: 12px; }
+  .product-card-title { font-size: 14px; }
+  .top-app-bar { padding: 8px 16px; }
 }
 
 /* Animations */
@@ -509,14 +326,13 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.benefit-card, .use-case-card, .product-card {
-  animation: fadeInUp 0.5s ease forwards;
-}
-
-.benefit-card:nth-child(1) { animation-delay: 0.05s; }
-.benefit-card:nth-child(2) { animation-delay: 0.1s; }
-.benefit-card:nth-child(3) { animation-delay: 0.15s; }
-.benefit-card:nth-child(4) { animation-delay: 0.2s; }
+.product-card { animation: fadeInUp 0.5s ease forwards; }
+.product-card:nth-child(1) { animation-delay: 0.05s; }
+.product-card:nth-child(2) { animation-delay: 0.1s; }
+.product-card:nth-child(3) { animation-delay: 0.15s; }
+.product-card:nth-child(4) { animation-delay: 0.2s; }
+.product-card:nth-child(5) { animation-delay: 0.25s; }
+.product-card:nth-child(6) { animation-delay: 0.3s; }
 </style>
 </head>
 <body>
@@ -531,24 +347,24 @@ body {
 
   <main class="main-content">
     <!-- Hero -->
-    <section class="hero-section" style="margin-bottom: 48px;">
-      <div class="review-hero" style="border-radius: 24px;">
-        <div class="review-hero-content" style="text-align: center; padding: 60px 40px;">
-          <span class="review-category" style="margin-bottom: 20px;">⭐ Handgeprüft</span>
-          <h1 class="review-headline" style="font-size: 48px; margin-bottom: 16px;">Tech-Reviews, die du lesen willst</h1>
-          <p style="font-size: 20px; color: var(--on-surface-variant); max-width: 600px; margin: 0 auto 32px; line-height: 1.6;">Kein Marketing-Sprech. Keine bezahlten Tests. Ehrliche Reviews von echten Nutzern — mit allen Vor- und Nachteilen.</p>
-          <a href="#reviews" style="display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: white; padding: 14px 28px; border-radius: 28px; text-decoration: none; font-size: 16px; font-weight: 600; box-shadow: 0 4px 12px rgba(26,115,232,0.3);">Reviews entdecken ↓</a>
+    <section class="hero-section">
+      <div class="review-hero">
+        <div class="review-hero-content">
+          <span class="review-category">⭐ Handgeprüft</span>
+          <h1 class="review-headline">Tech-Reviews, die du lesen willst</h1>
+          <p class="review-subheadline">Kein Marketing-Sprech. Keine bezahlten Tests. Ehrliche Reviews von echten Nutzern — mit allen Vor- und Nachteilen.</p>
+          <a href="#reviews" class="hero-cta">Reviews entdecken ↓</a>
         </div>
       </div>
     </section>
 
     <!-- Reviews Grid -->
     <section id="reviews">
-      <div class="section-header" style="margin-bottom: 24px;">
+      <div class="section-header">
         <h2 class="section-title">Aktuelle Reviews</h2>
         <span class="section-count">6 Produkte getestet</span>
       </div>
-      <div class="products-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+      <div class="products-grid">
             <a href="/pages/sony-wh-1000xm5.html" class="product-card" rel="noopener">
       <div class="product-card-image">
         <img src="https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_SL1500_.jpg" alt="Sony WH-1000XM5" loading="lazy" width="400" height="400">
@@ -556,12 +372,12 @@ body {
       <div class="product-card-body">
         <div class="product-card-category">Kopfhörer</div>
         <div class="product-card-title">Der stille König der Kopfhörer</div>
-        <div style="margin-bottom: 8px;">
-          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
-          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.8</span>
+        <div class="product-stars">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-num">4.8</span>
         </div>
-        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Sony WH-1000XM5 im Test: Noise Cancelling, wie es sein soll</p>
-        <button class="product-card-cta" onclick="window.open('/pages/sony-wh-1000xm5.html', '_self')">
+        <p class="product-card-subtitle">Sony WH-1000XM5 im Test: Noise Cancelling, wie es sein soll</p>
+        <button class="product-cta" onclick="window.open('/pages/sony-wh-1000xm5.html', '_self')">
           Zum Review →
         </button>
       </div>
@@ -573,12 +389,12 @@ body {
       <div class="product-card-body">
         <div class="product-card-category">Kopfhörer</div>
         <div class="product-card-title">Bose macht's nochmal besser</div>
-        <div style="margin-bottom: 8px;">
-          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
-          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.7</span>
+        <div class="product-stars">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-num">4.7</span>
         </div>
-        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">QuietComfort Ultra im Test: Immersiver Sound, den du fühlen kannst</p>
-        <button class="product-card-cta" onclick="window.open('/pages/bose-quietcomfort-ultra.html', '_self')">
+        <p class="product-card-subtitle">QuietComfort Ultra im Test: Immersiver Sound, den du fühlen kannst</p>
+        <button class="product-cta" onclick="window.open('/pages/bose-quietcomfort-ultra.html', '_self')">
           Zum Review →
         </button>
       </div>
@@ -590,12 +406,12 @@ body {
       <div class="product-card-body">
         <div class="product-card-category">Earbuds</div>
         <div class="product-card-title">Klein. Kraftvoll. Magisch.</div>
-        <div style="margin-bottom: 8px;">
-          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
-          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.9</span>
+        <div class="product-stars">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-num">4.9</span>
         </div>
-        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">AirPods Pro 2 im Test: So funktionieren In-Ears, die du nicht mehr ablegen willst</p>
-        <button class="product-card-cta" onclick="window.open('/pages/apple-airpods-pro-2.html', '_self')">
+        <p class="product-card-subtitle">AirPods Pro 2 im Test: So funktionieren In-Ears, die du nicht mehr ablegen willst</p>
+        <button class="product-cta" onclick="window.open('/pages/apple-airpods-pro-2.html', '_self')">
           Zum Review →
         </button>
       </div>
@@ -607,12 +423,12 @@ body {
       <div class="product-card-body">
         <div class="product-card-category">Bluetooth Lautsprecher</div>
         <div class="product-card-title">Der kleine Titan mit großem Sound</div>
-        <div style="margin-bottom: 8px;">
-          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
-          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.7</span>
+        <div class="product-stars">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-num">4.7</span>
         </div>
-        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">JBL Charge 5 im Test: Lautsprecher, der zum Leben erweckt</p>
-        <button class="product-card-cta" onclick="window.open('/pages/jbl-charge-5.html', '_self')">
+        <p class="product-card-subtitle">JBL Charge 5 im Test: Lautsprecher, der zum Leben erweckt</p>
+        <button class="product-cta" onclick="window.open('/pages/jbl-charge-5.html', '_self')">
           Zum Review →
         </button>
       </div>
@@ -624,12 +440,12 @@ body {
       <div class="product-card-body">
         <div class="product-card-category">Smartphone</div>
         <div class="product-card-title">Das Smartphone, das alles kann</div>
-        <div style="margin-bottom: 8px;">
-          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
-          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.8</span>
+        <div class="product-stars">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-num">4.8</span>
         </div>
-        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">Galaxy S24 Ultra im Test: Wenn Technologie zur Magie wird</p>
-        <button class="product-card-cta" onclick="window.open('/pages/samsung-galaxy-s24-ultra.html', '_self')">
+        <p class="product-card-subtitle">Galaxy S24 Ultra im Test: Wenn Technologie zur Magie wird</p>
+        <button class="product-cta" onclick="window.open('/pages/samsung-galaxy-s24-ultra.html', '_self')">
           Zum Review →
         </button>
       </div>
@@ -641,12 +457,12 @@ body {
       <div class="product-card-body">
         <div class="product-card-category">Dunstabzugshaube</div>
         <div class="product-card-title">Die Dunstabzugshaube, die deinen Kochbereich rettet</div>
-        <div style="margin-bottom: 8px;">
-          <span style="color: #fbbc04; font-size: 16px;">★★★★☆</span>
-          <span style="font-size: 13px; color: var(--on-surface-variant); margin-left: 4px;">4.5</span>
+        <div class="product-stars">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-num">4.5</span>
         </div>
-        <p style="font-size: 13px; color: var(--on-surface-variant); margin-bottom: 12px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">KKT KOLBE CUBE60FB im Test: Leistungsstark, leise und stylish</p>
-        <button class="product-card-cta" onclick="window.open('/pages/kkt-kolbe-cube60fb.html', '_self')">
+        <p class="product-card-subtitle">KKT KOLBE CUBE60FB im Test: Leistungsstark, leise und stylish</p>
+        <button class="product-cta" onclick="window.open('/pages/kkt-kolbe-cube60fb.html', '_self')">
           Zum Review →
         </button>
       </div>
@@ -657,7 +473,7 @@ body {
 
     <!-- Disclosure -->
     <div class="affiliate-disclosure">
-      <strong>📢 Affiliate-Disclaimer:</strong> Als Amazon-Partner erhalten wir von qualifizierten Verkäufen eine Provision. Für euch entstehen keine zusätzliche Kosten. Die Preise und Verfügbarkeit können sich ändern. <a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201899390" target="_blank" rel="nofollow sponsored noopener" style="color: var(--primary);">Mehr Infos</a>
+      <strong>📢 Affiliate-Disclaimer:</strong> Als Amazon-Partner erhalten wir von qualifizierten Verkäufen eine Provision. Für euch entstehen keine zusätzliche Kosten. Die Preise und Verfügbarkeit können sich ändern. <a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909000" target="_blank" rel="nofollow sponsored noopener" style="color: var(--primary);">Mehr Infos</a>
     </div>
   </main>
 
