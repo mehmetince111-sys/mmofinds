@@ -34,6 +34,7 @@
   --on-secondary-container: #1967d2;
   --success: #34a853;
   --warning: #fbbc04;
+  --accent-orange: #ff6d00;
   --shadow-1: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
   --shadow-2: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
   --shadow-3: 0 10px 20px rgba(0,0,0,0.08), 0 6px 6px rgba(0,0,0,0.06);
@@ -50,10 +51,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Top App Bar */
+/* ===== TOP APP BAR ===== */
 .top-app-bar {
   background: var(--surface);
-  padding: 12px 24px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,6 +64,25 @@ body {
   border-bottom: 1px solid var(--outline);
   backdrop-filter: blur(10px);
   background: rgba(255,255,255,0.95);
+  height: 64px;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.top-bar-center {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo {
@@ -76,10 +96,10 @@ body {
 }
 
 .logo-icon {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   background: var(--primary);
-  border-radius: 8px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,11 +107,11 @@ body {
   font-size: 18px;
 }
 
-.nav-links { display: flex; gap: 8px; }
+.nav-links { display: flex; gap: 4px; }
 
 .nav-link {
   padding: 8px 16px;
-  border-radius: 20px;
+  border-radius: 8px;
   text-decoration: none;
   color: var(--on-surface-variant);
   font-size: 14px;
@@ -102,54 +122,270 @@ body {
 .nav-link:hover { background: var(--surface-variant); color: var(--on-surface); }
 .nav-link.active { background: var(--secondary-container); color: var(--on-secondary-container); }
 
-/* Main */
-.main-content { max-width: 1200px; margin: 0 auto; padding: 32px 20px; }
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 
-/* Hero */
-.hero-section { margin-bottom: 48px; }
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
 
-.review-hero {
+.social-icon:hover { background: var(--surface-variant); color: var(--primary); }
+
+/* Search */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--surface-variant);
+  border-radius: 24px;
+  padding: 8px 16px;
+  gap: 8px;
+  width: 280px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: var(--primary);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(26,115,232,0.1);
+}
+
+.search-box input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 14px;
+  color: var(--on-surface);
+  width: 100%;
+  font-family: inherit;
+}
+
+.search-box input::placeholder { color: var(--on-surface-variant); }
+
+.search-icon { color: var(--on-surface-variant); font-size: 16px; }
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  background: linear-gradient(135deg, #1a73e8 0%, #1557b0 50%, #0d47a1 100%);
+  padding: 80px 24px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  opacity: 0.9;
+  max-width: 550px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  color: var(--primary);
+  padding: 16px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+/* ===== CATEGORY TABS ===== */
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-tab {
+  padding: 10px 20px;
+  border-radius: 24px;
+  text-decoration: none;
+  color: var(--on-surface-variant);
+  font-size: 14px;
+  font-weight: 500;
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.category-tab:hover { border-color: var(--primary); color: var(--primary); }
+.category-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* ===== FEATURED REVIEW (scooterhelden-style banner) ===== */
+.featured-section {
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+
+.featured-card {
   background: var(--surface);
   border-radius: 24px;
   overflow: hidden;
   box-shadow: var(--shadow-3);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
-.review-hero-content {
-  text-align: center;
-  padding: 60px 40px;
+.featured-card:hover { box-shadow: var(--shadow-4); transform: translateY(-4px); }
+
+.featured-image {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
 }
 
-.review-category {
-  display: inline-block;
-  background: var(--secondary-container);
-  color: var(--on-secondary-container);
+.featured-image img {
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.featured-card:hover .featured-image img { transform: scale(1.05); }
+
+.featured-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--accent-orange);
+  color: white;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.featured-content {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-category {
+  display: inline-block;
+  background: var(--secondary-container);
+  color: var(--on-secondary-container);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  width: fit-content;
 }
 
-.review-headline {
-  font-size: 48px;
+.featured-headline {
+  font-size: 32px;
   font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 16px;
+  line-height: 1.2;
+  margin-bottom: 12px;
   color: var(--on-surface);
 }
 
-.review-subheadline {
-  font-size: 20px;
+.featured-subtitle {
+  font-size: 16px;
   color: var(--on-surface-variant);
-  max-width: 600px;
-  margin: 0 auto 32px;
-  line-height: 1.6;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 
-.hero-cta {
+.featured-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.featured-score {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.featured-stars { color: var(--warning); font-size: 18px; }
+.featured-count { font-size: 13px; color: var(--on-surface-variant); }
+
+.featured-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -158,14 +394,18 @@ body {
   padding: 14px 28px;
   border-radius: 28px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(26,115,232,0.3);
+  transition: all 0.2s ease;
+  width: fit-content;
 }
 
-.hero-cta:hover { box-shadow: 0 6px 16px rgba(26,115,232,0.4); transform: translateY(-2px); }
+.featured-btn:hover { box-shadow: 0 6px 16px rgba(26,115,232,0.4); transform: translateY(-1px); }
 
-/* Section */
+/* ===== MAIN CONTENT ===== */
+.main-content { max-width: 1200px; margin: 0 auto; padding: 0 24px 48px; }
+
 .section-header {
   display: flex;
   align-items: center;
@@ -176,7 +416,7 @@ body {
 .section-title { font-size: 28px; font-weight: 700; color: var(--on-surface); }
 .section-count { font-size: 14px; color: var(--on-surface-variant); }
 
-/* Cards Grid */
+/* ===== CARDS GRID ===== */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -250,10 +490,7 @@ body {
   overflow: hidden;
 }
 
-.product-stars {
-  margin-bottom: 12px;
-}
-
+.product-stars { margin-bottom: 12px; }
 .stars { color: var(--warning); font-size: 16px; }
 .rating-num { font-size: 13px; color: var(--on-surface-variant); margin-left: 4px; }
 
@@ -276,29 +513,122 @@ body {
 
 .product-card:hover .product-cta { box-shadow: 0 2px 8px rgba(26,115,232,0.3); }
 
-/* Disclosure */
-.affiliate-disclosure {
-  background: var(--surface-variant);
-  border-radius: 16px;
-  padding: 20px 24px;
-  margin: 32px 0;
-  font-size: 13px;
-  color: var(--on-surface-variant);
-  border-left: 4px solid var(--primary);
-  line-height: 1.6;
+/* ===== NEWSLETTER ===== */
+.newsletter-section {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 48px;
+  text-align: center;
+  box-shadow: var(--shadow-2);
+  margin: 48px 0;
 }
 
-/* Footer */
+.newsletter-title { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+.newsletter-subtitle { font-size: 16px; color: var(--on-surface-variant); margin-bottom: 24px; }
+
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 1px solid var(--outline);
+  border-radius: 28px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.newsletter-form input:focus { border-color: var(--primary); }
+
+.newsletter-form button {
+  padding: 14px 28px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.newsletter-form button:hover { background: var(--primary-dark); }
+
+/* ===== FOOTER ===== */
 .site-footer {
   background: var(--surface);
   border-top: 1px solid var(--outline);
-  padding: 32px 24px;
-  margin-top: 48px;
+  padding: 48px 24px 24px;
 }
 
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand { }
+
+.footer-brand .logo { margin-bottom: 16px; }
+
+.footer-brand-desc {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 8px;
+}
+
+.footer-social .social-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--surface-variant);
+}
+
+.footer-col-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--on-surface);
+  margin-bottom: 16px;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links-list a {
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-links-list a:hover { color: var(--primary); }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--outline);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -306,21 +636,32 @@ body {
   gap: 16px;
 }
 
-.footer-links { display: flex; gap: 16px; }
-.footer-link { color: var(--on-surface-variant); text-decoration: none; font-size: 14px; }
-.footer-link:hover { color: var(--primary); }
+.footer-bottom-text { font-size: 13px; color: var(--on-surface-variant); }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-image { min-height: 280px; }
+  .footer-content { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 768px) {
-  .review-headline { font-size: 32px; }
-  .review-hero-content { padding: 32px 20px; }
+  .hero-title { font-size: 32px; }
+  .hero-subtitle { font-size: 16px; }
+  .hero-section { padding: 48px 20px; }
+  .featured-content { padding: 28px; }
+  .featured-headline { font-size: 24px; }
+  .search-box { width: 200px; }
+  .social-icons { display: none; }
   .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
   .product-card-body { padding: 12px; }
   .product-card-title { font-size: 14px; }
-  .top-app-bar { padding: 8px 16px; }
+  .newsletter-form { flex-direction: column; }
+  .footer-content { grid-template-columns: 1fr; gap: 24px; }
+  .top-bar-center { display: none; }
 }
 
-/* Animations */
+/* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -333,55 +674,87 @@ body {
 .product-card:nth-child(4) { animation-delay: 0.2s; }
 .product-card:nth-child(5) { animation-delay: 0.25s; }
 .product-card:nth-child(6) { animation-delay: 0.3s; }
-</style>
+.product-card:nth-child(7) { animation-delay: 0.35s; }
+.product-card:nth-child(8) { animation-delay: 0.4s; }
+.product-card:nth-child(9) { animation-delay: 0.45s; }
+  </style>
 </head>
 <body>
+  <!-- ===== TOP APP BAR ===== -->
   <header class="top-app-bar">
-    <a href="/" class="logo"><span class="logo-icon">🎧</span> MMOFinds</a>
-    <nav class="nav-links">
-      <a href="/" class="nav-link active">Reviews</a>
-      <a href="/impressum.html" class="nav-link">Impressum</a>
-      <a href="/datenschutz.html" class="nav-link">Datenschutz</a>
-    </nav>
+    <div class="top-bar-left">
+      <a href="/" class="logo"><span class="logo-icon">🎧</span> MMOFinds</a>
+      <nav class="top-bar-center">
+        <a href="/" class="nav-link active">Reviews</a>
+        <a href="#newsletter" class="nav-link">Newsletter</a>
+        <a href="/impressum.html" class="nav-link">Impressum</a>
+        <a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+      </nav>
+    </div>
+    <div class="top-bar-right">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Produkt suchen..." id="searchInput">
+      </div>
+      <div class="social-icons">
+        <a href="#" class="social-icon" title="YouTube">▶</a>
+        <a href="#" class="social-icon" title="Instagram">📷</a>
+        <a href="#" class="social-icon" title="TikTok">♪</a>
+      </div>
+    </div>
   </header>
 
-  <main class="main-content">
-    <!-- Hero -->
-    <section class="hero-section">
-      <div class="review-hero">
-        <div class="review-hero-content">
-          <span class="review-category">⭐ Handgeprüft</span>
-          <h1 class="review-headline">Tech-Reviews, die du lesen willst</h1>
-          <p class="review-subheadline">Kein Marketing-Sprech. Keine bezahlten Tests. Ehrliche Reviews von echten Nutzern — mit allen Vor- und Nachteilen.</p>
-          <a href="#reviews" class="hero-cta">Reviews entdecken ↓</a>
-        </div>
-      </div>
-    </section>
+  <!-- ===== HERO ===== -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <span class="hero-badge">⭐ Handgeprüft</span>
+      <h1 class="hero-title">Tech-Reviews, die du lesen willst</h1>
+      <p class="hero-subtitle">Kein Marketing-Sprech. Keine bezahlten Tests. Ehrliche Reviews von echten Nutzern — mit allen Vor- und Nachteilen.</p>
+      <a href="#reviews" class="hero-cta">Reviews entdecken ↓</a>
+    </div>
+  </section>
 
-    <!-- Reviews Grid -->
-    <section id="reviews">
-      <div class="section-header">
-        <h2 class="section-title">Aktuelle Reviews</h2>
-        <span class="section-count">8 Produkte getestet</span>
+  <!-- ===== CATEGORY TABS ===== -->
+  <div class="category-tabs">
+    <a href="#" class="category-tab active" data-category="all">Alle Reviews</a>
+    <a href="#" class="category-tab" data-category="kopfhörer">🎧 Kopfhörer</a>
+    <a href="#" class="category-tab" data-category="earbuds">🎵 Earbuds</a>
+    <a href="#" class="category-tab" data-category="lautsprecher">🔊 Lautsprecher</a>
+    <a href="#" class="category-tab" data-category="smartphone">📱 Smartphones</a>
+    <a href="#" class="category-tab" data-category="smartwatch">⌚ Smartwatches</a>
+    <a href="#" class="category-tab" data-category="kochen">🍳 Kochen</a>
+    <a href="#" class="category-tab" data-category="saugen">🤖 Saugen</a>
+  </div>
+
+  <!-- ===== FEATURED REVIEW ===== -->
+  <section class="featured-section">
+    <a href="/pages/sony-wh-1000xm5.html" class="featured-card" rel="noopener">
+      <div class="featured-image">
+        <span class="featured-badge">⭐ Top Review</span>
+        <img src="https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_SL1500_.jpg" alt="Sony WH-1000XM5" loading="lazy">
       </div>
-      <div class="products-grid">
-            <a href="/pages/sony-wh-1000xm5.html" class="product-card" rel="noopener">
-      <div class="product-card-image">
-        <img src="https://m.media-amazon.com/images/I/51SKmu2G9FL._AC_SL1500_.jpg" alt="Sony WH-1000XM5" loading="lazy" width="400" height="400">
-      </div>
-      <div class="product-card-body">
-        <div class="product-card-category">Kopfhörer</div>
-        <div class="product-card-title">Der stille König der Kopfhörer</div>
-        <div class="product-stars">
-          <span class="stars">★★★★☆</span>
-          <span class="rating-num">4.8</span>
+      <div class="featured-content">
+        <span class="featured-category">Kopfhörer</span>
+        <h2 class="featured-headline">Der stille König der Kopfhörer</h2>
+        <p class="featured-subtitle">Sony WH-1000XM5 im Test: Noise Cancelling, wie es sein soll</p>
+        <div class="featured-rating">
+          <span class="featured-score">4.8</span>
+          <span class="featured-stars">★★★★☆</span>
+          <span class="featured-count">12.847 Bewertungen</span>
         </div>
-        <p class="product-card-subtitle">Sony WH-1000XM5 im Test: Noise Cancelling, wie es sein soll</p>
-        <button class="product-cta" onclick="window.open('/pages/sony-wh-1000xm5.html', '_self')">
-          Zum Review →
-        </button>
+        <span class="featured-btn">Zum Review →</span>
       </div>
     </a>
+  </section>
+
+  <!-- ===== ALL REVIEWS ===== -->
+  <main class="main-content">
+    <section id="reviews">
+      <div class="section-header">
+        <h2 class="section-title">Alle Reviews</h2>
+        <span class="section-count">9 Produkte getestet</span>
+      </div>
+      <div class="products-grid">
     <a href="/pages/bose-quietcomfort-ultra.html" class="product-card" rel="noopener">
       <div class="product-card-image">
         <img src="https://m.media-amazon.com/images/I/51QeS0jHJqL._AC_SL1500_.jpg" alt="Bose QuietComfort Ultra" loading="lazy" width="400" height="400">
@@ -501,22 +874,6 @@ body {
         </button>
       </div>
     </a>
-
-      </div>
-    </section>
-
-    <!-- Disclosure -->
-    <div class="affiliate-disclosure">
-      <strong>📢 Affiliate-Disclaimer:</strong> Als Amazon-Partner erhalten wir von qualifizierten Verkäufen eine Provision. Für euch entstehen keine zusätzliche Kosten. Die Preise und Verfügbarkeit können sich ändern. <a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909000" target="_blank" rel="nofollow sponsored noopener" style="color: var(--primary);">Mehr Infos</a>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-content">
-      <span style="font-size: 14px; color: var(--on-surface-variant);">© 2026 MMOFinds — Curated Tech Reviews</span>
-      <div class="footer-links">
-        <a href="/impressum.html" class="footer-link">Impressum</a>
-        <a href="/datenschutz.html" class="footer-link">Datenschutz
     <a href="/pages/irobot-roomba-j7-plus.html" class="product-card" rel="noopener">
       <div class="product-card-image">
         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f8f9fa'/%3E%3Ctext x='200' y='200' text-anchor='middle' dy='.3em' font-family='Inter,sans-serif' font-size='48' fill='%235f6368'%3E🤖%3C/text%3E%3C/svg%3E" alt="iRobot Roomba j7+" loading="lazy" width="400" height="400">
@@ -533,9 +890,122 @@ body {
           Zum Review →
         </button>
       </div>
-    </a></a>
+    </a>
+      </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section id="newsletter" class="newsletter-section">
+      <h2 class="newsletter-title">📬 Kein Review verpassen</h2>
+      <p class="newsletter-subtitle">Erhalte die neuesten Reviews direkt in dein Postfach — max. 2 pro Monat.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Danke! (Demo — noch nicht aktiv)');">
+        <input type="email" placeholder="Deine E-Mail-Adresse" required>
+        <button type="submit">Anmelden</button>
+      </form>
+    </section>
+
+    <!-- ===== AFFILIATE DISCLAIMER ===== -->
+    <div class="affiliate-disclosure" style="background: var(--surface-variant); border-radius: 16px; padding: 20px 24px; margin: 32px 0; font-size: 13px; color: var(--on-surface-variant); border-left: 4px solid var(--primary); line-height: 1.6;">
+      <strong>📢 Affiliate-Disclaimer:</strong> Als Amazon-Partner erhalten wir von qualifizierten Verkäufen eine Provision. Für euch entstehen keine zusätzliche Kosten. Die Preise und Verfügbarkeit können sich ändern. <a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909000" target="_blank" rel="nofollow sponsored noopener" style="color: var(--primary);">Mehr Infos</a>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="logo-icon">🎧</span> MMOFinds</a>
+        <p class="footer-brand-desc">Ehrliche Tech-Reviews. Keine bezahlten Tests. Keine Marketing-Sprech. Nur das, was wirklich gut ist — und was nicht.</p>
+        <div class="footer-social">
+          <a href="#" class="social-icon" title="YouTube">▶</a>
+          <a href="#" class="social-icon" title="Instagram">📷</a>
+          <a href="#" class="social-icon" title="TikTok">♪</a>
+          <a href="#" class="social-icon" title="X (Twitter)">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Kategorien</h4>
+        <ul class="footer-links-list">
+          <li><a href="#">Kopfhörer</a></li>
+          <li><a href="#">Earbuds</a></li>
+          <li><a href="#">Lautsprecher</a></li>
+          <li><a href="#">Smartphones</a></li>
+          <li><a href="#">Smartwatches</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Mehr</h4>
+        <ul class="footer-links-list">
+          <li><a href="#">Über uns</a></li>
+          <li><a href="#">Kontakt</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">RSS Feed</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Rechtliches</h4>
+        <ul class="footer-links-list">
+          <li><a href="/impressum.html">Impressum</a></li>
+          <li><a href="/datenschutz.html">Datenschutz</a></li>
+          <li><a href="#">Cookie-Einstellungen</a></li>
+          <li><a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909000" target="_blank" rel="nofollow">Affiliate-Info</a></li>
+        </ul>
       </div>
     </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2026 MMOFinds — Curated Tech Reviews</span>
+      <span class="footer-bottom-text">Made with ❤️ in Germany</span>
+    </div>
   </footer>
+
+  <!-- ===== INTERACTIVE SCRIPTS ===== -->
+  <script>
+    // Category tabs filtering
+    document.querySelectorAll('.category-tab').forEach(tab => {
+      tab.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        const category = this.dataset.category;
+        document.querySelectorAll('.product-card').forEach(card => {
+          if (category === 'all') {
+            card.style.display = '';
+          } else {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(category.toLowerCase()) ? '' : 'none';
+          }
+        });
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        document.querySelectorAll('.product-card').forEach(card => {
+          const text = card.textContent.toLowerCase();
+          card.style.display = text.includes(query) ? '' : 'none';
+        });
+        // Reset category tabs
+        if (query.length > 0) {
+          document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+          document.querySelector('[data-category="all"]').classList.add('active');
+        }
+      });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
