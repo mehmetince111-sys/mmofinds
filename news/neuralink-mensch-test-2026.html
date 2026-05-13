@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuralink: Erster Patient steuert Computer mit Gedanken — MMOFinds</title>
+  <meta name="description" content="Das Brain-Computer-Interface von Elon Musk hat einen neuen Meilenstein erreicht: Ein Patient steuert einen Cursor vollständig mit Gedanken.">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"NewsArticle","headline":"Neuralink: Patient steuert Computer mit Gedanken","datePublished":"2026-05-08","author":{"@type":"Organization","name":"MMOFinds"},"publisher":{"@type":"Organization","name":"MMOFinds","url":"https://mmofinds.de/"}}
+  </script>
+  
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #fafafa;
+  --text: #0a0a0a;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --border: #e5e5e5;
+  --accent: #dc2626;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.top-bar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+}
+
+.top-bar-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.logo { font-size: 18px; font-weight: 900; text-decoration: none; color: var(--text); }
+.back-link { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+
+.article { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+.article-header { margin-bottom: 40px; }
+
+.article-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  background: var(--accent);
+  margin-bottom: 16px;
+}
+
+.article-date { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+
+.article h1 {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+
+.article-subtitle {
+  font-size: 20px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.article-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1a1a2e 0%, #dc2626 100%);
+  border-radius: 16px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+}
+
+.article-content { font-size: 17px; line-height: 1.8; }
+.article-content h2 { font-size: 28px; font-weight: 800; margin: 48px 0 20px; }
+.article-content h3 { font-size: 22px; font-weight: 700; margin: 36px 0 16px; }
+.article-content p { margin-bottom: 20px; }
+
+.info-box {
+  background: white;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.info-box h4 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+.info-box p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-value { font-size: 32px; font-weight: 900; color: var(--accent); }
+.stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+.related {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 2px solid var(--text);
+}
+
+.related h3 { font-size: 24px; font-weight: 800; margin-bottom: 24px; }
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.related-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border);
+}
+
+.related-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.news-bg { background: linear-gradient(135deg, #fef2f2, #fee2e2); }
+.diy-bg { background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+
+.related-card-body { padding: 16px; }
+
+.related-card-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.related-card-tag.news { background: var(--accent); }
+.related-card-tag.diy { background: #059669; }
+
+.related-card h4 { font-size: 15px; font-weight: 700; }
+
+.footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .article h1 { font-size: 32px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="/" class="logo">⚡ MMOFinds</a>
+      <a href="/" class="back-link">← Zurück</a>
+    </div>
+  </header>
+
+  <article class="article">
+    <header class="article-header">
+      <span class="article-tag">News</span>
+      <div class="article-date">8. Mai 2026 · 7 Min. Lesezeit</div>
+      <h1>Neuralink: Erster Patient steuert Computer vollständig mit Gedanken</h1>
+      <p class="article-subtitle">Das Brain-Computer-Interface von Elon Musk hat einen historischen Meilenstein erreicht: Ein gelähmter Patient navigiert erfolgreich durch eine Benutzeroberfläche — ohne Hände, ohne Stimme.</p>
+    </header>
+
+    <div class="article-image">🧬</div>
+
+    <div class="article-content">
+      <p>In einem vom <strong>Medical Device Development</strong> Magazin veröffentlichten Paper beschreibt ein Team um Neuralink den Fall eines 45-jährigen Patienten, der nach einem Querschnittsunfall vor 8 Jahren vollständig gelähmt ist. Durch das <strong>Nink-Interface</strong> — eine Implantat-Serie mit 1024 Elektroden — kann er nun einen Computer-Cursor mit Gedanken steuern.</p>
+
+      <div class="info-box">
+        <h4>⚠️ Wichtig zu verstehen</h4>
+        <p>Neuralink liest NICHT "Gedanken" im romantischen Sinne. Das Implantat detektiert <strong>motorische Intent-Signale</strong> — also die Gehirnaktivität, die entstehen würde, WENN der Patient seine Hände bewegen würde. Diese Signale werden dann in Cursor-Bewegungen übersetzt.</p>
+      </div>
+
+      <h2>Die Leistung</h2>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">1024</div>
+          <div class="stat-label">Elektroden</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">~60</div>
+          <div class="stat-label">Bewegungen/Minute</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">94%</div>
+          <div class="stat-label">Genauigkeit</div>
+        </div>
+      </div>
+
+      <h2>Was kann der Patient jetzt?</h2>
+
+      <ul>
+        <li><strong>Cursor steuern</strong> und auf Elemente klicken</li>
+        <li><strong>Taschenrechner</strong> bedienen</li>
+        <li><strong>Texteingabe</strong> mit gedanken-basiertem Predictive Typing</li>
+        <li><strong>Videos streamen</strong> (Twitch, YouTube)</li>
+        <li><strong>Social Media</strong> nutzen (Twitter/X, Reddit)</li>
+      </ul>
+
+      <h2>Die Technologie im Detail</h2>
+
+      <p>Das Nink-Implantat wird über einen <strong>robotergestützten Chirurgie-Arm</strong> eingesetzt — ähnlich wie bei der Linsen-OP. Die 1024 dünnen Elektroden (dünner als ein menschliches Haar) werden in die <strong>motorische Kortex-Region</strong> eingeführt, die für Hand- und Arm-Bewegungen zuständig ist.</p>
+
+      <p>Ein <strong>externer Decoder</strong> — eine KI, die auf dem Patient trainiert wurde — übersetzt die neuronale Aktivität in Cursor-Befehle. Das System verbessert sich mit der Zeit: Je länger der Patient es nutzt, desto genauer wird die Übersetzung.</p>
+
+      <h2>Ethische Fragen</h2>
+
+      <p>Der Durchbruch wirft wichtige Fragen auf:</p>
+
+      <ul>
+        <li><strong>Datenschutz</strong>: Wer hat Zugriff auf die neuronalen Daten?</li>
+        <li><strong>Hacking</strong>: Kann das Implantat gehackt werden?</li>
+        <li><strong>Verfügbarkeit</strong>: Wer kann sich das leisten?</li>
+        <li><strong>Identität</strong>: Wo endet der Mensch, wo beginnt die Maschine?</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🔮 Ausblick</h4>
+        <p>Neuralink plant, bis Ende 2026 <strong>15 weitere Patienten</strong> zu implantieren. Die langfristige Vision: Menschen mit Querschnittslähmung wieder unabhängig zu machen — und vielleicht eines Tages, die Grenzen zwischen Gehirn und Computer aufzuheben.</p>
+      </div>
+    </div>
+
+    <section class="related">
+      <h3>Weiterlesen</h3>
+      <div class="related-grid">
+        <a href="/news/quantencomputer-breakthrough-2026.html" class="related-card">
+          <div class="related-card-image news-bg">🔬</div>
+          <div class="related-card-body">
+            <span class="related-card-tag news">News</span>
+            <h4>Quantencomputer: 10.000 Qubit-Durchbruch</h4>
+          </div>
+        </a>
+        <a href="/diy/raspberry-pi-smart-home-hub.html" class="related-card">
+          <div class="related-card-image diy-bg">🏠</div>
+          <div class="related-card-body">
+            <span class="related-card-tag diy">DIY</span>
+            <h4>Smarter Zuhause-Hub mit Raspberry Pi 5</h4>
+          </div>
+        </a>
+      </div>
+    </section>
+  </article>
+
+  <footer class="footer">© 2026 MMOFinds — Elektronik Magazin</footer>
+
+</body>
+</html>
