@@ -132,7 +132,15 @@ body {
   justify-content: space-between;
 }
 .materials-list li:last-child { border-bottom: none; }
-.material-price { color: var(--text-muted); font-size: 14px; }
+.material-price { color: var(--text-muted); font-size: 14px; margin-right: 8px; }
+.material-buy {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.material-buy:hover { text-decoration: underline; }
 
 .step {
   background: white;
@@ -273,13 +281,14 @@ body {
       <div class="materials-list">
         <h4>📦 Materialliste</h4>
         <ul>
-          <li><span class="material-name">Waveshare E-Ink HAT (7.5")</span><span class="material-price">~45€</span></li>
-          <li><span class="material-name">Raspberry Pi Zero 2 W</span><span class="material-price">~18€</span></li>
-          <li><span class="material-name">Gehäuse (3D-gedruckt oder Holz)</span><span class="material-price">~15€</span></li>
-          <li><span class="material-name">MicroSD-Karte (8GB)</span><span class="material-price">~5€</span></li>
-          <li><span class="material-name">USB-C Netzteil</span><span class="material-price">~8€</span></li>
+          <li><span class="material-name">Waveshare E-Ink HAT 7.5" (3-Farb, HD)</span><span class="material-price">~45€</span><a href="https://www.amazon.de/dp/B0CQRXW1Y5?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a></li>
+          <li><span class="material-name">Raspberry Pi Zero 2 W</span><span class="material-price">~18€</span><a href="https://www.amazon.de/dp/B09G9CJ8C1?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a></li>
+          <li><span class="material-name">Pi Zero Gehäuse mit Kühlkörper</span><span class="material-price">~10€</span><a href="https://www.amazon.de/dp/B07Y5D5Z7V?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a></li>
+          <li><span class="material-name">MicroSD-Karte (16GB, Class 10)</span><span class="material-price">~5€</span><a href="https://www.amazon.de/dp/B08843N3JW?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a></li>
+          <li><span class="material-name">USB-C Netzteil (2.5A)</span><span class="material-price">~8€</span><a href="https://www.amazon.de/dp/B0CX31FQVN?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a></li>
         </ul>
-        <p style="margin-top: 16px; font-weight: 700;">Gesamtkosten: ~91€</p>
+        <p style="margin-top: 16px; font-weight: 700;">Gesamtkosten: ~86€</p>
+        <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">* Affiliate-Links: Wenn du über diese Links kaufst, erhalten wir eine kleine Provision — für dich ohne Mehrkosten.</p>
       </div>
 
       <h2>Schritt 1: Hardware zusammenbauen</h2>
