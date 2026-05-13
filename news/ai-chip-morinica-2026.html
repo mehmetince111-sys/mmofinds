@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI-Chip Morinica: 5 Watt für 1000 TOPS — MMOFinds</title>
+  <meta name="description" content="Morinica präsentiert einen Edge-KI-Chip mit beispielloser Effizienz: 1000 TOPS bei nur 5 Watt.">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"NewsArticle","headline":"KI-Chip: 5 Watt für 1000 TOPS","datePublished":"2026-05-11","author":{"@type":"Organization","name":"MMOFinds"},"publisher":{"@type":"Organization","name":"MMOFinds","url":"https://mmofinds.de/"}}
+  </script>
+  
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #fafafa;
+  --text: #0a0a0a;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --border: #e5e5e5;
+  --accent: #7c3aed;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.top-bar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+}
+
+.top-bar-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 900;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.back-link {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.article {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.article-header { margin-bottom: 40px; }
+
+.article-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  background: var(--accent);
+  margin-bottom: 16px;
+}
+
+.article-date {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.article h1 {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+
+.article-subtitle {
+  font-size: 20px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.article-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1a1a2e 0%, #7c3aed 100%);
+  border-radius: 16px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+}
+
+.article-content {
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.article-content h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 48px 0 20px;
+}
+
+.article-content h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 36px 0 16px;
+}
+
+.article-content p { margin-bottom: 20px; }
+
+.info-box {
+  background: white;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.info-box h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.info-box p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.related {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 2px solid var(--text);
+}
+
+.related h3 { font-size: 24px; font-weight: 800; margin-bottom: 24px; }
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.related-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border);
+}
+
+.related-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.news-bg { background: linear-gradient(135deg, #fef2f2, #fee2e2); }
+.diy-bg { background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+
+.related-card-body { padding: 16px; }
+
+.related-card-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.related-card-tag.news { background: var(--accent); }
+.related-card-tag.diy { background: #059669; }
+
+.related-card h4 { font-size: 15px; font-weight: 700; }
+
+.footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .article h1 { font-size: 32px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="/" class="logo">⚡ MMOFinds</a>
+      <a href="/" class="back-link">← Zurück</a>
+    </div>
+  </header>
+
+  <article class="article">
+    <header class="article-header">
+      <span class="article-tag">News</span>
+      <div class="article-date">11. Mai 2026 · 5 Min. Lesezeit</div>
+      <h1>Neuer KI-Chip verbraucht nur 5 Watt für 1000 TOPS</h1>
+      <p class="article-subtitle">Morinica präsentiert einen Edge-KI-Chip, der die Effizienz von LLM-Inferenz revolutionieren könnte — und das bei einem Bruchteil des Stromverbrauchs aktueller GPUs.</p>
+    </header>
+
+    <div class="article-image">🧠</div>
+
+    <div class="article-content">
+      <p>Das Startup <strong>Morinica</strong> hat auf der IEEE Conference einen neuen AI-Inferenz-Chip vorgestellt, der <strong>1000 TOPS (Trillion Operations Per Second)</strong> bei einem TDP von nur <strong>5 Watt</strong> liefert — ein Wert, der die Branche überrascht hat.</p>
+
+      <div class="info-box">
+        <h4>💡 Was sind TOPS?</h4>
+        <p>TOPS misst die Rechenleistung von KI-Chips. 1 TOPS = 1 Billion Operationen pro Sekunde. Für den Vergleich: Eine NVIDIA H100 schafft ~2000 TOPS, verbraucht aber 700 Watt.</p>
+      </div>
+
+      <h2>Die Zahlen</h2>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">1000</div>
+          <div class="stat-label">TOPS INT8</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">5W</div>
+          <div class="stat-label">TDP</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">200x</div>
+          <div class="stat-label">Effizienter als GPU</div>
+        </div>
+      </div>
+
+      <h2>Wo wird er eingesetzt?</h2>
+
+      <p>Der Chip ist nicht für Rechenzentren gedacht, sondern für <strong>Edge-Geräte</strong>:</p>
+
+      <ul>
+        <li><strong>Drohnen</strong>: Autonome Navigation mit lokalen KI-Modellen</li>
+        <li><strong>Autonome Fahrzeuge</strong>: Echtzeit-Objekterkennung ohne Cloud</li>
+        <li><strong>Smart Home</strong>: Sprachassistenten, die komplett lokal laufen</li>
+        <li><strong>Wearables</strong>: KI-Übersetzung in Echtzeit auf der Uhr</li>
+      </ul>
+
+      <h2>Verfügbarkeit</h2>
+
+      <p>Morinica liefert erste Sample-Chips ab <strong>Q3 2026</strong> an Partnerunternehmen. Der kommerzielle Preis soll bei <strong>$45 pro Chip</strong> liegen — deutlich unter dem, was aktuelle Edge-KI-Lösungen kosten.</p>
+
+      <div class="info-box">
+        <h4>🔮 Was bedeutet das?</h4>
+        <p>Wenn dieser Chip die versprochene Leistung bringt, könnten wir in 1-2 Jahren Geräte sehen, die <strong>LLMs lokal ausführen</strong> — ohne Internet, ohne Cloud, ohne Datenschutzbedenken. Das wäre ein echter Wendepunkt für KI am Edge.</p>
+      </div>
+    </div>
+
+    <section class="related">
+      <h3>Weiterlesen</h3>
+      <div class="related-grid">
+        <a href="/news/quantencomputer-breakthrough-2026.html" class="related-card">
+          <div class="related-card-image news-bg">🔬</div>
+          <div class="related-card-body">
+            <span class="related-card-tag news">News</span>
+            <h4>Quantencomputer: 10.000 Qubit-Durchbruch</h4>
+          </div>
+        </a>
+        <a href="/diy/raspberry-pi-smart-home-hub.html" class="related-card">
+          <div class="related-card-image diy-bg">🏠</div>
+          <div class="related-card-body">
+            <span class="related-card-tag diy">DIY</span>
+            <h4>Smarter Zuhause-Hub mit Raspberry Pi 5</h4>
+          </div>
+        </a>
+      </div>
+    </section>
+  </article>
+
+  <footer class="footer">© 2026 MMOFinds — Elektronik Magazin</footer>
+
+</body>
+</html>
