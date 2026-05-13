@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WiFi Digitaler Bilderrahmen mit E-Ink — MMOFinds DIY</title>
+  <meta name="description" content="Ein energiesparender Bilderrahmen, der automatisch neue Bilder von Unsplash lädt — mit E-Ink-Display.">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #fafafa;
+  --text: #0a0a0a;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --border: #e5e5e5;
+  --accent: #059669;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.top-bar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+}
+
+.top-bar-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.logo { font-size: 18px; font-weight: 900; text-decoration: none; color: var(--text); }
+.back-link { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+
+.article { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+.article-header { margin-bottom: 40px; }
+
+.article-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  background: var(--accent);
+  margin-bottom: 16px;
+}
+
+.article-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.article h1 {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+
+.article-subtitle {
+  font-size: 20px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.article-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+  border-radius: 16px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+}
+
+.article-content { font-size: 17px; line-height: 1.8; }
+.article-content h2 { font-size: 28px; font-weight: 800; margin: 48px 0 20px; }
+.article-content h3 { font-size: 22px; font-weight: 700; margin: 36px 0 16px; }
+.article-content p { margin-bottom: 20px; }
+
+.info-box {
+  background: white;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.info-box h4 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+.info-box p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+
+.materials-list {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.materials-list h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+.materials-list ul { list-style: none; padding: 0; }
+.materials-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+}
+.materials-list li:last-child { border-bottom: none; }
+.material-price { color: var(--text-muted); font-size: 14px; }
+
+.step {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  margin: 24px 0;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.step h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+
+.code-block {
+  background: #1a1a2e;
+  color: #e5e7eb;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.related {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 2px solid var(--text);
+}
+
+.related h3 { font-size: 24px; font-weight: 800; margin-bottom: 24px; }
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.related-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border);
+}
+
+.related-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.news-bg { background: linear-gradient(135deg, #fef2f2, #fee2e2); }
+.diy-bg { background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+
+.related-card-body { padding: 16px; }
+
+.related-card-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.related-card-tag.news { background: #dc2626; }
+.related-card-tag.diy { background: var(--accent); }
+
+.related-card h4 { font-size: 15px; font-weight: 700; }
+
+.footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .article h1 { font-size: 32px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="/" class="logo">⚡ MMOFinds</a>
+      <a href="/" class="back-link">← Zurück</a>
+    </div>
+  </header>
+
+  <article class="article">
+    <header class="article-header">
+      <span class="article-tag">DIY</span>
+      <div class="article-meta">
+        <span>7. Mai 2026</span>
+        <span>·</span>
+        <span>10 Min. Lesezeit</span>
+        <span>·</span>
+        <span>Schwierigkeit: Einfach</span>
+      </div>
+      <h1>WiFi Digitaler Bilderrahmen mit E-Ink</h1>
+      <p class="article-subtitle">Ein energiesparender Bilderrahmen, der automatisch neue Bilder von Unsplash lädt — mit E-Ink-Display für papierähnliche Darstellung.</p>
+    </header>
+
+    <div class="article-image">🖼️</div>
+
+    <div class="article-content">
+      <p>Stell dir einen Bilderrahmen vor, der <strong>nie den Strom stecken muss</strong> (wenn er aus ist), der <strong>täglich neue Bilder</strong> zeigt, und der aussieht wie echtes Papier. Das ist ein E-Ink-Bilderrahmen.</p>
+
+      <div class="info-box">
+        <h4>💡 Warum E-Ink?</h4>
+        <p>Ein normales LCD-Display verbraucht auch im Standby Strom. E-Ink braucht Strom NUR beim Bildwechsel — danach bleibt das Bild ohne Strom erhalten. Das macht ihn perfekt für einen Bilderrahmen, der 24/7 läuft.</p>
+      </div>
+
+      <h2>Was du brauchst</h2>
+
+      <div class="materials-list">
+        <h4>📦 Materialliste</h4>
+        <ul>
+          <li><span class="material-name">Waveshare E-Ink HAT (7.5")</span><span class="material-price">~45€</span></li>
+          <li><span class="material-name">Raspberry Pi Zero 2 W</span><span class="material-price">~18€</span></li>
+          <li><span class="material-name">Gehäuse (3D-gedruckt oder Holz)</span><span class="material-price">~15€</span></li>
+          <li><span class="material-name">MicroSD-Karte (8GB)</span><span class="material-price">~5€</span></li>
+          <li><span class="material-name">USB-C Netzteil</span><span class="material-price">~8€</span></li>
+        </ul>
+        <p style="margin-top: 16px; font-weight: 700;">Gesamtkosten: ~91€</p>
+      </div>
+
+      <h2>Schritt 1: Hardware zusammenbauen</h2>
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>E-Ink HAT auf den Pi stecken</h3>
+        <p>Stecke das E-Ink HAT direkt auf die GPIO-Pins des Raspberry Pi Zero 2 W. Kein Löten nötig — es sitzt einfach auf.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Software installieren</h3>
+        <p>Flash <strong>Raspberry Pi OS Lite</strong> auf die SD-Karte und aktiviere SSH:</p>
+        
+        <div class="code-block">
+# Nach dem ersten Boot:
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3-pip git -y
+
+# E-Ink Bibliothek installieren:
+pip3 install waveshare-epd
+        </div>
+      </div>
+
+      <h2>Schritt 2: Python-Skript erstellen</h2>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Auto-Update Skript</h3>
+        <p>Erstelle ein Python-Skript, das täglich ein neues Bild von Unsplash lädt und auf dem E-Ink-Display anzeigt:</p>
+        
+        <div class="code-block">
+#!/usr/bin/env python3
+import requests
+from PIL import Image
+import waveshare_epd
+
+# Neues Bild von Unsplash laden
+response = requests.get(
+    "https://source.unsplash.com/random/800x480/?nature"
+)
+img = Image.open(BytesIO(response.content))
+img = img.resize((640, 384))
+
+# Auf E-Ink anzeigen
+epd = waveshare_epd.EPD()
+epd.init()
+epd.display(epd.getbuffer(img))
+print("Bild aktualisiert!")
+        </div>
+      </div>
+
+      <h2>Schritt 3: Automatisierung</h2>
+
+      <p>Das Skript soll täglich um 8:00 Uhr laufen. Dafür nutzen wir <strong>cron</strong>:</p>
+
+      <div class="code-block">
+# Crontab öffnen:
+crontab -e
+
+# Füge diese Zeile hinzu:
+0 8 * * * /home/pi/epk-frame/update.py
+        </div>
+
+      <div class="info-box">
+        <h4>🔮 Fazit</h4>
+        <p>Ein E-Ink-Bilderrahmen ist das perfekte Projekt für Einsteiger — er kostet wenig, ist einfach zu bauen, und er sieht unglaublich cool aus. Plus: Er verbraucht so gut wie keinen Strom. Perfekt für die Weihnachtsgeschenke-Liste!</p>
+      </div>
+    </div>
+
+    <section class="related">
+      <h3>Weiterlesen</h3>
+      <div class="related-grid">
+        <a href="/news/quantencomputer-breakthrough-2026.html" class="related-card">
+          <div class="related-card-image news-bg">🔬</div>
+          <div class="related-card-body">
+            <span class="related-card-tag news">News</span>
+            <h4>Quantencomputer: 10.000 Qubit-Durchbruch</h4>
+          </div>
+        </a>
+        <a href="/diy/raspberry-pi-smart-home-hub.html" class="related-card">
+          <div class="related-card-image diy-bg">🏠</div>
+          <div class="related-card-body">
+            <span class="related-card-tag diy">DIY</span>
+            <h4>Smarter Zuhause-Hub mit Raspberry Pi 5</h4>
+          </div>
+        </a>
+      </div>
+    </section>
+  </article>
+
+  <footer class="footer">© 2026 MMOFinds — Elektronik Magazin</footer>
+
+</body>
+</html>
