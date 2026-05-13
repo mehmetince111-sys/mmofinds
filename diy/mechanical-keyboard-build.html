@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eigene mechanische Tastatur bauen — MMOFinds DIY</title>
+  <meta name="description" content="Bau deine eigene Custom Mechanical Keyboard mit Gateron switches und PBT-Keycaps. Schritt-für-Schritt Anleitung.">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #fafafa;
+  --text: #0a0a0a;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --border: #e5e5e5;
+  --accent: #059669;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.top-bar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+}
+
+.top-bar-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.logo { font-size: 18px; font-weight: 900; text-decoration: none; color: var(--text); }
+.back-link { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+
+.article { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+.article-header { margin-bottom: 40px; }
+
+.article-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  background: var(--accent);
+  margin-bottom: 16px;
+}
+
+.article-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.article h1 {
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+
+.article-subtitle {
+  font-size: 20px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.article-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+  border-radius: 16px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+}
+
+.article-content { font-size: 17px; line-height: 1.8; }
+.article-content h2 { font-size: 28px; font-weight: 800; margin: 48px 0 20px; }
+.article-content h3 { font-size: 22px; font-weight: 700; margin: 36px 0 16px; }
+.article-content p { margin-bottom: 20px; }
+.article-content ul, .article-content ol { margin: 20px 0; padding-left: 24px; }
+.article-content li { margin-bottom: 8px; }
+
+.info-box {
+  background: white;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.info-box h4 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+.info-box p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+
+.materials-list {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+}
+
+.materials-list h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+.materials-list ul { list-style: none; padding: 0; }
+.materials-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+}
+.materials-list li:last-child { border-bottom: none; }
+.material-price { color: var(--text-muted); font-size: 14px; }
+
+.step {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  margin: 24px 0;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.step h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+
+.code-block {
+  background: #1a1a2e;
+  color: #e5e7eb;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.related {
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 2px solid var(--text);
+}
+
+.related h3 { font-size: 24px; font-weight: 800; margin-bottom: 24px; }
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.related-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--border);
+}
+
+.related-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+}
+
+.news-bg { background: linear-gradient(135deg, #fef2f2, #fee2e2); }
+.diy-bg { background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+
+.related-card-body { padding: 16px; }
+
+.related-card-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.related-card-tag.news { background: #dc2626; }
+.related-card-tag.diy { background: var(--accent); }
+
+.related-card h4 { font-size: 15px; font-weight: 700; }
+
+.footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .article h1 { font-size: 32px; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a href="/" class="logo">⚡ MMOFinds</a>
+      <a href="/" class="back-link">← Zurück</a>
+    </div>
+  </header>
+
+  <article class="article">
+    <header class="article-header">
+      <span class="article-tag">DIY</span>
+      <div class="article-meta">
+        <span>10. Mai 2026</span>
+        <span>·</span>
+        <span>20 Min. Lesezeit</span>
+        <span>·</span>
+        <span>Schwierigkeit: Fortgeschritten</span>
+      </div>
+      <h1>Eigene mechanische Tastatur bauen</h1>
+      <p class="article-subtitle">Vom Kit zum fertigen Produkt: So baust du deine Custom Keyboard mit Gateron switches und PBT-Keycaps.</p>
+    </header>
+
+    <div class="article-image">⌨️</div>
+
+    <div class="article-content">
+      <p>Es gibt nichts, das sich besser anfühlt als eine <strong>gut gebaute mechanische Tastatur</strong>. Massives Gehäuse, präzise Switches, satisfyinges Tippen — und das Beste: Du baust sie selbst.</p>
+
+      <div class="info-box">
+        <h4>💡 Warum selbst bauen?</h4>
+        <p>Fertige Custom Keyboards kosten oft 300-500€. Selbst gebaut: unter 200€. Und du bekommst EXAKT das, was du willst — Switches, Keycaps, Layout, Farbe.</p>
+      </div>
+
+      <h2>Was du brauchst</h2>
+
+      <div class="materials-list">
+        <h4>📦 Materialliste</h4>
+        <ul>
+          <li><span class="material-name">PCB (z.B. ZSA Moonlander oder Keychron Q1)</span><span class="material-price">~120€</span></li>
+          <li><span class="material-name">Switches (Gateron Yellow oder Brown)</span><span class="material-price">~30€ (80 Stk.)</span></li>
+          <li><span class="material-name">Keycaps (PBT, Cherry-Profile)</span><span class="material-price">~40€</span></li>
+          <li><span class="material-name">Stabilizer (Durov oder KTT)</span><span class="material-price">~15€</span></li>
+          <li><span class="material-name">Switch Pads / Foam</span><span class="material-price">~10€</span></li>
+          <li><span class="material-name">Lötkolben + Lot (wenn nicht vormontiert)</span><span class="material-price">~25€</span></li>
+        </ul>
+        <p style="margin-top: 16px; font-weight: 700;">Gesamtkosten: ~240€</p>
+      </div>
+
+      <h2>Schritt 1: PCB auswählen</h2>
+
+      <p>Für den Einstieg empfehle ich ein <strong>vormontiertes PCB</strong> — das spart Stunden Lötarbeit. Gute Optionen:</p>
+
+      <ul>
+        <li><strong>Keychron Q1 Pro</strong>: Hot-swappable, alu-Gehäuse, 87 Tasten</li>
+        <li><strong>ZSA Moonlander</strong>: Ergonomisch, split-design, programmierbar</li>
+        <li><strong>Keyboardio Model 01</strong>: Modular, open-source, sehr individuell</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🔥 Hot-swap vs. gelötet</h4>
+        <p><strong>Hot-swap</strong> PCBs haben Buchsen — du steckst die Switches einfach rein. Kein Löten nötig. Perfekt für den Einstieg. Mit gelöteten PCBs kannst du später die Switches tauschen, ohne sie herauszuziehen.</p>
+      </div>
+
+      <h2>Schritt 2: Switches einsetzen</h2>
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Switches in die PCB stecken</h3>
+        <p>Bei hot-swap PCBs: Drücke jeden Switch von oben in die Buchse. Du musst einen <strong>leichten Druck</strong> ausüben — es sollte ein satisfyinges "Klick" geben.</p>
+        
+        <div class="code-block">
+# Reihenfolge:
+# 1. Alle Switches einstecken
+# 2. Prüfen ob alle sitzen
+# 3. Zum nächsten Schritt
+        </div>
+      </div>
+
+      <h2>Schritt 3: Stabilizer einbauen</h2>
+
+      <p>Stabilizer sind die Metall-Stäbe unter den großen Tasten (Leertaste, Shift, Enter). Sie verhindern ein Wackeln.</p>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Stabilizer schmieren und einsetzen</h3>
+        <p>Verwende <strong>Krytox 205g0</strong> oder <strong>Dielektrisches Fett</strong> auf den Stäben. Das macht die großen Tasten leiser und geschmeidiger.</p>
+      </div>
+
+      <h2>Schritt 4: Keycaps aufsetzen</h2>
+
+      <p>Drücke jeden Keycap auf den Switch. Achte darauf, dass die <strong>Ausrichtung</strong> stimmt (die "Nase" des Keycaps zeigt nach vorne).</p>
+
+      <div class="info-box">
+        <h4>🎯 Switch-Empfehlungen</h4>
+        <p>
+          • <strong>Gateron Yellow</strong>: Linear, leise, smooth — perfekt für Gaming<br>
+          • <strong>Gateron Brown</strong>: Tactile, spürbar, vielseitig — guter Allrounder<br>
+          • <strong>Gateron Red</strong>: Linear, leicht, schnell — für schnelles Tippen
+        </p>
+      </div>
+
+      <h2>Schritt 5: Firmware flashen (optional)</h2>
+
+      <p>Falls du die Tastatur individuell programmieren willst (Macros, LED-Beleuchtung, Layout-Änderungen):</p>
+
+      <div class="code-block">
+# QMK Firmware flashen:
+# 1. qmk.fm/flash öffnen
+# 2. Dein Keyboard-Layout wählen
+# 3. "Compile" klicken
+# 4. .hex-Datei auf die Tastatur flashen
+      </div>
+
+      <div class="info-box">
+        <h4>🔮 Fazit</h4>
+        <p>Eine selbst gebaute Tastatur ist mehr als nur ein Eingabegerät — es ist ein <strong>Statement</strong>. Du hast jede Komponente selbst ausgewählt, jede Taste sitzt genau richtig. Und das Tipfen fühlt sich einfach <strong>besser an</strong> als alles, was du vorher hattest.</p>
+      </div>
+    </div>
+
+    <section class="related">
+      <h3>Weiterlesen</h3>
+      <div class="related-grid">
+        <a href="/news/quantencomputer-breakthrough-2026.html" class="related-card">
+          <div class="related-card-image news-bg">🔬</div>
+          <div class="related-card-body">
+            <span class="related-card-tag news">News</span>
+            <h4>Quantencomputer: 10.000 Qubit-Durchbruch</h4>
+          </div>
+        </a>
+        <a href="/diy/raspberry-pi-smart-home-hub.html" class="related-card">
+          <div class="related-card-image diy-bg">🏠</div>
+          <div class="related-card-body">
+            <span class="related-card-tag diy">DIY</span>
+            <h4>Smarter Zuhause-Hub mit Raspberry Pi 5</h4>
+          </div>
+        </a>
+      </div>
+    </section>
+  </article>
+
+  <footer class="footer">© 2026 MMOFinds — Elektronik Magazin</footer>
+
+</body>
+</html>
