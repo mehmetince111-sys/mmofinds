@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Eigenes NAS mit Raspberry Pi aufbauen — MMOFinds DIY</title>
+
+  <meta name="description" content="Deine eigene Cloud mit Raspberry Pi und external HDD — Backup, Dateiserver und Media-Player in einem..">
+
+  <meta name="theme-color" content="#0a0a0a">
+
+  <meta property="og:type" content="article">
+
+  <meta property="og:title" content="Eigenes NAS mit Raspberry Pi aufbauen">
+
+  <meta property="og:description" content="Deine eigene Cloud mit Raspberry Pi und external HDD — Backup, Dateiserver und Media-Player in einem.">
+
+  <meta property="og:url" content="https://mmofinds.de/diy/nas-raspberry-pi.html">
+
+  <meta property="og:site_name" content="MMOFinds">
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Article", "headline": "Eigenes NAS mit Raspberry Pi aufbauen", "description": "Deine eigene Cloud mit Raspberry Pi und external HDD \u2014 Backup, Dateiserver und Media-Player in einem.", "datePublished": "2026-05-14", "author": {"@type": "Organization", "name": "MMOFinds"}, "publisher": {"@type": "Organization", "name": "MMOFinds", "url": "https://mmofinds.de"}}
+  </script>
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+:root { --bg: #fafafa; --text: #0a0a0a; --text-secondary: #525252; --text-muted: #737373; --border: #e5e5e5; --accent: #059669; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+.top-bar { background: white; border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); }
+.top-bar-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.logo { font-size: 18px; font-weight: 900; text-decoration: none; color: var(--text); }
+.back-link { font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+.article { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+.article-header { margin-bottom: 40px; }
+.article-tag { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: white; background: var(--accent); margin-bottom: 16px; }
+.article-meta { display: flex; gap: 16px; font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+.article h1 { font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px; }
+.article-subtitle { font-size: 20px; color: var(--text-secondary); line-height: 1.5; font-weight: 300; }
+.article-image { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, #064e3b 0%, #059669 100%); border-radius: 16px; margin-bottom: 40px; display: flex; align-items: center; justify-content: center; font-size: 120px; }
+.article-content { font-size: 17px; line-height: 1.8; }
+.article-content h2 { font-size: 28px; font-weight: 800; margin: 48px 0 20px; }
+.article-content h3 { font-size: 22px; font-weight: 700; margin: 36px 0 16px; }
+.article-content p { margin-bottom: 20px; }
+.article-content ul, .article-content ol { margin: 20px 0; padding-left: 24px; }
+.article-content li { margin-bottom: 8px; }
+.info-box { background: white; border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 24px; margin: 32px 0; }
+.info-box h4 { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+.info-box p { font-size: 15px; color: var(--text-secondary); margin: 0; }
+.materials-list { background: white; border-radius: 12px; padding: 24px; margin: 32px 0; }
+.materials-list h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+.materials-list ul { list-style: none; padding: 0; }
+.materials-list li { padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.materials-list li:last-child { border-bottom: none; }
+.material-name { font-weight: 600; color: var(--accent); text-decoration: none; cursor: pointer; }
+.material-name:hover { text-decoration: underline; }
+.material-price { color: var(--text-muted); font-size: 14px; }
+.step { background: white; border-radius: 12px; padding: 32px; margin: 24px 0; }
+.step-number { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--accent); color: white; border-radius: 50%; font-weight: 800; font-size: 16px; margin-bottom: 16px; }
+.step h3 { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+.code-block { background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; overflow-x: auto; margin: 16px 0; white-space: pre-wrap; }
+.footer { text-align: center; padding: 40px 24px; border-top: 1px solid var(--border); margin-top: 64px; color: var(--text-muted); font-size: 13px; }
+@media (max-width: 768px) { .article h1 { font-size: 32px; } .article-image { font-size: 80px; } .step { padding: 24px; } }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar"><div class="top-bar-inner"><a href="https://mmofinds.de/" class="logo">⚡ MMOFinds</a><a href="https://mmofinds.de/diy.html" class="back-link">← Zurück</a></div></div>
+
+  <div class="article">
+    <header class="article-header">
+
+      <span class="article-tag">DIY</span>
+
+      <div class="article-meta"><span>14. Mai 2026</span><span>·</span><span>Schwierigkeit: Mittel</span></div>
+
+      <h1>Eigenes NAS mit Raspberry Pi aufbauen</h1>
+
+      <p class="article-subtitle">Deine eigene Cloud mit Raspberry Pi und external HDD — Backup, Dateiserver und Media-Player in einem.</p>
+
+    </header>
+
+    <div class="article-image">💾</div>
+
+    <div class="article-content">
+
+      <p>Willkommen zu diesem Tutorial! Wir bauen eigenes nas mit raspberry pi aufbauen — ein Projekt, das dich in die Lage versetzt, deine eigene cloud mit raspberry pi und external hdd.</p>
+
+      <div class="info-box"><h4>💡 Warum dieses Projekt?</h4><p>Dieses Projekt ist perfekt für alle, die gerne praktisch arbeiten und dabei etwas Nützliches schaffen. Du brauchst keine Vorkenntnisse — wir begleiten dich Schritt für Schritt.</p></div>
+
+      <h2>Was du brauchst</h2>
+
+      <div class="materials-list"><h4>📦 Materialliste</h4><ul>
+          <li><a href="https://www.amazon.de/dp/B08M5FJ8VZ?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Raspberry Pi 4 (4GB)</a> <span class="material-price">~55€</span></li>
+          <li><a href="https://www.amazon.de/dp/B07VNTFVD5?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">USB 3.0 HDD Gehäuse</a> <span class="material-price">~20€</span></li>
+          <li><a href="https://www.amazon.de/dp/B07VXSF14V?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Western Digital Red 2TB NAS Festplatte</a> <span class="material-price">~70€</span></li>
+          <li><a href="https://www.amazon.de/dp/B07VJHV8L1?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Pi 4 Gehäuse mit Kühlung</a> <span class="material-price">~12€</span></li>
+          <li><a href="https://www.amazon.de/dp/B07DSCGQ8V?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Ethernet Kabel Cat6</a> <span class="material-price">~3€</span></li>
+      </ul>
+
+      <p style="margin-top: 16px; font-weight: 700;">Gesamtkosten: ~160€</p>
+
+      <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">* Affiliate-Links: Wenn du über diese Links kaufst, erhalten wir eine kleine Provision — für dich ohne Mehrkosten.</p>
+
+      </div>
+
+      <h2>Schritt 1: Vorbereitung</h2>
+
+      <div class="step"><div class="step-number">1</div><h3>Materialien zusammenstellen</h3>
+
+        <p>Bestelle alle Materialien aus der Liste oben. Achte darauf, dass alle Teile kompatibel sind.</p>
+
+        <div class="code-block"># Checkliste:
+# [ ] Alle Materialien bestellt
+# [ ] Werkzeuge vorbereitet</div>
+      </div>
+
+      <h2>Schritt 2: Aufbau</h2>
+
+      <div class="step"><div class="step-number">2</div><h3>Die eigentliche Bauphase</h3>
+
+        <p>Hier kommt das Spannende: Wir bauen das Projekt Schritt für Schritt auf. Folge der Anleitung genau und sei geduldig.</p>
+
+        <ul><li>Arbeite in einem gut beleuchteten Bereich</li><li>Legte kleine Teile beiseite</li><li>Fotografiere jeden Schritt</li></ul>
+      </div>
+
+      <h2>Schritt 3: Test und Optimierung</h2>
+
+      <div class="step"><div class="step-number">3</div><h3>Alles funktioniert!</h3>
+
+        <p>Nach dem Aufbau testen wir alles sorgfältig. Wenn etwas nicht funktioniert, checke die Verbindungen.</p>
+      </div>
+
+      <div class="info-box"><h4>🎉 Fertig!</h4><p>Herzlichen Glückwunsch! Du hast erfolgreich eigenes nas gebaut.</p></div>
+
+    </div>
+  </div>
+
+  <div class="footer"><p>© 2026 MMOFinds — Elektronik Magazin für Technik-Enthusiasten</p>
+
+    <p style="margin-top: 8px;"><a href="https://mmofinds.de/impressum.html" style="color: var(--text-muted);">Impressum</a> · <a href="https://mmofinds.de/datenschutz.html" style="color: var(--text-muted);">Datenschutz</a></p></div>
+
+</body>
+</html>
