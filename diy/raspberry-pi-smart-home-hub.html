@@ -138,25 +138,21 @@ body {
 }
 
 .materials-list li {
-  padding: 12px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .materials-list li:last-child { border-bottom: none; }
-.materials-list li:last-child { border-bottom: none; }
-.material-name { font-weight: 600; }
-.material-price { color: var(--text-muted); font-size: 14px; margin-right: 8px; }
-.material-buy {
-  font-size: 12px;
-  color: var(--accent);
+.material-name {
   font-weight: 600;
+  color: var(--accent);
   text-decoration: none;
-  white-space: nowrap;
+  cursor: pointer;
 }
-.material-buy:hover { text-decoration: underline; }
+.material-name:hover { text-decoration: underline; }
+.material-price { color: var(--text-muted); font-size: 14px; }
 
 .step {
   background: white;
@@ -299,36 +295,12 @@ body {
       <div class="materials-list">
         <h4>📦 Materialliste</h4>
         <ul>
-          <li>
-            <span class="material-name">Raspberry Pi 5 (4GB oder 8GB)</span>
-            <span class="material-price">~70€</span>
-            <a href="https://www.amazon.de/dp/B0CX23V2ZK?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a>
-          </li>
-          <li>
-            <span class="material-name">MicroSD-Karte (32GB, Class 10)</span>
-            <span class="material-price">~8€</span>
-            <a href="https://www.amazon.de/dp/B08843N3JW?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a>
-          </li>
-          <li>
-            <span class="material-name">Pi 5 Gehäuse mit Kühlung</span>
-            <span class="material-price">~15€</span>
-            <a href="https://www.amazon.de/dp/B0CX4F8TPK?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a>
-          </li>
-          <li>
-            <span class="material-name">USB-C Netzteil (27W)</span>
-            <span class="material-price">~12€</span>
-            <a href="https://www.amazon.de/dp/B0CX31FQVN?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a>
-          </li>
-          <li>
-            <span class="material-name">Zigbee-Dongle (Sonoff Zigbee 3.0 USB Dongle Plus)</span>
-            <span class="material-price">~25€</span>
-            <a href="https://www.amazon.de/dp/B0BZMRJ1HQ?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a>
-          </li>
-          <li>
-            <span class="material-name">Ethernet-Kabel (1m Cat6)</span>
-            <span class="material-price">~3€</span>
-            <a href="https://www.amazon.de/dp/B07DSCGQ8V?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-buy">Bei Amazon prüfen →</a>
-          </li>
+          <li><a href="https://www.amazon.de/dp/B0CX23V2ZK?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Raspberry Pi 5 (4GB oder 8GB)</a> <span class="material-price">~70€</span></li>
+          <li><a href="https://www.amazon.de/dp/B08843N3JW?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">MicroSD-Karte (32GB, Class 10)</a> <span class="material-price">~8€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0CX4F8TPK?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Pi 5 Gehäuse mit Kühlung</a> <span class="material-price">~15€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0CX31FQVN?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">USB-C Netzteil (27W)</a> <span class="material-price">~12€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0BZMRJ1HQ?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Zigbee-Dongle (Sonoff Zigbee 3.0 USB Dongle Plus)</a> <span class="material-price">~25€</span></li>
+          <li><a href="https://www.amazon.de/dp/B07DSCGQ8V?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Ethernet-Kabel (1m Cat6)</a> <span class="material-price">~3€</span></li>
         </ul>
         <p style="margin-top: 16px; font-weight: 700;">Gesamtkosten: ~133€</p>
         <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">* Affiliate-Links: Wenn du über diese Links kaufst, erhalten wir eine kleine Provision — für dich ohne Mehrkosten.</p>
