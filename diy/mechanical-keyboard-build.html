@@ -128,27 +128,13 @@ body {
 .materials-list h4 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
 .materials-list ul { list-style: none; padding: 0; }
 .materials-list li {
-  padding: 16px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
-}
-.materials-list li:last-child { border-bottom: none; }
-.material-item { display: flex; flex-direction: column; gap: 10px; }
-.material-info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
-.material-name { font-weight: 600; }
+.materials-list li:last-child { border-bottom: none; }
 .material-price { color: var(--text-muted); font-size: 14px; }
-.material-buy {
-  font-size: 13px;
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-  align-self: flex-start;
-}
-.material-buy:hover { text-decoration: underline; }
 
 .step {
   background: white;
@@ -289,15 +275,14 @@ body {
       <div class="materials-list">
         <h4>📦 Materialliste</h4>
         <ul>
-          <li><a href="https://www.amazon.de/dp/B0C1H8WRXG?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Keychron Q1 Pro (Hot-swap, 87 Tasten)</a> <span class="material-price">~120€</span></li>
-          <li><a href="https://www.amazon.de/dp/B07B4H8V4K?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Gateron Yellow Switches (80 Stk.)</a> <span class="material-price">~30€</span></li>
-          <li><a href="https://www.amazon.de/dp/B08B3F8Q7T?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">PBT Keycaps Cherry-Profile (Deutsch Layout)</a> <span class="material-price">~40€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0CJ7Q8WZ3?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">KTT Pinokyo Stabilizer (5er Pack)</a> <span class="material-price">~15€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0BQ3F7X2K?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Switch Pads + Case Foam (PE Foam)</a> <span class="material-price">~10€</span></li>
-          <li><a href="https://www.amazon.de/dp/B07KQJ3V1W?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Lötkolben + Lötzinn (wenn nicht vormontiert)</a> <span class="material-price">~25€</span></li>
+          <li><span class="material-name">PCB (z.B. ZSA Moonlander oder Keychron Q1)</span><span class="material-price">~120€</span></li>
+          <li><span class="material-name">Switches (Gateron Yellow oder Brown)</span><span class="material-price">~30€ (80 Stk.)</span></li>
+          <li><span class="material-name">Keycaps (PBT, Cherry-Profile)</span><span class="material-price">~40€</span></li>
+          <li><span class="material-name">Stabilizer (Durov oder KTT)</span><span class="material-price">~15€</span></li>
+          <li><span class="material-name">Switch Pads / Foam</span><span class="material-price">~10€</span></li>
+          <li><span class="material-name">Lötkolben + Lot (wenn nicht vormontiert)</span><span class="material-price">~25€</span></li>
         </ul>
         <p style="margin-top: 16px; font-weight: 700;">Gesamtkosten: ~240€</p>
-        <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">* Affiliate-Links: Wenn du über diese Links kaufst, erhalten wir eine kleine Provision — für dich ohne Mehrkosten.</p>
       </div>
 
       <h2>Schritt 1: PCB auswählen</h2>
