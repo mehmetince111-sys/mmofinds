@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI-Sicherheitskamera mit Raspberry Pi bauen — MMOFinds DIY</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #e0e0e0; line-height: 1.7; }
+    .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+    h1 { color: #fff; font-size: 2rem; margin-bottom: 16px; line-height: 1.3; }
+    h2 { color: #fff; font-size: 1.3rem; margin: 28px 0 12px; }
+    h3 { color: #fff; font-size: 1.1rem; margin: 20px 0 8px; }
+    p { margin-bottom: 16px; color: #b0b0b0; }
+    a { color: #4a9eff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav { background: #111; padding: 16px 20px; border-bottom: 1px solid #222; }
+    .nav-inner { max-width: 800px; margin: 0 auto; display: flex; gap: 20px; align-items: center; }
+    .nav a { color: #e0e0e0; }
+    .footer { border-top: 1px solid #222; padding: 24px 20px; text-align: center; color: #666; font-size: 0.9rem; }
+    .footer a { color: #4a9eff; }
+    .meta { display: flex; gap: 16px; margin-bottom: 24px; color: #888; font-size: 0.9rem; }
+    .tag { background: #1a3a5c; color: #4a9eff; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+    .difficulty { background: #2a1a3c; color: #c084fc; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; }
+    .read-more { margin-top: 32px; padding-top: 24px; border-top: 1px solid #222; }
+    .read-more h3 { color: #fff; font-size: 1.1rem; margin-bottom: 12px; }
+    .read-more a { display: block; padding: 12px; background: #111; border: 1px solid #222; border-radius: 8px; margin-bottom: 8px; color: #e0e0e0; text-decoration: none; }
+    .read-more a:hover { border-color: #4a9eff; }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="nav-inner">
+      <a href="/" style="font-weight: bold; font-size: 1.2rem;">MMOFinds</a>
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <div class="container">
+    <article>
+      <div class="meta">
+        <span class="tag">DIY</span>
+        <span>16. Mai 2026</span>
+        <span>·</span>
+        <span>15 Min. Lesezeit</span>
+        <span>·</span>
+        <span class="difficulty">Schwierigkeit: Mittel</span>
+      </div>
+      <h1>KI-Sicherheitskamera mit Raspberry Pi bauen</h1>
+      <p>Baue deine eigene KI-gestützte Sicherheitskamera mit Raspberry Pi 5. Sie erkennt Personen, Fahrzeuge und Bewegungen, sendet Push-Benachrichtigungen und speichert Videos lokal — komplett ohne Cloud.</p>
+      <h2>💡 Warum eine KI-Sicherheitskamera?</h2>
+      <p>Traditionelle Überwachungskameras senden nur Videos — sie verstehen nicht, WAS sie sehen. Eine KI-Sicherheitskamera kann:</p>
+      <ul>
+        <li>Personen von Tieren und Fahrzeugen unterscheiden</li>
+        <li>Bekannte vs. unbekannte Personen erkennen</li>
+        <li>Verdächtiges Verhalten erkennen</li>
+        <li>Nur bei echten Alerts benachrichtigen (kein False-Positive)</li>
+        <li>Videos lokal speichern (keine Cloud-Abonnement)</li>
+      </ul>
+      <h2>📦 Materialliste</h2>
+      <ul>
+        <li><strong>Raspberry Pi 5 (8GB)</strong> — ~80€</li>
+        <li><strong>Raspberry Pi Camera Module 3</strong> — ~40€</li>
+        <li><strong>NVMe SSD 256GB</strong> — ~30€</li>
+        <li><strong>Pi 5 Gehäuse mit Kühlung</strong> — ~20€</li>
+        <li><strong>PoE HAT</strong> — ~15€</li>
+        <li><strong>PoE Switch oder Injector</strong> — ~25€</li>
+        <li><strong>Outdoor Housing</strong> — ~15€</li>
+      </ul>
+      <p><strong>Gesamtkosten: ~225€</strong></p>
+      <h2>Schritt 1: Raspberry Pi vorbereiten</h2>
+      <p>Lade Raspberry Pi OS Lite (64-bit) herunter und schreibe es mit dem Pi Imager auf die MicroSD-Karte. Aktiviere SSH und konfiguriere WLAN.</p>
+      <h2>Schritt 2: KI-Software installieren</h2>
+      <p>Installiere die benötigten Bibliotheken:</p>
+      <ul>
+        <li><strong>OpenCV</strong> — Bildverarbeitung</li>
+        <li><strong>YOLOv8</strong> — Objekt-Erkennung</li>
+        <li><strong>Face Recognition</strong> — Gesichtserkennung</li>
+        <li><strong>Home Assistant</strong> — Integration und Alerts</li>
+      </ul>
+      <h2>Schritt 3: Kamera konfigurieren</h2>
+      <p>Verbinde das Camera Module 3 mit dem Pi 5 und konfiguriere die Aufnahme-Settings. Das Module 3 bietet 12MP Auflösung und HDR-Unterstützung für beste Bildqualität bei allen Lichtverhältnissen.</p>
+      <h2>Schritt 4: KI-Modelle trainieren</h2>
+      <p>Das YOLOv8-Modell wird mit eigenen Bildern trainiert, um spezifische Objekte zu erkennen. Du kannst Personen, Fahrzeuge, Tiere und andere Objekte definieren. Das Modell lernt aus deinen Bildern und wird immer genauer.</p>
+      <h2>Schritt 5: Alerts und Benachrichtigungen</h2>
+      <p>Konfiguriere Push-Benachrichtigungen über Home Assistant oder Telegram. Du erhältst Alerts nur bei echten Events — keine False-Positives mehr durch wind oder Schatten.</p>
+      <h2>✅ Was du bekommst</h2>
+      <ul>
+        <li>24/7 Überwachung mit KI-Verständnis</li>
+        <li>Push-Benachrichtigungen bei echten Alerts</li>
+        <li>Lokale Video-Speicherung (keine Cloud)</li>
+        <li>Personen- und Fahrzeug-Erkennung</li>
+        <li>Bekannte vs. unbekannte Personen</li>
+        <li>Web-Dashboard für Live-View</li>
+      </ul>
+      <h2>🔮 Fazit</h2>
+      <p>Eine KI-Sicherheitskamera mit Raspberry Pi kostet unter 250€ und bietet mehr Intelligence als viele Cloud-basierte Systeme. Plus: Deine Daten bleiben lokal — kein Tracking, keine Abhängigkeit von Internet.</p>
+      <div class="read-more">
+        <h3>Weiterlesen</h3>
+        <a href="/diy/raspberry-pi-smart-home-hub.html">🏠 DIY Raspberry Pi 5 Smart Home Hub</a>
+        <a href="/diy/ai-assistent-raspberry-pi.html">🤖 DIY Eigenen AI-Assistenten mit Raspberry Pi</a>
+      </div>
+    </article>
+  </div>
+  <div class="footer">
+    <p>© 2026 MMOFinds — <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></p>
+  </div>
+</body>
+</html>
