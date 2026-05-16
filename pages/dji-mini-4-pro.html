@@ -59,7 +59,18 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
 .buy-button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
 .footer { text-align: center; padding: 40px 24px; border-top: 1px solid var(--border); margin-top: 64px; color: var(--text-muted); font-size: 13px; }
 @media (max-width: 768px) { .article h1 { font-size: 32px; } .pros-cons { grid-template-columns: 1fr; } .article-image { font-size: 80px; } }
-  </style>
+  
+@media (max-width: 600px) {
+  .review-hero { padding: 20px 16px; }
+  .review-hero-image { max-height: 200px; }
+  .review-headline { font-size: 24px; }
+  .review-subheadline { font-size: 16px; }
+  .benefit-card { padding: 16px; }
+  .use-case-card { padding: 16px; }
+  .pros-cons-section { flex-direction: column; }
+  .verdict-section { padding: 20px 16px; }
+  .products-section { padding: 20px 16px; }
+}</style>
 </head>
 <body>
 
