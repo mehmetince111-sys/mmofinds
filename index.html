@@ -217,6 +217,27 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .hero {
+    padding: 60px 16px 40px;
+  }
+  .hero h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 12px 30px;
+  }
+  .hero h1 {
+    font-size: 28px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -297,6 +318,18 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   padding: 40px 24px;
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding: 32px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 24px 12px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -549,6 +582,21 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+}
+
 .card {
   background: var(--bg-card);
   border-radius: var(--radius);
@@ -722,6 +770,20 @@ body {
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 40px;
   margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }
 
 @media (max-width: 900px) {
