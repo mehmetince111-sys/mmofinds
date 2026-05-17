@@ -27,7 +27,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 .card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
 .card-image { width:100%; aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; font-size:48px; }
 .card-image img { width:100%; height:100%; object-fit:cover; }
-.card-image-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:48px; background:linear-gradient(135deg,#eff6ff,#dbeafe); }
+
 .card-body { padding:20px; flex:1; display:flex; flex-direction:column; }
 .card-meta { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
 .card-tag { padding:3px 8px; border-radius:10px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:white; background:var(--tag-review); }
@@ -46,6 +46,19 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
   </style>
 </head>
 <body>
+    <div class="nav-bar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Start</a>
+                <a href="/news/" class="nav-link">News</a>
+                <a href="/diy/" class="nav-link">DIY</a>
+                <a href="/pages/" class="nav-link">Reviews</a>
+                <a href="/impressum.html" class="nav-link">Impressum</a>
+                <a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+            </div>
+        </div>
+    </div>
   <header class="top-bar">
     <div class="top-bar-inner">
       <a href="/" class="logo"><span class="logo-icon">⚡</span>MMOFinds</a>
@@ -66,7 +79,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
     </div>
     <div class="cards-grid">
       <a href="/pages/iphone-16-pro.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">📱</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&q=80" alt="apple-airpods-pro-2" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.9 ★</span></div>
           <h4>iPhone 16 Pro</h4>
@@ -74,7 +87,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/samsung-galaxy-s25-ultra.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">📱</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&q=80" alt="bose-quietcomfort-ultra" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.8 ★</span></div>
           <h4>Samsung Galaxy S25 Ultra</h4>
@@ -82,7 +95,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/apple-airpods-pro-2.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🎵</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&q=80" alt="iphone-16-pro" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.9 ★</span></div>
           <h4>Apple AirPods Pro 2</h4>
@@ -90,7 +103,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/sony-wh-1000xm5.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🎧</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=80" alt="jbl-charge-5" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.8 ★</span></div>
           <h4>Sony WH-1000XM5</h4>
@@ -98,7 +111,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/bose-quietcomfort-ultra.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🎶</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80" alt="macbook-air-m4" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.7 ★</span></div>
           <h4>Bose Quietcomfort Ultra</h4>
@@ -106,7 +119,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/dyson-v15-detect.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🧹</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=800&q=80" alt="nintendo-switch-2" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.7 ★</span></div>
           <h4>Dyson V15 Detect</h4>
@@ -114,7 +127,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/jbl-charge-5.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🔊</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=800&q=80" alt="playstation-5-pro" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.6 ★</span></div>
           <h4>JBL Charge 5</h4>
@@ -122,7 +135,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/logitech-mx-master-3s.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🖱️</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80" alt="sony-wh-1000xm5" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.9 ★</span></div>
           <h4>Logitech MX Master 3S</h4>
@@ -130,7 +143,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/macbook-air-m4.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">💻</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.8 ★</span></div>
           <h4>MacBook Air M4</h4>
@@ -138,7 +151,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/playstation-5-pro.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🎮</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.8 ★</span></div>
           <h4>PlayStation 5 Pro</h4>
@@ -146,7 +159,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/nintendo-switch-2.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🕹️</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1594027308808-24d752c107b3?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.7 ★</span></div>
           <h4>Nintendo Switch 2</h4>
@@ -154,7 +167,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/sony-wh1000xm4.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🎧</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.5 ★</span></div>
           <h4>Sony WH-1000XM4</h4>
@@ -162,7 +175,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/sennheiser-momentum-4.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🎧</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.4 ★</span></div>
           <h4>Sennheiser Momentum 4</h4>
@@ -170,7 +183,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/apple-watch-series-10.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">⌚</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.7 ★</span></div>
           <h4>Apple Watch Series 10</h4>
@@ -178,7 +191,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/samsung-galaxy-watch-7.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">⌚</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.3 ★</span></div>
           <h4>Samsung Galaxy Watch 7</h4>
@@ -186,7 +199,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/ipad-air-m3.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">📱</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1563292761-5f29d00b218c?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.7 ★</span></div>
           <h4>iPad Air M3</h4>
@@ -194,7 +207,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/sony-alpha-7c-ii.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">📷</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.7 ★</span></div>
           <h4>Sony Alpha 7C II</h4>
@@ -202,7 +215,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/canon-eos-r50.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">📷</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1595225476474-87563907a212?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.6 ★</span></div>
           <h4>Canon EOS R50</h4>
@@ -210,7 +223,7 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
         </div>
       </a>
       <a href="/pages/roborock-s8.html" class="card">
-        <div class="card-image"><div class="card-image-placeholder">🤖</div></div>
+        <div class="card-image"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Content" class="card-img"></div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span><span class="card-date">4.5 ★</span></div>
           <h4>Roborock S8</h4>
@@ -228,5 +241,18 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
     </div>
     <div class="footer-bottom"><span>© 2026 MMOFinds</span><span>Made with ❤️ in Germany</span></div>
   </footer>
-</body>
+<footer class="site-footer">
+        <div class="footer-content">
+            <h3>MMOFINDS</h3>
+            <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Startseite</a>
+                <a href="/news/">AI & Tech-News</a>
+                <a href="/diy/">DIY Projekte</a>
+                <a href="/pages/">Produkt-Reviews</a>
+            </div>
+            <p class="copyright">&copy; 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+    </body>
 </html>
