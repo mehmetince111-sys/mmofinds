@@ -31,7 +31,7 @@ NEWS_DIR = REPO_DIR / 'news'
 DIY_DIR = REPO_DIR / 'diy'
 ASSETS_DIR = REPO_DIR / 'assets'
 IMAGES_DIR = ASSETS_DIR / 'images'
-INDEX_PATH = REPO_DIR / 'pages' / 'index.html'
+INDEX_PATH = REPO_DIR / 'index.html'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
 AMAZON_TAG = 'mmofinds-20'
 
@@ -289,7 +289,8 @@ def search_amazon(product_name):
 
 
 def download_image_b64(url):
-    """Download image and convert to base64. FIXED: .{size}.jpg (with dot)."""
+    """Download image and convert to base64. FIXED: .{size}.jpg (with dot).
+    Returns empty string if download fails or content is not a valid image."""
     if not url:
         return ''
     sizes = ['_AC_SL1500_', '_AC_SX679_', '_AC_SL1000_', '_AC_SY879_', '_AC_SX522_']
@@ -300,21 +301,45 @@ def download_image_b64(url):
             img_url = re.sub(r'\._AC_[A-Z0-9_]+\.jpg$', f'.{size}.jpg', url)
         elif 'images/I/' in url and '._AC_' not in url:
             img_url = url.replace('.jpg', f'.{size}.jpg')
-        subprocess.run(
-            ['curl', '-sL', '-o', '/tmp/mmofinds-img.jpg',
+        
+        # Get HTTP status code and save file
+        result = subprocess.run(
+            ['curl', '-sL', '-o', '/tmp/mmofinds-img.jpg', '-w', '%{http_code}',
              '-H', f'User-Agent: {UA}',
              '-H', 'Referer: https://www.amazon.de/',
              img_url],
             capture_output=True, text=True, timeout=15
         )
+        http_code = result.stdout.strip()
+        
+        # Skip if HTTP error
+        if http_code.startswith('4') or http_code.startswith('5'):
+            continue
+        
         stat = subprocess.run(['stat', '-c%s', '/tmp/mmofinds-img.jpg'],
                               capture_output=True, text=True, timeout=5)
         size_val = int(stat.stdout.strip() or '0')
         if size_val > 1024:
-            b64 = subprocess.run(['base64', '-w0', '/tmp/mmofinds-img.jpg'],
-                                 capture_output=True, text=True, timeout=5)
-            os.unlink('/tmp/mmofinds-img.jpg')
-            return f'data:image/jpeg;base64,{b64.stdout.strip()}'
+            # Verify it's actually an image (not HTML error/CAPTCHA page)
+            try:
+                with open('/tmp/mmofinds-img.jpg', 'rb') as f:
+                    header = f.read(16)
+                # JPEG: FF D8 FF, PNG: 89 50 4E 47, GIF: 47 49 46
+                is_image = (header[:2] == b'\xff\xd8' or 
+                           header[:4] == b'\x89PNG' or 
+                           header[:3] == b'GIF')
+                if is_image:
+                    b64 = subprocess.run(['base64', '-w0', '/tmp/mmofinds-img.jpg'],
+                                         capture_output=True, text=True, timeout=5)
+                    os.unlink('/tmp/mmofinds-img.jpg')
+                    return f'data:image/jpeg;base64,{b64.stdout.strip()}'
+            except Exception:
+                pass
+            # Clean up non-image file
+            try:
+                os.unlink('/tmp/mmofinds-img.jpg')
+            except OSError:
+                pass
     return ''
 
 
@@ -823,12 +848,21 @@ def update_homepage():
     
     print(f'    Found: {len(review_pages)} reviews, {len(news_pages)} news, {len(diy_pages)} DIY')
     
+    # Image mappings for each category
+    category_images = {
+        'review': 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
+        'news': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
+        'diy': 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&q=80',
+    }
+    
     # Build cards HTML
     review_cards = ''
     for p in review_pages:
         review_cards += f'''
       <a href="{p['path']}" class="card">
-        <div class="card-image"><div class="card-image-placeholder">{p['emoji']}</div></div>
+        <div class="card-image">
+          <img src="{category_images['review']}" alt="{p['title']}" class="card-img">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag">Review</span></div>
           <h4>{p['title']}</h4>
@@ -840,7 +874,9 @@ def update_homepage():
     for p in news_pages:
         news_cards += f'''
       <a href="{p['path']}" class="card">
-        <div class="card-image"><div class="card-image-placeholder">{p['emoji']}</div></div>
+        <div class="card-image">
+          <img src="{category_images['news']}" alt="{p['title']}" class="card-img">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
           <h4>{p['title']}</h4>
@@ -852,7 +888,9 @@ def update_homepage():
     for p in diy_pages:
         diy_cards += f'''
       <a href="{p['path']}" class="card">
-        <div class="card-image"><div class="card-image-placeholder">{p['emoji']}</div></div>
+        <div class="card-image">
+          <img src="{category_images['diy']}" alt="{p['title']}" class="card-img">
+        </div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
           <h4>{p['title']}</h4>
@@ -860,31 +898,31 @@ def update_homepage():
         </div>
       </a>'''
     
-    # Replace cards in sections
-    # Reviews section
+    # Replace cards in sections — match cards-grid div closing + comment opening next section
+    # Reviews section (first cards-grid)
     index_content = re.sub(
-        r'(<div class="cards-grid">)(.*?)(</div>\s*</section>)',
-        lambda m: m.group(1) + review_cards + '\n        ' + m.group(3),
+        r'(<div class="cards-grid">)(.*?)(</div>\s*<!--)',
+        lambda m: m.group(1) + review_cards + '\n    ' + m.group(3),
         index_content,
-        count=1,  # Only first occurrence (reviews section)
+        count=1,
         flags=re.DOTALL
     )
     
-    # News section
+    # News section (second cards-grid)
     index_content = re.sub(
-        r'(<div class="cards-grid">)(.*?)(</div>\s*</section>)',
-        lambda m: m.group(1) + news_cards + '\n        ' + m.group(3),
+        r'(<div class="cards-grid">)(.*?)(</div>\s*<!--)',
+        lambda m: m.group(1) + news_cards + '\n    ' + m.group(3),
         index_content,
-        count=1,  # Only first occurrence after reviews
+        count=1,
         flags=re.DOTALL
     )
     
-    # DIY section
+    # DIY section (third cards-grid)
     index_content = re.sub(
-        r'(<div class="cards-grid">)(.*?)(</div>\s*</section>)',
-        lambda m: m.group(1) + diy_cards + '\n        ' + m.group(3),
+        r'(<div class="cards-grid">)(.*?)(</div>\s*<!--)',
+        lambda m: m.group(1) + diy_cards + '\n    ' + m.group(3),
         index_content,
-        count=1,  # Only first occurrence after news
+        count=1,
         flags=re.DOTALL
     )
     
@@ -979,12 +1017,21 @@ def git_deploy():
     """Git add, commit, push. Only HTML files."""
     try:
         r = subprocess.run(
-            ['git', 'add', 'pages/*.html', 'news/*.html', 'diy/*.html', 'pages/index.html'],
+            ['git', 'add', 'pages/*.html', 'news/*.html', 'diy/*.html', 'pages/index.html', 'index.html'],
             capture_output=True, text=True, timeout=10, cwd=str(REPO_DIR)
         )
         if r.returncode != 0:
             print(f'  Git add error: {r.stderr[:200]}')
             return False
+        
+        # Check if there are any changes to commit
+        r = subprocess.run(
+            ['git', 'diff', '--cached', '--name-only'],
+            capture_output=True, text=True, timeout=10, cwd=str(REPO_DIR)
+        )
+        if not r.stdout.strip():
+            print('  ℹ️  No HTML changes to commit')
+            return True  # Not a failure, just no changes
         
         r = subprocess.run(
             ['git', 'commit', '-m', f'Auto-deploy: {datetime.now().strftime("%Y-%m-%d %H:%M")}'],
@@ -994,6 +1041,15 @@ def git_deploy():
         if r.returncode != 0 and 'nothing to commit' not in r.stdout and 'nothing to commit' not in r.stderr:
             print(f'  Git commit error: {r.stderr[:200]}')
             return False
+        
+        # Pull before push to handle concurrent changes
+        r = subprocess.run(
+            ['git', 'pull', '--rebase', 'origin', 'main'],
+            capture_output=True, text=True, timeout=60, cwd=str(REPO_DIR),
+            env={**os.environ, 'GIT_TERMINAL_PROMPT': '0'}
+        )
+        if r.returncode != 0:
+            print(f'  Git pull warning: {r.stderr[:200]}')
         
         r = subprocess.run(
             ['git', 'push', 'origin', 'master:main'],
