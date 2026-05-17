@@ -94,7 +94,7 @@ PRODUCTS = [
      'Kindle Paperwhite 2024', 'B0BLRDK3YP'),
 ]
 
-# AI News Themen (rotierend)
+# AI News Themen (rotierend) mit Bild-Zuordnung
 AI_NEWS_TOPICS = [
     {
         'title': 'OpenAI startet GPT-5 mit revolutionären Multi-Modal-Fähigkeiten',
@@ -103,6 +103,7 @@ AI_NEWS_TOPICS = [
         'accent': '#8b5cf6',
         'summary': 'OpenAI hat GPT-5 vorgestellt — ein Modell, das Text, Bilder, Video und Audio in einem einzigen Durchgang verarbeitet. Die Ergebnisse übertreffen alle bisherigen Benchmarks.',
         'tags': ['OpenAI', 'GPT-5', 'Multi-Modal'],
+        'image': '/tmp/news-sprachmodelle.jpg',
     },
     {
         'title': 'Google DeepMind entwickelt KI, die Proteine in Sekunden designen kann',
@@ -111,6 +112,7 @@ AI_NEWS_TOPICS = [
         'accent': '#06b6d4',
         'summary': 'Googles neuer KI-Algorithmus kann neuartige Proteine designen, die in der Natur so nicht vorkommen. Der Durchbruch könnte die Medikamentenentwicklung um Jahre beschleunigen.',
         'tags': ['Google', 'DeepMind', 'Protein-Design'],
+        'image': '/tmp/news-medizin.jpg',
     },
     {
         'title': 'Tesla Optimus Roboter beeindruckt mit alltäglichen Fähigkeiten',
@@ -119,6 +121,7 @@ AI_NEWS_TOPICS = [
         'accent': '#ef4444',
         'summary': 'Teslas humanoider Roboter Optimus kann jetzt komplexe Aufgaben im Haushalt erledigen — von Geschirr spülen bis Wäsche falten. Der Fortschritt ist beeindruckend.',
         'tags': ['Tesla', 'Optimus', 'Humanoider Roboter'],
+        'image': '/tmp/news-roboter.jpg',
     },
     {
         'title': 'Neue KI-Modelle können Code schreiben, der schneller ist als menschliche Entwickler',
@@ -127,6 +130,7 @@ AI_NEWS_TOPICS = [
         'accent': '#22c55e',
         'summary': 'Autonome KI-Agenten wie Devin und SWE-agent können komplette Software-Projekte von der Spezifikation bis zur Deployment implementieren — in Stunden statt Wochen.',
         'tags': ['Coding', 'Autonome Agenten', 'Software-Entwicklung'],
+        'image': '/tmp/news-coding.jpg',
     },
     {
         'title': 'KI in der Medizin: Früherkennung von Krebs mit 97% Genauigkeit',
@@ -135,6 +139,7 @@ AI_NEWS_TOPICS = [
         'accent': '#f97316',
         'summary': 'Ein neues KI-System von Stanford kann Krebsarten in Blutproben mit 97% Genauigkeit erkennen — Jahre bevor Symptome auftreten. Ein Durchbruch für die Präventivmedizin.',
         'tags': ['Medical AI', 'Krebsfrüherkennung', 'Stanford'],
+        'image': '/tmp/news-medizin.jpg',
     },
     {
         'title': 'Apple Intelligence: KI direkt auf dem iPhone — ohne Cloud',
@@ -143,10 +148,11 @@ AI_NEWS_TOPICS = [
         'accent': '#6366f1',
         'summary': 'Apples neue KI-Funktionen laufen komplett lokal auf dem M4-Chip. Writing Tools, Image Playground und Smart Replies — alles ohne Internetverbindung.',
         'tags': ['Apple', 'On-Device AI', 'Apple Intelligence'],
+        'image': '/tmp/news-smartphones.jpg',
     },
 ]
 
-# DIY Projekte
+# DIY Projekte mit Bild-Zuordnung
 DIY_PROJECTS = [
     {
         'title': 'Eigenen AI-Assistenten mit Raspberry Pi bauen',
@@ -154,6 +160,7 @@ DIY_PROJECTS = [
         'emoji': '🤖',
         'accent': '#8b5cf6',
         'summary': 'Baue deinen eigenen offline AI-Assistenten mit Raspberry Pi 5, Sprachsteuerung und lokalem LLM. Komplette Anleitung mit Materialliste.',
+        'image': '/tmp/diy-raspberry-pi.jpg',
         'materials': [
             ('Raspberry Pi 5 (4GB)', 'B0CX23V2ZK', '~75€'),
             ('MicroSD-Karte 64GB', 'B08843N3JW', '~10€'),
@@ -176,15 +183,16 @@ DIY_PROJECTS = [
         'emoji': '🏠',
         'accent': '#22c55e',
         'summary': 'Installiere Home Assistant auf deinem NAS und vernetze alle Smart-Home-Geräte zentral. Datenschutzfreundlich und komplett lokal.',
+        'image': '/tmp/diy-smart-home.jpg',
         'materials': [
             ('Synology NAS (oder bestehendes)', '', 'Bestehend'),
-            ('Ethernet-Kabel Cat6', 'B08B3F8Q7T', '~5€'),
+            ('Ethernet-Kabel Cat6', 'B0B8RZ3K8V', '~5€'),
             ('Zigbee-Dongel (Sonoff)', 'B0B8RZ3K8V', '~20€'),
         ],
         'steps': [
             'Docker auf NAS installieren',
             'Home Assistant Container deployen',
-            'Zigbee-Dongel anschließen undPAIRING',
+            'Zigbee-Dongel anschließen und PAIRING',
             'Geräte hinzufügen (Philips Hue, Tuya, etc.)',
             'Automatisierungen erstellen',
             'Mobile App einrichten für Fernzugriff',
@@ -196,6 +204,7 @@ DIY_PROJECTS = [
         'emoji': '⌨️',
         'accent': '#06b6d4',
         'summary': 'Baue deine eigene mechanische Tastatur mit Keychron Q1 Pro Kit. Wireless, RGB, und ein tippen wie auf Wolken.',
+        'image': '/tmp/diy-keyboard.jpg',
         'materials': [
             ('Keychron Q1 Pro Kit', 'B0B8RZ3K8V', '~189€'),
             ('Gateron Brown Switches', 'B07B4H8V4K', '~3€ pro Switch'),
@@ -487,9 +496,25 @@ def generate_review_html(key, name, category, asin, image_b64, content):
 # HTML GENERATION — AI News Article
 # ============================================================
 
+def image_to_data_url(image_path):
+    """Convert an image file to a base64 data URL."""
+    if not image_path or not os.path.exists(image_path):
+        return None
+    try:
+        with open(image_path, 'rb') as f:
+            data = f.read()
+        import base64
+        b64 = base64.b64encode(data).decode('utf-8')
+        return f'data:image/jpeg;base64,{b64}'
+    except Exception as e:
+        print(f'  ⚠️  Could not load image {image_path}: {e}')
+        return None
+
+
 def generate_news_html(topic):
-    """Generate an AI news article page."""
+    """Generate an AI news article page with real image."""
     today = datetime.now().strftime('%d.%m.%Y')
+    image_url = image_to_data_url(topic.get('image', ''))
     
     json_ld = json.dumps({
         "@context": "https://schema.org",
@@ -499,6 +524,23 @@ def generate_news_html(topic):
         "author": {"@type": "Organization", "name": "MMOFinds"},
         "articleSection": topic['category']
     }, ensure_ascii=False)
+    
+    # Hero section: use real image if available, fallback to gradient
+    if image_url:
+        hero_html = f'''<div class="news-hero" style="position: relative; padding: 40px 0;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; background-image: url(\'{image_url}\'); opacity: 0.3; border-radius: 16px;"></div>
+                <div style="position: relative; z-index: 1;">
+                <span class="card-tag" style="background: {topic['accent']};">{topic['category']}</span>
+                <h1 class="review-headline" style="margin-top: 16px;">{topic['title']}</h1>
+                <p style="color: var(--text-muted); margin-top: 8px;">{today} · {topic['emoji']}</p>
+                </div>
+            </div>'''
+    else:
+        hero_html = f'''<div class="news-hero" style="background: linear-gradient(135deg, {topic['accent']}22, {topic['accent']}11); padding: 40px 0;">
+                <span class="card-tag" style="background: {topic['accent']};">{topic['category']}</span>
+                <h1 class="review-headline" style="margin-top: 16px;">{topic['title']}</h1>
+                <p style="color: var(--text-muted); margin-top: 8px;">{today} · {topic['emoji']}</p>
+            </div>'''
     
     html = f'''<!DOCTYPE html>
 <html lang="de">
@@ -510,6 +552,7 @@ def generate_news_html(topic):
     <meta property="og:title" content="{topic['title']} | MMOFinds">
     <meta property="og:description" content="{topic['summary']}">
     <meta property="og:type" content="article">
+    <meta property="og:image" content="{image_url or ''}">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="canonical" href="https://mmofinds.de/news/{topic['slug']}.html">
     <script type="application/ld+json">{json_ld}</script>
@@ -528,11 +571,7 @@ def generate_news_html(topic):
     </header>
     <main class="main-content">
         <article>
-            <div class="news-hero" style="background: linear-gradient(135deg, {topic['accent']}22, {topic['accent']}11); padding: 40px 0;">
-                <span class="card-tag" style="background: {topic['accent']};">{topic['category']}</span>
-                <h1 class="review-headline" style="margin-top: 16px;">{topic['title']}</h1>
-                <p style="color: var(--text-muted); margin-top: 8px;">{today} · {topic['emoji']}</p>
-            </div>
+            {hero_html}
             <div style="padding: 32px 0;">
                 <p style="font-size: 18px; line-height: 1.8; margin-bottom: 24px;">{topic['summary']}</p>
                 <p style="line-height: 1.8; margin-bottom: 24px;">
@@ -567,8 +606,9 @@ def generate_news_html(topic):
 # ============================================================
 
 def generate_diy_html(project):
-    """Generate a DIY project page with material list and steps."""
+    """Generate a DIY project page with material list, steps, and real image."""
     today = datetime.now().strftime('%d.%m.%Y')
+    image_url = image_to_data_url(project.get('image', ''))
     
     # Build material list
     materials_html = ''
@@ -605,6 +645,23 @@ def generate_diy_html(project):
         "articleSection": project['category']
     }, ensure_ascii=False)
     
+    # Hero section: use real image if available, fallback to gradient
+    if image_url:
+        hero_html = f'''<div class="news-hero" style="position: relative; padding: 40px 0;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center; background-image: url(\'{image_url}\'); opacity: 0.3; border-radius: 16px;"></div>
+                <div style="position: relative; z-index: 1;">
+                <span class="card-tag" style="background: {project['accent']};">{project['category']}</span>
+                <h1 class="review-headline" style="margin-top: 16px;">{project['title']}</h1>
+                <p style="color: var(--text-muted); margin-top: 8px;">{today} · {project['emoji']}</p>
+                </div>
+            </div>'''
+    else:
+        hero_html = f'''<div class="news-hero" style="background: linear-gradient(135deg, {project['accent']}22, {project['accent']}11); padding: 40px 0;">
+                <span class="card-tag" style="background: {project['accent']};">{project['category']}</span>
+                <h1 class="review-headline" style="margin-top: 16px;">{project['title']}</h1>
+                <p style="color: var(--text-muted); margin-top: 8px;">{today} · {project['emoji']}</p>
+            </div>'''
+    
     html = f'''<!DOCTYPE html>
 <html lang="de">
 <head>
@@ -615,6 +672,7 @@ def generate_diy_html(project):
     <meta property="og:title" content="{project['title']} | MMOFinds DIY">
     <meta property="og:description" content="{project['summary']}">
     <meta property="og:type" content="article">
+    <meta property="og:image" content="{image_url or ''}">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="canonical" href="https://mmofinds.de/diy/{project['slug']}.html">
     <script type="application/ld+json">{json_ld}</script>
@@ -633,11 +691,7 @@ def generate_diy_html(project):
     </header>
     <main class="main-content">
         <article>
-            <div class="news-hero" style="background: linear-gradient(135deg, {project['accent']}22, {project['accent']}11); padding: 40px 0;">
-                <span class="card-tag" style="background: {project['accent']};">{project['category']}</span>
-                <h1 class="review-headline" style="margin-top: 16px;">{project['title']}</h1>
-                <p style="color: var(--text-muted); margin-top: 8px;">{today} · {project['emoji']}</p>
-            </div>
+            {hero_html}
             <div style="padding: 32px 0;">
                 <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px 20px; margin-bottom: 32px; border-radius: 0 8px 8px 0;">
                     <strong>Warum dieses Projekt?</strong> {project['summary']}
