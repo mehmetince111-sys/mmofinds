@@ -79,9 +79,9 @@ def download_image_b64(url):
     for size in sizes:
         img_url = url
         if 'images/I/' in url and '._AC_' in url:
-            img_url = re.sub(r'\._AC_[A-Z0-9_]+\.jpg$', f'.{size}jpg', url)
+            img_url = re.sub(r'\._AC_[A-Z0-9_]+\.jpg$', f'.{size}.jpg', url)
         elif 'images/I/' in url and '._AC_' not in url:
-            img_url = url.replace('.jpg', f'.{size}jpg')
+            img_url = url.replace('.jpg', f'.{size}.jpg')
         subprocess.run(
             ['curl', '-sL', '-o', '/tmp/mmofinds-img.jpg',
              '-H', f'User-Agent: {UA}',
