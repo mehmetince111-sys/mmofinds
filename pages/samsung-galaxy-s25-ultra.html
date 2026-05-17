@@ -154,6 +154,55 @@
     .footer-links { flex-direction: column; gap: 10px; }
 }
 
+/* Offers / Color variants section */
+.offers-section { margin: 40px 0; }
+.offers-section h2 {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e94560;
+}
+.product-colors {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+.color-variant {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+}
+.color-variant:hover {
+    transform: translateY(-3px);
+    border-color: #e94560;
+}
+.color-variant img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: contain;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+.color-variant h3 {
+    color: #fff;
+    font-size: 1em;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+.color-variant .price {
+    color: #53d769;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+}
+
   </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -292,7 +341,7 @@
             <h2>Die besten Angebote</h2>
             <div class="product-colors">
                 <div class="color-variant">
-                    <img src="https://images.unsplash.com/photo-1610945265078-3858a0828671?w=800&q=80" alt="Samsung Galaxy S25 Ultra — Arctic Titanium" width="600" height="600" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1610945265078-3858a0828671?w=800&q=80" alt="Samsung Galaxy S25 Ultra — Arctic Titanium" loading="lazy">
                     <h3>Samsung Galaxy S25 Ultra — Arctic Titanium</h3>
                     <p class="price">Preis prüfen</p>
                     <a href="https://www.amazon.de/dp/B0DS9DQJ8S?tag=mmofinds-20&linkCode=ogi&th=1"
@@ -302,7 +351,7 @@
                     </a>
                 </div>
                 <div class="color-variant">
-                    <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=600&q=80" alt="Samsung Galaxy S25 Ultra — Black" width="600" height="600" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=600&q=80" alt="Samsung Galaxy S25 Ultra — Black" loading="lazy">
                     <h3>Samsung Galaxy S25 Ultra — Black</h3>
                     <p class="price">Preis prüfen</p>
                     <a href="https://www.amazon.de/dp/B0DS9DQJ8S?tag=mmofinds-20&linkCode=ogi&th=1"
@@ -312,7 +361,7 @@
                     </a>
                 </div>
                 <div class="color-variant">
-                    <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80" alt="Samsung Galaxy S25 Ultra — Silver Shadow" width="600" height="600" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80" alt="Samsung Galaxy S25 Ultra — Silver Shadow" loading="lazy">
                     <h3>Samsung Galaxy S25 Ultra — Silver Shadow</h3>
                     <p class="price">Preis prüfen</p>
                     <a href="https://www.amazon.de/dp/B0DS9DQJ8S?tag=mmofinds-20&linkCode=ogi&th=1"
@@ -322,7 +371,7 @@
                     </a>
                 </div>
                 <div class="color-variant">
-                    <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80" alt="Samsung Galaxy S25 Ultra — Silver" width="600" height="600" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=600&q=80" alt="Samsung Galaxy S25 Ultra — Silver" loading="lazy">
                     <h3>Samsung Galaxy S25 Ultra — Silver</h3>
                     <p class="price">Preis prüfen</p>
                     <a href="https://www.amazon.de/dp/B0DS9DQJ8S?tag=mmofinds-20&linkCode=ogi&th=1"
