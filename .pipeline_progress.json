@@ -1,0 +1,35 @@
+{
+  "completed_products": [
+    "iphone-16-pro",
+    "samsung-galaxy-s25-ultra",
+    "google-pixel-9-pro",
+    "sony-wh1000xm5",
+    "apple-airpods-pro-2",
+    "bose-quietcomfort-ultra",
+    "sennheiser-momentum-4",
+    "apple-watch-series-10",
+    "samsung-galaxy-watch-7",
+    "ipad-air-m3",
+    "sony-alpha-7c-ii",
+    "canon-eos-r50",
+    "macbook-air-m4",
+    "logitech-mx-master-3s",
+    "dyson-v15-detect",
+    "roborock-s8",
+    "kindle-paperwhite-2024"
+  ],
+  "completed_news": [
+    "OpenAI_startet_GPT-5_mit_revolutionären_Multi-Moda",
+    "Google_DeepMind_entwickelt_KI,_die_Proteine_in_Sek",
+    "Tesla_Optimus_Roboter_beeindruckt_mit_alltäglichen",
+    "Neue_KI-Modelle_können_Code_schreiben,_der_schnell",
+    "KI_in_der_Medizin:_Früherkennung_von_Krebs_mit_97%",
+    "Apple_Intelligence:_KI_direkt_auf_dem_iPhone_—_ohn"
+  ],
+  "completed_diy": [
+    "Eigenen_AI-Assistenten_mit_Raspberry_Pi_bauen",
+    "Smart_Home_Hub_mit_Home_Assistant_auf_NAS",
+    "Mechanische_Tastatur_selbst_bauen_—_Keychron_Q1_Pr"
+  ],
+  "last_run": "2026-05-17T16:43:47.865941"
+}

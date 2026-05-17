@@ -1090,6 +1090,7 @@ def main():
             continue
         
         slug = re.sub(r'[^a-z0-9äöüß-]', '-', topic['title'].lower()).strip('-')
+        topic['slug'] = slug
         filepath = NEWS_DIR / f'{slug}.html'
         html = generate_news_html(topic)
         with open(filepath, 'w', encoding='utf-8') as f:
@@ -1110,6 +1111,7 @@ def main():
             continue
         
         slug = re.sub(r'[^a-z0-9äöüß-]', '-', project['title'].lower()).strip('-')
+        project['slug'] = slug
         filepath = DIY_DIR / f'{slug}.html'
         html = generate_diy_html(project)
         with open(filepath, 'w', encoding='utf-8') as f:
