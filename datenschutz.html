@@ -6,6 +6,83 @@
   <title>Datenschutz | MMOFinds</title>
   <meta name="theme-color" content="#1a73e8">
   <style>
+
+/* === MMOFinds Unified Styles === */
+.nav-bar {
+    background: #1a1a2e;
+    padding: 12px 20px;
+    border-bottom: 2px solid #e94560;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-logo {
+    font-size: 1.4em;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+}
+.nav-logo span { color: #e94560; }
+.nav-links { display: flex; gap: 20px; align-items: center; }
+.nav-link {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+.nav-link:hover, .nav-link.active { color: #e94560; }
+
+.site-footer {
+    background: #0a0a1a;
+    padding: 40px 20px;
+    border-top: 1px solid #1a1a2e;
+    margin-top: 60px;
+}
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+.footer-content h3 {
+    color: #fff;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+.footer-content p {
+    color: #666;
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+.footer-links a {
+    color: #e94560;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.footer-links a:hover { text-decoration: underline; }
+.copyright { color: #444 !important; font-size: 0.8em !important; }
+
+@media (max-width: 768px) {
+    .nav-inner { flex-direction: column; gap: 10px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .footer-links { flex-direction: column; gap: 10px; }
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
@@ -506,6 +583,21 @@ body {
 </style>
 </head>
 <body>
+    <div class="nav-bar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links">
+                
+<a href="/" class="nav-link">Start</a>
+<a href="/news/" class="nav-link">News</a>
+<a href="/diy/" class="nav-link">DIY</a>
+<a href="/pages/" class="nav-link">Reviews</a>
+<a href="/impressum.html" class="nav-link">Impressum</a>
+<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+
+            </div>
+        </div>
+    </div>
   <header class="top-app-bar">
     <a href="/" class="logo"><span class="logo-icon">🎧</span> MMOFinds</a>
     <nav class="nav-links">
@@ -532,14 +624,21 @@ body {
 <p>Sie haben jederzeit das Recht auf unbeschränkte Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten.</p>
     </div>
   </main>
-  <footer class="site-footer">
-    <div class="footer-content">
-      <span style="font-size: 14px; color: var(--on-surface-variant);">© 2026 MMOFinds</span>
-      <div class="footer-links">
-        <a href="/impressum.html" class="footer-link">Impressum</a>
-        <a href="/datenschutz.html" class="footer-link">Datenschutz</a>
-      </div>
-    </div>
-  </footer>
+  
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <h3>MMOFINDS</h3>
+            <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Startseite</a>
+                <a href="/news/">AI & Tech-News</a>
+                <a href="/diy/">DIY Projekte</a>
+                <a href="/pages/">Produkt-Reviews</a>
+            </div>
+            <p class="copyright">&copy; 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
