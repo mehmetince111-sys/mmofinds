@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eigenen AI-Assistenten mit Raspberry Pi bauen | MMOFinds DIY</title>
+    <meta name="description" content="Baue deinen eigenen offline AI-Assistenten mit Raspberry Pi 5, Sprachsteuerung und lokalem LLM. Komplette Anleitung mit Materialliste.">
+    <meta property="og:title" content="Eigenen AI-Assistenten mit Raspberry Pi bauen | MMOFinds DIY">
+    <meta property="og:description" content="Baue deinen eigenen offline AI-Assistenten mit Raspberry Pi 5, Sprachsteuerung und lokalem LLM. Komplette Anleitung mit Materialliste.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="canonical" href="https://mmofinds.de/diy/eigenen-ai-assistenten-mit-raspberry-pi-bauen.html">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Eigenen AI-Assistenten mit Raspberry Pi bauen", "datePublished": "17.05.2026", "author": {"@type": "Organization", "name": "MMOFinds"}, "articleSection": "AI Assistant"}</script>
+</head>
+<body>
+    <header class="top-app-bar">
+        <div class="main-content">
+            <a href="/" class="logo">MMO<span>Finds</span></a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/news/">News</a>
+                <a href="/diy/" class="active">DIY</a>
+                <a href="/pages/">Reviews</a>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <article>
+            <div class="news-hero" style="background: linear-gradient(135deg, #8b5cf622, #8b5cf611); padding: 40px 0;">
+                <span class="card-tag" style="background: #8b5cf6;">AI Assistant</span>
+                <h1 class="review-headline" style="margin-top: 16px;">Eigenen AI-Assistenten mit Raspberry Pi bauen</h1>
+                <p style="color: var(--text-muted); margin-top: 8px;">17.05.2026 · 🤖</p>
+            </div>
+            <div style="padding: 32px 0;">
+                <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 16px 20px; margin-bottom: 32px; border-radius: 0 8px 8px 0;">
+                    <strong>Warum dieses Projekt?</strong> Baue deinen eigenen offline AI-Assistenten mit Raspberry Pi 5, Sprachsteuerung und lokalem LLM. Komplette Anleitung mit Materialliste.
+                </div>
+                
+                <h2 style="margin: 32px 0 16px;">📦 Materialliste</h2>
+                <div class="materials-list">
+                    <ul>
+            <li>
+                <a href="https://www.amazon.de/dp/B0CX23V2ZK?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Raspberry Pi 5 (4GB)</a>
+                <span class="material-price">~75€</span>
+            </li>
+            <li>
+                <a href="https://www.amazon.de/dp/B08843N3JW?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">MicroSD-Karte 64GB</a>
+                <span class="material-price">~10€</span>
+            </li>
+            <li>
+                <a href="https://www.amazon.de/dp/B0CQRXW1Y5?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">USB-Mikrofon</a>
+                <span class="material-price">~25€</span>
+            </li>
+            <li>
+                <a href="https://www.amazon.de/dp/B0CX31FQVN?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Gehäuse mit Lüfter</a>
+                <span class="material-price">~15€</span>
+            </li>
+            <li>
+                <a href="https://www.amazon.de/dp/B07B4H8V4K?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">USB-C Netzteil 27W</a>
+                <span class="material-price">~12€</span>
+            </li></ul>
+                    <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
+                        * Affiliate-Links: Wenn du über diese Links kaufst, erhalten wir eine kleine Provision — für dich ohne Mehrkosten.
+                    </p>
+                </div>
+                
+                <h2 style="margin: 32px 0 16px;">🔧 Anleitung</h2>
+                
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-text">Raspberry Pi OS Lite installieren (raspi-config → SSH aktivieren)</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-text">Python 3.11 und pip installieren</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-text">Lokales LLM herunterladen (z.B. Phi-3 Mini via llama.cpp)</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-text">Wake-word-Erkennung einrichten (Porcupine oder Picovoice)</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-text">Sprachausgabe über Piper TTS konfigurieren</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">6</div>
+                <div class="step-text">Systemd-Service erstellen für automatischen Start</div>
+            </div>
+                
+                <div style="background: #eff6ff; padding: 20px; border-radius: 12px; margin-top: 32px; text-align: center;">
+                    <h3 style="margin-bottom: 8px;">✅ Fertig!</h3>
+                    <p style="color: var(--text-secondary);">Du hast das Projekt erfolgreich abgeschlossen. Viel Spaß damit!</p>
+                </div>
+            </div>
+            <div class="affiliate-disclosure">
+                <p>Als Amazon-Partner verdiene ich an qualifizierten Käufen. Links mit → sind Affiliate-Links.</p>
+            </div>
+        </article>
+    </main>
+    <footer class="site-footer">
+        <div class="main-content">
+            <div class="footer-links">
+                <a href="/impressum.html">Impressum</a>
+                <a href="/datenschutz.html">Datenschutz</a>
+            </div>
+            <p>© 2024 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>
