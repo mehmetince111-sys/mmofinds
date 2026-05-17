@@ -25,6 +25,159 @@
   </script>
 
   <style>
+
+/* === MMOFinds Unified Styles === */
+.nav-bar {
+    background: #1a1a2e;
+    padding: 12px 20px;
+    border-bottom: 2px solid #e94560;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-logo {
+    font-size: 1.4em;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+}
+.nav-logo span { color: #e94560; }
+.nav-links { display: flex; gap: 20px; align-items: center; }
+.nav-link {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+.nav-link:hover, .nav-link.active { color: #e94560; }
+
+.site-footer {
+    background: #0a0a1a;
+    padding: 40px 20px;
+    border-top: 1px solid #1a1a2e;
+    margin-top: 60px;
+}
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+.footer-content h3 {
+    color: #fff;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+.footer-content p {
+    color: #666;
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+.footer-links a {
+    color: #e94560;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.footer-links a:hover { text-decoration: underline; }
+.copyright { color: #444 !important; font-size: 0.8em !important; }
+
+/* Card styles for listing pages */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin: 30px 0;
+}
+.card {
+    background: #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #2a2a4a;
+    transition: transform 0.2s, border-color 0.2s;
+    text-decoration: none;
+    display: block;
+}
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #e94560;
+}
+.card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background: #2a2a4a;
+}
+.card-body { padding: 16px; }
+.card-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.badge-review { background: #1e3a5f; color: #4a9eff; }
+.badge-news { background: #3b1f5e; color: #a855f7; }
+.badge-diy { background: #1a3a2e; color: #22c55e; }
+.card-title {
+    color: #fff;
+    font-size: 1.05em;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+.card-desc {
+    color: #888;
+    font-size: 0.85em;
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+}
+.card-meta {
+    color: #666;
+    font-size: 0.8em;
+}
+
+/* Section headers */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0 20px 0;
+}
+.section-header h2 {
+    color: #fff;
+    font-size: 1.4em;
+    margin: 0;
+}
+.section-header a {
+    color: #e94560;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+.section-header a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-inner { flex-direction: column; gap: 10px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .footer-links { flex-direction: column; gap: 10px; }
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 :root { --bg: #fafafa; --text: #0a0a0a; --text-secondary: #525252; --text-muted: #737373; --border: #e5e5e5; --accent: #059669; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -81,6 +234,21 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
   </style>
 </head>
 <body>
+    <div class="nav-bar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links">
+                
+<a href="/" class="nav-link">Start</a>
+<a href="/news/" class="nav-link">News</a>
+<a href="/diy/" class="nav-link">DIY</a>
+<a href="/pages/" class="nav-link">Reviews</a>
+<a href="/impressum.html" class="nav-link">Impressum</a>
+<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+
+            </div>
+        </div>
+    </div>
 
   <div class="top-bar"><div class="top-bar-inner"><a href="https://mmofinds.de/" class="logo">⚡ MMOFinds</a><a href="https://mmofinds.de/diy.html" class="back-link">← Zurück</a></div></div>
 
@@ -109,11 +277,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
       <h2>Was du brauchst</h2>
 
       <div class="materials-list"><h4>📦 Materialliste</h4><ul>
-          <li><a href="https://www.amazon.de/dp/B0CX23V2ZK?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Raspberry Pi 5 (8GB)</a> <span class="material-price">~75€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0B9CST2B6?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">NVMe SSD M.2 256GB</a> <span class="material-price">~30€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0CX4F8TPK?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">Pi 5 Gehäuse mit Kühlung</a> <span class="material-price">~15€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0CX31FQVN?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">USB-C Netzteil 27W</a> <span class="material-price">~12€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0B7CPS2ZV?tag=mmofinds-20" target="_blank" rel="nofollow sponsored noopener" class="material-name">M.2 NVMe zu USB Adapter</a> <span class="material-price">~15€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0CX23V2ZK?tag=mmofinds-20&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">Raspberry Pi 5 (8GB)</a> <span class="material-price">~75€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0B9CST2B6?tag=mmofinds-20&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">NVMe SSD M.2 256GB</a> <span class="material-price">~30€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0CX4F8TPK?tag=mmofinds-20&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">Pi 5 Gehäuse mit Kühlung</a> <span class="material-price">~15€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0CX31FQVN?tag=mmofinds-20&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">USB-C Netzteil 27W</a> <span class="material-price">~12€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0B7CPS2ZV?tag=mmofinds-20&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">M.2 NVMe zu USB Adapter</a> <span class="material-price">~15€</span></li>
       </ul>
 
       <p style="margin-top: 16px; font-weight: 700;">Gesamtkosten: ~147€</p>
@@ -157,6 +325,21 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; back
   <div class="footer"><p>© 2026 MMOFinds — Elektronik Magazin für Technik-Enthusiasten</p>
 
     <p style="margin-top: 8px;"><a href="https://mmofinds.de/impressum.html" style="color: var(--text-muted);">Impressum</a> · <a href="https://mmofinds.de/datenschutz.html" style="color: var(--text-muted);">Datenschutz</a></p></div>
+
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <h3>MMOFINDS</h3>
+            <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Startseite</a>
+                <a href="/news/">AI & Tech-News</a>
+                <a href="/diy/">DIY Projekte</a>
+                <a href="/pages/">Produkt-Reviews</a>
+            </div>
+            <p class="copyright">&copy; 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
