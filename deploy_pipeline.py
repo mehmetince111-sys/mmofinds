@@ -94,6 +94,28 @@ PRODUCTS = [
      'Kindle Paperwhite 2024', 'B0BLRDK3YP'),
 ]
 
+# Kuratierte Produktbilder als Fallback wenn Amazon-Bilder nicht laden
+# Pro Produkt ein passendes Unsplash-Bild nach Kategorie
+PRODUCT_IMAGES = {
+    'iphone-16-pro': 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&q=80',
+    'samsung-galaxy-s25-ultra': 'https://images.unsplash.com/photo-1610945265078-3858a0828671?w=800&q=80',
+    'google-pixel-9-pro': 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&q=80',
+    'sony-wh1000xm5': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80',
+    'apple-airpods-pro-2': 'https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=800&q=80',
+    'bose-quietcomfort-ultra': 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=800&q=80',
+    'sennheiser-momentum-4': 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&q=80',
+    'apple-watch-series-10': 'https://images.unsplash.com/photo-1546868871-af0de0ae72be?w=800&q=80',
+    'samsung-galaxy-watch-7': 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=800&q=80',
+    'ipad-air-m3': 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b6?w=800&q=80',
+    'sony-alpha-7c-ii': 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80',
+    'canon-eos-r50': 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&q=80',
+    'macbook-air-m4': 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800&q=80',
+    'logitech-mx-master-3s': 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a47?w=800&q=80',
+    'dyson-v15-detect': 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80',
+    'roborock-s8': 'https://images.unsplash.com/photo-1589829085413-56de83181c9c?w=800&q=80',
+    'kindle-paperwhite-2024': 'https://images.unsplash.com/photo-1594806447050-661403e01401?w=800&q=80',
+}
+
 # AI News Themen (rotierend) mit Bild-Zuordnung
 AI_NEWS_TOPICS = [
     {
@@ -301,6 +323,9 @@ def download_image_b64(url):
             img_url = re.sub(r'\._AC_[A-Z0-9_]+\.jpg$', f'.{size}.jpg', url)
         elif 'images/I/' in url and '._AC_' not in url:
             img_url = url.replace('.jpg', f'.{size}.jpg')
+        else:
+            # Non-Amazon URL (e.g. Unsplash) — use as-is
+            img_url = url
         
         # Get HTTP status code and save file
         result = subprocess.run(
@@ -347,7 +372,7 @@ def download_image_b64(url):
 # HTML GENERATION — Review Page
 # ============================================================
 
-def generate_review_html(key, name, category, asin, image_b64, content):
+def generate_review_html(key, name, category, asin, image_b64, content, image_url=''):
     """Generate a complete review page with all sections."""
     extras = content.get('extras', {})
     
@@ -461,7 +486,7 @@ def generate_review_html(key, name, category, asin, image_b64, content):
 
     <main class="main-content">
         <section class="review-hero">
-            <img src="{image_b64 if image_b64 else 'https://images.unsplash.com/photo-1610945265078-3858a0828671?w=800&q=80'}" alt="{name}" class="review-hero-image" onerror="this.src='https://images.unsplash.com/photo-1610945265078-3858a0828671?w=800&q=80'">
+            <img src="{image_b64 if image_b64 else (image_url if image_url else 'https://images.unsplash.com/photo-1610945265078-3858a0828671?w=800&q=80')}" alt="{name}" class="review-hero-image" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1610945265078-3858a0828671?w=800&q=80'">
             <span class="review-category">{category}</span>
             <h1 class="review-headline">{content['headline']}</h1>
             <p class="review-subheadline">{content['subtitle']}</p>
@@ -917,9 +942,9 @@ def update_homepage():
         flags=re.DOTALL
     )
     
-    # DIY section (third cards-grid)
+    # DIY section (third cards-grid) — use flexible delimiter since DIY may not have <!-- after </div>
     index_content = re.sub(
-        r'(<div class="cards-grid">)(.*?)(</div>\s*<!--)',
+        r'(<div class="cards-grid">)(.*?)(</div>(?:\s*<!--|\s*</main>))',
         lambda m: m.group(1) + diy_cards + '\n    ' + m.group(3),
         index_content,
         count=1,
@@ -1117,16 +1142,26 @@ def main():
         else:
             print(f'    ✅ ASIN: {asin}')
         
-        # Download image
+        # Download image — try Amazon first, then curated fallback
         image_b64 = download_image_b64(amazon_url)
+        image_url = ''  # Direct URL fallback (not base64)
+        if not image_b64 and key in PRODUCT_IMAGES:
+            fallback_url = PRODUCT_IMAGES[key]
+            print(f'    🔄 Using curated fallback image: {fallback_url}')
+            image_b64 = download_image_b64(fallback_url)
+            if not image_b64:
+                # If download fails, use direct URL
+                image_url = fallback_url
         if image_b64:
             print(f'    ✅ Image: {len(image_b64)} chars')
+        elif image_url:
+            print(f'    🌐 Using direct URL fallback')
         else:
-            print(f'    ⚠️ Image failed (will use placeholder)')
+            print(f'    ⚠️ Image failed (will use generic placeholder)')
         
         # Generate HTML
         content = PRODUCT_CONTENT.get(key, {})
-        html = generate_review_html(key, name, category, asin, image_b64, content)
+        html = generate_review_html(key, name, category, asin, image_b64, content, image_url)
         
         # Write file
         filepath = PAGES_DIR / f'{key}.html'
