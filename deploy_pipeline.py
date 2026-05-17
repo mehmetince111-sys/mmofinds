@@ -990,13 +990,16 @@ def verify_links():
             if href.startswith('/'):
                 # Remove leading slash
                 rel_path = href[1:]
-                # Check if file exists
-                if not (PAGES_DIR / rel_path).exists():
-                    if NEWS_DIR.exists() and (NEWS_DIR / rel_path).exists():
-                        continue
-                    if DIY_DIR.exists() and (DIY_DIR / rel_path).exists():
-                        continue
-                    broken.append((f.name, href))
+                # Check if file exists in pages/, news/, diy/, or root
+                if (PAGES_DIR / rel_path).exists():
+                    continue
+                if NEWS_DIR.exists() and (NEWS_DIR / rel_path).exists():
+                    continue
+                if DIY_DIR.exists() and (DIY_DIR / rel_path).exists():
+                    continue
+                if (REPO_DIR / rel_path).exists():
+                    continue
+                broken.append((f.name, href))
     
     if broken:
         print(f'  ⚠️ Found {len(broken)} broken link(s):')
