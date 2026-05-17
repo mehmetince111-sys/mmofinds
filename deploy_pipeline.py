@@ -357,6 +357,27 @@ def generate_review_html(key, name, category, asin, image_b64, content):
     full_stars = int(rating)
     stars = '★ ' * full_stars + '☆ ' * (5 - full_stars)
     
+    # Color variants for "Die besten Angebote" section
+    # (name, color_name, amazon_search_term)
+    variants = extras.get('variants', [])
+    
+    # Build offers HTML
+    offers_html = ''
+    if variants:
+        offers_html = '''
+        <section class="offers-section">
+            <h2>Die besten Angebote</h2>
+            <div class="offers-grid">'''
+        for color_name, asin_color, color_url in variants:
+            offers_html += f'''
+                <div class="offer-card">
+                    <h3 class="offer-title">{name} — {color_name}</h3>
+                    <a href="{color_url}" class="offer-link">Jetzt bei Amazon ansehen →</a>
+                </div>'''
+        offers_html += '''
+            </div>
+        </section>'''
+    
     # JSON-LD
     json_ld = json.dumps({
         "@context": "https://schema.org",
@@ -415,7 +436,7 @@ def generate_review_html(key, name, category, asin, image_b64, content):
 
     <main class="main-content">
         <section class="review-hero">
-            <img src="{image_b64 if image_b64 else ''}" alt="{name}" class="review-hero-image" onerror="this.style.display='none'">
+            <img src="{image_b64 if image_b64 else 'https://images.unsplash.com/photo-1610945265078-3858a0828671?w=800&q=80'}" alt="{name}" class="review-hero-image" onerror="this.src='https://images.unsplash.com/photo-1610945265078-3858a0828671?w=800&q=80'">
             <span class="review-category">{category}</span>
             <h1 class="review-headline">{content['headline']}</h1>
             <p class="review-subheadline">{content['subtitle']}</p>
@@ -472,6 +493,8 @@ def generate_review_html(key, name, category, asin, image_b64, content):
                 </div>
             </div>
         </section>
+
+        {offers_html}
 
         <section class="affiliate-disclosure">
             <p>Als Amazon-Partner verdiene ich an qualifizierten Käufen. Links mit → sind Affiliate-Links. Für euch entsteht kein zusätzlicher Nachteil.</p>
@@ -1240,6 +1263,33 @@ PRODUCT_CONTENT = {
             'pros': ['Branchenführendes Noise Cancelling', 'Extrem leicht (250g) und bequem', '30 Stunden Akkulaufzeit', 'Hi-Res Audio mit LDAC Support', 'Hervorragende Anrufqualität', 'Intuitive Touch-Steuerung'],
             'cons': ['Nicht mehr faltbar wie der XM4', 'Preis (ca. 349 €)'],
             'verdict': 'Die Sony WH-1000XM5 sind die besten kabellosen Kopfhörer, die du kaufen kannst. Das ANC ist unübertroffen, der Sound ist erstklassig und der Tragekomfort ist auch nach Stunden noch angenehm. Für Pendler, Reisende und Musikliebhaber ein Muss.',
+        },
+    },
+    'samsung-galaxy-s25-ultra': {
+        'headline': 'Das Galaxy-Flaggschiff mit KI-Kraft',
+        'subtitle': 'Samsung Galaxy S25 Ultra im Test: Snapdragon 8 Elite, 200 MP, Galaxy AI',
+        'category': 'Smartphone', 'rating': '4.6', 'review_count': '8.921',
+        'intro': 'Das Samsung Galaxy S25 Ultra ist das leistungsstärkste Galaxy, das Samsung je gebaut hat. Mit dem neuen Snapdragon 8 Elite Prozessor, einer 200 MP Kamera und Galaxy AI bietet es KI-Funktionen für Foto, Text und Produktivität. Das Titanium-Design ist robust und edel, der S Pen ist integriert, und der große Akku hält mühelos den ganzen Tag.',
+        'extras': {
+            'benefits': [
+                ('⚡', 'Snapdragon 8 Elite', 'Der schnellste Smartphone-Chip — für Gaming, KI und Multitasking.'),
+                ('📸', '200 MP Kamera', 'Professionelle Fotos und 4K/120fps Videos mit KI-Unterstützung.'),
+                ('🤖', 'Galaxy AI', 'Live Translate, Foto-Editierung, Notizen zusammenfassen — KI im Alltag.'),
+            ],
+            'use_cases': [
+                ('💼', 'Alltag & Business', 'S Pen für Notizen, Galaxy AI für E-Mails und Meetings.'),
+                ('📸', 'Fotografie', '200 MP Hauptkamera mit 100x Space Zoom für extreme Details.'),
+                ('🎮', 'Gaming', 'Snapdragon 8 Elite + Vapor Chamber für flüssiges Gaming.'),
+            ],
+            'pros': ['Snapdragon 8 Elite für extreme Performance', '200 MP Kamera mit KI-Funktionen', 'S Pen integriert', 'Galaxy AI für Produktivität', 'Titanium-Design robust und edel', 'Großer Akku ganztägig'],
+            'cons': ['Sehr hoher Preis', 'Groß und schwer für einhändige Nutzung'],
+            'verdict': 'Das Galaxy S25 Ultra ist das umfassendste Android-Smartphone auf dem Markt. Die Kombination aus Snapdragon 8 Elite, 200 MP Kamera, Galaxy AI und S Pen macht es zum perfekten Allrounder für Power-User. Der Preis ist hoch, aber die Leistung und der lange Support rechtfertigen die Investition.',
+            'variants': [
+                ('Arctic Titanium', 'B0DS9DQJ8S', 'https://www.amazon.de/dp/B0DS9DQJ8S?tag=mmofinds-20'),
+                ('Black', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Black&tag=mmofinds-20'),
+                ('Silver Shadow', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver+Shadow&tag=mmofinds-20'),
+                ('Silver', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver&tag=mmofinds-20'),
+            ],
         },
     },
 }
