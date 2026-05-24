@@ -1,0 +1,155 @@
+[
+  {
+    "product": "Apple Airpods Pro 2",
+    "asin": "B0D1XD1ZV3",
+    "url": "https://www.amazon.de/dp/B0D1XD1ZV3?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 500,
+    "status": "BROKEN"
+  },
+  {
+    "product": "Apple Watch Series 10",
+    "asin": "B0DGJ7Y7NH",
+    "url": "https://www.amazon.de/dp/B0DGJ7Y7NH?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Bose Quietcomfort Ultra",
+    "asin": "B0CCZ1L489",
+    "url": "https://www.amazon.de/dp/B0CCZ1L489?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Canon Eos R50",
+    "asin": "B0BV6TXW8W",
+    "url": "https://www.amazon.de/dp/B0BV6TXW8W?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 500,
+    "status": "BROKEN"
+  },
+  {
+    "product": "Dyson V15 Detect",
+    "asin": "B0CH5QWSGK",
+    "url": "https://www.amazon.de/dp/B0CH5QWSGK?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 500,
+    "status": "BROKEN"
+  },
+  {
+    "product": "Google Pixel 9 Pro",
+    "asin": "B0D7TZ5YDV",
+    "url": "https://www.amazon.de/dp/B0D7TZ5YDV?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 500,
+    "status": "BROKEN"
+  },
+  {
+    "product": "Index",
+    "asin": null,
+    "status": "NO_LINK",
+    "url": null
+  },
+  {
+    "product": "Ipad Air M3",
+    "asin": "B0DZ76JZ9Q",
+    "url": "https://www.amazon.de/dp/B0DZ76JZ9Q?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Iphone 16 Pro",
+    "asin": "B0DHYDMJ1W",
+    "url": "https://www.amazon.de/dp/B0DHYDMJ1W?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Jbl Charge 5",
+    "asin": "B08X4YMTPM",
+    "url": "https://www.amazon.de/dp/B08X4YMTPM?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 500,
+    "status": "BROKEN"
+  },
+  {
+    "product": "Kindle Paperwhite 2024",
+    "asin": "B0CFPWLGF2",
+    "url": "https://www.amazon.de/dp/B0CFPWLGF2?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Logitech Mx Master 3S",
+    "asin": "B0FHHV6YR5",
+    "url": "https://www.amazon.de/dp/B0FHHV6YR5?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Macbook Air M4",
+    "asin": "B0DZDFWPDP",
+    "url": "https://www.amazon.de/dp/B0DZDFWPDP?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 500,
+    "status": "BROKEN"
+  },
+  {
+    "product": "Nintendo Switch 2",
+    "asin": "B0F2J4SYJ2",
+    "url": "https://www.amazon.de/dp/B0F2J4SYJ2?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Playstation 5 Pro",
+    "asin": "B0DHSV68YZ",
+    "url": "https://www.amazon.de/dp/B0DHSV68YZ?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Roborock S8",
+    "asin": "B0DZCFGQJG",
+    "url": "https://www.amazon.de/dp/B0DZCFGQJG?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Samsung Galaxy S25 Ultra",
+    "asin": "B0DPN844MR",
+    "url": "https://www.amazon.de/dp/B0DPN844MR?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 500,
+    "status": "BROKEN"
+  },
+  {
+    "product": "Samsung Galaxy Watch 7",
+    "asin": "B0D47LLXL8",
+    "url": "https://www.amazon.de/dp/B0D47LLXL8?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Sennheiser Momentum 4",
+    "asin": "B0B6GHW1SX",
+    "url": "https://www.amazon.de/dp/B0B6GHW1SX?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Sony Alpha 7C Ii",
+    "asin": "B0CGF84WQM",
+    "url": "https://www.amazon.de/dp/B0CGF84WQM?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  },
+  {
+    "product": "Sony Wh 1000Xm5",
+    "asin": "B09XS7JWHH",
+    "url": "https://www.amazon.de/dp/B09XS7JWHH?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 500,
+    "status": "BROKEN"
+  },
+  {
+    "product": "Sony Wh1000Xm4",
+    "asin": "B08C7KG5LP",
+    "url": "https://www.amazon.de/dp/B08C7KG5LP?tag=mmofinds-20&linkCode=ogi&th=1",
+    "status_code": 200,
+    "status": "OK"
+  }
+]
