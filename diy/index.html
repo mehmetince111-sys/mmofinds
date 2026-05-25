@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="canonical" href="https://mmofinds.de/diy/">
     <!-- Open Graph Tags -->
     <meta property="og:title" content="DIY Projekte — MMOFinds">
     <meta property="og:description" content="Alle DIY-Projekte von MMOFinds: Raspberry Pi Smart Home, KI-Sicherheitskamera, Smart Mirror, mechanische Tastaturen und mehr.">
@@ -208,7 +209,31 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); 
 .footer ul a:hover { color:white; }
 .footer-bottom { max-width:1280px; margin:0 auto; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; font-size:13px; }
 @media (max-width:600px) { .nav { display:none; } .cards-grid { grid-template-columns:1fr; gap:16px; } .container { padding:0 12px; } .page-header h1 { font-size:28px; } .footer-inner { grid-template-columns:1fr; } }
-  </style>
+  
+        /* Mobile Touch Targets */
+        .nav-link, .nav-logo, .card, a[href] {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "name": "DIY Projekte — MMOFinds",
+        "description": "Alle DIY-Projekte von MMOFinds: Raspberry Pi Smart Home, KI-Sicherheitskamera, Smart Mirror, mechanische Tastaturen und mehr.",
+        "url": "https://mmofinds.de/diy/index",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MMOFinds",
+            "url": "https://mmofinds.de"
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="nav-bar">

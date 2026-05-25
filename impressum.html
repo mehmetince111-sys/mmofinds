@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="canonical" href="https://mmofinds.de/impressum">
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Impressum | MMOFinds">
     <meta property="og:description" content="Impressum gemäß § 5 TMG: Angaben zur Verantwortlichen Stelle der MMOFinds Website.">
@@ -119,7 +120,16 @@ body {
     .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
     .footer-links { flex-direction: column; gap: 10px; }
 }
-  </style>
+  
+        /* Mobile Touch Targets */
+        .nav-link, .nav-logo, .card, a[href] {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <div class="nav-bar">

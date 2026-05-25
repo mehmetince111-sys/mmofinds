@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="canonical" href="https://mmofinds.de/ueber-uns">
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Über uns — MMOFinds">
     <meta property="og:description" content="MMOFinds ist dein Elektronik-Magazin für Tech-News, DIY-Projekte und ehrliche Produkt-Reviews.">
@@ -25,7 +26,31 @@
     p { margin-bottom: 15px; color: #525252; }
     .back-link { display: inline-block; margin-bottom: 30px; color: #0a0a0a; text-decoration: none; font-weight: 600; }
     .back-link:hover { text-decoration: underline; }
-  </style>
+  
+        /* Mobile Touch Targets */
+        .nav-link, .nav-logo, .card, a[href] {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Über uns — MMOFinds",
+        "description": "MMOFinds ist dein Elektronik-Magazin für Tech-News, DIY-Projekte und ehrliche Produkt-Reviews.",
+        "url": "https://mmofinds.de/ueber-uns",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MMOFinds",
+            "url": "https://mmofinds.de"
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="nav-bar">

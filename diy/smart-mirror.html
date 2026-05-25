@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="canonical" href="https://mmofinds.de/diy-smart-mirror">
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Smart Mirror mit Raspberry Pi bauen — MMOFinds DIY">
     <meta property="og:description" content="Bauen Sie Ihren eigenen Smart Mirror mit Raspberry Pi. Zeigt Wetter, Nachrichten, Kalender und mehr auf einem einsatzbereiten Spiegel.">
@@ -219,7 +220,31 @@
     opacity: 0.7;
     text-decoration: underline;
 }
-</style>
+
+        /* Mobile Touch Targets */
+        .nav-link, .nav-logo, .card, a[href] {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "name": "Smart Mirror mit Raspberry Pi bauen — MMOFinds DIY",
+        "description": "Bauen Sie Ihren eigenen Smart Mirror mit Raspberry Pi. Zeigt Wetter, Nachrichten, Kalender und mehr auf einem einsatzbereiten Spiegel.",
+        "url": "https://mmofinds.de/diy/smart-mirror",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MMOFinds",
+            "url": "https://mmofinds.de"
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="nav-bar">

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="canonical" href="https://mmofinds.de/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MMOFinds — AI & Tech Magazin: News, DIY & Reviews</title>
@@ -8,7 +9,13 @@
   <meta name="theme-color" content="#1a73e8">
   
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
+  
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MMOFinds — AI & Tech Magazin: News, DIY & Reviews">
+    <meta name="twitter:description" content="MMOFinds ist dein AI & Tech-Magazin: Aktuelle AI-News, coole DIY-Projekte und ehrliche Produkt-Reviews. Für Technik-Enthusiasten.">
+    <meta name="twitter:image" content="/images/apple-airpods-pro-2.jpg">
+    <meta property="og:type" content="website">
   <meta property="og:title" content="MMOFinds — AI & Tech Magazin">
   <meta property="og:description" content="AI-News, DIY-Projekte & ehrliche Reviews — für Technik-Enthusiasten.">
   <meta property="og:url" content="https://mmofinds.de/">
@@ -495,7 +502,16 @@ body {
   .main-content { padding: 16px; }
   .hero-buttons { flex-direction: column; align-items: center; }
 }
-  </style>
+  
+        /* Mobile Touch Targets */
+        .nav-link, .nav-logo, .card, a[href] {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
     <div class="nav-bar">
