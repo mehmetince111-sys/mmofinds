@@ -1,0 +1,144 @@
+/* ========================================
+   MMOFinds.de - BASE.CSS
+   Nur Grundlayout, Navigation, Footer
+   Alle Seiten laden diese Datei
+   ======================================== */
+
+/* GRUNDLAGEN */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+h1 { color: #fff; font-size: 2rem; margin-bottom: 24px; }
+h2 { color: #fff; font-size: 1.3rem; margin: 24px 0 12px; }
+p { margin-bottom: 16px; color: #b0b0b0; }
+a { color: #4a9eff; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* NAVIGATION */
+.nav { background: #111; padding: 16px 20px; border-bottom: 1px solid #222; }
+.nav-inner { max-width: 800px; margin: 0 auto; display: flex; gap: 20px; align-items: center; }
+.nav a { color: #e0e0e0; }
+.nav-logo { font-weight: bold; font-size: 1.2rem; }
+.nav-links { display: flex; gap: 20px; margin-left: auto; list-style: none; }
+.nav-links a { color: #e0e0e0; text-decoration: none; }
+
+/* FOOTER */
+.footer {
+    border-top: 1px solid #222;
+    padding: 24px 20px;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+.footer a { color: #4a9eff; }
+
+/* CARDS */
+.card {
+    background: #1a1a1a;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+}
+.card:hover { border-color: #4a9eff; }
+.card img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 16px; }
+.card h3 { color: #fff; margin-bottom: 8px; }
+.card p { color: #b0b0b0; font-size: 0.95rem; }
+
+/* GRID */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin: 24px 0; }
+
+/* MOBILE TOUCH TARGETS */
+.nav-link, .nav-logo, .card, a[href] {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HERO */
+.hero { text-align: center; padding: 60px 20px; margin-bottom: 40px; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 16px; }
+.hero p { font-size: 1.2rem; color: #888; }
+
+/* SECTION TITLES */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4a9eff;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #4a9eff;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+.btn:hover { background: #3a8eef; text-decoration: none; }
+
+/* TAGS */
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #222;
+    color: #4a9eff;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    margin-right: 8px;
+}
+
+/* REVIEWS */
+.review-card { position: relative; }
+.review-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #4a9eff;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* NEWS */
+.news-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #222; }
+.news-item:last-child { border-bottom: none; }
+.news-date { color: #666; font-size: 0.9rem; }
+
+/* BACK LINK */
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #4a9eff;
+    text-decoration: none;
+}
+.back-link:hover { text-decoration: underline; }
+
+/* PRODUCT DETAIL */
+.product-detail img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px; }
+.product-detail h1 { font-size: 2rem; margin-bottom: 16px; }
+.product-detail h2 { font-size: 1.5rem; margin: 24px 0 12px; }
+.product-detail p { margin-bottom: 16px; }
+.product-detail ul { margin: 16px 0; padding-left: 24px; }
+.product-detail li { margin-bottom: 8px; color: #b0b0b0; }
+.product-detail .price { font-size: 1.5rem; color: #4a9eff; font-weight: bold; margin: 20px 0; }
+
+/* FOOTER LINKS */
+.footer-links { display: flex; gap: 20px; justify-content: center; margin-top: 10px; }
+.footer-links a { color: #666; text-decoration: none; }
+.footer-links a:hover { color: #4a9eff; }
