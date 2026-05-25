@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suche — MMOFinds</title>
+    <meta name="description" content="Durchsuche alle Artikel, Reviews und DIY-Anleitungen auf MMOFinds.">
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <style>
+        .search-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-input:focus {
+            border-color: #4a9eff;
+        }
+        .search-results {
+            margin-top: 30px;
+        }
+        .search-result {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: border-color 0.2s;
+        }
+        .search-result:hover {
+            border-color: #4a9eff;
+        }
+        .search-result h3 {
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .search-result h3 a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+        .search-result h3 a:hover {
+            text-decoration: underline;
+        }
+        .search-result p {
+            color: #999;
+            font-size: 0.95rem;
+        }
+        .search-result .category {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #222;
+            color: #4a9eff;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        .no-results {
+            text-align: center;
+            color: #666;
+            padding: 40px 20px;
+        }
+        .no-results .emoji {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                <a href="/">Start</a>
+                <a href="/news/">News</a>
+                <a href="/diy/">DIY</a>
+                <a href="/pages/">Reviews</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>🔍 Suche</h1>
+        <p>Durchsuche alle Artikel, Reviews und DIY-Anleitungen</p>
+        
+        <div class="search-container" style="margin:30px auto;">
+            <input type="text" class="search-input" id="searchInput" placeholder="Suchbegriff eingeben..." autocomplete="off">
+        </div>
+        
+        <div id="searchResults" class="search-results"></div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 MMOFinds. Alle Rechte vorbehalten.</p>
+            <div class="footer-links">
+                <a href="/impressum.html">Impressum</a>
+                <a href="/datenschutz.html">Datenschutz</a>
+                <a href="/affiliate-info.html">Affiliate-Hinweis</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        let allResults = [];
+        
+        // Index laden
+        fetch('/assets/js/search-index.json')
+            .then(response => response.json())
+            .then(data => {
+                allResults = data;
+                console.log("Suchindex geladen: " + data.length + " Seiten");
+            })
+            .catch(err => console.error("Fehler beim Laden des Suchindex:", err));
+        
+        // Suche
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            
+            if (query.length < 2) {
+                searchResults.innerHTML = '';
+                return;
+            }
+            
+            // Ergebnisse filtern
+            const results = allResults.filter(item => {
+                return item.title.toLowerCase().includes(query) ||
+                       item.description.toLowerCase().includes(query) ||
+                       item.content.toLowerCase().includes(query);
+            });
+            
+            // Ergebnisse anzeigen
+            if (results.length === 0) {
+                searchResults.innerHTML = `
+                    <div class="no-results">
+                        <div class="emoji">🔍</div>
+                        <h3>Keine Ergebnisse gefunden</h3>
+                        <p>Versuche es mit anderen Suchbegriffen</p>
+                    </div>
+                `;
+            } else {
+                searchResults.innerHTML = results.map(result => `
+                    <div class="search-result">
+                        <span class="category">${result.category}</span>
+                        <h3><a href="${result.url}">${result.title}</a></h3>
+                        <p>${result.description || result.content}</p>
+                    </div>
+                `).join('');
+            }
+        });
+    </script>
+</body>
+</html>
