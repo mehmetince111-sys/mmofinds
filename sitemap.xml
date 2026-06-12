@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mmofinds.de/</loc>
+    <loc>https://mmofinds.de</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/pages/bose-quietcomfort-ultra</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/pages/sennheiser-momentum-4</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/pages/dyson-v15-detect</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/pages/logitech-mx-master-3s</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/pages/apple-airpods-pro-2</loc>
@@ -36,17 +16,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/pages/kindle-paperwhite-2024</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/pages/nintendo-switch-2</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/pages/ipad-air-m3</loc>
+    <loc>https://mmofinds.de/pages/bose-quietcomfort-ultra</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
@@ -56,27 +26,17 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/pages/playstation-5-pro</loc>
+    <loc>https://mmofinds.de/pages/dyson-v15-detect</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/pages/sony-wh-1000xm5</loc>
+    <loc>https://mmofinds.de/pages/google-pixel-9-pro</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/pages/sony-alpha-7c-ii</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/pages/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/pages/samsung-galaxy-watch-7</loc>
+    <loc>https://mmofinds.de/pages/ipad-air-m3</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
@@ -91,12 +51,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mmofinds.de/pages/kindle-paperwhite-2024</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/pages/logitech-mx-master-3s</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://mmofinds.de/pages/macbook-air-m4</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/pages/google-pixel-9-pro</loc>
+    <loc>https://mmofinds.de/pages/nintendo-switch-2</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/pages/playstation-5-pro</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
@@ -106,143 +81,218 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/pages/sony-wh1000xm4</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://mmofinds.de/pages/samsung-galaxy-s25-ultra</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/diy/mechanische-tastatur-selbst-bauen---keychron-q1-pro</loc>
+    <loc>https://mmofinds.de/pages/samsung-galaxy-watch-7</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/diy/eigenen-ai-assistenten-mit-raspberry-pi-bauen</loc>
+    <loc>https://mmofinds.de/pages/sennheiser-momentum-4</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/diy/ai-security-camera</loc>
+    <loc>https://mmofinds.de/pages/sony-alpha-7c-ii</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/diy/</loc>
+    <loc>https://mmofinds.de/pages/sony-wh-1000xm5</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mmofinds.de/diy/smart-home-hub-mit-home-assistant-auf-nas</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/diy/smart-mirror</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/diy/mechanical-keyboard-build</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/diy/ai-assistent-raspberry-pi</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/diy/raspberry-pi-smart-home-hub</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/diy/nas-raspberry-pi</loc>
+    <loc>https://mmofinds.de/pages/sony-wh1000xm4</loc>
     <lastmod>2026-05-25</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/google-deepmind-entwickelt-ki--die-proteine-in-sekunden-designen-kann</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/neue-ki-modelle-können-code-schreiben--der-schneller-ist-als-menschliche-entwickler</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/ai-sprachmodelle-2026</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/ki-bildgenerierung-2026</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/ai-chip-morinica-2026</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/ki-medizin-2026</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mmofinds.de/news/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/neuralink-mensch-test-2026</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/ki-coding-2026</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/ki-smartphones-2026</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/openai-startet-gpt-5-mit-revolutionären-multi-modal-fähigkeiten</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/tesla-optimus-roboter-beeindruckt-mit-alltäglichen-fähigkeiten</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/apple-intelligence--ki-direkt-auf-dem-iphone---ohne-cloud</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/ki-agenten-2026</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/ki-roboter-2026</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mmofinds.de/news/ki-in-der-medizin--früherkennung-von-krebs-mit-97--genauigkeit</loc>
     <lastmod>2026-05-25</lastmod>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/ai-sicherheit-2026</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-chip-vergleich-2026</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/beste-KI-tools-2026</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-in-der-wirtschaft</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-regulierung-2026</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-unterricht-2026</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-forschung-2026</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-sicherheit</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-gesetze-2026</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-innovationen-2026</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-assistenten-2026</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-spracherkennung</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-bilderkennung</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-textgenerierung</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-code-generation</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-datenanalyse</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-im-alltag</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-musik-generierung</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-filmproduktion</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-photographie</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-design</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mmofinds.de/news/KI-sprachuebersetzung</loc>
+    <lastmod>2026-05-25</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>
