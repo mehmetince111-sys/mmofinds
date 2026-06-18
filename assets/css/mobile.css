@@ -1,0 +1,229 @@
+/* ========================================
+   MMOFinds.de - MOBILE OPTIMIZED CSS
+   Fix für Social Icons, Produktbilder, und Mobile Layout
+   ======================================== */
+
+/* === SOCIAL ICONS FIX === */
+.social-share {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+}
+
+.social-share a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.social-share a:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.social-share svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--color-text-secondary);
+    transition: fill var(--transition-fast);
+}
+
+.social-share a:hover svg {
+    fill: #fff;
+}
+
+/* === PRODUKT BILDER FIX === */
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    margin: 16px 0;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* === MOBILE OPTIMIERUNGEN === */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 12px;
+    }
+    
+    .container {
+        padding: 12px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+        margin: 24px 0 12px;
+    }
+    
+    .hero-section {
+        padding: 30px 12px 20px;
+        margin-bottom: 20px;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .social-share {
+        display: flex;
+        gap: 6px;
+        margin: 12px 0;
+    }
+    
+    .social-share a {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .social-share svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* === TABLET OPTIMIERUNGEN === */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* === DESKTOP OPTIMIERUNGEN === */
+@media (min-width: 1025px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* === ALLGEMEINE VERBESSERUNGEN === */
+.card {
+    background: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-normal);
+}
+
+.card:hover {
+    background: var(--color-bg-card-hover);
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* === LOADING ANIMATIONEN === */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* === MICRO-INTERACTIONS === */
+.hover-scale {
+    transition: transform var(--transition-fast);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-lift {
+    transition: transform var(--transition-fast);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+/* === TRUST ELEMENTS === */
+.trust-badges {
+    display: flex;
+    gap: 16px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: var(--color-bg-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+}
+
+.trust-badge svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--color-success);
+}
+
+.trust-badge span {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
