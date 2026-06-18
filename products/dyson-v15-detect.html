@@ -7,6 +7,7 @@
     <meta name="description" content="Dyson V15 Detect Test: Laser-Detection, 60min Laufzeit, LCD-Display. Der beste kabellose Staubsauger.">
     <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
     <link rel="canonical" href="https://mmofinds.de/products/dyson-v15-detect.html">
     <meta property="og:title" content="Test: Dyson V15 Detect im Überblick">
     <meta property="og:description" content="Laser-Detection, 60min Laufzeit, LCD-Display.">
@@ -191,5 +192,28 @@
 })();
 </script>
 
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>

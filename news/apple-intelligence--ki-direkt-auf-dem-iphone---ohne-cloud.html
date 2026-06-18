@@ -17,6 +17,7 @@
     <meta property="og:image" content="">
     <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
     <link rel="canonical" href="https://mmofinds.de/news/apple-intelligence--ki-direkt-auf-dem-iphone---ohne-cloud.html">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "NewsArticle", "headline": "Apple Intelligence: KI direkt auf dem iPhone — ohne Cloud", "datePublished": "17.05.2026", "author": {"@type": "Organization", "name": "MMOFinds"}, "articleSection": "KI auf dem Gerät"}</script>
 
@@ -139,5 +140,28 @@
 })();
 </script>
 
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>

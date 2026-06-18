@@ -7,6 +7,7 @@
     <meta name="description" content="Logitech MX Master 3S Test: 8K DPI, leise Klicks, MagSpeed-Rad, USB-C. Die beste Maus für Profis.">
     <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
     <link rel="canonical" href="https://mmofinds.de/products/logitech-mx-master-3s.html">
     <meta property="og:title" content="Test: Logitech MX Master 3S im Überblick">
     <meta property="og:description" content="8K DPI, leise Klicks, MagSpeed-Rad, USB-C.">
@@ -192,5 +193,28 @@
 })();
 </script>
 
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>

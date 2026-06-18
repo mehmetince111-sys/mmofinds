@@ -17,6 +17,7 @@
     <meta property="og:url" content="https://mmofinds.de/pages/iphone-16-pro.html">
     <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
     <link rel="canonical" href="https://mmofinds.de/pages/iphone-16-pro.html">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "iPhone 16 Pro", "review": {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": "4.8", "bestRating": "5"}, "author": {"@type": "Organization", "name": "MMOFinds"}, "reviewBody": "Das iPhone 16 Pro ist Apples Antwort auf die KI-Ära. Mit dem A18 Pro Chip und Apple Intelligence bietet es KI-Funktionen direkt auf dem Gerät — ohne C..."}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "15.234", "bestRating": "5"}}</script>
 
@@ -238,5 +239,28 @@
 })();
 </script>
 
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>

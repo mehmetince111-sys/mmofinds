@@ -3,12 +3,14 @@
 <head>
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test: Sony WH-1000XM4 im Überblick — Lohnt es sich 2026?</title>
     <meta name="description" content="Sony WH-1000XM4 Test: Ausgezeichnetes Noise-Cancelling, 30h Akku, kompaktes Design. Der beste Preis-Leistungs-Kopfhörer 2026.">
     <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
     <link rel="canonical" href="https://mmofinds.de/pages/sony-wh1000xm4.html">
     <meta property="og:title" content="Test: Sony WH-1000XM4 im Überblick — Lohnt es sich 2026?">
     <meta property="og:description" content="Ausgezeichnetes Noise-Cancelling, 30h Akku, kompaktes Design. Der beste Preis-Leistungs-Kopfhörer 2026.">
@@ -290,5 +292,28 @@
 })();
 </script>
 
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>

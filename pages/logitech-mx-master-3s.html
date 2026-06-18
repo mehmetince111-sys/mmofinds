@@ -17,6 +17,7 @@
     <meta property="og:url" content="https://mmofinds.de/pages/logitech-mx-master-3s.html">
     <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
     <link rel="canonical" href="https://mmofinds.de/pages/logitech-mx-master-3s.html">
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Logitech MX Master 3S", "review": {"@type": "Review", "reviewRating": {"@type": "Rating", "ratingValue": "4.5", "bestRating": "5"}, "author": {"@type": "Organization", "name": "MMOFinds"}, "reviewBody": "Der Logitech MX Master 3S ist ein beliebtes Produkt in der Kategorie Maus. In diesem Test schauen wir uns an, ob er sein Versprechen hält und warum er..."}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.5", "reviewCount": "1.000", "bestRating": "5"}}</script>
 
@@ -230,5 +231,28 @@
 })();
 </script>
 
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>
