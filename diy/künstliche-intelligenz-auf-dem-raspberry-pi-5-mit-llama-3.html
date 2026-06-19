@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/künstliche-intelligenz-auf-dem-raspberry-pi-5-mit-llama-3.html">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI auf dem Raspberry Pi 5: Llama 3 lokal betreiben — MMOFinds DIY</title>
+  <meta name="description" content="Betriebe Llama 3, Googles Gemma und andere KI-Modelle direkt auf deinem Raspberry Pi 5. Vollständig lokal, ohne Cloud, ohne Internet.">
+  <meta name="theme-color" content="#22c55e">
+  
+  <!-- Open Graph -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KI auf dem Raspberry Pi 5: Llama 3 lokal betreiben">
+  <meta name="twitter:description" content="Betriebe Llama 3, Googles Gemma und andere KI-Modelle direkt auf deinem Raspberry Pi 5.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="KI auf dem Raspberry Pi 5: Llama 3 lokal betreiben">
+  <meta property="og:description" content="Betriebe Llama 3, Googles Gemma und andere KI-Modelle direkt auf deinem Raspberry Pi 5.">
+  <meta property="og:url" content="https://mmofinds.de/diy/künstliche-intelligenz-auf-dem-raspberry-pi-5-mit-llama-3.html">
+  
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+  <link rel="stylesheet" href="/assets/css/animations.css">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag{{data}}{{}} {{
+    dataLayer.push(arguments);
+  }}
+  gtag('js', new Date());
+  gtag('config', 'G-8NB2X96FH7', {{
+    'page_path': window.location.pathname,
+  }});
+</script>
+
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                
+<a href="/" class="nav-link">Start</a>
+<a href="/news/" class="nav-link">News</a>
+<a href="/diy/" class="nav-link">DIY</a>
+<a href="/pages/" class="nav-link">Reviews</a>
+<a href="/impressum.html" class="nav-link">Impressum</a>
+<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+
+            </div>
+        </div>
+    </div>
+  
+
+  <main class="main-content">
+    <article>
+      <!-- Hero -->
+      <div class="review-hero">
+        <h1>KI auf dem Raspberry Pi 5: Llama 3 lokal betreiben</h1>
+        <p class="hero-subtitle">Betriebe Llama 3, Googles Gemma und andere KI-Modelle direkt auf deinem Raspberry Pi 5 — vollständig lokal und kostenlos</p>
+      </div>
+
+      <!-- Benefits -->
+      <div class="benefits-section">
+        <h2>🎯 Warum KI auf dem Raspberry Pi?</h2>
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-3d">🔒</div>
+            <h3 class="benefit-title">100% Datenschutz</h3>
+          </div>
+          <p class="benefit-text">Alle Daten bleiben auf deinem Raspberry Pi. Kein Cloud, kein Tracking, keine Datensammlung. Deine Gespräche sind wirklich privat.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-3d">💰</div>
+            <h3 class="benefit-title">Kostenlos</h3>
+          </div>
+          <p class="benefit-text">Keine Abo-Gebühren, keine API-Kosten. Einmal Raspberry Pi kaufen, dann für immer kostenlose KI.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-3d">⚡</div>
+            <h3 class="benefit-title">Offline nutzbar</h3>
+          </div>
+          <p class="benefit-text">Kein Internet? Kein Problem. Die KI läuft komplett lokal auf deinem Raspberry Pi.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-header">
+            <div class="benefit-3d">🎓</div>
+            <h3 class="benefit-title">Lernen & Experimentieren</h3>
+          </div>
+          <p class="benefit-text">Perfektes Projekt, um KI-Technologie von innen zu verstehen. Open-Source-Modelle, die du anpassen kannst.</p>
+        </div>
+      </div>
+
+      <!-- Hardware -->
+      <h2>🛒 Benötigte Hardware</h2>
+      <div class="product-card" style="margin-bottom: 16px;">
+        <div class="product-body">
+          <h3>Raspberry Pi 5 (4GB oder 8GB)</h3>
+          <p class="product-desc">Der Raspberry Pi 5 ist der leistungsstärkste Pi aller Zeiten. 4GB reichen für kleinere Modelle, 8GB sind empfehlenswert für Llama 3 8B.</p>
+          <a href="https://www.amazon.de/s?k=raspberry+pi+5" class="amazon-link" target="_blank" rel="nofollow noopener">Auf Amazon.de ansehen →</a>
+        </div>
+      </div>
+      <div class="product-card" style="margin-bottom: 16px;">
+        <div class="product-body">
+          <h3>Speicher: MicroSD-Karte (32GB+)</h3>
+          <p class="product-desc">Eine schnelle MicroSD-Karte ist wichtig für die Performance. Class 10 oder UHS-I empfohlen.</p>
+          <a href="https://www.amazon.de/s?k=sanisk+extreme+microsd+32gb" class="amazon-link" target="_blank" rel="nofollow noopener">Auf Amazon.de ansehen →</a>
+        </div>
+      </div>
+      <div class="product-card" style="margin-bottom: 16px;">
+        <div class="product-body">
+          <h3>Kühlkörper & Lüfter</h3>
+          <p class="product-desc">Der Pi 5 wird unter Last warm. Ein aktives Kühlsystem mit Lüfter ist dringend empfohlen.</p>
+          <a href="https://www.amazon.de/s?k=raspberry+pi+5+kühler" class="amazon-link" target="_blank" rel="nofollow noopener">Auf Amazon.de ansehen →</a>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <h2>📋 Schritt-für-Schritt-Anleitung</h2>
+
+      <h3>Schritt 1: Raspberry Pi OS installieren</h3>
+      <p>Lade Raspberry Pi Imager herunter und installiere Raspberry Pi OS Lite (64-bit) auf deiner MicroSD-Karte:</p>
+      <ol>
+        <li>Installiere <strong>Raspberry Pi Imager</strong> von raspberrypi.com</li>
+        <li>Wähle <strong>Raspberry Pi 5</strong> als Gerät</li>
+        <li>Wähle <strong>Raspberry Pi OS Lite (64-bit)</strong></li>
+        <li>Gehe auf <strong>Settings</strong> (Ctrl+Shift+X) und aktiviere SSH</li>
+        <li>Setze Benutzername (<code>pi</code>) und Passwort</li>
+        <li>Schreibe das Image auf die MicroSD-Karte</li>
+      </ol>
+
+      <h3>Schritt 2: Raspberry Pi einrichten</h3>
+      <p>Stecke die MicroSD-Karte in den Pi, verbinde Keyboard, Monitor und Netzteil. Nach dem Booten:</p>
+      <pre style="background: var(--color-bg-card); padding: 16px; border-radius: var(--radius-sm); margin: 16px 0; overflow-x: auto;"><code># System aktualisieren
+sudo apt update && sudo apt upgrade -y
+
+# Abhängigkeiten installieren
+sudo apt install -y python3 python3-pip git cmake build-essential
+
+# RAM für Swap erhöhen (wichtig für KI-Modelle)
+sudo sed -i 's/^CONF_SWAPSIZE=.*/CONF_SWAPSIZE=2048/' /etc/dphys-swapfile
+sudo systemctl restart dphys-swapfile</code></pre>
+
+      <h3>Schritt 3: Ollama installieren</h3>
+      <p>Ollama ist der einfachste Weg, lokale KI-Modelle zu betreiben:</p>
+      <pre style="background: var(--color-bg-card); padding: 16px; border-radius: var(--radius-sm); margin: 16px 0; overflow-x: auto;"><code># Ollama installieren
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Ollama-Dienst starten
+systemctl --user start ollama
+
+# Llama 3 8B herunterladen (ca. 5GB)
+ollama pull llama3.2:3b
+
+# Für 8GB Pi: Llama 3 8B (größer, aber intelligenter)
+ollama pull llama3.2:8b</code></pre>
+
+      <h3>Schritt 4: KI testen</h3>
+      <p>Jetzt kannst du mit deiner lokalen KI chatten:</p>
+      <pre style="background: var(--color-bg-card); padding: 16px; border-radius: var(--radius-sm); margin: 16px 0; overflow-x: auto;"><code># Im Terminal chatten
+ollama run llama3.2:3b
+
+# Oder über Web-Interface
+# Installiere Open WebUI für eine schöne UI
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</code></pre>
+
+      <h3>Schritt 5: Verfügbare Modelle</h3>
+      <p>Neben Llama 3 gibt es viele weitere Modelle, die auf dem Raspberry Pi 5 laufen:</p>
+      <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
+        <thead>
+          <tr style="background: var(--color-bg-card);">
+            <th style="padding: 12px; text-align: left; border-bottom: 1px solid var(--color-border);">Modell</th>
+            <th style="padding: 12px; text-align: left; border-bottom: 1px solid var(--color-border);">Größe</th>
+            <th style="padding: 12px; text-align: left; border-bottom: 1px solid var(--color-border);">Empfehlung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">llama3.2:3b</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">~2 GB</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">✅ 4GB Pi — Schnell</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">llama3.2:8b</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">~5 GB</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">✅ 8GB Pi — Intelligent</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">gemma2:2b</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">~1.5 GB</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">✅ 4GB Pi — Sehr schnell</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">qwen2.5:7b</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">~5 GB</td>
+            <td style="padding: 12px; border-bottom: 1px solid var(--color-border);">✅ 8GB Pi — Multilingual</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pros/Cons -->
+      <div class="pros-cons-section">
+        <div class="pros-card">
+          <h3 style="color: var(--color-success); margin-bottom: 12px;">✓ Vorteile</h3>
+          <ul class="pros-list">
+            <li>100% lokal und privat</li>
+            <li>Keine Abo-Gebühren</li>
+            <li>Offline nutzbar</li>
+            <li>Günstige Hardware</li>
+            <li>Open Source</li>
+            <li>Viele Modelle verfügbar</li>
+          </ul>
+        </div>
+        <div class="cons-card">
+          <h3 style="color: var(--color-warning); margin-bottom: 12px;">✗ Nachteile</h3>
+          <ul class="cons-list">
+            <li>Langsamer als Cloud-KI</li>
+            <li>Limitierte Modellgröße</li>
+            <li>Keine Bildgenerierung</li>
+            <li>Manuelle Einrichtung nötig</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Verdict -->
+      <div class="verdict-section">
+        <h2>🏆 Unser Urteil</h2>
+        <p class="verdict-text">Der Raspberry Pi 5 ist das perfekte Einsteiger-Gerät für lokale KI. Mit Llama 3 und anderen Modellen hast du eine voll funktionsfähige KI direkt zu Hause — ohne Cloud, ohne Abo, mit vollem Datenschutz. Für 4GB-Pi-Nutzer empfehlen wir llama3.2:3b oder gemma2:2b. Für 8GB-Nutzer ist llama3.2:8b die beste Wahl.</p>
+        <p><strong>Bewertung: 4.5/5 ⭐</strong></p>
+        <a href="https://www.amazon.de/s?k=raspberry+pi+5+kit" class="amazon-link" target="_blank" rel="nofollow noopener">Raspberry Pi 5 Kit auf Amazon.de ansehen →</a>
+      </div>
+    </article>
+  </main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>MMOFINDS</h3>
+    <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+    <div class="footer-links">
+      <a href="/">Startseite</a>
+      <a href="/news/index.html">AI & Tech-News</a>
+      <a href="/diy/index.html">DIY Projekte</a>
+      <a href="/pages/index.html">Produkt-Reviews</a>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MMOFinds</span>
+      <span>Made with ❤️ in Germany 2014 Updated</span>
+    </div>
+  </div>
+      <a href="/kontakt.html">Kontakt</a>
+    
+      <a href="/ueber-uns.html">Über uns</a>
+    
+      <a href="/affiliate-info.html">Amazon Affiliate</a>
+    </footer>
+
+
+<!-- Dark/Light Mode Toggle -->
+<button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>
+
+<script>
+(function() {
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        toggle.textContent = '☀️';
+    }
+    toggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        if (document.body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            toggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            toggle.textContent = '🌙';
+        }
+    });
+})();
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MMOFinds — AI & Tech Magazin: News, DIY & Reviews</title>
   <meta name="description" content="MMOFinds ist dein AI & Tech-Magazin: Aktuelle AI-News, coole DIY-Projekte und ehrliche Produkt-Reviews. Für Technik-Enthusiasten.">
-  <meta name="theme-color" content="#1a73e8">
+  <meta name="theme-color" content="#4a9eff">
   
   <!-- Open Graph -->
   
@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/mobile.css">
   <link rel="stylesheet" href="/assets/css/navigation.css">
+  <link rel="stylesheet" href="/assets/css/animations.css">
 
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
@@ -63,14 +64,34 @@
     </div>
   
 
-  <main     <!-- Hero -->
+  <main>
+    <!-- Hero -->
     <div class="hero-section">
       <h1 class="hero-title">MMOFinds — AI & Tech Magazin: News, DIY &amp; Reviews</h1>
       <p class="hero-subtitle">Aktuelle AI-News, coole DIY-Projekte und ehrliche Produkt-Reviews</p>
     </div>
 
-    
-    <!-- Featured Reviews -->
+    <!-- Stats Row -->
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Produkt-Reviews</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">AI News</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">DIY Projekte</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2026</div>
+          <div class="stat-label">Aktuell</div>
+        </div>
+      </div>
+
     <!-- Featured Reviews -->
     <h2 class="section-header">⭐ Bestseller-Reviews <a href="/pages/index.html">Alle Reviews →</a></h2>
     <div class="cards-grid">
@@ -333,7 +354,7 @@
       </a>
       <a href="/news/index.html" class="card">
         <div class="card-image">
-          <<img loading="lazy" src="/images/logitech-mx-master-3s.jpg" alt="AI & Tech-News — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
+          <img loading="lazy" src="/images/logitech-mx-master-3s.jpg" alt="AI & Tech-News — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
         <div class="card-body">
           <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
           <h4>AI & Tech-News</h4>
@@ -543,6 +564,16 @@
         </div>
       </a>
     </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter-section">
+      <h3 class="newsletter-title">📬 Bleib auf dem Laufenden</h3>
+      <p class="newsletter-desc">Erhalte die neuesten AI-News, DIY-Anleitungen und Produkt-Tipps direkt in dein Postfach.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Deine E-Mail-Adresse">
+        <button type="submit">Abonnieren</button>
+      </div>
+    </div>
   </div>
 </main>
 
@@ -622,6 +653,17 @@
         } else {
             navBar.classList.remove('scrolled');
         }
+    });
+
+    // Card hover glow effect
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', x + 'px');
+            card.style.setProperty('--mouse-y', y + 'px');
+        });
     });
 </script>
 </body>
