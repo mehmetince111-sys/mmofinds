@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/ai-smart-home-dashboard.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eigenen KI-gestützten Smart-Home-Dashboard mit Raspberry Pi bauen — MMOFinds DIY</title>
+    <meta name="description" content="Baue deinen eigenen KI-gestützten Smart-Home-Dashboard mit Raspberry Pi 5, einem 10-Zoll-Touchscreen und einer lokalen KI. Zeige Energieverbrauch, Wetter, Kalender und mehr — alles mit Sprachsteuerung.">
+    <meta name="theme-color" content="#4a9eff">
+    
+    <!-- Open Graph -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Eigenen KI-gestützten Smart-Home-Dashboard mit Raspberry Pi bauen — MMOFinds DIY">
+    <meta name="twitter:description" content="Baue deinen eigenen KI-gestützten Smart-Home-Dashboard mit Raspberry Pi 5, Touchscreen und lokaler KI.">
+    <meta name="twitter:image" content="/images/diy-smart-home-dashboard.svg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="KI-Smart-Home-Dashboard mit Raspberry Pi bauen">
+    <meta property="og:description" content="Baue deinen eigenen KI-gestützten Smart-Home-Dashboard.">
+    <meta property="og:url" content="https://mmofinds.de/diy/ai-smart-home-dashboard.html">
+    <meta property="og:site_name" content="MMOFinds">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Eigenen KI-gestützten Smart-Home-Dashboard mit Raspberry Pi bauen",
+        "description": "Baue deinen eigenen KI-gestützten Smart-Home-Dashboard mit Raspberry Pi 5, einem 10-Zoll-Touchscreen und einer lokalen KI.",
+        "datePublished": "2026-06-20",
+        "dateModified": "2026-06-20",
+        "author": {
+            "@type": "Organization",
+            "name": "MMOFinds"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "MMOFinds",
+            "url": "https://mmofinds.de/"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/mobile.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/design-v4.css">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag{{data}}{{}} {{
+    dataLayer.push(arguments);
+  }}
+  gtag('js', new Date());
+  gtag('config', 'G-8NB2X96FH7', {{
+    'page_path': window.location.pathname,
+  }});
+</script>
+<!-- Ende Google Analytics 4 -->
+
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links">
+                <a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                <a href="/" class="nav-link">Start</a>
+                <a href="/news/" class="nav-link">News</a>
+                <a href="/diy/" class="nav-link">DIY</a>
+                <a href="/pages/" class="nav-link">Reviews</a>
+                <a href="/impressum.html" class="nav-link">Impressum</a>
+                <a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+            </div>
+        </div>
+    </div>
+  
+  <main class="article-page">
+    <!-- Article Header -->
+    <div class="article-header">
+        <div class="article-meta">
+            <span class="article-tag" style="background:#22c55e;">DIY</span>
+            <span class="article-date">20. Juni 2026</span>
+            <span class="article-read-time">12 Min. Lesezeit</span>
+        </div>
+        <h1 class="article-title">Eigenen KI-gestützten Smart-Home-Dashboard mit Raspberry Pi bauen</h1>
+        <p class="article-intro">Erstelle ein vollständiges Smart-Home-Dashboard mit Raspberry Pi 5, 10-Zoll-Touchscreen und lokaler KI-Sprachsteuerung. Zeige Energieverbrauch, Wetter, Kalender, Sicherheitskameras und mehr — alles in einer eleganten Benutzeroberfläche.</p>
+    </div>
+
+    <div class="article-content">
+        <!-- Materials List -->
+        <div class="materials">
+            <h3>Benötigtes Material</h3>
+            <table class="materials-table">
+                <thead>
+                    <tr>
+                        <th>Artikel</th>
+                        <th>Preis (ca.)</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Raspberry Pi 5 (8GB)</td>
+                        <td>€75</td>
+                        <td><a href="/pages/raspberry-pi-5.html">→ zum Review</a></td>
+                    </tr>
+                    <tr>
+                        <td>10-Zoll IPS Touchscreen HDMI</td>
+                        <td>€45</td>
+                        <td><a href="#">→ Amazon</a></td>
+                    </tr>
+                    <tr>
+                        <td>Netzteile für Raspberry Pi 5 (27W USB-C)</td>
+                        <td>€12</td>
+                        <td><a href="#">→ Amazon</a></td>
+                    </tr>
+                    <tr>
+                        <td>Kühler mit Lüfter für Pi 5</td>
+                        <td>€10</td>
+                        <td><a href="#">→ Amazon</a></td>
+                    </tr>
+                    <tr>
+                        <td>32GB microSD Karte (A2)</td>
+                        <td>€8</td>
+                        <td><a href="#">→ Amazon</a></td>
+                    </tr>
+                    <tr>
+                        <td>Gehäuse mit Touchscreen-Slot</td>
+                        <td>€15</td>
+                        <td><a href="#">→ Amazon</a></td>
+                    </tr>
+                    <tr>
+                        <td>USB-Mikrofon für Sprachsteuerung</td>
+                        <td>€15</td>
+                        <td><a href="#">→ Amazon</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>Gesamtkosten: ca. €180</strong></p>
+        </div>
+
+        <!-- Step 1 -->
+        <h2>Schritt 1: Raspberry Pi 5 einrichten</h2>
+        <p>Beginne mit der Installation von <strong>Raspberry Pi OS Lite (64-bit)</strong> auf deiner microSD-Karte:</p>
+        <ol>
+            <li>Lade <a href="https://www.raspberrypi.com/software/" target="_blank">Raspberry Pi Imager</a> herunter und installiere es</li>
+            <li>Wähle "Raspberry Pi OS (64-bit)" → "Lite" (keine Desktop-Umgebung, spart Ressourcen)</li>
+            <li>Drücke <kbd>Ctrl+Shift+X</kbd> für Advanced Options:</li>
+            <ul>
+                <li>Hostname: <code>smartdashboard</code></li>
+                <li>Benutzer: <code>pi</code>, Passwort: <code>dein-sicheres-passwort</code></li>
+                <li>WiFi konfigurieren (SSID und Passwort)</li>
+                <li>SSH aktivieren</li>
+            </ul>
+            <li>Schreibe das Image auf die microSD-Karte</li>
+            <li>Setze den Pi zusammen und starte ihn</li>
+        </ol>
+
+        <h2>Schritt 2: System aktualisieren und Grundprogramme installieren</h2>
+        <p>Verbinde dich per SSH mit dem Raspberry Pi und führe folgende Befehle aus:</p>
+        <pre><code>sudo apt update && sudo apt full-upgrade -y
+sudo apt install -y python3 python3-pip python3-venv git curl wget
+sudo apt install -y nginx python3-systemd</code></pre>
+
+        <h2>Schritt 3: Dashboard-Software installieren</h2>
+        <p>Wir verwenden <strong>Glass</strong> (früher MirrorBrain), eine Open-Source-Smart-Home-Dashboard-Software:</p>
+        <pre><code># Virtual Environment erstellen
+cd ~
+python3 -m venv dashboard-venv
+source dashboard-venv/bin/activate
+
+# Glass installieren
+pip install glass-dashboard
+
+# Konfiguration erstellen
+glass init /home/pi/glass-config</code></pre>
+
+        <p>Alternativ kannst du auch <strong>Home Assistant</strong> mit der <strong>Mushroom Card</strong>-Integration verwenden:</p>
+        <pre><code># Home Assistant in Docker installieren
+sudo apt install -y docker.io docker-compose
+sudo usermod -aG docker pi
+
+# docker-compose.yml erstellen
+cat > ~/home-assistant/docker-compose.yml << 'EOF'
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - /home/pi/homeassistant-config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    network_mode: host
+EOF
+
+# Home Assistant starten
+cd ~/home-assistant
+docker compose up -d</code></pre>
+
+        <h2>Schritt 4: Touchscreen konfigurieren</h2>
+        <p>Der 10-Zoll-Touchscreen wird automatisch von Raspberry Pi OS erkannt. Für die optimale Konfiguration:</p>
+        <pre><code># Touchscreen kalibrieren und drehen (falls nötig)
+sudo nano /boot/firmware/config.txt
+
+# Füge hinzu:
+# display_rotate=1 (für Hochformat)
+# hdmi_group=2
+# hdmi_mode=87
+# hdmi_cvt=1024 600 60 6 0 0 0
+
+# Touchscreen kalibrieren
+sudo apt install -y xinput-calibrator
+xinput_calibrator</code></pre>
+
+        <h2>Schritt 5: KI-Sprachsteuerung einrichten</h2>
+        <p>Für die lokale Sprachsteuerung verwenden wir <strong>Whisper.cpp</strong> (OpenAI's Whisper in C++) und <strong>PocketSphinx</strong> für Befehlssteuerung:</p>
+        <pre><code># Whisper.cpp kompilieren
+git clone https://github.com/ggerganov/whisper.cpp.git
+cd whisper.cpp
+make -j4
+
+# Modell herunterladen
+./models/download-ggml-model.sh base
+
+# Test
+./whisper -m models/ggml-base.bin -f samples/jfk.wav</code></pre>
+
+        <p>Für Smart-Home-Befehle erstellen wir ein einfaches Python-Skript:</p>
+        <pre><code>#!/usr/bin/env python3
+import speech_recognition as sr
+import requests
+import json
+
+def listen_command():
+    recognizer = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Höre...")
+        audio = recognizer.listen(source)
+    try:
+        text = recognizer.recognize_whisper(audio, model="base")
+        print(f"Befehl: {text}")
+        return text
+    except:
+        return None
+
+def execute_command(command):
+    if "licht an" in command:
+        requests.post("http://localhost:8123/api/light/on")
+        return "Licht an"
+    elif "licht aus" in command:
+        requests.post("http://localhost:8123/api/light/off")
+        return "Licht aus"
+    elif "wetter" in command:
+        response = requests.get("https://api.open-meteo.com/v1/forecast")
+        return f"Wetter: {response.json()}"
+    return "Befehl nicht erkannt"
+
+if __name__ == "__main__":
+    while True:
+        cmd = listen_command()
+        if cmd:
+            result = execute_command(cmd)
+            print(result)</code></pre>
+
+        <h2>Schritt 6: Dashboard-Layout anpassen</h2>
+        <p>Das Dashboard zeigt folgende Widgets:</p>
+        <ul>
+            <li><strong>Energieverbrauch</strong> in Echtzeit (mit Shelly oder Tasmota-Sensoren)</li>
+            <li><strong>Wettervorhersage</strong> für die nächsten 7 Tage</li>
+            <li><strong>Kalender</strong> mit Google Calendar Integration</li>
+            <li><strong>Sicherheitskameras</strong> (RTSP-Stream von IP-Kameras)</li>
+            <li><strong>Smart-Home-Steuerung</strong> für Licht, Heizung, Rollläden</li>
+            <li><strong>Timer & Wecker</strong></li>
+            <li><strong>Notizen</strong> und To-Do-Listen</li>
+        </ul>
+
+        <h2>Schritt 7: Automatischen Start konfigurieren</h2>
+        <p>Das Dashboard soll automatisch beim Hochfahren starten:</p>
+        <pre><code>sudo nano /etc/systemd/system/glass-dashboard.service
+
+# Inhalt:
+[Unit]
+Description=Glass Smart Home Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi
+ExecStart=/home/pi/dashboard-venv/bin/python -m glass_dashboard
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+# Aktivieren
+sudo systemctl enable glass-dashboard.service
+sudo systemctl start glass-dashboard.service</code></pre>
+
+        <!-- Affiliate Links Section -->
+        <div class="affiliate-section">
+            <h3>Empfohlene Produkte</h3>
+            <div class="affiliate-grid">
+                <a href="/pages/raspberry-pi-5.html" class="affiliate-card">
+                    <img src="/images/raspberry-pi-5.jpg" alt="Raspberry Pi 5" loading="lazy">
+                    <div class="affiliate-info">
+                        <h4>Raspberry Pi 5 (8GB)</h4>
+                        <p>Der perfekte Single-Board-Computer für DIY-Projekte</p>
+                        <span class="affiliate-price">ab € 75</span>
+                    </div>
+                </a>
+                <a href="/pages/logitech-mx-master-3s.html" class="affiliate-card">
+                    <img src="/images/logitech-mx-master-3s.jpg" alt="Logitech MX Master 3S" loading="lazy">
+                    <div class="affiliate-info">
+                        <h4>Logitech MX Master 3S</h4>
+                        <p>Die ultimative Produktivitätsmaus für Entwickler</p>
+                        <span class="affiliate-price">ab € 99</span>
+                    </div>
+                </a>
+                <a href="/pages/google-pixel-9-pro.html" class="affiliate-card">
+                    <img src="/images/google-pixel-9-pro.jpg" alt="Google Pixel 9 Pro" loading="lazy">
+                    <div class="affiliate-info">
+                        <h4>Google Pixel 9 Pro</h4>
+                        <p>Bestes Android-Smartphone mit KI-Funktionen</p>
+                        <span class="affiliate-price">ab € 999</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Related Articles -->
+        <div class="related-articles">
+            <h3>Weiterführende DIY-Projekte</h3>
+            <div class="related-grid">
+                <a href="/diy/ai-assistent-raspberry-pi.html" class="related-card">
+                    <h4>Eigenen AI-Assistenten mit Raspberry Pi bauen</h4>
+                    <p>Vollständiger AI-Assistent mit Sprachsteuerung</p>
+                </a>
+                <a href="/diy/ai-security-camera.html" class="related-card">
+                    <h4>KI-Sicherheitskamera mit Raspberry Pi bauen</h4>
+                    <p>Intelligente Überwachung mit Objekterkennung</p>
+                </a>
+                <a href="/diy/eigenen-ai-assistenten-mit-raspberry-pi-bauen.html" class="related-card">
+                    <h4>Eigenen AI-Assistenten mit Raspberry Pi bauen</h4>
+                    <p>Detaillierte Anleitung für den AI-Assistenten</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share & Comments -->
+    <div class="article-footer">
+        <div class="share-buttons">
+            <span>Artikel teilen:</span>
+            <a href="https://twitter.com/intent/tweet?url=https://mmofinds.de/diy/ai-smart-home-dashboard.html&text=KI+Smart+Home Dashboard mit Raspberry Pi" class="share-btn twitter" target="_blank" rel="noopener">Twitter</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://mmofinds.de/diy/ai-smart-home-dashboard.html" class="share-btn facebook" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.linkedin.com/shareArticle?url=https://mmofinds.de/diy/ai-smart-home-dashboard.html" class="share-btn linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+        <h3>MMOFinds</h3>
+        <p>AI & Tech Magazin: News, DIY & Reviews — für Technik-Enthusiasten.</p>
+        <div class="footer-links">
+            <a href="/">Start</a>
+            <a href="/news/">News</a>
+            <a href="/diy/">DIY</a>
+            <a href="/pages/">Reviews</a>
+            <a href="/kontakt.html">Kontakt</a>
+            <a href="/ueber-uns.html">Über uns</a>
+            <a href="/affiliate-info.html">Amazon Affiliate</a>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 MMOFinds</span>
+            <span>·</span>
+            <a href="/impressum.html">Impressum</a>
+            <span>·</span>
+            <a href="/datenschutz.html">Datenschutz</a>
+        </div>
+    </div>
+  </footer>
+
+</body>
+</html>
