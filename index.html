@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="/assets/css/navigation.css">
   <link rel="stylesheet" href="/assets/css/animations.css">
   <link rel="stylesheet" href="/assets/css/design-v4.css">
+  <link rel="stylesheet" href="/assets/css/design-v5.css">
 
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
@@ -68,7 +69,15 @@
   <main>
     <!-- Hero -->
     <div class="hero-section">
-      <h1 class="hero-title">MMOFinds — AI & Tech Magazin: News, DIY &amp; Reviews</h1>
+      <div class="hero-video-bg">
+        <div class="hero-video-placeholder"></div>
+      </div>
+      <div class="hero-particles"></div>
+      <div class="hero-badge">
+        <span>🚀</span>
+        <span>AI & Tech Magazin — Juni 2026</span>
+      </div>
+      <h1 class="hero-title">MMOFinds — AI &amp; Tech Magazin: News, DIY &amp; Reviews</h1>
       <p class="hero-subtitle">Deine Quelle für aktuelle KI-News, coole DIY-Projekte und ehrliche Produkt-Reviews — für Technik-Enthusiasten.</p>
     </div>
 
@@ -80,11 +89,11 @@
           <div class="stat-label">Produkt-Reviews</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">18</div>
+          <div class="stat-number">19</div>
           <div class="stat-label">AI News</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">12</div>
+          <div class="stat-number">13</div>
           <div class="stat-label">DIY Projekte</div>
         </div>
         <div class="stat-card">
@@ -476,6 +485,15 @@
           <p>Level-4-Autonomie, KI-gestütztes Design und Predictive Maintenance — wie KI die Automobilbranche revolutioniert.</p>
         </div>
       </a>
+      <a href="/news/ki-gesundheitswesen-2026.html" class="card">
+        <div class="card-image">
+          <img loading="lazy" src="/images/3d-ai-brain.svg" alt="KI im Gesundheitswesen 2026: Revolutionäre Diagnose & Behandlung" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
+          <h4>KI im Gesundheitswesen 2026: Revolutionäre Diagnose &amp; Behandlung</h4>
+          <p>99% Krebsfrüherkennung, KI-Chirurgen und personalisierte Medikamente — wie KI das Gesundheitswesen revolutioniert.</p>
+        </div>
+      </a>
     </div>
 
     <!-- Featured DIY -->
@@ -581,6 +599,31 @@
           <p>Raspberry Pi 5, 10-Zoll-Touchscreen und lokale KI — das vollständige Smart-Home-Dashboard mit Sprachsteuerung.</p>
         </div>
       </a>
+      <a href="/diy/ki-smart-spiegel-mit-raspberry-pi-5-bauen.html" class="card">
+        <div class="card-image">
+          <img loading="lazy" src="/images/3d-diy-tools.svg" alt="KI-Smart Mirror mit Raspberry Pi 5 bauen" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
+          <h4>KI-Smart Mirror mit Raspberry Pi 5 bauen</h4>
+          <p>Der ultimative Smart Mirror: Wetter, Kalender, KI-Gesichtserkennung und Sprachsteuerung — komplett lokal!</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Featured Video Section -->
+    <div class="video-section">
+      <h3>🎬 Produkt-Video Highlights</h3>
+      <p>Entdecke unsere besten Produkt-Reviews in Videoform — erstellt mit ComfyUI AI Video Generation.</p>
+      <div class="video-player">
+        <video poster="/images/sony_wh1000xm5_review.mp4" preload="metadata">
+          <source src="/videos/sony_wh1000xm5_review.mp4" type="video/mp4">
+        </video>
+        <div class="video-play-overlay" onclick="this.previousElementSibling.play()">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Newsletter -->
@@ -598,27 +641,23 @@
 <!-- Footer -->
 <footer class="site-footer">
   <div class="footer-content">
-    <h3>MMOFINDS</h3>
-    <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+    <h3>MMOFinds</h3>
+    <p>Deine Quelle für KI-News, DIY-Projekte und ehrliche Produkt-Reviews.</p>
     <div class="footer-links">
-      <a href="/">Startseite</a>
-      <a href="/news/index.html">AI & Tech-News</a>
-      <a href="/diy/index.html">DIY Projekte</a>
-      <a href="/pages/index.html">Produkt-Reviews</a>
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 MMOFinds</span>
-      <span>Made with ❤️ in Germany 2014 Updated</span>
+      <span>© 2026 MMOFinds</span>
+      <span>·</span>
+      <span>AI & Tech Magazin</span>
     </div>
   </div>
-
-      <a href="/kontakt.html">Kontakt</a>
-    
-      <a href="/ueber-uns.html">Über uns</a>
-    
-      <a href="/affiliate-info.html">Amazon Affiliate</a>
-    </footer>
-
+</footer>
 
 <!-- Dark/Light Mode Toggle -->
 <button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>

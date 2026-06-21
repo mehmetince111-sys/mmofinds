@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/ki-smart-spiegel-mit-raspberry-pi-5-bauen.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Smart Mirror mit Raspberry Pi 5 bauen — MMOFinds DIY</title>
+    <meta name="description" content="Baue deinen eigenen KI-gestützten Smart Mirror mit Raspberry Pi 5, 24-Zoll-Monitor und Magic Mirror Module. Wetter, Kalender, News, Sprachsteuerung und mehr — komplett lokal!">
+    <meta name="keywords" content="Smart Mirror, Raspberry Pi 5, DIY Spiegel, Magic Mirror, KI Spiegel, Smart Home DIY, Raspberry Pi Projekt">
+    <meta name="theme-color" content="#22c55e">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="KI-Smart Mirror mit Raspberry Pi 5 bauen">
+    <meta property="og:description" content="Baue deinen eigenen KI-gestützten Smart Mirror mit Raspberry Pi 5, 24-Zoll-Monitor und Magic Mirror Module.">
+    <meta property="og:url" content="https://mmofinds.de/diy/ki-smart-spiegel-mit-raspberry-pi-5-bauen.html">
+    <meta property="og:image" content="https://mmofinds.de/images/3d-diy-tools.svg">
+    <meta property="og:site_name" content="MMOFinds">
+    <meta property="article:published_time" content="2026-06-21">
+    <meta property="article:section" content="DIY">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KI-Smart Mirror mit Raspberry Pi 5 bauen">
+    <meta name="twitter:description" content="Baue deinen eigenen KI-gestützten Smart Mirror mit Raspberry Pi 5.">
+    <meta name="twitter:image" content="https://mmofinds.de/images/3d-diy-tools.svg">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "KI-Smart Mirror mit Raspberry Pi 5 bauen",
+        "description": "Vollständiger Leitfaden zum Bau eines KI-gestützten Smart Mirrors mit Raspberry Pi 5, Magic Mirror Modulen und Sprachsteuerung.",
+        "image": "https://mmofinds.de/images/3d-diy-tools.svg",
+        "datePublished": "2026-06-21",
+        "author": {
+            "@type": "Organization",
+            "name": "MMOFinds"
+        }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/mobile.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/design-v5.css">
+    <link rel="stylesheet" href="/assets/css/design-v4.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links">
+                <a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                <a href="/" class="nav-link">Start</a>
+                <a href="/news/" class="nav-link">News</a>
+                <a href="/diy/" class="nav-link">DIY</a>
+                <a href="/pages/" class="nav-link">Reviews</a>
+                <a href="/impressum.html" class="nav-link">Impressum</a>
+                <a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Article Hero -->
+        <div class="article-hero" style="padding: 60px 20px 40px; text-align: center; background: linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(74,158,255,0.06) 50%, rgba(139,92,246,0.04) 100%); border-radius: 0 0 32px 32px;">
+            <div style="margin-bottom: 16px;">
+                <span style="display: inline-block; padding: 6px 16px; background: linear-gradient(135deg, #22c55e, #4a9eff); border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.05em;">DIY Projekt</span>
+            </div>
+            <h1 style="font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 900; background: linear-gradient(135deg, #ffffff 0%, #22c55e 50%, #4a9eff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; line-height: 1.2;">KI-Smart Mirror mit Raspberry Pi 5 bauen</h1>
+            <p style="color: var(--color-text-secondary); font-size: 1.1rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">Der ultimative Smart Mirror: Wetter, Kalender, News, KI-gestützte Gesichtserkennung und Sprachsteuerung — alles auf einem 24-Zoll-Spiegeldisplay. Komplett lokal und kostenlos!</p>
+            <div style="margin-top: 20px; color: var(--color-text-muted); font-size: 0.85rem;">21. Juni 2026 · 12 Min. Lesezeit</div>
+        </div>
+
+        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+            <!-- Featured Image -->
+            <div style="margin-bottom: 40px; border-radius: var(--radius-xl); overflow: hidden; background: linear-gradient(135deg, #1a1a1a, #222); display: flex; align-items: center; justify-content: center; min-height: 300px;">
+                <img src="/images/3d-diy-tools.svg" alt="DIY Smart Mirror — Werkzeuge" style="max-width: 100%; height: auto; padding: 40px;">
+            </div>
+
+            <!-- Article Content -->
+            <div style="color: var(--color-text); line-height: 1.8; font-size: 1.05rem;">
+                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(34,197,94,0.1);">📦 Materialliste</h2>
+                <p style="margin-bottom: 20px;">Bevor wir starten, hier die komplette Materialliste. Alle Teile sind bei Amazon erhältlich:</p>
+                
+                <div style="background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.15); border-radius: var(--radius-lg); padding: 24px; margin: 28px 0;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #22c55e; margin-bottom: 16px;">🛒 Benötigte Komponenten</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <th style="text-align: left; padding: 8px 0; color: var(--color-text-secondary); font-weight: 600;">Komponente</th>
+                                <th style="text-align: left; padding: 8px 0; color: var(--color-text-secondary); font-weight: 600;">Preis (ca.)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 10px 0;"><a href="/pages/raspberry-pi-5.html" style="color: #4a9eff; text-decoration: none;">🖥️ Raspberry Pi 5 (8GB)</a></td>
+                                <td style="padding: 10px 0;">~75€</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 10px 0;"><a href="#" style="color: #4a9eff; text-decoration: none;">🪞 24-Zoll Full HD Monitor</a></td>
+                                <td style="padding: 10px 0;">~150€</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 10px 0;"><a href="#" style="color: #4a9eff; text-decoration: none;">🔍 Halbverspiegelfolie (24")</a></td>
+                                <td style="padding: 10px 0;">~20€</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 10px 0;"><a href="/pages/logitech-mx-master-3s.html" style="color: #4a9eff; text-decoration: none;">🔊 USB Lautsprecher</a></td>
+                                <td style="padding: 10px 0;">~30€</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 10px 0;"><a href="#" style="color: #4a9eff; text-decoration: none;">🎤 USB Mikrofon</a></td>
+                                <td style="padding: 10px 0;">~25€</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <td style="padding: 10px 0;"><a href="#" style="color: #4a9eff; text-decoration: none;">📡 USB Webcam (für KI-Erkennung)</a></td>
+                                <td style="padding: 10px 0;">~35€</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0;"><a href="#" style="color: #4a9eff; text-decoration: none;">🔌 Netzteil, GPIO-Kabel, Gehäuse</a></td>
+                                <td style="padding: 10px 0;">~25€</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td style="padding: 12px 0; font-weight: 700; color: #fff;">Gesamtkosten:</td>
+                                <td style="padding: 12px 0; font-weight: 700; color: #22c55e;">~360€</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(34,197,94,0.1);">🔧 Schritt 1: Raspberry Pi einrichten</h2>
+                <p style="margin-bottom: 20px;">Lade das neueste <strong>Raspberry Pi OS Lite (64-bit)</strong> von der offiziellen Website herunter und spiele es mit <strong>Raspberry Pi Imager</strong> auf eine microSD-Karte (mindestens 32GB, Klasse 10).</p>
+                
+                <div style="background: rgba(255,255,255,0.03); border-left: 3px solid #22c55e; padding: 16px 20px; margin: 20px 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;">
+                    <strong style="color: #22c55e;">💡 Pro-Tipp:</strong> Aktiviere SSH und WiFi direkt im Raspberry Pi Imager unter "Settings" — so kannst du den Pi später komplett ohne Monitor konfigurieren.
+                </div>
+
+                <p style="margin-bottom: 20px;">Stecke die Karte ein, verbinde den Pi mit Monitor und Tastatur, und führe die folgenden Befehle aus:</p>
+
+                <div style="background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; overflow-x: auto;">
+                    <div style="color: #22c55e; margin-bottom: 8px;">$ sudo apt update && sudo apt full-upgrade -y</div>
+                    <div style="color: #22c55e; margin-bottom: 8px;">$ sudo apt install -y git npm nodejs</div>
+                    <div style="color: #22c55e; margin-bottom: 8px;">$ sudo apt install -y chromium-browser</div>
+                    <div style="color: #22c55e; margin-bottom: 8px;">$ sudo apt install -y python3-pip</div>
+                    <div style="color: #22c55e; margin-bottom: 8px;">$ pip3 install --user pillow pyyaml</div>
+                    <div style="color: #8b5cf6; margin-top: 12px;">$ git clone https://github.com/MichMich/MagicMirror</div>
+                    <div style="color: #8b5cf6;">$ cd MagicMirror && npm install</div>
+                </div>
+
+                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(34,197,94,0.1);">🪞 Schritt 2: Spiegel-Display vorbereiten</h2>
+                <p style="margin-bottom: 20px;">Reinige die Vorderseite des Monitors gründlich und trage die <strong>halbverspiegelfolie</strong> gleichmäßig auf. Verwende eine Sprühflasche mit Wasser und Spülmittel als Gleitmittel, um Blasen zu vermeiden.</p>
+                <p style="margin-bottom: 20px;">Schneide überschüssige Folie mit einem scharfen Cutterserver entlang der Monitorränder ab. Der Effekt: Von vorne siehst du den Spiegel, von hinten erkennst du den Monitor — perfekt für den Smart Mirror!</p>
+
+                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(34,197,94,0.1);">⚙️ Schritt 3: Magic Mirror konfigurieren</h2>
+                <p style="margin-bottom: 20px;">Kopiere die Beispielkonfiguration und passe sie an deine Bedürfnisse an:</p>
+
+                <div style="background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem;">
+                    <div style="color: #8b5cf6; margin-bottom: 8px;">$ cp config/config.sample.js config/config.js</div>
+                    <div style="color: #8b5cf6;">$ nano config/config.js</div>
+                </div>
+
+                <p style="margin-bottom: 20px;">Füge die folgenden Module in die Konfiguration ein:</p>
+
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.85rem; overflow-x: auto;">
+<pre style="margin: 0; color: #e0e0e0;">modules: [
+  {
+    module: "MMM-Remote-Control",  // Fernsteuerung per Webinterface
+    position: "top_right"
+  },
+  {
+    module: "clock",                // Uhr
+    position: "top_left"
+  },
+  {
+    module: "calendar",             // Kalender
+    position: "top_left",
+    config: {
+      calendars: [{
+        symbol: "calendar-check",
+        url: "webcal://www.calendarlabs.com/templates/ical/US-Holidays.ics"
+      }]
+    }
+  },
+  {
+    module: "weather",              // Wetter
+    position: "top_right",
+    config: {
+      weatherProvider: "openweather",
+      type: "forecast",
+      location: "Berlin"
+    }
+  },
+  {
+    module: "newsfeed",             // News
+    position: "bottom_bar",
+    config: {
+      feeds: [{
+        title: "KI News",
+        url: "https://mmofinds.de/news/feed.xml"
+      }]
+    }
+  },
+  {
+    module: "MMM-HA-Bridge",        // Home Assistant Integration
+    position: "bottom_right"
+  },
+  {
+    module: "MMM-PIR-Sensor",       // Bewegungsmelder
+    position: "top_center"
+  }
+]</pre>
+                </div>
+
+                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(34,197,94,0.1);">🤖 Schritt 4: KI-Funktionen hinzufügen</h2>
+                <p style="margin-bottom: 20px;">Hier wird's spannend! Wir installieren <strong>Face Recognition</strong> für personalisierte Begrüßung und <strong>Whisper</strong> für lokale Sprachsteuerung:</p>
+
+                <div style="background: #0a0a0a; border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.9rem; overflow-x: auto;">
+                    <div style="color: #22c55e; margin-bottom: 8px;">$ pip3 install --user face-recognition</div>
+                    <div style="color: #22c55e; margin-bottom: 8px;">$ pip3 install --user openai-whisper</div>
+                    <div style="color: #22c55e; margin-bottom: 8px;">$ pip3 install --user pyaudio</div>
+                    <div style="color: #22c55e; margin-bottom: 8px;">$ sudo apt install -y portaudio19-dev</div>
+                    <div style="color: #8b5cf6; margin-top: 12px;"># Whisper Modell herunterladen (~2GB)</div>
+                    <div style="color: #8b5cf6;">$ python3 -m whisper.download --model base</div>
+                </div>
+
+                <p style="margin-bottom: 20px;">Erstelle ein Python-Skript <code style="background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 4px;">mirror-ai.py</code> für die KI-Steuerung:</p>
+
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.85rem; overflow-x: auto;">
+<pre style="margin: 0; color: #e0e0e0;">#!/usr/bin/env python3
+"""KI-Smart Mirror Steuerung"""
+import whisper
+import face_recognition
+import subprocess
+import json
+import cv2
+
+# Whisper für Sprachsteuerung
+model = whisper.load_model("base")
+
+# Gesichtserkennung initialisieren
+known_faces = {}  # {name: encoding}
+
+def recognize_face(frame):
+    """Erkennt bekannte Gesichter im Bild"""
+    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    face_locations = face_recognition.face_locations(rgb_frame)
+    face_encodings = face_recognition.face_encodings(rgb_frame, face_locations)
+    
+    for face_encoding in face_encodings:
+        for name, known_encoding in known_faces.items():
+            matches = face_recognition.compare_faces([known_encoding], face_encoding)
+            if matches[0]:
+                return name
+    return "Unbekannt"
+
+def voice_command(text):
+    """Verarbeitet Sprachbefehle"""
+    text = text.lower()
+    if "wetter" in text:
+        return get_weather()
+    elif "kalender" in text:
+        return get_calendar()
+    elif "licht an" in text:
+        return control_smart_light("on")
+    elif "licht aus" in text:
+        return control_smart_light("off")
+    return "Befehl nicht erkannt"
+
+if __name__ == "__main__":
+    print("KI-Smart Mirror bereit!")
+    print("Sprich: 'Wetter', 'Kalender', 'Licht an'")</pre>
+                </div>
+
+                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(34,197,94,0.1);">🏠 Schritt 5: Gehäuse bauen</h2>
+                <p style="margin-bottom: 20px;">Für das Gehäuse kannst du entweder <strong>3D-gedruckte Teile</strong> verwenden (kostenlos auf Thingiverse oder Printables) oder ein einfaches Holzgehäuse aus Sperrholz bauen. Wichtig:</p>
+                
+                <ul style="margin-bottom: 20px; padding-left: 24px;">
+                    <li style="margin-bottom: 8px;">Sorge für <strong>ausreichend Belüftung</strong> — der Raspberry Pi wird warm</li>
+                    <li style="margin-bottom: 8px;">Verwende ein <strong>24V Netzteil</strong> für den Monitor und einen <strong>USB-C Lader</strong> für den Pi</li>
+                    <li style="margin-bottom: 8px;">Integriere einen <strong>PIR-Bewegungsmelder</strong> (HC-SR501), damit der Spiegel sich einschaltet, wenn jemand in der Nähe ist</li>
+                    <li style="margin-bottom: 8px;">Verstecke alle Kabel im Gehäuse für ein sauberes Erscheinungsbild</li>
+                </ul>
+
+                <div style="background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); border-radius: var(--radius-lg); padding: 24px; margin: 28px 0;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #f59e0b; margin-bottom: 12px;">⚠️ Wichtige Hinweise</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 6px 0;">🔌 Verwende immer ein <strong>qualitatives Netzteil</strong> für den Raspberry Pi 5 — mindestens 27W USB-PD</li>
+                        <li style="padding: 6px 0;">🌡️ Der Pi 5 sollte ein <strong>Kühler mit Lüfter</strong> haben, besonders im geschlossenen Gehäuse</li>
+                        <li style="padding: 6px 0;">🔒 Sichere den Spiegel an der Wand — er kann bis zu 10kg wiegen</li>
+                    </ul>
+                </div>
+
+                <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid rgba(34,197,94,0.1);">🎉 Fertig! Dein KI-Smart Mirror ist bereit</h2>
+                <p style="margin-bottom: 20px;">Herzlichen Glückwunsch! Du hast deinen eigenen KI-gestützten Smart Mirror gebaut. Er zeigt Wetter, Kalender, Nachrichten und lässt sich per Sprachbefehl steuern — alles komplett lokal ohne Cloud!</p>
+                <p style="margin-bottom: 20px;">Du kannst den Mirror weiter erweitern mit:</p>
+                <ul style="margin-bottom: 20px; padding-left: 24px;">
+                    <li style="margin-bottom: 8px;">📊 <strong>Home Assistant Dashboard</strong> — steuere alle Smart Home Geräte direkt am Spiegel</li>
+                    <li style="margin-bottom: 8px;">📸 <strong>Foto-Rahmen</strong> — zeige persönliche Fotos vom Spiegel an</li>
+                    <li style="margin-bottom: 8px;">🎵 <strong>Musiksteuerung</strong> — Spotify oder YouTube Music per Sprachbefehl</li>
+                    <li style="margin-bottom: 8px;">🤖 <strong>LLM-Chat</strong> — frage den Spiegel nach Informationen (mit lokal laufendem LLM)</li>
+                </ul>
+
+                <!-- Affiliate Links Section -->
+                <div style="background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(74,158,255,0.06)); border: 1px solid rgba(34,197,94,0.15); border-radius: var(--radius-xl); padding: 32px; margin: 40px 0;">
+                    <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 20px;">🛒 Empfohlene Produkte für dieses Projekt</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
+                        <a href="/pages/raspberry-pi-5.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: var(--radius-md); text-decoration: none; transition: all 0.3s ease;">
+                            <span style="font-size: 2rem;">🖥️</span>
+                            <div>
+                                <div style="font-weight: 700; color: #fff; font-size: 0.9rem;">Raspberry Pi 5</div>
+                                <div style="color: var(--color-text-secondary); font-size: 0.8rem;">8GB RAM</div>
+                            </div>
+                        </a>
+                        <a href="/pages/logitech-mx-master-3s.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: var(--radius-md); text-decoration: none; transition: all 0.3s ease;">
+                            <span style="font-size: 2rem;">🖱️</span>
+                            <div>
+                                <div style="font-weight: 700; color: #fff; font-size: 0.9rem;">Logitech MX Master 3S</div>
+                                <div style="color: var(--color-text-secondary); font-size: 0.8rem;">Produktivitätsmaus</div>
+                            </div>
+                        </a>
+                        <a href="/pages/iphone-16-pro.html" style="display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: var(--radius-md); text-decoration: none; transition: all 0.3s ease;">
+                            <span style="font-size: 2rem;">📱</span>
+                            <div>
+                                <div style="font-weight: 700; color: #fff; font-size: 0.9rem;">iPhone 16 Pro</div>
+                                <div style="color: var(--color-text-secondary); font-size: 0.8rem;">Home Assistant App</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Share & Tags -->
+            <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--color-border);">
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+                    <span style="padding: 4px 12px; background: rgba(34,197,94,0.1); border-radius: 20px; font-size: 0.8rem; color: var(--color-success);">DIY</span>
+                    <span style="padding: 4px 12px; background: rgba(74,158,255,0.1); border-radius: 20px; font-size: 0.8rem; color: var(--color-primary);">Raspberry Pi</span>
+                    <span style="padding: 4px 12px; background: rgba(139,92,246,0.1); border-radius: 20px; font-size: 0.8rem; color: var(--color-secondary);">Smart Home</span>
+                    <span style="padding: 4px 12px; background: rgba(236,72,153,0.1); border-radius: 20px; font-size: 0.8rem; color: var(--color-accent);">2026</span>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <a href="#" style="padding: 8px 16px; background: rgba(255,255,255,0.05); border-radius: var(--radius-md); color: var(--color-text-secondary); text-decoration: none; font-size: 0.85rem;">📤 Teilen</a>
+                    <a href="#" style="padding: 8px 16px; background: rgba(255,255,255,0.05); border-radius: var(--radius-md); color: var(--color-text-secondary); text-decoration: none; font-size: 0.85rem;">🔖 Speichern</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related DIY Projects -->
+        <div style="max-width: 800px; margin: 48px auto; padding: 0 20px;">
+            <h2 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 24px;">🔧 Weitere DIY Projekte</h2>
+            <div class="cards-grid">
+                <a href="/diy/ai-assistent-raspberry-pi.html" class="card">
+                    <div class="card-image">
+                        <img loading="lazy" src="/images/3d-diy-tools.svg" alt="AI Assistent Raspberry Pi" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
+                        <h4>Eigenen AI-Assistenten mit Raspberry Pi bauen</h4>
+                        <p>Lokaler KI-Assistent mit Whisper und Llama 3 — komplett offline und privat.</p>
+                    </div>
+                </a>
+                <a href="/diy/raspberry-pi-smart-home-hub.html" class="card">
+                    <div class="card-image">
+                        <img loading="lazy" src="/images/3d-diy-tools.svg" alt="Smart Home Hub Raspberry Pi" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
+                        <h4>Raspberry Pi 5 Smart Home Hub bauen</h4>
+                        <p>Home Assistant auf dem Raspberry Pi 5 — dein komplettes Smart Home Zentrum.</p>
+                    </div>
+                </a>
+                <a href="/diy/smart-mirror.html" class="card">
+                    <div class="card-image">
+                        <img loading="lazy" src="/images/3d-diy-tools.svg" alt="Smart Mirror Raspberry Pi" class="card-img">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
+                        <h4>Smart Mirror mit Raspberry Pi bauen</h4>
+                        <p>Klassischer Magic Mirror mit Kalender, Wetter und News — der perfekte Einstieg.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <h3>MMOFinds</h3>
+            <p>Deine Quelle für KI-News, DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Start</a>
+                <a href="/news/">News</a>
+                <a href="/diy/">DIY</a>
+                <a href="/pages/">Reviews</a>
+                <a href="/impressum.html">Impressum</a>
+                <a href="/datenschutz.html">Datenschutz</a>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 MMOFinds</span>
+                <span>·</span>
+                <span>AI & Tech Magazin</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
