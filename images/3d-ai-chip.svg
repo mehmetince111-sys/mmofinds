@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="chipbg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c1222"/>
+      <stop offset="100%" style="stop-color:#1a2744"/>
+    </linearGradient>
+    <linearGradient id="chipbody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="50%" style="stop-color:#334155"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="chipcore" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a9eff"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+    <linearGradient id="pin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#94a3b8"/>
+      <stop offset="100%" style="stop-color:#64748b"/>
+    </linearGradient>
+    <filter id="chipshadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#4a9eff" flood-opacity="0.4"/>
+    </filter>
+    <filter id="chipglow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="coreinner" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" style="stop-color:#e0e7ff"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="200" height="200" rx="20" fill="url(#chipbg)" opacity="0.2"/>
+  <!-- Chip body -->
+  <g filter="url(#chipshadow)">
+    <rect x="55" y="55" width="90" height="90" rx="8" fill="url(#chipbody)"/>
+    <rect x="60" y="60" width="80" height="80" rx="6" fill="#0f172a" opacity="0.5"/>
+  </g>
+  <!-- Pins top -->
+  <rect x="65" y="45" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="77" y="45" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="89" y="45" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="101" y="45" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="113" y="45" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="125" y="45" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <!-- Pins bottom -->
+  <rect x="65" y="143" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="77" y="143" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="89" y="143" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="101" y="143" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="113" y="143" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <rect x="125" y="143" width="4" height="12" rx="1" fill="url(#pin)"/>
+  <!-- Pins left -->
+  <rect x="45" y="65" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="45" y="77" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="45" y="89" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="45" y="101" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="45" y="113" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="45" y="125" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <!-- Pins right -->
+  <rect x="143" y="65" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="143" y="77" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="143" y="89" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="143" y="101" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="143" y="113" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <rect x="143" y="125" width="12" height="4" rx="1" fill="url(#pin)"/>
+  <!-- AI Core -->
+  <g filter="url(#chipglow)">
+    <rect x="78" y="78" width="44" height="44" rx="6" fill="url(#chipcore)" opacity="0.9"/>
+    <rect x="82" y="82" width="36" height="36" rx="4" fill="url(#coreinner)" opacity="0.7"/>
+    <text x="100" y="104" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#fff" opacity="0.9">AI</text>
+  </g>
+  <!-- Circuit traces -->
+  <path d="M78 90 L70 90 L70 80" stroke="#4a9eff" stroke-width="1" fill="none" opacity="0.4"/>
+  <path d="M122 90 L130 90 L130 80" stroke="#4a9eff" stroke-width="1" fill="none" opacity="0.4"/>
+  <path d="M90 78 L90 70 L100 70" stroke="#8b5cf6" stroke-width="1" fill="none" opacity="0.4"/>
+  <path d="M110 78 L110 70 L120 70" stroke="#8b5cf6" stroke-width="1" fill="none" opacity="0.4"/>
+  <path d="M90 122 L90 130 L100 130" stroke="#ec4899" stroke-width="1" fill="none" opacity="0.4"/>
+  <path d="M110 122 L110 130 L120 130" stroke="#ec4899" stroke-width="1" fill="none" opacity="0.4"/>
+</svg>

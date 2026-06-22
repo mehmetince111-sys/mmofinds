@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="spacebg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#020617"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <linearGradient id="planetgrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <linearGradient id="satellgrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e2e8f0"/>
+      <stop offset="100%" style="stop-color:#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="solar" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    <filter id="spaceshadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#6366f1" flood-opacity="0.4"/>
+    </filter>
+    <filter id="spaceglow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="200" height="200" rx="20" fill="url(#spacebg)" opacity="0.2"/>
+  <!-- Stars -->
+  <circle cx="30" cy="30" r="1.5" fill="#fff" opacity="0.6"/>
+  <circle cx="170" cy="25" r="1" fill="#fff" opacity="0.4"/>
+  <circle cx="25" cy="160" r="1.5" fill="#fff" opacity="0.5"/>
+  <circle cx="175" cy="165" r="1" fill="#fff" opacity="0.3"/>
+  <circle cx="100" cy="15" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="15" cy="100" r="1" fill="#fff" opacity="0.4"/>
+  <circle cx="185" cy="100" r="1.5" fill="#fff" opacity="0.3"/>
+  <!-- Planet -->
+  <g filter="url(#spaceshadow)">
+    <circle cx="100" cy="110" r="35" fill="url(#planetgrad)"/>
+    <circle cx="100" cy="110" r="35" fill="url(#planetgrad)" opacity="0.8"/>
+    <!-- Planet rings -->
+    <ellipse cx="100" cy="110" rx="55" ry="12" fill="none" stroke="#a78bfa" stroke-width="3" opacity="0.5" transform="rotate(-15,100,110)"/>
+    <ellipse cx="100" cy="110" rx="50" ry="10" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.3" transform="rotate(-15,100,110)"/>
+  </g>
+  <!-- Satellite -->
+  <g filter="url(#spaceglow)">
+    <!-- Body -->
+    <rect x="155" y="55" width="16" height="12" rx="2" fill="url(#satellgrad)"/>
+    <!-- Solar panels -->
+    <rect x="140" y="57" width="15" height="8" rx="1" fill="#1e3a5f" opacity="0.8"/>
+    <rect x="175" y="57" width="15" height="8" rx="1" fill="#1e3a5f" opacity="0.8"/>
+    <!-- Antenna -->
+    <line x1="163" y1="55" x2="163" y2="45" stroke="#94a3b8" stroke-width="1.5"/>
+    <circle cx="163" cy="43" r="2" fill="#fbbf24" filter="url(#spaceglow)"/>
+  </g>
+  <!-- Signal waves -->
+  <path d="M163 38 Q158 33 163 28" stroke="#fbbf24" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M163 33 Q155 27 163 21" stroke="#fbbf24" stroke-width="1.5" fill="none" opacity="0.3"/>
+  <!-- Orbit path -->
+  <ellipse cx="100" cy="110" rx="65" ry="20" fill="none" stroke="#6366f1" stroke-width="1" stroke-dasharray="4,4" opacity="0.3" transform="rotate(-15,100,110)"/>
+</svg>
