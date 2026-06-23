@@ -1,0 +1,49 @@
+<!-- 3D Neural Network Icon -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="ng1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="ng2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#67e8f9"/>
+      <stop offset="100%" style="stop-color:#93c5fd"/>
+    </linearGradient>
+    <filter id="nshadow">
+      <feDropShadow dx="1" dy="3" stdDeviation="2" flood-color="#3b82f6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Connection lines -->
+  <g stroke="url(#ng2)" stroke-width="1.5" opacity="0.5">
+    <line x1="24" y1="30" x2="64" y2="25"/>
+    <line x1="24" y1="30" x2="64" y2="55"/>
+    <line x1="24" y1="30" x2="64" y2="85"/>
+    <line x1="24" y1="64" x2="64" y2="25"/>
+    <line x1="24" y1="64" x2="64" y2="55"/>
+    <line x1="24" y1="64" x2="64" y2="85"/>
+    <line x1="24" y1="98" x2="64" y2="25"/>
+    <line x1="24" y1="98" x2="64" y2="55"/>
+    <line x1="24" y1="98" x2="64" y2="85"/>
+    <line x1="64" y1="25" x2="104" y2="40"/>
+    <line x1="64" y1="55" x2="104" y2="40"/>
+    <line x1="64" y1="55" x2="104" y2="64"/>
+    <line x1="64" y1="55" x2="104" y2="88"/>
+    <line x1="64" y1="85" x2="104" y2="40"/>
+    <line x1="64" y1="85" x2="104" y2="64"/>
+    <line x1="64" y1="85" x2="104" y2="88"/>
+  </g>
+  <!-- Input layer nodes -->
+  <circle cx="24" cy="30" r="8" fill="url(#ng1)" filter="url(#nshadow)"/>
+  <circle cx="24" cy="64" r="8" fill="url(#ng1)" filter="url(#nshadow)"/>
+  <circle cx="24" cy="98" r="8" fill="url(#ng1)" filter="url(#nshadow)"/>
+  <!-- Hidden layer nodes -->
+  <circle cx="64" cy="25" r="9" fill="url(#ng1)" filter="url(#nshadow)"/>
+  <circle cx="64" cy="55" r="9" fill="#3b82f6" filter="url(#nshadow)"/>
+  <circle cx="64" cy="85" r="9" fill="url(#ng1)" filter="url(#nshadow)"/>
+  <!-- Output layer nodes -->
+  <circle cx="104" cy="40" r="7" fill="url(#ng2)" filter="url(#nshadow)"/>
+  <circle cx="104" cy="64" r="7" fill="url(#ng2)" filter="url(#nshadow)"/>
+  <circle cx="104" cy="88" r="7" fill="url(#ng2)" filter="url(#nshadow)"/>
+  <!-- Glow effects -->
+  <circle cx="64" cy="55" r="14" fill="none" stroke="#67e8f9" stroke-width="1" opacity="0.4"/>
+</svg>
