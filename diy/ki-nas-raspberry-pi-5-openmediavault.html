@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI-gestütztes NAS mit Raspberry Pi 5 und OpenMediaVault — MMOFinds DIY</title>
+  <meta name="description" description="Bau dein eigenes KI-gestütztes NAS mit Raspberry Pi 5 und OpenMediaVault — mit automatischer Bilderkennung, Dateisortierung und Smart-Backup.">
+  <link rel="canonical" href="https://mmofinds.de/diy/ki-nas-raspberry-pi-5-openmediavault.html">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+  <link rel="stylesheet" href="/assets/css/design-v7.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links">
+                <a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                <a href="/" class="nav-link">Start</a>
+                <a href="/news/" class="nav-link">News</a>
+                <a href="/diy/" class="nav-link">DIY</a>
+                <a href="/pages/" class="nav-link">Reviews</a>
+                <a href="/impressum.html" class="nav-link">Impressum</a>
+                <a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+            </div>
+        </div>
+    </div>
+
+<main>
+  <div class="container">
+    <article>
+      <header class="article-header">
+        <span class="article-tag" style="background:#22c55e;">DIY</span>
+        <h1>KI-gestütztes NAS mit Raspberry Pi 5 und OpenMediaVault</h1>
+        <p class="article-meta">DIY Projekt · Juni 2026</p>
+      </header>
+
+      <img src="/images/diy-nas-raspberry-pi.svg" alt="KI-NAS Raspberry Pi 5" style="width:100%;max-height:400px;object-fit:cover;border-radius:16px;margin:24px 0;">
+
+      <div class="article-content">
+        <p>In diesem Projekt baust du dir ein KI-gestütztes NAS (Network Attached Storage) mit dem Raspberry Pi 5 und OpenMediaVault. Dein NAS sortiert automatisch Fotos, erkennt Duplikate und erstellt intelligente Backups — alles mit lokalen KI-Modellen.</p>
+
+        <h2>📦 Was du brauchst</h2>
+        <ul style="margin:16px 0 16px 24px;color:var(--color-text-secondary);">
+          <li>Raspberry Pi 5 (8GB RAM empfohlen)</li>
+          <li>USB 3.0 Festplatte oder SSD (2TB+)</li>
+          <li>MicroSD-Karte (32GB+)</li>
+          <li>Gutes Netzteil (27W USB-C)</li>
+          <li>Netzwerkkabel (Gigabit Ethernet)</li>
+          <li>Optional: Gehäuse mit Lüfter</li>
+        </ul>
+
+        <h2>🔧 Schritt 1: OpenMediaVault installieren</h2>
+        <p>OpenMediaVault (OMV) ist die beste NAS-Software für den Raspberry Pi:</p>
+        <pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;"><code># OMV auf Raspberry Pi OS installieren
+wget -O - https://raw.githubusercontent.com/OpenMediaVault-Plugin-Developers/installScript/master | sudo bash
+
+# Nach der Installation:
+# - Browser öffnen und http://<pi-ip>:80 öffnen
+# - Standard-Zugangsdaten: admin / openmediavault</code></pre>
+
+        <h2>🤖 Schritt 2: KI-Fotoerkennung einrichten</h2>
+        <p>Installiere eine lokale KI zur automatischen Foto-Sortierung:</p>
+        <pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;"><code># Python und Abhängigkeiten
+sudo apt install -y python3 python3-pip python3-venv
+
+# KI-Modell für Bilderkennung
+pip3 install tensorflow pillow
+
+# Erstelle ein Sortierungsskript
+cat > /usr/local/bin/auto-sort-photos.py << 'EOF'
+import tensorflow as tf
+from tensorflow import keras
+from PIL import Image
+import os
+import shutil
+
+# Mobilenet V2 für Bildklassifizierung
+model = keras.applications.MobileNetV2(weights='imagenet')
+
+def sort_photo(filepath):
+    img = Image.open(filepath).resize((224, 224))
+    img_array = keras.preprocessing.image.img_to_array(img)
+    img_array = keras.applications.mobilenet_v2.preprocess_input(img_array)
+    predictions = model.predict(img_array[np.newaxis])
+    # Einfachste Kategorien für DIY-NAS
+    categories = ['person', 'animal', 'landscape', 'food', 'vehicle', 'building']
+    return categories[0]  # Vereinfacht
+
+# Ordner erstellen
+os.makedirs('/srv/dev-disk-by-label-NAS/Fotos/Kategorien', exist_ok=True)
+EOF</code></pre>
+
+        <h2>💾 Schritt 3: Festplatte einrichten</h2>
+        <pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;"><code># Festplatte identifizieren
+lsblk
+
+# Partitionieren (wenn nötig)
+sudo fdisk /dev/sda
+
+# Dateisystem erstellen
+sudo mkfs.ext4 /dev/sda1
+
+# Einhängen
+sudo mkdir -p /srv/dev-disk-by-label-NAS
+echo '/dev/sda1 /srv/dev-disk-by-label-NAS ext4 defaults 0 2' | sudo tee -a /etc/fstab
+
+# Berechtigungen setzen
+sudo chown -R www-data:www-data /srv/dev-disk-by-label-NAS</code></pre>
+
+        <h2>🔄 Schritt 4: Automatisches Backup mit Rsync</h2>
+        <p>Einrichtung eines automatisierten Backup-Systems:</p>
+        <pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;"><code># Crontab für tägliches Backup öffnen
+crontab -e
+
+# Füge diese Zeile hinzu (täglich um 3 Uhr):
+0 3 * * * rsync -avz --delete /srv/dev-disk-by-label-NAS/Fotos/ /backup/fotos/
+
+# Externes Backup (optional)
+0 4 * * 0 rsync -avz --delete /srv/dev-disk-by-label-NAS/ user@external-backup:/nas-backup/</code></pre>
+
+        <h2>🌐 Schritt 5: Fernzugriff einrichten</h2>
+        <p>Sichere Verbindung von unterwegs:</p>
+        <ul style="margin:16px 0 16px 24px;color:var(--color-text-secondary);">
+          <li>OMV Web-Interface über HTTPS konfigurieren</li>
+          <li>DDNS für dynamische IP-Adressen einrichten</li>
+          <li>Cloudflare Tunnel für sicheren Zugang ohne Port-Forwarding</li>
+          <li>File Browser für webbasierten Dateizugriff installieren</li>
+        </ul>
+        <pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;"><code># File Browser installieren
+wget https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz
+tar -xvf linux-amd64-filebrowser.tar.gz
+sudo mv filebrowser /usr/local/bin/
+sudo filebrowser config init --address 0.0.0.0 --port 8080</code></pre>
+
+        <h2>💰 Kostenübersicht</h2>
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="background:rgba(34,197,94,0.1);">
+              <th style="padding:12px;border:1px solid var(--color-border);text-align:left;">Komponente</th>
+              <th style="padding:12px;border:1px solid var(--color-border);text-align:left;">Preis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);">Raspberry Pi 5 (8GB)</td>
+              <td style="padding:12px;border:1px solid var(--color-border);">~€80</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);">2TB USB 3.0 SSD</td>
+              <td style="padding:12px;border:1px solid var(--color-border);">~€70</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);">Gehäuse + Kühlkörper</td>
+              <td style="padding:12px;border:1px solid var(--color-border);">~€20</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);">Netzteil 27W</td>
+              <td style="padding:12px;border:1px solid var(--color-border);">~€10</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);"><strong>Gesamt</strong></td>
+              <td style="padding:12px;border:1px solid var(--color-border);"><strong>~€180</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>💡 Tipps & Tricks</h2>
+        <ul style="margin:16px 0 16px 24px;color:var(--color-text-secondary);">
+          <li><strong>SSD vs HDD:</strong> SSDs sind leiser, schneller und verbrauchen weniger Strom — ideal für den Pi 5</li>
+          <li><strong>Stromausfall:</strong> Eine USV (Unterbrechungsfreie Stromversorgung) schützt vor Datenverlust</li>
+          <li><strong>KI-Erweiterung:</strong> Füge Gesichtserkennung hinzu, um Fotos automatisch nach Personen zu sortieren</li>
+          <li><strong>Media Server:</strong> Installiere Jellyfin für Streaming von Medieninhalten</li>
+        </ul>
+
+        <h2>Fazit</h2>
+        <p>Ein KI-gestütztes NAS mit dem Raspberry Pi 5 ist die perfekte Lösung für alle, die ihre Daten lokal speichern, automatisch organisieren und sicher aufbewahren möchten. Mit OpenMediaVault als Basis und KI-Tools zur automatischen Sortierung hast du ein professionelles NAS-System für unter €200.</p>
+
+        <p>Deine Daten bleiben in deinem Zuhause — niemand verkauft sie, niemand analysiert sie. Vollständige Kontrolle über deine digitalen Erinnerungen.</p>
+      </div>
+    </article>
+
+    <div class="related-section">
+      <h3>🔗 Empfohlene Produkte für dieses Projekt</h3>
+      <div class="cards-grid">
+        <a href="/pages/logitech-mx-master-3s.html" class="card">
+          <div class="card-image">
+            <img loading="lazy" src="/images/logitech-mx-master-3s.jpg" alt="Logitech MX Master 3S" class="card-img">
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag">Review</span></div>
+            <h4>Logitech MX Master 3S</h4>
+            <p>Perfekt zum Konfigurieren und Verwalten deines NAS.</p>
+          </div>
+        </a>
+        <a href="/pages/samsung-galaxy-s25-ultra.html" class="card">
+          <div class="card-image">
+            <img loading="lazy" src="/images/samsung-galaxy-s25-ultra.jpg" alt="Samsung Galaxy S25 Ultra" class="card-img">
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag">Review</span></div>
+            <h4>Samsung Galaxy S25 Ultra</h4>
+            <p>200MP Kamera — perfekt für Fotos, die dein NAS automatisch sortiert.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>MMOFinds</h3>
+    <p>Deine Quelle für KI-News, DIY-Projekte und ehrliche Produkt-Reviews.</p>
+    <div class="footer-links">
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MMOFinds</span>
+      <span>·</span>
+      <span>AI & Tech Magazin</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

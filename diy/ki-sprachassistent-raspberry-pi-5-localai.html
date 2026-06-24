@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI-Sprachassistent mit Raspberry Pi 5 und LocalAI bauen — MMOFinds DIY</title>
+  <meta name="description" content="Bau deinen eigenen KI-Sprachassistenten mit Raspberry Pi 5, LocalAI und Open-Source-Modellen — komplett lokal, ohne Cloud, mit Sprachsteuerung.">
+  <link rel="canonical" href="https://mmofinds.de/diy/ki-sprachassistent-raspberry-pi-5-localai.html">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+  <link rel="stylesheet" href="/assets/css/design-v7.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links">
+                <a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                <a href="/" class="nav-link">Start</a>
+                <a href="/news/" class="nav-link">News</a>
+                <a href="/diy/" class="nav-link">DIY</a>
+                <a href="/pages/" class="nav-link">Reviews</a>
+                <a href="/impressum.html" class="nav-link">Impressum</a>
+                <a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+            </div>
+        </div>
+    </div>
+
+<main>
+  <div class="container">
+    <article>
+      <header class="article-header">
+        <span class="article-tag" style="background:#22c55e;">DIY</span>
+        <h1>KI-Sprachassistent mit Raspberry Pi 5 und LocalAI bauen</h1>
+        <p class="article-meta">DIY Projekt · Juni 2026</p>
+      </header>
+
+      <img src="/images/diy-ai-assistent-pi.svg" alt="KI-Sprachassistent Raspberry Pi" style="width:100%;max-height:400px;object-fit:cover;border-radius:16px;margin:24px 0;">
+
+      <div class="article-content">
+        <p>In diesem DIY-Projekt baust du dir deinen eigenen KI-Sprachassistenten mit dem Raspberry Pi 5 — komplett lokal, ohne Cloud-Dienste und ohne monatliche Kosten. Dein Assistent versteht Deutsch, beantwortet Fragen und steuert dein Smart Home.</p>
+
+        <h2>📦 Was du brauchst</h2>
+        <ul style="margin:16px 0 16px 24px;color:var(--color-text-secondary);">
+          <li>Raspberry Pi 5 (4GB oder 8GB RAM)</li>
+          <li>USB-Mikrofon (z.B. <a href="https://www.amazon.de/dp/B08G4SHF3K?tag=mmofinds-21" target="_blank" rel="noopener noreferrer">Logitech C270 Webcam mit Mic →</a>)</li>
+          <li>USB-Lautsprecher oder Kopfhörer</li>
+          <li>MicroSD-Karte (min. 32GB)</li>
+          <li>Gehäuse mit aktivem Kühlkörper</li>
+          <li>Optional: Tactile-Matrix-Display für Statusanzeige</li>
+        </ul>
+
+        <h2>🔧 Schritt 1: Raspberry Pi einrichten</h2>
+        <p>Installiere Raspberry Pi OS Lite (64-bit) auf deiner MicroSD-Karte:</p>
+        <ol style="margin:16px 0 16px 24px;color:var(--color-text-secondary);">
+          <li>Lade Raspberry Pi Imager von <a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">raspberrypi.com/software/</a> herunter</li>
+          <li>Wähle "Raspberry Pi OS Lite (64-bit)"</li>
+          <li>Konfiguriere WiFi, SSH und Hostname</li>
+          <li>Schreibe auf die MicroSD-Karte</li>
+          <li>Starte den Pi und verbinde dich per SSH</li>
+        </ol>
+
+        <h2>🤖 Schritt 2: LocalAI installieren</h2>
+        <p>LocalAI ist eine Open-Source-Alternative zu OpenAI, die lokal auf deinem Pi läuft:</p>
+        <pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;"><code># System aktualisieren
+sudo apt update && sudo apt upgrade -y
+
+# Python und Abhängigkeiten installieren
+sudo apt install -y python3 python3-pip git
+
+# LocalAI installieren
+git clone https://github.com/go-skynet/LocalAI.git
+cd LocalAI
+
+# Kleines Modell herunterladen (geeignet für Pi 5)
+./localai download-model --name phi-2 --context-size 2048</code></pre>
+
+        <h2>🎤 Schritt 3: Spracherkennung einrichten</h2>
+        <p>Wir verwenden Whisper für die Spracherkennung:</p>
+        <pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;"><code># Whisper installieren
+pip3 install faster-whisper
+
+# Testen
+python3 -c "from faster_whisper import WhisperModel; model = WhisperModel('base', device='cpu'); print('Whisper bereit!')"</code></pre>
+
+        <h2>🗣️ Schritt 4: Sprachausgabe (TTS)</h2>
+        <p>Für die Sprachausgabe verwenden wir Piper TTS — schnell und lokal:</p>
+        <pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;"><code># Piper TTS installieren
+sudo apt install -y pipx
+pipx ensurepath
+pipx install piper-tts
+
+# Deutsche Stimme herunterladen
+wget https://huggingface.co/rhasspy/piper-voices/resolve/main/de/de_DE/amy/medium/de_DE-amy-medium.onnx
+wget https://huggingface.co/rhasspy/piper-voices/resolve/main/de/de_DE/amy/medium/de_DE-amy-medium.onnx.json
+
+# Testen
+echo "Hallo, ich bin dein KI-Assistent." | piper --model de_DE-amy-medium.onnx --output_file output.wav</code></pre>
+
+        <h2>🔗 Schritt 5: Alles verbinden</h2>
+        <p>Erstelle ein Python-Skript, das alles verbindet:</p>
+        <pre style="background:rgba(0,0,0,0.3);padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;"><code>#!/usr/bin/env python3
+"""KI-Sprachassistent für Raspberry Pi 5"""
+import subprocess
+from faster_whisper import WhisperModel
+from localai_client import LocalAI
+
+# Modelle laden
+whisper = WhisperModel('base', device='cpu')
+localai = LocalAI('http://localhost:8080')
+
+def listen():
+    """Mikrofon aufnehmen und transkribieren"""
+    subprocess.run(['arecord', '-f', 'S16_LE', '-r', '16000', '-d', '5', '/tmp/audio.wav'])
+    segments, _ = whisper.transcribe('/tmp/audio.wav')
+    return ''.join(segment.text for segment in segments)
+
+def speak(text):
+    """Text in Sprache umwandeln"""
+    with open('/tmp/tts_input.txt', 'w') as f:
+        f.write(text)
+    subprocess.run(['piper', '--model', 'de_DE-amy-medium.onnx', 
+                    '--output_file', '/tmp/tts_output.wav',
+                    '/tmp/tts_input.txt'])
+    subprocess.run(['aplay', '/tmp/tts_output.wav'])
+
+def main():
+    print("🤖 KI-Assistent gestartet. Sprich 'Hallo' zum Starten...")
+    while True:
+        query = listen()
+        if 'hallo' in query.lower() or 'hey' in query.lower():
+            response = localai.chat(query)
+            speak(response)
+
+if __name__ == '__main__':
+    main()</code></pre>
+
+        <h2>🏠 Schritt 6: Smart Home Integration (Optional)</h2>
+        <p>Verbinde deinen Assistenten mit Home Assistant für Smart Home Steuerung:</p>
+        <ul style="margin:16px 0 16px 24px;color:var(--color-text-secondary);">
+          <li>Home Assistant auf einem separaten Gerät installieren oder auf dem Pi</li>
+          <li>API-Token in Home Assistant erstellen</li>
+          <li>Im Python-Skript Home Assistant API aufrufen</li>
+          <li>Sprachbefehle wie "Licht im Wohnzimmer einschalten" verarbeiten</li>
+        </ul>
+
+        <h2>💰 Kostenübersicht</h2>
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="background:rgba(34,197,94,0.1);">
+              <th style="padding:12px;border:1px solid var(--color-border);text-align:left;">Komponente</th>
+              <th style="padding:12px;border:1px solid var(--color-border);text-align:left;">Preis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);">Raspberry Pi 5 (8GB)</td>
+              <td style="padding:12px;border:1px solid var(--color-border);">~€80</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);">USB-Mikrofon</td>
+              <td style="padding:12px;border:1px solid var(--color-border);">~€15</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);">Gehäuse + Kühlkörper</td>
+              <td style="padding:12px;border:1px solid var(--color-border);">~€20</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);">MicroSD-Karte</td>
+              <td style="padding:12px;border:1px solid var(--color-border);">~€10</td>
+            </tr>
+            <tr>
+              <td style="padding:12px;border:1px solid var(--color-border);"><strong>Gesamt</strong></td>
+              <td style="padding:12px;border:1px solid var(--color-border);"><strong>~€125</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>💡 Tipps & Tricks</h2>
+        <ul style="margin:16px 0 16px 24px;color:var(--color-text-secondary);">
+          <li><strong>Modellgröße:</strong> Für den Pi 5 empfehlen wir "phi-2" oder "TinyLlama" — schnell und gut genug für Alltagsgespräche</li>
+          <li><strong>Wärme:</strong> Der Pi 5 wird warm — ein aktives Gehäuse mit Lüfter ist empfehlenswert</li>
+          <li><strong>Strom:</strong> Verwende ein originales USB-C Netzteil (27W) für stabile Leistung</li>
+          <li><strong>Erweiterung:</strong> Füge ein Display hinzu für visuelle Feedback und Wetteranzeige</li>
+        </ul>
+
+        <h2>Fazit</h2>
+        <p>Mit diesem DIY-Projekt baust du dir einen voll funktionsfähigen KI-Sprachassistenten für unter €130 — komplett lokal, ohne Abo-Gebühren und ohne Cloud-Abhängigkeit. Dein Assistent lernt mit der Zeit dazu und kann an deine Bedürfnisse angepasst werden.</p>
+
+        <p>Das Beste: Alles läuft auf deinem eigenen Raspberry Pi — deine Daten verlassen niemals dein Zuhause!</p>
+      </div>
+    </article>
+
+    <div class="related-section">
+      <h3>🔗 Empfohlene Produkte für dieses Projekt</h3>
+      <div class="cards-grid">
+        <a href="https://www.amazon.de/dp/B0CGxqzL8d?tag=mmofinds-21" target="_blank" rel="noopener noreferrer" class="card">
+          <div class="card-image">
+            <img loading="lazy" src="/images/logitech-mx-master-3s.jpg" alt="Raspberry Pi 5" class="card-img">
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
+            <h4>Raspberry Pi 5 — 8GB RAM</h4>
+            <p>Der perfekte Prozessor für lokale KI-Projekte.</p>
+          </div>
+        </a>
+        <a href="/pages/kindle-paperwhite-2024.html" class="card">
+          <div class="card-image">
+            <img loading="lazy" src="/images/kindle-paperwhite-2024.jpg" alt="Kindle Paperwhite" class="card-img">
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag">Review</span></div>
+            <h4>Kindle Paperwhite 2024</h4>
+            <p>Perfekt zum Lesen von DIY-Anleitungen unterwegs.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>MMOFinds</h3>
+    <p>Deine Quelle für KI-News, DIY-Projekte und ehrliche Produkt-Reviews.</p>
+    <div class="footer-links">
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MMOFinds</span>
+      <span>·</span>
+      <span>AI & Tech Magazin</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

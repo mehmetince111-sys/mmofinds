@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="code" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    <filter id="code-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#8b5cf6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background glow -->
+  <circle cx="64" cy="64" r="48" fill="url(#code)" opacity="0.1"/>
+  
+  <!-- Code brackets -->
+  <path d="M44 36 L24 64 L44 92" fill="none" stroke="url(#code)" stroke-width="6" 
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#code-shadow)"/>
+  <path d="M84 36 L104 64 L84 92" fill="none" stroke="url(#code)" stroke-width="6" 
+        stroke-linecap="round" stroke-linejoin="round" filter="url(#code-shadow)"/>
+  
+  <!-- Forward slash -->
+  <line x1="76" y1="28" x2="52" y2="100" stroke="url(#code)" stroke-width="5" 
+        stroke-linecap="round" filter="url(#code-shadow)"/>
+  
+  <!-- Glow dots -->
+  <circle cx="20" cy="24" r="2" fill="#8b5cf6" opacity="0.5"/>
+  <circle cx="108" cy="20" r="2" fill="#ec4899" opacity="0.5"/>
+  <circle cx="112" cy="100" r="1.5" fill="#8b5cf6" opacity="0.4"/>
+  <circle cx="16" cy="104" r="1.5" fill="#ec4899" opacity="0.4"/>
+</svg>
