@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="cloud1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="cloudShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#ec4899" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Cloud shape -->
+  <path d="M40 85 C28 85 20 77 20 65 C20 55 26 47 35 44 C38 30 50 22 64 22 C78 22 90 30 93 44 C102 47 108 55 108 65 C108 77 100 85 88 85 Z" fill="url(#cloud1)" filter="url(#cloudShadow)"/>
+  <!-- Cloud highlight -->
+  <path d="M42 75 C35 75 30 70 30 63 C30 56 35 50 42 48 C45 38 54 32 64 32 C74 32 83 38 86 48 C93 50 98 56 98 63 C98 70 93 75 86 75 Z" fill="rgba(255,255,255,0.15)"/>
+  <!-- Data streams -->
+  <line x1="40" y1="92" x2="40" y2="108" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="64" y1="92" x2="64" y2="112" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-dasharray="4,3"/>
+  <line x1="88" y1="92" x2="88" y2="108" stroke="rgba(255,255,255,0.4)" stroke-width="2" stroke-dasharray="4,3"/>
+  <!-- Server blocks -->
+  <rect x="32" y="110" width="16" height="8" rx="2" fill="rgba(255,255,255,0.6)"/>
+  <rect x="56" y="112" width="16" height="8" rx="2" fill="rgba(255,255,255,0.6)"/>
+  <rect x="80" y="110" width="16" height="8" rx="2" fill="rgba(255,255,255,0.6)"/>
+  <!-- Upload arrow -->
+  <path d="M64 60 L64 42" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <polyline points="56,48 64,40 72,48" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
