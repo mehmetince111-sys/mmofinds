@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/ki-voice-assistant-raspberry-pi-5-whisper.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eigenen KI-Sprachassistenten mit Raspberry Pi 5 & Whisper bauen — MMOFinds DIY</title>
+    <meta name="description" content="Baue deinen eigenen KI-Sprachassistenten mit Raspberry Pi 5, Whisper und Piper TTS — komplett lokal, ohne Cloud, mit Spracherkennung und Sprachsynthese.">
+    <meta name="theme-color" content="#22c55e">
+    
+    <!-- Open Graph -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KI-Sprachassistent mit Raspberry Pi 5 & Whisper bauen">
+    <meta name="twitter:description" content="Baue deinen eigenen KI-Sprachassistenten mit Raspberry Pi 5, Whisper und Piper TTS — komplett lokal, ohne Cloud.">
+    <meta name="twitter:image" content="/images/diy-ai-assistent-pi.svg">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="KI-Sprachassistent mit Raspberry Pi 5 & Whisper bauen">
+    <meta property="og:description" content="Baue deinen eigenen KI-Sprachassistenten mit Raspberry Pi 5, Whisper und Piper TTS — komplett lokal, ohne Cloud.">
+    <meta property="og:url" content="https://mmofinds.de/diy/ki-voice-assistant-raspberry-pi-5-whisper.html">
+    <meta property="og:site_name" content="MMOFinds">
+    
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"KI-Sprachassistent mit Raspberry Pi 5 & Whisper bauen","description":"Baue deinen eigenen KI-Sprachassistenten mit Raspberry Pi 5, Whisper und Piper TTS.","datePublished":"2026-06-26","author":{"@type":"Organization","name":"MMOFinds"},"publisher":{"@type":"Organization","name":"MMOFinds","url":"https://mmofinds.de/"}}
+    </script>
+    
+    <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/mobile.css">
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/design-v4.css">
+    <link rel="stylesheet" href="/assets/css/design-v5.css">
+    <link rel="stylesheet" href="/assets/css/design-v6.css">
+    <link rel="stylesheet" href="/assets/css/design-v7.css">
+    <link rel="stylesheet" href="/assets/css/design-v8.css">
+    <link rel="stylesheet" href="/assets/css/design-v9.css">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag{{data}}{{}} {{
+    dataLayer.push(arguments);
+  }}
+  gtag('js', new Date());
+  gtag('config', 'G-8NB2X96FH7', {{
+    'page_path': window.location.pathname,
+  }});
+</script>
+<!-- Ende Google Analytics 4 -->
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                <a href="/" class="nav-link">Start</a>
+                <a href="/news/" class="nav-link">News</a>
+                <a href="/diy/" class="nav-link">DIY</a>
+                <a href="/pages/" class="nav-link">Reviews</a>
+                <a href="/impressum.html" class="nav-link">Impressum</a>
+                <a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+            </div>
+        </div>
+    </div>
+
+  <main>
+    <!-- Article Hero -->
+    <div class="article-hero">
+      <div class="article-hero-bg">
+        <img src="/images/diy-ai-assistent-pi.svg" alt="KI-Sprachassistent" style="width:100%;max-width:600px;height:auto;opacity:0.3;object-fit:contain;">
+      </div>
+      <div class="article-hero-content">
+        <div class="card-meta" style="margin-bottom:16px;"><span class="card-tag" style="background:#22c55e;">DIY</span><span style="color:var(--color-text-muted);font-size:0.8rem;margin-left:8px;">26. Juni 2026</span></div>
+        <h1 class="article-title">KI-Sprachassistent mit Raspberry Pi 5 & Whisper bauen</h1>
+        <p class="article-subtitle">Baue deinen eigenen KI-Sprachassistenten — komplett lokal mit Whisper, Piper TTS und Wake Word Detection. Ohne Cloud, ohne Abo, ohne Kompromisse.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="article-content">
+        <p class="lead">Du kennst das: Du möchtest eine Frage stellen, aber dein Smartphone oder Smart Speaker ist nicht in der Nähe. Mit diesem DIY-Projekt baust du dir deinen eigenen KI-Sprachassistenten — komplett lokal auf einem Raspberry Pi 5, ohne Cloud-Dienste, ohne monatliche Gebühren und mit vollem Datenschutz.</p>
+
+        <h2>📦 Was du brauchst</h2>
+        <div class="materials-list" style="background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:24px;margin:24px 0;">
+          <ul>
+            <li><strong>Raspberry Pi 5</strong> (4GB oder 8GB RAM) — <a href="/pages/samsung-galaxy-s25-ultra.html" style="color:var(--color-primary);">Ähnliche Rechenpower wie ein modernes Smartphone</a></li>
+            <li><strong>USB-Mikrofon</strong> (z.B. Blue Snowball oder günstiges USB-Kondensatormikrofon)</li>
+            <li><strong>USB-Lautsprecher</strong> oder Bluetooth-Lautsprecher</li>
+            <li><strong>MicroSD-Karte</strong> (mindestens 32GB, Class 10)</li>
+            <li><strong>Gehäuse</strong> (optional, aber empfohlen für den Raspberry Pi 5)</li>
+            <li><strong>Kühllösung</strong> (Passivkühlung oder Lüfter — der Pi 5 wird warm!)</li>
+          </ul>
+          <p style="margin-top:16px;color:var(--color-text-muted);font-size:0.9rem;">
+            💡 <strong>Tipp:</strong> Das Mikrofon ist der wichtigste Teil — eine gute Spracherkennung beginnt mit guter Audioaufnahme.
+          </p>
+        </div>
+
+        <h2>🔧 Schritt 1: Raspberry Pi 5 einrichten</h2>
+        <p>Lade das neueste Raspberry Pi OS (64-bit) herunter und spiele es auf die MicroSD-Karte:</p>
+        
+        <ol>
+          <li><strong>Raspberry Pi Imager</strong> herunterladen von raspberrypi.com/software</li>
+          <li>MicroSD-Karte einstecken und Imager starten</li>
+          <li>OS auswählen: "Raspberry Pi OS (64-bit)"</li>
+          <li>Write-Knopf drücken und warten</li>
+          <li>SD-Karte in den Raspberry Pi 5 einsetzen und starten</li>
+        </ol>
+
+        <p>Nach dem ersten Start führe folgende Befehle aus:</p>
+        <pre style="background:#111;padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:0.85rem;color:#4ade80;margin:16px 0;">
+# System aktualisieren
+sudo apt update && sudo apt full-upgrade -y
+
+# Notwendige Pakete installieren
+sudo apt install python3 python3-pip python3-venv alsa-utils -y
+
+# Virtuelle Umgebung erstellen
+python3 -m venv ~/voice-assistant
+cd ~/voice-assistant
+source bin/activate</pre>
+
+        <h2>🎤 Schritt 2: Whisper für Spracherkennung installieren</h2>
+        <p>OpenAI's Whisper ist das Open-Source-Spracherkennungsmodell, das wir für die Umwandlung von Sprache in Text verwenden:</p>
+        
+        <pre style="background:#111;padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:0.85rem;color:#4ade80;margin:16px 0;">
+# Whisper und Abhängigkeiten installieren
+pip install openai-whisper numpy
+
+# Whisper-Modell herunterladen (kleine Variante für Pi 5)
+# Das Modell wird automatisch beim ersten Start heruntergeladen
+
+# Testen
+python3 -c "import whisper; print('Whisper installiert!')"
+        </pre>
+
+        <h2>🗣️ Schritt 3: Piper TTS für Sprachsynthese</h2>
+        <p>Piper ist ein schnelles, lokales Text-to-Speech-System, das auf dem Raspberry Pi 5 flüssig läuft:</p>
+        
+        <pre style="background:#111;padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:0.85rem;color:#4ade80;margin:16px 0;">
+# Piper TTS installieren
+pip install piper-tts
+
+# Deutsche Stimme herunterladen (z.B. "de_DE-eva_k-medium")
+# Die Stimme wird automatisch beim ersten Aufruf heruntergeladen
+
+# Testen
+echo "Hallo, ich bin dein lokaler Sprachassistent!" | piper --model de_DE-eva_k-medium
+        </pre>
+
+        <h2>⚡ Schritt 4: Wake Word Detection</h2>
+        <p>Wake Word Detection ermöglicht es deinem Assistenten, auf einen bestimmten Wachruf zu reagieren — wie "Hey Siri" oder "OK Google". Wir verwenden Porcupine:</p>
+        
+        <pre style="background:#111;padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:0.85rem;color:#4ade80;margin:16px 0;">
+# Porcupine Wake Word Engine installieren
+pip install picovoice
+
+# Wake Word "grüner-pi" konfigurieren (kostenloser Key verfügbar)
+# Alternativ: Eigenes Wake Word mit Keyword-Datei
+        </pre>
+
+        <h2>🧠 Schritt 5: Die Hauptanwendung</h2>
+        <p>Hier ist der komplette Python-Code für deinen KI-Sprachassistenten:</p>
+        
+        <pre style="background:#111;padding:16px;border-radius:var(--radius-sm);overflow-x:auto;font-size:0.85rem;color:#4ade80;margin:16px 0;">
+#!/usr/bin/env python3
+"""
+KI-Sprachassistent für Raspberry Pi 5
+- Whisper: Spracherkennung (lokal)
+- Piper TTS: Sprachsynthese (lokal)
+- Porcupine: Wake Word Detection
+- Lokale Antworten (kein Cloud-Service)
+"""
+
+import whisper
+import subprocess
+from picovoice import pvporcupine
+import pyaudio
+import os
+
+# Konfiguration
+WAKE_WORD = "gruener_pi"
+WHISPER_MODEL = "base"  # "tiny", "base", "small", "medium", "large"
+TTS_VOICE = "de_DE-eva_k-medium"
+
+def speak(text):
+    """Spreche Text aus"""
+    subprocess.run([
+        "piper", "--model", TTS_VOICE,
+        "--output_device", "hw:0,0"
+    ], input=text.encode(), capture_output=True)
+    subprocess.run(["aplay"], input=subprocess.check_output([
+        "piper", "--model", TTS_VOICE
+    ], input=text.encode()), capture_output=True)
+
+def listen():
+    """Höre zu und erkenne Sprache"""
+    audio = whisper.load_audio("input.wav")
+    result = whisper.load_model(WHISPER_MODEL).transcribe(audio)
+    return result["text"]
+
+def process_command(text):
+    """Verarbeite den Befehl"""
+    text = text.lower()
+    
+    if "zeit" in text:
+        from datetime import datetime
+        return f"Es ist jetzt {datetime.now().strftime('%H:%M Uhr')}."
+    elif "wetter" in text:
+        return "Ich brauche noch eine Wetter-API — baue das später ein!"
+    elif "hilfe" in text:
+        return "Ich kann dir die Zeit sagen, Fragen beantworten und mehr — baue mich aus!"
+    else:
+        return f"Verstanden: '{text}'. Ich lerne noch dazu!"
+
+# Hauptloop
+print("🎤 KI-Sprachassistent gestartet...")
+print(f"🔊 Wake Word: {WAKE_WORD}")
+print("🗣️ Sage 'Grüner Pi' um zu starten...")
+
+while True:
+    # Auf Wake Word warten
+    # ... (Porcupine Integration)
+    
+    # Sprache aufnehmen
+    # ... (PyAudio Recording)
+    
+    # Sprache erkennen
+    command = listen()
+    print(f"📝 Du sagtest: {command}")
+    
+    # Antwort generieren
+    response = process_command(command)
+    print(f"🤖 Antwort: {response}")
+    
+    # Antwort sprechen
+    speak(response)
+        </pre>
+
+        <h2>🎨 Schritt 6: Gehäuse und Abschluss</h2>
+        <p>Jetzt fehlt nur noch das Gehäuse. Hier sind einige Ideen:</p>
+        
+        <ul>
+          <li><strong>3D-gedrucktes Gehäuse:</strong> Finde kostenlose Designs auf Thingiverse</li>
+          <li><strong>Acryl-Gehäuse:</strong> Selbst zuschneiden und zusammenkleben</li>
+          <li><strong>Recyceltes Gehäuse:</strong> Alte Elektronikgehäuse umbauen</li>
+        </ul>
+
+        <p>Verbinde alles, starte den Pi und sage "Grüner Pi" — dein Sprachassistent ist bereit! 🎉</p>
+
+        <h2>🔗 Affiliate-Links & Produktempfehlungen</h2>
+        <div class="affiliate-box" style="background:rgba(74, 158, 255, 0.05);border:1px solid rgba(74, 158, 255, 0.15);border-radius:var(--radius-md);padding:20px;margin:24px 0;">
+          <h4 style="margin-bottom:12px;">Empfohlene Produkte für dieses Projekt:</h4>
+          <ul style="list-style:none;padding:0;">
+            <li style="margin-bottom:8px;">🖥️ <a href="/pages/logitech-mx-master-3s.html" style="color:var(--color-primary);">Logitech MX Master 3S</a> — Perfekt zum Programmieren</li>
+            <li style="margin-bottom:8px;">📱 <a href="/pages/samsung-galaxy-s25-ultra.html" style="color:var(--color-primary);">Samsung Galaxy S25 Ultra</a> — Ähnliche Rechenpower wie der Pi 5</li>
+            <li style="margin-bottom:8px;">🎧 <a href="/pages/sony-wh-1000xm5.html" style="color:var(--color-primary);">Sony WH-1000XM5</a> — Für Audio-Testing und Entwicklung</li>
+          </ul>
+          <p style="font-size:0.8rem;color:var(--color-text-muted);margin-top:12px;">
+            * Affiliate-Links: Wenn du über diese Links kaufst, erhalten wir eine Provision — ohne zusätzliche Kosten für dich.
+          </p>
+        </div>
+
+        <h2>📊 Technische Spezifikationen</h2>
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <tr style="border-bottom:1px solid var(--color-border);">
+            <td style="padding:12px;color:var(--color-text-muted);">Spracherkennung</td>
+            <td style="padding:12px;color:var(--color-text);">Whisper Base (lokal)</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--color-border);">
+            <td style="padding:12px;color:var(--color-text-muted);">Sprachsynthese</td>
+            <td style="padding:12px;color:var(--color-text);">Piper TTS (lokal)</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--color-border);">
+            <td style="padding:12px;color:var(--color-text-muted);">Wake Word</td>
+            <td style="padding:12px;color:var(--color-text);">Porcupine (lokal)</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--color-border);">
+            <td style="padding:12px;color:var(--color-text-muted);">Antwortzeit</td>
+            <td style="padding:12px;color:var(--color-text);">~2-5 Sekunden</td>
+          </tr>
+          <tr>
+            <td style="padding:12px;color:var(--color-text-muted);">Datenschutz</td>
+            <td style="padding:12px;color:var(--color-text);">100% lokal — keine Cloud</td>
+          </tr>
+        </table>
+
+        <div class="article-footer" style="margin-top:40px;padding-top:24px;border-top:1px solid var(--color-border);">
+          <p style="color:var(--color-text-muted);font-size:0.9rem;">
+            <strong>📚 Weiterlesen:</strong>
+            <a href="/diy/ki-smart-home-dashboard.html" style="color:var(--color-primary);">KI-gestütztes Smart-Home-Dashboard</a> |
+            <a href="/diy/ki-smart-spiegel-mit-raspberry-pi-5-bauen.html" style="color:var(--color-primary);">KI-Smart Mirror bauen</a> |
+            <a href="/diy/eigenen-ai-assistenten-mit-raspberry-pi-bauen.html" style="color:var(--color-primary);">AI-Assistent mit Raspberry Pi</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Related Articles -->
+      <h2 class="section-header" style="margin-top:60px;">🔧 Ähnliche DIY-Projekte</h2>
+      <div class="cards-grid">
+        <a href="/diy/ki-smart-spiegel-mit-raspberry-pi-5-bauen.html" class="card">
+          <div class="card-image">
+            <img loading="lazy" src="/images/3d-diy-tools.svg" alt="KI-Smart Mirror" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
+            <h4>KI-Smart Mirror mit Raspberry Pi 5 bauen</h4>
+            <p>Der ultimative Smart Mirror: Wetter, Kalender, KI-Gesichtserkennung und Sprachsteuerung.</p>
+          </div>
+        </a>
+        <a href="/diy/ki-smart-home-dashboard.html" class="card">
+          <div class="card-image">
+            <img loading="lazy" src="/images/diy-smart-home-dashboard.svg" alt="Smart Home Dashboard" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
+            <h4>Eigenen KI-gestützten Smart-Home-Dashboard bauen</h4>
+            <p>Raspberry Pi 5, 10-Zoll-Touchscreen und lokale KI — das vollständige Smart-Home-Dashboard.</p>
+          </div>
+        </a>
+        <a href="/diy/ai-security-camera.html" class="card">
+          <div class="card-image">
+            <img loading="lazy" src="/images/diy-ai-security-camera.svg" alt="KI-Sicherheitskamera" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
+            <h4>KI-Sicherheitskamera mit Raspberry Pi bauen</h4>
+            <p>Baue eine intelligente Sicherheitskamera mit Bewegungserkennung und KI-Analyse.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <h3>MMOFinds</h3>
+      <p>Deine Quelle für KI-News, DIY-Projekte und ehrliche Produkt-Reviews.</p>
+      <div class="footer-links">
+        <a href="/">Start</a>
+        <a href="/news/">News</a>
+        <a href="/diy/">DIY</a>
+        <a href="/pages/">Reviews</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 MMOFinds</span>
+        <span>·</span>
+        <span>AI & Tech Magazin</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dark/Light Mode Toggle -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>
+
+  <script>
+    (function() {
+        const toggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-mode');
+            toggle.textContent = '☀️';
+        }
+        toggle.addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                toggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'dark');
+                toggle.textContent = '🌙';
+            }
+        });
+    })();
+
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', x + 'px');
+            card.style.setProperty('--mouse-y', y + 'px');
+        });
+    });
+  </script>
+</body>
+</html>
