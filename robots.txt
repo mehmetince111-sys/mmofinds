@@ -16,6 +16,8 @@ Disallow: /tmp/
 Disallow: /cache/
 Disallow: /*.json$
 Disallow: /*.xml$
+# Sitemap muss trotz .xml-Sperre crawlbar bleiben (spezifischeres Allow gewinnt)
+Allow: /sitemap.xml
 
 # Googlebot spezifisch
 User-agent: Googlebot

@@ -12,7 +12,7 @@ from pathlib import Path
 REPO_DIR = Path('/root/mmofinds')
 PAGES_DIR = REPO_DIR / 'pages'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
-AMAZON_TAG = 'mmofinds-20'
+AMAZON_TAG = 'mmofinds-21'
 
 PRODUCTS = [
     ('dyson-v15-detect', 'Dyson V15 Detect', 'Staubsauger',

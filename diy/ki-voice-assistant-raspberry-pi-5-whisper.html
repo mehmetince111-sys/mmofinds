@@ -39,13 +39,11 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag{{data}}{{}} {{
-    dataLayer.push(arguments);
-  }}
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-8NB2X96FH7', {{
+  gtag('config', 'G-8NB2X96FH7', {
     'page_path': window.location.pathname,
-  }});
+  });
 </script>
 <!-- Ende Google Analytics 4 -->
 </head>
@@ -84,16 +82,19 @@
         <h2>📦 Was du brauchst</h2>
         <div class="materials-list" style="background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:24px;margin:24px 0;">
           <ul>
-            <li><strong>Raspberry Pi 5</strong> (4GB oder 8GB RAM) — <a href="/pages/samsung-galaxy-s25-ultra.html" style="color:var(--color-primary);">Ähnliche Rechenpower wie ein modernes Smartphone</a></li>
-            <li><strong>USB-Mikrofon</strong> (z.B. Blue Snowball oder günstiges USB-Kondensatormikrofon)</li>
-            <li><strong>USB-Lautsprecher</strong> oder Bluetooth-Lautsprecher</li>
-            <li><strong>MicroSD-Karte</strong> (mindestens 32GB, Class 10)</li>
-            <li><strong>Gehäuse</strong> (optional, aber empfohlen für den Raspberry Pi 5)</li>
-            <li><strong>Kühllösung</strong> (Passivkühlung oder Lüfter — der Pi 5 wird warm!)</li>
+            <li><strong>Raspberry Pi 5</strong> (4 GB oder 8 GB RAM) — ca. 80 € — <a href="https://www.amazon.de/s?k=raspberry+pi+5&tag=mmofinds-21" target="_blank" rel="nofollow sponsored noopener" style="color:var(--color-primary);">bei Amazon ansehen →</a></li>
+            <li><strong>Netzteil</strong> (offiziell, 27 W USB-C) — ca. 12 € — <a href="https://www.amazon.de/s?k=raspberry+pi+5+netzteil+27w&tag=mmofinds-21" target="_blank" rel="nofollow sponsored noopener" style="color:var(--color-primary);">bei Amazon ansehen →</a></li>
+            <li><strong>USB-Mikrofon</strong> (USB-Kondensatormikrofon, z. B. Blue Snowball) — ca. 25 € — <a href="https://www.amazon.de/s?k=usb+kondensatormikrofon&tag=mmofinds-21" target="_blank" rel="nofollow sponsored noopener" style="color:var(--color-primary);">bei Amazon ansehen →</a></li>
+            <li><strong>Aktiv-Lautsprecher</strong> (USB oder Bluetooth) — ca. 20 € — <a href="https://www.amazon.de/s?k=usb+lautsprecher+kompakt&tag=mmofinds-21" target="_blank" rel="nofollow sponsored noopener" style="color:var(--color-primary);">bei Amazon ansehen →</a></li>
+            <li><strong>MicroSD-Karte</strong> (64 GB, Class 10 / A2) — ca. 10 € — <a href="https://www.amazon.de/s?k=microsd+64gb+a2&tag=mmofinds-21" target="_blank" rel="nofollow sponsored noopener" style="color:var(--color-primary);">bei Amazon ansehen →</a></li>
+            <li><strong>Aktiver Kühler</strong> (offizieller Pi 5 Active Cooler — der Pi 5 wird warm!) — ca. 8 € — <a href="https://www.amazon.de/s?k=raspberry+pi+5+active+cooler&tag=mmofinds-21" target="_blank" rel="nofollow sponsored noopener" style="color:var(--color-primary);">bei Amazon ansehen →</a></li>
+            <li><strong>Gehäuse</strong> (für Raspberry Pi 5, mit Lüfteraussparung) — ca. 12 € — <a href="https://www.amazon.de/s?k=raspberry+pi+5+geh%C3%A4use&tag=mmofinds-21" target="_blank" rel="nofollow sponsored noopener" style="color:var(--color-primary);">bei Amazon ansehen →</a></li>
           </ul>
+          <p style="margin-top:8px;"><strong>Gesamtkosten: ca. 150–170 €</strong></p>
           <p style="margin-top:16px;color:var(--color-text-muted);font-size:0.9rem;">
             💡 <strong>Tipp:</strong> Das Mikrofon ist der wichtigste Teil — eine gute Spracherkennung beginnt mit guter Audioaufnahme.
           </p>
+          <p style="margin-top:8px;color:var(--color-text-muted);font-size:0.8rem;">* Mit „bei Amazon ansehen" markierte Links sind Affiliate-Links: Kaufst du darüber, erhalten wir eine kleine Provision — für dich ohne Mehrkosten.</p>
         </div>
 
         <h2>🔧 Schritt 1: Raspberry Pi 5 einrichten</h2>
@@ -288,9 +289,9 @@ while True:
         <div class="article-footer" style="margin-top:40px;padding-top:24px;border-top:1px solid var(--color-border);">
           <p style="color:var(--color-text-muted);font-size:0.9rem;">
             <strong>📚 Weiterlesen:</strong>
-            <a href="/diy/ki-smart-home-dashboard.html" style="color:var(--color-primary);">KI-gestütztes Smart-Home-Dashboard</a> |
+            <a href="/diy/ai-smart-home-dashboard.html" style="color:var(--color-primary);">KI-gestütztes Smart-Home-Dashboard</a> |
             <a href="/diy/ki-smart-spiegel-mit-raspberry-pi-5-bauen.html" style="color:var(--color-primary);">KI-Smart Mirror bauen</a> |
-            <a href="/diy/eigenen-ai-assistenten-mit-raspberry-pi-bauen.html" style="color:var(--color-primary);">AI-Assistent mit Raspberry Pi</a>
+            <a href="/diy/ai-assistent-raspberry-pi.html" style="color:var(--color-primary);">AI-Assistent mit Raspberry Pi</a>
           </p>
         </div>
       </div>
@@ -308,7 +309,7 @@ while True:
             <p>Der ultimative Smart Mirror: Wetter, Kalender, KI-Gesichtserkennung und Sprachsteuerung.</p>
           </div>
         </a>
-        <a href="/diy/ki-smart-home-dashboard.html" class="card">
+        <a href="/diy/ai-smart-home-dashboard.html" class="card">
           <div class="card-image">
             <img loading="lazy" src="/images/diy-smart-home-dashboard.svg" alt="Smart Home Dashboard" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
           </div>

@@ -2,7 +2,7 @@
 """Add Amazon affiliate links to DIY project material lists."""
 import re, os
 
-TAG = "mmofinds-20"
+TAG = "mmofinds-21"
 
 # Product name -> Amazon ASIN mapping
 # These are real ASINs for common products available on Amazon.de
