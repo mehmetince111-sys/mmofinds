@@ -24,7 +24,7 @@ def check_asin_via_curl(asin, retries=2):
     Prüft einen Amazon-Link mit curl.
     Gibt (status_code, is_ok) zurück.
     """
-    url = f"https://www.amazon.de/dp/{asin}?tag=mmofinds-20&linkCode=ogi&th=1"
+    url = f"https://www.amazon.de/dp/{asin}?tag=mmofinds-21&linkCode=ogi&th=1"
     
     for attempt in range(retries):
         try:
@@ -57,7 +57,7 @@ def main():
             results.append({"product": product_name, "asin": None, "status": "NO_LINK", "url": None})
             continue
         
-        url = f"https://www.amazon.de/dp/{asin}?tag=mmofinds-20&linkCode=ogi&th=1"
+        url = f"https://www.amazon.de/dp/{asin}?tag=mmofinds-21&linkCode=ogi&th=1"
         status_code, is_ok = check_asin_via_curl(asin)
         
         if is_ok:

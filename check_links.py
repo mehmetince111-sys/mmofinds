@@ -18,7 +18,7 @@ def extract_asin(html_content):
 
 def check_link(asin, product_name):
     """Prüft einen Amazon-Link über die Datei selbst."""
-    url = f"https://www.amazon.de/dp/{asin}?tag=mmofinds-20&linkCode=ogi&th=1"
+    url = f"https://www.amazon.de/dp/{asin}?tag=mmofinds-21&linkCode=ogi&th=1"
     return {
         "product": product_name,
         "asin": asin,

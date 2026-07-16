@@ -33,7 +33,7 @@ ASSETS_DIR = REPO_DIR / 'assets'
 IMAGES_DIR = ASSETS_DIR / 'images'
 INDEX_PATH = REPO_DIR / 'index.html'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
-AMAZON_TAG = 'mmofinds-20'
+AMAZON_TAG = 'mmofinds-21'
 
 # Fortschritt speichern
 PROGRESS_FILE = REPO_DIR / '.pipeline_progress.json'
@@ -1381,10 +1381,10 @@ PRODUCT_CONTENT = {
             'cons': ['Sehr hoher Preis', 'Groß und schwer für einhändige Nutzung'],
             'verdict': 'Das Galaxy S25 Ultra ist das umfassendste Android-Smartphone auf dem Markt. Die Kombination aus Snapdragon 8 Elite, 200 MP Kamera, Galaxy AI und S Pen macht es zum perfekten Allrounder für Power-User. Der Preis ist hoch, aber die Leistung und der lange Support rechtfertigen die Investition.',
             'variants': [
-                ('Arctic Titanium', 'B0DS9DQJ8S', 'https://www.amazon.de/dp/B0DS9DQJ8S?tag=mmofinds-20'),
-                ('Black', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Black&tag=mmofinds-20'),
-                ('Silver Shadow', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver+Shadow&tag=mmofinds-20'),
-                ('Silver', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver&tag=mmofinds-20'),
+                ('Arctic Titanium', 'B0DS9DQJ8S', 'https://www.amazon.de/dp/B0DS9DQJ8S?tag=mmofinds-21'),
+                ('Black', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Black&tag=mmofinds-21'),
+                ('Silver Shadow', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver+Shadow&tag=mmofinds-21'),
+                ('Silver', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver&tag=mmofinds-21'),
             ],
         },
     },

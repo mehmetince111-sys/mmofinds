@@ -17,7 +17,7 @@ from pathlib import Path
 
 REPO_DIR = Path('/root/mmofinds')
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
-AMAZON_TAG = 'mmofinds-20'
+AMAZON_TAG = 'mmofinds-21'
 
 # Alle Produkte aus der Pipeline
 PRODUCTS = [
@@ -125,7 +125,7 @@ def update_html_with_amazon_data(filepath, amazon_data):
         html = f.read()
     
     # Prüfe, ob Amazon-Daten bereits vorhanden sind
-    if 'amazon.de' in html and 'tag=mmofinds-20' in html:
+    if 'amazon.de' in html and 'tag=mmofinds-21' in html:
         print(f'    ⏭️  Already has Amazon data')
         return False
     
