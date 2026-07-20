@@ -1,32 +1,7 @@
 # robots.txt für MMOFinds.de
-# https://mmofinds.de
 
 User-agent: *
 Allow: /
-Allow: /pages/
-Allow: /diy/
-Allow: /news/
-Allow: /images/
+Disallow: /assets/
 
-# Sitemap
 Sitemap: https://mmofinds.de/sitemap.xml
-
-# Verbotene Verzeichnisse
-Disallow: /tmp/
-Disallow: /cache/
-Disallow: /*.json$
-Disallow: /*.xml$
-
-# Googlebot spezifisch
-User-agent: Googlebot
-Allow: /
-Allow: /pages/
-Allow: /diy/
-Allow: /news/
-
-# Bingbot
-User-agent: Bingbot
-Allow: /
-Allow: /pages/
-Allow: /diy/
-Allow: /news/
