@@ -47,51 +47,51 @@ PROGRESS_FILE = REPO_DIR / '.pipeline_progress.json'
 PRODUCTS = [
     # Smartphones (2024/2025)
     ('iphone-16-pro', 'iPhone 16 Pro', 'Smartphone',
-     'iPhone 16 Pro', 'B0DGRD7HBY'),
+     'iPhone 16 Pro', 'B0DHYDMJ1W'),
     ('samsung-galaxy-s25-ultra', 'Samsung Galaxy S25 Ultra', 'Smartphone',
-     'Samsung Galaxy S25 Ultra', 'B0DS9DQJ8S'),
+     'Samsung Galaxy S25 Ultra', 'B0DPN844MR'),
     ('google-pixel-9-pro', 'Google Pixel 9 Pro', 'Smartphone',
-     'Google Pixel 9 Pro', 'B0DCKJ4P8V'),
+     'Google Pixel 9 Pro', 'B0D7V2VBBJ'),
     
     # Kopfhörer
     ('sony-wh1000xm5', 'Sony WH-1000XM5', 'Kopfhörer',
-     'Sony WH-1000XM5', 'B09XS7JWHH'),
+     'Sony WH-1000XM5', 'B09Y2MYL5C'),
     ('apple-airpods-pro-2', 'Apple AirPods Pro 2', 'In-Ear',
-     'Apple AirPods Pro 2 USB-C', 'B0D63ZB1V3'),
+     'Apple AirPods Pro 2 USB-C', 'B0CHX9WTR6'),
     ('bose-quietcomfort-ultra', 'Bose QuietComfort Ultra', 'Kopfhörer',
-     'Bose QuietComfort Ultra Headphones', 'B0CCZ26V5V'),
+     'Bose QuietComfort Ultra Headphones', 'B0CCZ1L489'),
     ('sennheiser-momentum-4', 'Sennheiser Momentum 4', 'Kopfhörer',
-     'Sennheiser Momentum 4 Wireless', 'B0B8RZ3K8V'),
+     'Sennheiser Momentum 4 Wireless', 'B0B6GHW1SX'),
     
     # Smartwatches (Premium)
     ('apple-watch-series-10', 'Apple Watch Series 10', 'Smartwatch',
-     'Apple Watch Series 10', 'B0DGRJ8F8L'),
+     'Apple Watch Series 10', 'B0DGHNY1K5'),
     ('samsung-galaxy-watch-7', 'Samsung Galaxy Watch 7', 'Smartwatch',
-     'Samsung Galaxy Watch 7', 'B0CDBGK5P3'),
+     'Samsung Galaxy Watch 7', 'B0D47LLXL8'),
     
     # Tablets
     ('ipad-air-m3', 'iPad Air M3', 'Tablet',
-     'iPad Air M3 2025', 'B0DS95F4HT'),
+     'iPad Air M3 2025', 'B0DZ76JZ9Q'),
     
     # Kameras
     ('sony-alpha-7c-ii', 'Sony Alpha 7C II', 'Kamera',
-     'Sony Alpha 7C II', 'B0C7CDCK1G'),
+     'Sony Alpha 7C II', 'B0CGF8NNSW'),
     ('canon-eos-r50', 'Canon EOS R50', 'Kamera',
-     'Canon EOS R50', 'B0C93F5K7G'),
+     'Canon EOS R50', 'B0G26J6912'),
     
     # Computer
     ('macbook-air-m4', 'MacBook Air M4', 'Laptop',
-     'MacBook Air M4 2024', 'B0CX24R21T'),
+     'MacBook Air M4 2024', 'B0DZDBVCS8'),
     
     # Sonstige Bestseller
     ('logitech-mx-master-3s', 'Logitech MX Master 3S', 'Maus',
-     'Logitech MX Master 3S', 'B09HMBCQHY'),
+     'Logitech MX Master 3S', 'B0FHHV6YR5'),
     ('dyson-v15-detect', 'Dyson V15 Detect', 'Staubsauger',
      'Dyson V15 Detect', 'B0CH5QWSGK'),
     ('roborock-s8', 'Roborock S8', 'Staubsauger',
-     'Roborock S8', 'B0C1L6F3VH'),
+     'Roborock S8', 'B0DZCFGQJG'),
     ('kindle-paperwhite-2024', 'Kindle Paperwhite 2024', 'E-Reader',
-     'Kindle Paperwhite 2024', 'B0BLRDK3YP'),
+     'Kindle Paperwhite 2024', 'B0CFPWLGF2'),
 ]
 
 # Kuratierte Produktbilder als Fallback wenn Amazon-Bilder nicht laden
@@ -1381,10 +1381,10 @@ PRODUCT_CONTENT = {
             'cons': ['Sehr hoher Preis', 'Groß und schwer für einhändige Nutzung'],
             'verdict': 'Das Galaxy S25 Ultra ist das umfassendste Android-Smartphone auf dem Markt. Die Kombination aus Snapdragon 8 Elite, 200 MP Kamera, Galaxy AI und S Pen macht es zum perfekten Allrounder für Power-User. Der Preis ist hoch, aber die Leistung und der lange Support rechtfertigen die Investition.',
             'variants': [
-                ('Arctic Titanium', 'B0DS9DQJ8S', 'https://www.amazon.de/dp/B0DS9DQJ8S?tag=mmofinds-21'),
-                ('Black', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Black&tag=mmofinds-21'),
-                ('Silver Shadow', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver+Shadow&tag=mmofinds-21'),
-                ('Silver', 'B0DS9DQJ8S', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver&tag=mmofinds-21'),
+                ('Arctic Titanium', 'B0DPN844MR', 'https://www.amazon.de/dp/B0DPN844MR?tag=mmofinds-21'),
+                ('Black', 'B0DPN844MR', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Black&tag=mmofinds-21'),
+                ('Silver Shadow', 'B0DPN844MR', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver+Shadow&tag=mmofinds-21'),
+                ('Silver', 'B0DPN844MR', 'https://www.amazon.de/s?k=Samsung+Galaxy+S25+Ultra+Silver&tag=mmofinds-21'),
             ],
         },
     },
