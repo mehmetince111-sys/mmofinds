@@ -17,7 +17,7 @@ if not GITHUB_PAT:
     print("❌ GITHUB_PAT environment variable not set!")
     exit(1)
 GITHUB_REPO = 'mehmetince111-sys/mmofinds'
-AMAZON_TAG = 'mmofinds-20'
+AMAZON_TAG = 'mmofinds-21'
 BASE_URL = 'https://mmofinds.de'
 CONTENT_DIR = Path(__file__).parent
 NEWS_DIR = CONTENT_DIR / 'news'
