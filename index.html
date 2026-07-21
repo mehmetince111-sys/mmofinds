@@ -1,936 +1,232 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <link rel="canonical" href="https://mmofinds.de/">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MMOFinds — AI & Tech Magazin: News, DIY & Reviews</title>
-  <meta name="description" content="MMOFinds ist dein AI & Tech-Magazin: Aktuelle AI-News, coole DIY-Projekte und ehrliche Produkt-Reviews. Für Technik-Enthusiasten.">
-  <meta name="theme-color" content="#4a9eff">
-  
-  <!-- Open Graph -->
-  
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MMOFinds — AI & Tech Magazin: News, DIY & Reviews">
-    <meta name="twitter:description" content="MMOFinds ist dein AI & Tech-Magazin: Aktuelle AI-News, coole DIY-Projekte und ehrliche Produkt-Reviews. Für Technik-Enthusiasten.">
-    <meta name="twitter:image" content="/images/apple-airpods-pro-2.jpg">
-    <meta property="og:type" content="website">
-  <meta property="og:title" content="MMOFinds — AI & Tech Magazin">
-  <meta property="og:description" content="AI-News, DIY-Projekte & ehrliche Reviews — für Technik-Enthusiasten.">
-  <meta property="og:url" content="https://mmofinds.de/">
-  <meta property="og:site_name" content="MMOFinds">
-  
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"MMOFinds","url":"https://mmofinds.de/","description":"AI & Tech Magazin: News, DIY & Reviews","publisher":{"@type":"Organization","name":"MMOFinds","url":"https://mmofinds.de/"}}
-  </script>
-  
-  <link rel="stylesheet" href="/assets/css/base.css">
-  <link rel="stylesheet" href="/assets/css/mobile.css">
-  <link rel="stylesheet" href="/assets/css/navigation.css">
-  <link rel="stylesheet" href="/assets/css/animations.css">
-  <link rel="stylesheet" href="/assets/css/design-v4.css">
-  <link rel="stylesheet" href="/assets/css/design-v5.css">
-  <link rel="stylesheet" href="/assets/css/design-v6.css">
-  <link rel="stylesheet" href="/assets/css/design-v7.css">
-  <link rel="stylesheet" href="/assets/css/design-v8.css">
-  <link rel="stylesheet" href="/assets/css/design-v9.css">
-
-<!-- Google Analytics 4 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMOFinds — AI &amp; Tech Magazin: News, DIY &amp; Reviews</title>
+<meta name="description" content="MMOFinds — KI- &amp; Tech-Magazin: aktuelle AI-News, DIY-Projekte mit Raspberry Pi und ehrliche Produkt-Reviews. Unabhängig getestet.">
+<link rel="canonical" href="https://mmofinds.de/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MMOFinds — AI &amp; Tech Magazin">
+<meta property="og:description" content="Aktuelle KI-News, DIY-Projekte und ehrliche Produkt-Reviews — unabhängig getestet.">
+<meta property="og:url" content="https://mmofinds.de/">
+<meta name="theme-color" content="#2D5BFF">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag{{data}}{{}} {{
-    dataLayer.push(arguments);
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8NB2X96FH7');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "MMOFinds", "url": "https://mmofinds.de/", "description": "KI- & Tech-Magazin: News, DIY-Projekte und ehrliche Produkt-Reviews.", "publisher": {"@type": "Organization", "name": "MMOFinds", "url": "https://mmofinds.de/"}}</script>
+<style>
+  :root{
+    --paper:#F3F6FC; --surface:#FFFFFF; --sunk:#F7F9FE;
+    --ink:#121A2B; --muted:#586176; --faint:#98A2B6;
+    --line:#E6EBF4; --line-strong:#D7DEEA;
+    --accent:#2D5BFF; --accent-2:#6C4BFF; --on-accent:#fff; --signal:#FF6A3D;
+    --c-audio:#7C5CFF; --c-phone:#2D5BFF; --c-laptop:#0FB5A6; --c-cam:#F0A020;
+    --c-vac:#28B073; --c-tab:#F0568C; --c-reader:#E0863B; --c-watch:#E24BC0;
+    --sans:-apple-system,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code","JetBrains Mono","Consolas",monospace;
+    --shadow:0 1px 2px rgba(18,26,43,.05),0 10px 26px -14px rgba(18,26,43,.16);
+    --shadow-lift:0 4px 8px rgba(18,26,43,.08),0 22px 46px -18px rgba(45,91,255,.34);
+  }
+  @media (prefers-color-scheme:dark){:root{
+    --paper:#121A2E; --surface:#1B2540; --sunk:#161F36;
+    --ink:#EEF2FA; --muted:#9AA6BE; --faint:#6E7B96;
+    --line:#2A3552; --line-strong:#374465;
+    --accent:#6C8BFF; --accent-2:#9A7BFF; --on-accent:#0e1730; --signal:#FF835C;
+    --c-audio:#9F87FF; --c-phone:#6C8BFF; --c-laptop:#33D3C4; --c-cam:#FFC15A;
+    --c-vac:#4FD597; --c-tab:#FF7DAD; --c-reader:#F0A867; --c-watch:#F072D8;
+    --shadow:0 2px 6px rgba(0,0,0,.35),0 14px 34px -16px rgba(0,0,0,.55);
+    --shadow-lift:0 4px 10px rgba(0,0,0,.45),0 26px 52px -18px rgba(108,139,255,.4);
   }}
-  gtag('js', new Date());
-  gtag('config', 'G-8NB2X96FH7', {{
-    'page_path': window.location.pathname,
-  }});
-</script>
-<!-- Ende Google Analytics 4 -->
+  :root[data-theme="light"]{--paper:#F3F6FC;--surface:#FFFFFF;--sunk:#F7F9FE;--ink:#121A2B;--muted:#586176;--faint:#98A2B6;--line:#E6EBF4;--line-strong:#D7DEEA;--accent:#2D5BFF;--accent-2:#6C4BFF;--on-accent:#fff;--signal:#FF6A3D;--c-audio:#7C5CFF;--c-phone:#2D5BFF;--c-laptop:#0FB5A6;--c-cam:#F0A020;--c-vac:#28B073;--c-tab:#F0568C;--c-reader:#E0863B;--c-watch:#E24BC0;--shadow:0 1px 2px rgba(18,26,43,.05),0 10px 26px -14px rgba(18,26,43,.16);--shadow-lift:0 4px 8px rgba(18,26,43,.08),0 22px 46px -18px rgba(45,91,255,.34)}
+  :root[data-theme="dark"]{--paper:#121A2E;--surface:#1B2540;--sunk:#161F36;--ink:#EEF2FA;--muted:#9AA6BE;--faint:#6E7B96;--line:#2A3552;--line-strong:#374465;--accent:#6C8BFF;--accent-2:#9A7BFF;--on-accent:#0e1730;--signal:#FF835C;--c-audio:#9F87FF;--c-phone:#6C8BFF;--c-laptop:#33D3C4;--c-cam:#FFC15A;--c-vac:#4FD597;--c-tab:#FF7DAD;--c-reader:#F0A867;--c-watch:#F072D8;--shadow:0 2px 6px rgba(0,0,0,.35),0 14px 34px -16px rgba(0,0,0,.55);--shadow-lift:0 4px 10px rgba(0,0,0,.45),0 26px 52px -18px rgba(108,139,255,.4)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;letter-spacing:-.01em;position:relative;overflow-x:hidden;transition:background .3s,color .3s}
+  /* dekorative Farbwolken im Hintergrund */
+  body::before,body::after{content:"";position:absolute;z-index:0;border-radius:50%;filter:blur(70px);opacity:.5;pointer-events:none}
+  body::before{width:520px;height:520px;top:-160px;right:-120px;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 55%,transparent),transparent 68%)}
+  body::after{width:460px;height:460px;top:280px;left:-180px;background:radial-gradient(circle,color-mix(in srgb,var(--c-audio) 45%,transparent),transparent 68%)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+  .eyebrow{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  h1,h2,h3{margin:0;letter-spacing:-.03em;text-wrap:balance;font-weight:800}
+  :focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:5px}
 
+  header.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 80%,transparent);
+    backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid var(--line)}
+  .topbar{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{font-weight:900;font-size:20px;letter-spacing:-.04em;display:flex;align-items:center}
+  .logo b{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .logo .dot{width:7px;height:7px;border-radius:50%;background:var(--signal);margin-left:5px;margin-bottom:11px}
+  nav.main{display:flex;gap:26px;font-size:14.5px;font-weight:500;color:var(--muted)}
+  nav.main a{padding:6px 0;border-bottom:2px solid transparent;transition:.15s}
+  nav.main a:hover,nav.main a.active{color:var(--ink);border-color:var(--accent)}
+  .tools{display:flex;align-items:center;gap:14px}
+  .btn-ghost{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line-strong);background:transparent;border-radius:8px;padding:8px 12px;cursor:pointer;transition:.15s}
+  .btn-ghost:hover{color:var(--ink);border-color:var(--accent)}
+  .search{color:var(--faint)}
+  @media(max-width:820px){nav.main,.search{display:none}}
+
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:60px 0 46px}
+  .hero-kicker{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+  .badge{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:5px 11px;border-radius:20px}
+  .badge.win{background:linear-gradient(90deg,var(--signal),#FFB03D);color:#3a1400}
+  .hero h1{font-size:clamp(38px,5.3vw,62px);line-height:1.0;font-weight:900}
+  .hero .lede{font-size:19px;color:var(--muted);margin:22px 0 30px;max-width:46ch;line-height:1.55}
+  .cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(92deg,var(--accent),var(--accent-2));color:#fff;
+    font-weight:700;font-size:15px;padding:14px 24px;border-radius:12px;border:0;cursor:pointer;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s}
+  .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift)}
+  .btn.arrow:hover svg{transform:translateX(3px)}.btn.arrow svg{transition:.18s}
+  .rating{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:14px;color:var(--muted)}
+  .stars{color:var(--signal);letter-spacing:1px}
+  .feature-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lift)}
+  .feature-body{padding:22px 24px 24px}.feature-body h3{font-size:22px}.feature-body p{color:var(--muted);font-size:15px;margin:10px 0 18px}
+  .price-pill{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+    border:1px dashed color-mix(in srgb,var(--accent) 45%,var(--line));border-radius:9px;padding:9px 12px;display:inline-flex;gap:8px}
+
+  /* farbige Bild-Platzhalter mit Monogramm */
+  .tile{position:relative;display:flex;align-items:flex-end;padding:16px;overflow:hidden;
+    background:linear-gradient(140deg,color-mix(in srgb,var(--cat,var(--accent)) 26%,var(--surface)),color-mix(in srgb,var(--cat,var(--accent)) 7%,var(--surface)))}
+  .tile .mono-glyph{position:absolute;right:8px;top:-14px;font-weight:900;font-size:130px;line-height:1;
+    color:color-mix(in srgb,var(--cat,var(--accent)) 30%,transparent);letter-spacing:-6px;user-select:none}
+  .tile .chip{position:relative;z-index:1;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink);background:color-mix(in srgb,var(--surface) 78%,transparent);padding:5px 9px;border-radius:7px;backdrop-filter:blur(3px)}
+  .feature-card .tile{aspect-ratio:16/11}.feature-card .tile .mono-glyph{font-size:200px;top:-30px}
+  .card .tile{aspect-ratio:4/3}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:6px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:20px 22px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+  .stat::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--sc,var(--accent))}
+  .stat .n{font-family:var(--mono);font-size:30px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .stat .l{font-size:13px;color:var(--muted);margin-top:2px}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr;gap:32px;padding:36px 0}}
+
+  .sec{padding:52px 0;position:relative;z-index:1}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;border-bottom:1px solid var(--line);padding-bottom:15px}
+  .sec-head h2{font-size:27px}.sec-head .h-accent{display:inline-block;width:34px;height:4px;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2));margin-bottom:10px}
+  .sec-head .more{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  @media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;
+    box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s;position:relative}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--cat,var(--accent));opacity:.9;z-index:2}
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift);border-color:color-mix(in srgb,var(--cat,var(--accent)) 50%,var(--line))}
+  .card-body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .card .cat2{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cat,var(--accent))}
+  .card h3{font-size:16.5px;line-height:1.25;font-weight:700}
+  .card .rt{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;color:var(--muted);margin-top:auto}
+  .card .cta2{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--accent);display:inline-flex;gap:6px;align-items:center;padding-top:11px;border-top:1px solid var(--line);margin-top:4px}
+
+  .news-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:38px}
+  @media(max-width:820px){.news-wrap{grid-template-columns:1fr}}
+  .news-item{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line);align-items:start}
+  .news-item:first-child{border-top:0}
+  .news-item .idx{font-family:var(--mono);font-size:18px;font-weight:700;color:color-mix(in srgb,var(--accent) 55%,var(--faint));padding-top:1px;font-variant-numeric:tabular-nums}
+  .news-item h3{font-size:18px;font-weight:700;line-height:1.3;transition:.15s}
+  .news-item:hover h3{color:var(--accent)}
+  .news-item .meta{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:6px;display:flex;gap:12px}
+  .aside-card{background:var(--sunk);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .aside-card .eyebrow{margin-bottom:14px;display:block}
+  .diy-row{display:flex;gap:13px;padding:12px 0;border-top:1px solid var(--line);align-items:center}
+  .diy-row:first-of-type{border-top:0}
+  .diy-mini{width:50px;height:50px;border-radius:11px;flex:0 0 auto;border:1px solid var(--line);
+    background:linear-gradient(140deg,color-mix(in srgb,var(--c-vac) 40%,var(--surface)),color-mix(in srgb,var(--c-vac) 10%,var(--surface)))}
+  .diy-row h4{margin:0;font-size:14.5px;font-weight:700;line-height:1.3}
+  .diy-row .m{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:3px}
+
+  .nl{border-radius:26px;padding:52px 44px;display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;overflow:hidden;position:relative;
+    background:linear-gradient(120deg,var(--accent) 0%,#5B4BFF 55%,var(--c-audio) 100%);color:#fff;box-shadow:var(--shadow-lift)}
+  .nl::before,.nl::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.14)}
+  .nl::before{width:240px;height:240px;right:-70px;top:-90px}
+  .nl::after{width:150px;height:150px;right:120px;bottom:-70px;background:rgba(255,255,255,.1)}
+  .nl h2{font-size:30px;font-weight:900;color:#fff}
+  .nl p{color:rgba(255,255,255,.85);margin:12px 0 0;font-size:16px}
+  .nl-form{display:flex;gap:10px;flex-wrap:wrap;position:relative;z-index:1}
+  .nl-form input{flex:1;min-width:200px;padding:14px 16px;border-radius:11px;border:0;font-size:15px;background:rgba(255,255,255,.16);color:#fff;font-family:var(--sans)}
+  .nl-form input::placeholder{color:rgba(255,255,255,.7)}
+  .nl-form button{background:#fff;color:var(--accent);border:0;font-weight:800;padding:14px 22px;border-radius:11px;cursor:pointer;font-size:15px}
+  .nl small{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.75);margin-top:10px;display:block}
+  @media(max-width:720px){.nl{grid-template-columns:1fr;padding:36px 26px}}
+
+  footer.foot{border-top:1px solid var(--line);margin-top:56px;padding:38px 0;position:relative;z-index:1}
+  .foot-in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:13.5px}
+  .foot-in .mono{font-size:12px;color:var(--faint)}
+  .disclosure{max-width:60ch;font-size:12px;color:var(--faint);margin-top:14px;line-height:1.5}
+  .preview-flag{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:99;font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:8px 16px;border-radius:999px;box-shadow:var(--shadow-lift)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.tile img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;padding:14px;display:block}
+</style>
 </head>
 <body>
-    <div class="nav-bar">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
-            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
-                
-<a href="/" class="nav-link">Start</a>
-<a href="/news/" class="nav-link">News</a>
-<a href="/diy/" class="nav-link">DIY</a>
-<a href="/pages/" class="nav-link">Reviews</a>
-<a href="/impressum.html" class="nav-link">Impressum</a>
-<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
-
-            </div>
-        </div>
-    </div>
-  
-
-  <main>
-    <!-- Hero -->
-    <div class="hero-section">
-      <div class="hero-video-bg">
-        <div class="hero-video-placeholder"></div>
-      </div>
-      <div class="hero-particles"></div>
-      <div class="hero-badge">
-        <span>🚀</span>
-        <span>AI & Tech Magazin — Juni 2026 | Design V9</span>
-      </div>
-      <h1 class="hero-title">MMOFinds — AI &amp; Tech Magazin: News, DIY &amp; Reviews</h1>
-      <p class="hero-subtitle">Deine Quelle für aktuelle KI-News, coole DIY-Projekte und ehrliche Produkt-Reviews — für Technik-Enthusiasten.</p>
-    </div>
-
-    <!-- Stats Row -->
-    <div class="container">
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-number">21</div>
-          <div class="stat-label">Produkt-Reviews</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">23</div>
-          <div class="stat-label">AI News</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">15</div>
-          <div class="stat-label">DIY Projekte</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Produkt-Videos</div>
-        </div>
-      </div>
-
-    <!-- Features Section V9 -->
-    <div class="features-section">
-      <h2 class="section-header">✨ Warum MMOFinds?</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/images/3d-ai-future-v9.svg" alt="KI Expertise" loading="lazy">
-          </div>
-          <h4>KI-Expertise</h4>
-          <p>Tiefgehende Analysen der neuesten KI-Technologien und -Trends — von neuronalen Netzen bis zu Large Language Models.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/images/3d-ai-future-v9.svg" alt="KI Vision" loading="lazy">
-          </div>
-          <h4>KI-Visualisierung</h4>
-          <p>Komplexe KI-Themen visuell aufbereitet — mit 3D-Icons, Infografiken und AI-generierten Bildern.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/images/3d-speed-meter-v9.svg" alt="Schnelle Reviews" loading="lazy">
-          </div>
-          <h4>Ehrliche Reviews</h4>
-          <p>Aufrecht Produkt-Reviews mit Fokus auf reale Nutzung — keine bezahlten Bewertungen, nur ehrliche Meinungen.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/images/3d-shield-secure-v9.svg" alt="DIY Tutorials" loading="lazy">
-          </div>
-          <h4>DIY Tutorials</h4>
-          <p>Schritt-für-Schritt-Anleitungen für eigene AI-Projekte — von Raspberry Pi bis zu Smart Home Automation.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/images/3d-speed-meter-v9.svg" alt="Aktuell" loading="lazy">
-          </div>
-          <h4>Immer Aktuell</h4>
-          <p>Regelmäßige Updates mit den neuesten Entwicklungen aus der AI- und Tech-Welt — jeden Tag neue Inhalte.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/images/3d-shield-secure-v9.svg" alt="Vertrauenswürdig" loading="lazy">
-          </div>
-          <h4>Vertrauenswürdig</h4>
-          <p>Transparente Affiliate-Links — wir verdienen nur, wenn du über unsere Links kaufst. Keine versteckten Kosten.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/images/3d-globe-tech-v9.svg" alt="Community" loading="lazy">
-          </div>
-          <h4>Community</h4>
-          <p>Tausende Technik-Enthusiasten vertrauen MMOFinds als ihre erste Quelle für AI-News und Tech-Reviews.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <img src="/images/3d-cloud-data-v9.svg" alt="AI Video" loading="lazy">
-          </div>
-          <h4>AI Video Generation</h4>
-          <p>Produkt-Videos generiert mit ComfyUI Wan 2.2 — professionelle Clips für Instagram, TikTok & Facebook.</p>
-        </div>
+<header class="top"><div class="wrap topbar">
+  <a class="logo" href="/">MMO<b>Finds</b><span class="dot"></span></a>
+  <nav class="main"><a href="/" class="active">Start</a><a href="/news/">News</a><a href="/diy/">DIY</a><a href="/pages/">Reviews</a></nav>
+  <div class="tools"><a class="search mono" href="/pages/" style="text-decoration:none">⌕ Reviews</a></div>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="hero-kicker"><span class="badge win">★ Testsieger 2026</span><span class="eyebrow" style="color:var(--c-audio)">Kopfhörer</span></div>
+      <h1>Der stille König der Kopfhörer</h1>
+      <p class="lede">Die Sony WH-1000XM5 setzen den Maßstab für Noise-Cancelling. 4 Wochen im Alltag, im Zug und im Homeoffice getestet — ehrlich, detailliert, ohne Werbung.</p>
+      <div class="cta-row">
+        <a class="btn arrow" href="/pages/sony-wh-1000xm5.html">Zum Test lesen
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="rating"><span class="stars">★★★★★</span> 4.8 · <span>12.847 Bewertungen</span></span>
       </div>
     </div>
-
-    <!-- Was ist Neu V9 -->
-    <div class="whats-new-section">
-      <h2 class="section-header">🔥 Was ist Neu?</h2>
-      <div class="cards-grid">
-        <a href="/diy/ki-nas-raspberry-pi-5-openmediavault.html" class="card">
-          <div class="card-image">
-            <img loading="lazy" src="/images/3d-cloud-data-v9.svg" alt="KI-gestütztes NAS mit Raspberry Pi 5" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-          </div>
-          <div class="card-body">
-            <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">Neu</span></div>
-            <h4>KI-gestütztes NAS mit Raspberry Pi 5 & OpenMediaVault</h4>
-            <p>Dein eigenes NAS mit KI-Fotoerkennung, automatischer Sortierung und Smart-Backup — komplett lokal.</p>
-          </div>
-        </a>
-        <a href="/news/ki-fotografie-2026-kamera-vergleich.html" class="card">
-          <div class="card-image">
-            <img loading="lazy" src="/images/3d-ai-future-v9.svg" alt="KI-Fotografie 2026: Kamera-Vergleich" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-          </div>
-          <div class="card-body">
-            <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">Neu</span></div>
-            <h4>KI-Fotografie 2026: Canon EOS R50 vs Sony A7C II</h4>
-            <p>Welche Kamera bietet die besten KI-Fotografie-Funktionen? Der große Vergleich.</p>
-          </div>
-        </a>
-        <a href="/news/ki-agenten-2026.html" class="card">
-          <div class="card-image">
-            <img loading="lazy" src="/images/3d-ai-future-v9.svg" alt="KI-Agenten 2026" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-          </div>
-          <div class="card-body">
-            <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">Neu</span></div>
-            <h4>KI-Agenten 2026: Autonome Systeme im Einsatz</h4>
-            <p>Von Research-Agenten bis Customer-Support — wie KI-Agenten unsere Arbeit revolutionieren.</p>
-          </div>
-        </a>
-        <a href="/diy/ki-smart-spiegel-mit-raspberry-pi-5-bauen.html" class="card">
-          <div class="card-image">
-            <img loading="lazy" src="/images/3d-diy-tools.svg" alt="KI-Smart Mirror mit Raspberry Pi 5" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-          </div>
-          <div class="card-body">
-            <div class="card-meta"><span class="card-tag" style="background:#22c55e;">Neu</span></div>
-            <h4>KI-Smart Mirror mit Raspberry Pi 5 bauen</h4>
-            <p>Der ultimative Smart Mirror: Wetter, Kalender, KI-Gesichtserkennung und Sprachsteuerung — komplett lokal!</p>
-          </div>
-        </a>
-        <a href="/diy/ki-sprachassistent-raspberry-pi-5-localai.html" class="card">
-          <div class="card-image">
-            <img loading="lazy" src="/images/diy-ai-assistent-pi.svg" alt="KI-Sprachassistent mit Raspberry Pi 5" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-          </div>
-          <div class="card-body">
-            <div class="card-meta"><span class="card-tag" style="background:#22c55e;">Neu</span></div>
-            <h4>KI-Sprachassistent mit Raspberry Pi 5 und LocalAI</h4>
-            <p>Baue deinen eigenen KI-Sprachassistenten — komplett lokal mit Whisper, LocalAI und Piper TTS.</p>
-          </div>
-        </a>
-        <a href="/diy/ai-smart-home-dashboard.html" class="card">
-          <div class="card-image">
-            <img loading="lazy" src="/images/diy-smart-home-dashboard.svg" alt="KI-gestütztes Smart Home Dashboard" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-          </div>
-          <div class="card-body">
-            <div class="card-meta"><span class="card-tag" style="background:#22c55e;">Neu</span></div>
-            <h4>Eigenen KI-gestütztes Smart-Home-Dashboard mit Raspberry Pi bauen</h4>
-            <p>Raspberry Pi 5, 10-Zoll-Touchscreen und lokale KI — das vollständige Smart-Home-Dashboard mit Sprachsteuerung.</p>
-          </div>
-        </a>
-      </div>
+    <a class="feature-card" href="/pages/sony-wh-1000xm5.html" style="text-decoration:none;color:inherit;display:block">
+      <div class="tile" style="--cat:var(--c-audio)"><img src="/images/sony-wh-1000xm5.jpg" alt="Sony WH-1000XM5"></div>
+      <div class="feature-body"><h3>Sony WH-1000XM5</h3>
+        <p>Branchenführendes ANC, 30 h Akku, kristallklare Telefonate — der Allrounder für unterwegs.</p>
+        <span class="price-pill">→ Preis bei Amazon prüfen</span></div>
+    </a>
+  </section>
+  <section class="stats">
+    <div class="stat" style="--sc:var(--c-phone)"><div class="n">21</div><div class="l">Produkt-Reviews</div></div>
+    <div class="stat" style="--sc:var(--c-audio)"><div class="n">23</div><div class="l">AI-News</div></div>
+    <div class="stat" style="--sc:var(--c-vac)"><div class="n">15</div><div class="l">DIY-Projekte</div></div>
+    <div class="stat" style="--sc:var(--signal)"><div class="n">100%</div><div class="l">unabhängig getestet</div></div>
+  </section>
+  <section class="sec" id="reviews">
+    <div class="sec-head"><div><span class="h-accent"></span><br><h2>Aktuelle Reviews</h2></div><a class="more" href="/pages/">Alle Reviews →</a></div>
+    <div class="grid"><a class="card" href="/pages/apple-airpods-pro-2.html" style="--cat:var(--c-audio)"><div class="tile" style="--cat:var(--c-audio)"><img src="/images/apple-airpods-pro-2.jpg" alt="Apple AirPods Pro 2" loading="lazy"></div><div class="card-body"><span class="cat2">In-Ear</span><h3>Apple AirPods Pro 2</h3><div class="rt"><span class="stars">★</span> 4.8 · 9.230 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/iphone-16-pro.html" style="--cat:var(--c-phone)"><div class="tile" style="--cat:var(--c-phone)"><img src="/images/iphone-16-pro.jpg" alt="iPhone 16 Pro" loading="lazy"></div><div class="card-body"><span class="cat2">Smartphone</span><h3>iPhone 16 Pro</h3><div class="rt"><span class="stars">★</span> 4.9 · 5.410 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/macbook-air-m4.html" style="--cat:var(--c-laptop)"><div class="tile" style="--cat:var(--c-laptop)"><img src="/images/macbook-air-m4.jpg" alt="MacBook Air M4" loading="lazy"></div><div class="card-body"><span class="cat2">Laptop</span><h3>MacBook Air M4</h3><div class="rt"><span class="stars">★</span> 4.9 · 3.980 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/dyson-v15-detect.html" style="--cat:var(--c-vac)"><div class="tile" style="--cat:var(--c-vac)"><img src="/images/dyson-v15-detect.jpg" alt="Dyson V15 Detect" loading="lazy"></div><div class="card-body"><span class="cat2">Staubsauger</span><h3>Dyson V15 Detect</h3><div class="rt"><span class="stars">★</span> 4.7 · 6.120 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/sony-alpha-7c-ii.html" style="--cat:var(--c-cam)"><div class="tile" style="--cat:var(--c-cam)"><img src="/images/sony-alpha-7c-ii.jpg" alt="Sony Alpha 7C II" loading="lazy"></div><div class="card-body"><span class="cat2">Kamera</span><h3>Sony Alpha 7C II</h3><div class="rt"><span class="stars">★</span> 4.8 · 1.740 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/roborock-s8.html" style="--cat:var(--c-vac)"><div class="tile" style="--cat:var(--c-vac)"><img src="/images/roborock-s8.jpg" alt="Roborock S8" loading="lazy"></div><div class="card-body"><span class="cat2">Saugroboter</span><h3>Roborock S8</h3><div class="rt"><span class="stars">★</span> 4.6 · 4.860 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/samsung-galaxy-s25-ultra.html" style="--cat:var(--c-phone)"><div class="tile" style="--cat:var(--c-phone)"><img src="/images/samsung-galaxy-s25-ultra.jpg" alt="Samsung Galaxy S25 Ultra" loading="lazy"></div><div class="card-body"><span class="cat2">Smartphone</span><h3>Samsung Galaxy S25 Ultra</h3><div class="rt"><span class="stars">★</span> 4.7 · 7.310 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/bose-quietcomfort-ultra.html" style="--cat:var(--c-audio)"><div class="tile" style="--cat:var(--c-audio)"><img src="/images/bose-quietcomfort-ultra.jpg" alt="Bose QuietComfort Ultra" loading="lazy"></div><div class="card-body"><span class="cat2">Kopfhörer</span><h3>Bose QuietComfort Ultra</h3><div class="rt"><span class="stars">★</span> 4.7 · 5.090 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a></div>
+  </section>
+  <section class="sec" id="news">
+    <div class="sec-head"><div><span class="h-accent"></span><br><h2>AI-News &amp; DIY</h2></div><a class="more" href="/news/">Alle News →</a></div>
+    <div class="news-wrap">
+      <div><a class="news-item" href="/news/ki-agenten-2026.html"><div class="idx">01</div><div><h3>KI-Agenten 2026: Autonome Systeme erobern den Alltag</h3><div class="meta"><span>News</span><span>21. Juli 2026</span></div></div></a>
+<a class="news-item" href="/news/ki-coding-2026.html"><div class="idx">02</div><div><h3>KI-Coding-Assistenten 2026: schneller als Entwickler?</h3><div class="meta"><span>News</span><span>19. Juli 2026</span></div></div></a>
+<a class="news-item" href="/news/ki-gesundheitswesen-2026.html"><div class="idx">03</div><div><h3>KI im Gesundheitswesen: Diagnose der Zukunft</h3><div class="meta"><span>Medizin</span><span>17. Juli 2026</span></div></div></a>
+<a class="news-item" href="/news/ki-bildgenerierung-2026.html"><div class="idx">04</div><div><h3>KI-Bildgenerierung 2026: die besten Modelle im Test</h3><div class="meta"><span>News</span><span>14. Juli 2026</span></div></div></a></div>
+      <aside class="aside-card" id="diy"><span class="eyebrow" style="color:var(--c-vac)">DIY-Projekte</span><a class="diy-row" href="/diy/ki-sprachassistent-raspberry-pi-5-localai.html"><div class="diy-mini"></div><div><h4>KI-Sprachassistent mit Raspberry Pi 5 &amp; LocalAI</h4><div class="m">~125 € · Mittel</div></div></a>
+<a class="diy-row" href="/diy/nas-raspberry-pi.html"><div class="diy-mini"></div><div><h4>Eigenes NAS mit Raspberry Pi aufbauen</h4><div class="m">~160 € · Mittel</div></div></a>
+<a class="diy-row" href="/diy/ai-security-camera.html"><div class="diy-mini"></div><div><h4>KI-Sicherheitskamera mit Personenerkennung</h4><div class="m">~90 € · Fortgeschritten</div></div></a></aside>
     </div>
-
-    <!-- Featured Reviews -->
-    <h2 class="section-header">⭐ Bestseller-Reviews <a href="/pages/index.html">Alle Reviews →</a></h2>
-    <div class="cards-grid">
-
-      <a href="/pages/apple-airpods-pro-2.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/apple-airpods-pro-2.jpg" alt="Apple AirPods Pro 2 im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Apple AirPods Pro 2 im Test</h4>
-          <p>Aktiver Geräuschfilter, räumlicher Klang, bis zu 6h Akkulaufzeit — der beste kabellose Kopfhörer für Apple-Nutzer.</p>
-        </div>
-      </a>
-      <a href="/pages/apple-watch-series-10.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/apple-watch-series-10.jpg" alt="Apple Watch Series 10 im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Apple Watch Series 10 im Test</h4>
-          <p>Großes Display, Blutsauerstoffmessung, präzise Gesundheits-Tracking — Apples smarteste Uhr.</p>
-        </div>
-      </a>
-      <a href="/pages/bose-quietcomfort-ultra.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/bose-quietcomfort-ultra.jpg" alt="Bose QuietComfort Ultra im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Bose QuietComfort Ultra im Test</h4>
-          <p>Branchenführender Geräuschfilter, 3D-Audio, 24h Akkulaufzeit — Komfort trifft Hi-Res Sound.</p>
-        </div>
-      </a>
-      <a href="/pages/canon-eos-r50.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/canon-eos-r50.jpg" alt="Canon EOS R50 im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Canon EOS R50 im Test</h4>
-          <p>Kompaktes Systemkamera-Format, 4K-Video, automatische Bildkomposition — ideal für Einsteiger.</p>
-        </div>
-      </a>
-      <a href="/pages/dyson-v15-detect.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/dyson-v15-detect.jpg" alt="Dyson V15 Detect im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Dyson V15 Detect im Test</h4>
-          <p>Laser-Licht zeigt unsichtbaren Staub, piezoelektrischer Sensor passt Saugkraft an — der intelligenteste Staubsauger.</p>
-        </div>
-      </a>
-      <a href="/pages/google-pixel-9-pro.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/google-pixel-9-pro.jpg" alt="Google Pixel 9 Pro im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Google Pixel 9 Pro im Test</h4>
-          <p>Google Tensor Chip, KI-Fotografie in Echtzeit, 7 Jahre Updates — das smarteste Android-Smartphone.</p>
-        </div>
-      </a>
-      <a href="/pages/ipad-air-m3.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/ipad-air-m3.jpg" alt="iPad Air M3 im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>iPad Air M3 im Test</h4>
-          <p>M3-Chip für Pro-Aufgaben, 11 Zoll Liquid Retina Display, kompatibel mit Apple Pencil Pro — leistungsstark und tragbar.</p>
-        </div>
-      </a>
-      <a href="/pages/iphone-16-pro.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/iphone-16-pro.jpg" alt="Das KI-Smartphone schlechthin" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Das KI-Smartphone schlechthin</h4>
-          <p>iPhone 16 Pro mit A18 Chip, 48MP Kamera-System, Action Button — Apples fortschrittlichstes Smartphone.</p>
-        </div>
-      </a>
-      <a href="/pages/jbl-charge-5.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/jbl-charge-5.jpg" alt="Der kleine Titan mit großem Sound" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Der kleine Titan mit großem Sound</h4>
-          <p>JBL Charge 5: 20h Akkulaufzeit, IP67 wasserdicht, Powerbank-Funktion — der robuste Bluetooth-Lautsprecher.</p>
-        </div>
-      </a>
-      <a href="/pages/kindle-paperwhite-2024.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/kindle-paperwhite-2024.jpg" alt="Kindle Paperwhite 2024 im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Kindle Paperwhite 2024 im Test</h4>
-          <p>6,8 Zoll Display, wasserdicht, verstellbares warmes Licht — das beste E-Ink-Leseerlebnis.</p>
-        </div>
-      </a>
-      <a href="/pages/logitech-mx-master-3s.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/logitech-mx-master-3s.jpg" alt="Logitech MX Master 3S im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Logitech MX Master 3S im Test</h4>
-          <p>8K DPI Sensor, leise Klicks, USB-C, Multi-Device — die ultimative Produktivitätsmaus.</p>
-        </div>
-      </a>
-      <a href="/pages/macbook-air-m4.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/macbook-air-m4.jpg" alt="MacBook Air M4 im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>MacBook Air M4 im Test</h4>
-          <p>M4 Chip, 15 Zoll Liquid Retina, bis zu 18h Akkulaufzeit — dünnster Powerhouse-Laptop.</p>
-        </div>
-      </a>
-      <a href="/pages/nintendo-switch-2.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/nintendo-switch-2.jpg" alt="Die Nintendo Switch 2 ist da" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Die Nintendo Switch 2 ist da</h4>
-          <p>Neuer 8-Zoll-Bildschirm, rückwärtskompatibel, HD-Rumble — Nintendos nächstes Kapitel.</p>
-        </div>
-      </a>
-      <a href="/pages/playstation-5-pro.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/ps5-pro.jpg" alt="Die mächtigste PlayStation aller Zeiten" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Die mächtigste PlayStation aller Zeiten</h4>
-          <p>PS5 Pro mit maßgeschneiderte GPU, Raytracing, 8K-Ausgabe — Playstations stärkste Konsole.</p>
-        </div>
-      </a>
-      <a href="/pages/roborock-s8.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/roborock-s8.jpg" alt="Roborock S8 im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Roborock S8 im Test</h4>
-          <p>VibraRise Wischsystem, 6000Pa Saugkraft, Hindernisvermeidung — der leistungsstärksten Saugroboter.</p>
-        </div>
-      </a>
-      <a href="/pages/samsung-galaxy-s25-ultra.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/samsung-galaxy-s25-ultra.jpg" alt="Das Galaxy-Flaggschiff mit KI-Kraft" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Das Galaxy-Flaggschiff mit KI-Kraft</h4>
-          <p>Samsung Galaxy S25 Ultra mit Snapdragon 8 Gen 4, 200MP Kamera, S Pen — das ultimative Android-Flaggschiff.</p>
-        </div>
-      </a>
-      <a href="/pages/samsung-galaxy-watch-7.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/samsung-galaxy-watch-7.jpg" alt="Samsung Galaxy Watch 7 im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Samsung Galaxy Watch 7 im Test</h4>
-          <p>Exynos W1000 Chip, BioActive-Sensor, Wear OS 5 — Samsungs smarteste Uhr.</p>
-        </div>
-      </a>
-      <a href="/pages/sennheiser-momentum-4.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/sennheiser-momentum-4.jpg" alt="Sennheiser Momentum 4 im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Sennheiser Momentum 4 im Test</h4>
-          <p>42-mm-Treiber, 60h Akkulaufzeit, adaptives ANC — Audiophile wählen Sennheiser.</p>
-        </div>
-      </a>
-      <a href="/pages/sony-alpha-7c-ii.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/sony-alpha-7c-ii.jpg" alt="Sony Alpha 7C II im Test" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Sony Alpha 7C II im Test</h4>
-          <p>33MP Vollformat-Sensor, 5-Achsen-Bildstabilisierung, 4K-60p — die kleinste Vollformat-Kamera.</p>
-        </div>
-      </a>
-      <a href="/pages/sony-wh-1000xm5.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/sony-wh-1000xm5.jpg" alt="Der stille König der Kopfhörer" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Der stille König der Kopfhörer</h4>
-          <p>Sony WH-1000XM5 mit 30mm Treiber, 30h Akkulaufzeit, Multipoint — der leiseste Noise-Canceller.</p>
-        </div>
-      </a>
-      <a href="/pages/sony-wh1000xm4.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/sony-wh-1000xm4.jpg" alt="Test: Sony WH-1000XM4 im Überblick — Lohnt es sich 2026?" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag">Review</span></div>
-          <h4>Test: Sony WH-1000XM4 im Überblick — Lohnt es sich 2026?</h4>
-          <p>Vorgängermodell im Preis gesunken, immer noch exzellenter Geräuschfilter, 30h Akku — Top-Angebot für Sparfüchse.</p>
-        </div>
-      </a>
-    </div>
-
-    <!-- Featured News -->
-    <h2 class="section-header">📰 Aktuelle AI-News <a href="/news/index.html">Alle News →</a></h2>
-    <div class="cards-grid">
-
-      <a href="/news/ai-chip-morinica-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-chip-morinica.svg" alt="KI-Chip Morinica: 5 Watt für 1000 TOPS — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-Chip Morinica: 5 Watt für 1000 TOPS</h4>
-          <p>KI-Chip Morinica: 5 Watt für 1000 TOPS</p>
-        </div>
-      </a>
-      <a href="/news/ai-sprachmodelle-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ai-sprachmodelle.svg" alt="KI-Sprachmodelle 2026: Der Vergleich der besten LLMs — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-Sprachmodelle 2026: Der Vergleich der besten LLMs</h4>
-          <p>KI-Sprachmodelle 2026: Der Vergleich der besten LLMs</p>
-        </div>
-      </a>
-      <a href="/news/apple-intelligence--ki-direkt-auf-dem-iphone---ohne-cloud.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-apple-intelligence.svg" alt="Apple Intelligence: KI direkt auf dem iPhone — ohne Cloud" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>Apple Intelligence: KI direkt auf dem iPhone — ohne Cloud</h4>
-          <p>Apple Intelligence: KI direkt auf dem iPhone — ohne Cloud</p>
-        </div>
-      </a>
-      <a href="/news/google-deepmind-entwickelt-ki--die-proteine-in-sekunden-designen-kann.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-deepmind-proteine.svg" alt="Google DeepMind entwickelt KI, die Proteine in Sekunden designen kann" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>Google DeepMind entwickelt KI, die Proteine in Sekunden designen kann</h4>
-          <p>Google DeepMind entwickelt KI, die Proteine in Sekunden designen kann</p>
-        </div>
-      </a>
-      <a href="/news/index.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/logitech-mx-master-3s.jpg" alt="AI & Tech-News — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>AI & Tech-News</h4>
-          <p>AI & Tech-News</p>
-        </div>
-      </a>
-      <a href="/news/ki-agenten-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-agenten.svg" alt="KI-Agenten 2026: Autonome Systeme, die deine Arbeit erledigen — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-Agenten 2026: Autonome Systeme, die deine Arbeit erledigen</h4>
-          <p>KI-Agenten 2026: Autonome Systeme, die deine Arbeit erledigen</p>
-        </div>
-      </a>
-      <a href="/news/ki-bildgenerierung-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-bildgenerierung.svg" alt="KI-Bildgenerierung 2026: Die besten Tools im Vergleich — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-Bildgenerierung 2026: Die besten Tools im Vergleich</h4>
-          <p>KI-Bildgenerierung 2026: Die besten Tools im Vergleich</p>
-        </div>
-      </a>
-      <a href="/news/ki-coding-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-coding.svg" alt="KI-Coding-Assistenten 2026: Der Vergleich — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-Coding-Assistenten 2026: Der Vergleich</h4>
-          <p>KI-Coding-Assistenten 2026: Der Vergleich</p>
-        </div>
-      </a>
-      <a href="/news/ki-in-der-medizin--früherkennung-von-krebs-mit-97--genauigkeit.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-medizin.svg" alt="KI in der Medizin: Früherkennung von Krebs mit 97% Genauigkeit" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI in der Medizin: Früherkennung von Krebs mit 97% Genauigkeit</h4>
-          <p>KI in der Medizin: Früherkennung von Krebs mit 97% Genauigkeit</p>
-        </div>
-      </a>
-      <a href="/news/ki-medizin-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-medizin.svg" alt="KI in der Medizin 2026: Diagnose, Behandlung & Forschung — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI in der Medizin 2026: Diagnose, Behandlung & Forschung</h4>
-          <p>KI in der Medizin 2026: Diagnose, Behandlung & Forschung</p>
-        </div>
-      </a>
-      <a href="/news/ki-roboter-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-roboter.svg" alt="KI-Roboter 2026: humanoide Roboter im Alltag — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-Roboter 2026: humanoide Roboter im Alltag</h4>
-          <p>KI-Roboter 2026: humanoide Roboter im Alltag</p>
-        </div>
-      </a>
-      <a href="/news/ki-smartphones-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-smartphones.svg" alt="KI in Smartphones 2026: Galaxy AI, Apple Intelligence & mehr — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI in Smartphones 2026: Galaxy AI, Apple Intelligence & mehr</h4>
-          <p>KI in Smartphones 2026: Galaxy AI, Apple Intelligence & mehr</p>
-        </div>
-      </a>
-      <a href="/news/neue-ki-modelle-können-code-schreiben--der-schneller-ist-als-menschliche-entwickler.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-coding.svg" alt="Neue KI-Modelle können Code schreiben, der schneller ist als menschliche Entwickler" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>Neue KI-Modelle können Code schreiben, der schneller ist als menschliche Entwickler</h4>
-          <p>Neue KI-Modelle können Code schreiben, der schneller ist als menschliche Entwickler</p>
-        </div>
-      </a>
-      <a href="/news/neuralink-mensch-test-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-neuralink.svg" alt="Neuralink: Erster Patient steuert Computer mit Gedanken — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>Neuralink: Erster Patient steuert Computer mit Gedanken</h4>
-          <p>Neuralink: Erster Patient steuert Computer mit Gedanken</p>
-        </div>
-      </a>
-      <a href="/news/openai-startet-gpt-5-mit-revolutionären-multi-modal-fähigkeiten.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-openai-gpt5.svg" alt="OpenAI startet GPT-5 mit revolutionären Multi-Modal-Fähigkeiten" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>OpenAI startet GPT-5 mit revolutionären Multi-Modal-Fähigkeiten</h4>
-          <p>OpenAI startet GPT-5 mit revolutionären Multi-Modal-Fähigkeiten</p>
-        </div>
-      </a>
-      <a href="/news/tesla-optimus-roboter-beeindruckt-mit-alltäglichen-fähigkeiten.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-tesla-optimus.svg" alt="Tesla Optimus Roboter beeindruckt mit alltäglichen Fähigkeiten" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>Tesla Optimus Roboter beeindruckt mit alltäglichen Fähigkeiten</h4>
-          <p>Tesla Optimus Roboter beeindruckt mit alltäglichen Fähigkeiten</p>
-        </div>
-      </a>
-      <a href="/news/ki-automobilindustrie-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/news-ki-automobil.svg" alt="KI in der Automobilindustrie 2026" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI in der Automobilindustrie 2026: Autonomes Fahren &amp; Predictive Maintenance</h4>
-          <p>Level-4-Autonomie, KI-gestütztes Design und Predictive Maintenance — wie KI die Automobilbranche revolutioniert.</p>
-        </div>
-      </a>
-      <a href="/news/ki-gesundheitswesen-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/3d-ai-brain.svg" alt="KI im Gesundheitswesen 2026: Revolutionäre Diagnose & Behandlung" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI im Gesundheitswesen 2026: Revolutionäre Diagnose &amp; Behandlung</h4>
-          <p>99% Krebsfrüherkennung, KI-Chirurgen und personalisierte Medikamente — wie KI das Gesundheitswesen revolutioniert.</p>
-        </div>
-      </a>
-      <a href="/news/ki-compiler-mlir-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/3d-ai-chip.svg" alt="KI-Compiler MLIR 2026: Open-Source Chip-Design für jede Hardware — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-Compiler MLIR 2026: Open-Source Chip-Design für jede Hardware</h4>
-          <p>MLIR revolutioniert den Chip-Design — von NVIDIA, Google & AMD unterstützt. Open-Source-Standard für KI-Beschleuniger.</p>
-        </div>
-      </a>
-      <a href="/news/ki-drohnen-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/3d-drone.svg" alt="KI-gestützte Drohnen 2026: Autonome Überwachung & Lieferung — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-gestützte Drohnen 2026: Autonome Überwachung & Lieferung</h4>
-          <p>DHL, Amazon & DLRG setzen auf KI-Drohnen — autonome Lieferung, Rettungseinsätze und Präzisionslandwirtschaft.</p>
-        </div>
-      </a>
-      <a href="/news/ki-fotografie-2026-kamera-vergleich.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/canon-eos-r50.jpg" alt="KI-Fotografie 2026: Canon EOS R50 vs Sony A7C II" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-Fotografie 2026: Canon EOS R50 vs Sony A7C II — Welches KI-Kamera-System ist besser?</h4>
-          <p>Canon EOS R50 vs Sony A7C II im KI-Fotografie-Vergleich: Welche Kamera bietet die besten KI-Funktionen?</p>
-        </div>
-      </a>
-      <a href="/news/ki-bildkompression-2026.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/3d-video-play.svg" alt="KI-Bildkompression 2026: NeRF und Diffusion ersetzen JPEG — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#8b5cf6;">News</span></div>
-          <h4>KI-Bildkompression 2026: NeRF und Diffusion ersetzen JPEG</h4>
-          <p>Neue KI-Modelle komprimieren Bilder um 95% bei gleicher Qualität — JPEG ist tot? NeRF und Diffusion übernehmen.</p>
-        </div>
-      </a>
-    </div>
-
-    <!-- Featured DIY -->
-    <h2 class="section-header">🔧 DIY-Projekte <a href="/diy/index.html">Alle Projekte →</a></h2>
-    <div class="cards-grid">
-
-      <a href="/diy/ai-assistent-raspberry-pi.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-ai-assistent-pi.svg" alt="Eigenen AI-Assistenten mit Raspberry Pi bauen — MMOFinds DIY" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>Eigenen AI-Assistenten mit Raspberry Pi bauen</h4>
-          <p>Eigenen AI-Assistenten mit Raspberry Pi bauen</p>
-        </div>
-      </a>
-      <a href="/diy/ai-security-camera.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-ai-security-camera.svg" alt="KI-Sicherheitskamera mit Raspberry Pi bauen — MMOFinds DIY" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>KI-Sicherheitskamera mit Raspberry Pi bauen</h4>
-          <p>KI-Sicherheitskamera mit Raspberry Pi bauen</p>
-        </div>
-      </a>
-      <a href="/diy/eigenen-ai-assistenten-mit-raspberry-pi-bauen.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-ai-assistent-pi.svg" alt="Eigenen AI-Assistenten mit Raspberry Pi bauen" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>Eigenen AI-Assistenten mit Raspberry Pi bauen</h4>
-          <p>Eigenen AI-Assistenten mit Raspberry Pi bauen</p>
-        </div>
-      </a>
-      <a href="/diy/index.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-mechanical-keyboard.svg" alt="DIY Projekte — MMOFinds" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>DIY Projekte</h4>
-          <p>DIY Projekte</p>
-        </div>
-      </a>
-      <a href="/diy/mechanical-keyboard-build.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-mechanical-keyboard.svg" alt="Eigene mechanische Tastatur bauen — MMOFinds DIY" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>Eigene mechanische Tastatur bauen</h4>
-          <p>Eigene mechanische Tastatur bauen</p>
-        </div>
-      </a>
-      <a href="/diy/mechanische-tastatur-selbst-bauen---keychron-q1-pro.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-mechanical-keyboard.svg" alt="Mechanische Tastatur selbst bauen — Keychron Q1 Pro" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>Mechanische Tastatur selbst bauen — Keychron Q1 Pro</h4>
-          <p>Mechanische Tastatur selbst bauen — Keychron Q1 Pro</p>
-        </div>
-      </a>
-      <a href="/diy/nas-raspberry-pi.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-nas-raspberry-pi.svg" alt="Eigenes NAS mit Raspberry Pi aufbauen — MMOFinds DIY" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>Eigenes NAS mit Raspberry Pi aufbauen</h4>
-          <p>Eigenes NAS mit Raspberry Pi aufbauen</p>
-        </div>
-      </a>
-      <a href="/diy/raspberry-pi-smart-home-hub.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-smart-home-hub.svg" alt="Raspberry Pi 5 Smart Home Hub bauen — MMOFinds DIY" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>Raspberry Pi 5 Smart Home Hub bauen</h4>
-          <p>Raspberry Pi 5 Smart Home Hub bauen</p>
-        </div>
-      </a>
-      <a href="/diy/smart-home-hub-mit-home-assistant-auf-nas.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-smart-home-hub.svg" alt="Smart Home Hub mit Home Assistant auf NAS" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>Smart Home Hub mit Home Assistant auf NAS</h4>
-          <p>Smart Home Hub mit Home Assistant auf NAS</p>
-        </div>
-      </a>
-      <a href="/diy/smart-mirror.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-smart-mirror.svg" alt="Smart Mirror mit Raspberry Pi bauen — MMOFinds DIY" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>Smart Mirror mit Raspberry Pi bauen</h4>
-          <p>Smart Mirror mit Raspberry Pi bauen</p>
-        </div>
-      <a href="/diy/ai-smart-home-dashboard.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-smart-home-dashboard.svg" alt="KI-gestütztes Smart-Home-Dashboard mit Raspberry Pi bauen" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>Eigenen KI-gestütztes Smart-Home-Dashboard mit Raspberry Pi bauen</h4>
-          <p>Raspberry Pi 5, 10-Zoll-Touchscreen und lokale KI — das vollständige Smart-Home-Dashboard mit Sprachsteuerung.</p>
-        </div>
-      </a>
-      <a href="/diy/ki-smart-spiegel-mit-raspberry-pi-5-bauen.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/3d-diy-tools.svg" alt="KI-Smart Mirror mit Raspberry Pi 5 bauen" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>KI-Smart Mirror mit Raspberry Pi 5 bauen</h4>
-          <p>Der ultimative Smart Mirror: Wetter, Kalender, KI-Gesichtserkennung und Sprachsteuerung — komplett lokal!</p>
-        </div>
-      </a>
-      <a href="/diy/ki-sprachassistent-raspberry-pi-5-localai.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-ai-assistent-pi.svg" alt="KI-Sprachassistent mit Raspberry Pi 5 und LocalAI" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>KI-Sprachassistent mit Raspberry Pi 5 und LocalAI</h4>
-          <p>Baue deinen eigenen KI-Sprachassistenten — komplett lokal mit Whisper, LocalAI und Piper TTS.</p>
-        </div>
-      </a>
-      <a href="/diy/ki-nas-raspberry-pi-5-openmediavault.html" class="card">
-        <div class="card-image">
-          <img loading="lazy" src="/images/diy-nas-raspberry-pi.svg" alt="KI-gestütztes NAS mit Raspberry Pi 5 und OpenMediaVault" class="card-img" style="max-width:100%;height:auto;object-fit:contain;">
-        </div>
-        <div class="card-body">
-          <div class="card-meta"><span class="card-tag" style="background:#22c55e;">DIY</span></div>
-          <h4>KI-gestütztes NAS mit Raspberry Pi 5 und OpenMediaVault</h4>
-          <p>Dein eigenes NAS mit KI-Fotoerkennung, automatischer Sortierung und Smart-Backup — komplett lokal.</p>
-        </div>
-      </a>
-    </div>
-
-    <!-- Featured Video Section V9 -->
-    <div class="video-section">
-      <h3>🎬 Produkt-Video Highlights — AI Video Generation mit ComfyUI Wan 2.2</h3>
-      <p>Entdecke unsere besten Produkt-Reviews in Videoform — professionell generiert mit Wan 2.2 Image-to-Video auf AMD GPU.</p>
-      <div class="video-player">
-        <video poster="/videos/sony_wh1000xm5_preview.jpg" preload="metadata">
-          <source src="/videos/sony_wh1000xm5_review.mp4" type="video/mp4">
-        </video>
-        <div class="video-play-overlay" onclick="this.previousElementSibling.play()">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="video-platforms">
-        <div>
-          <img src="/images/3d-ai-future-v9.svg" alt="Instagram">
-          <span>Instagram Reels 1080x1920</span>
-        </div>
-        <div>
-          <img src="/images/3d-cloud-data-v9.svg" alt="Facebook">
-          <span>Facebook 1080x1080</span>
-        </div>
-        <div>
-          <img src="/images/3d-speed-meter-v9.svg" alt="TikTok">
-          <span>TikTok 1080x1920</span>
-        </div>
-      </div>
-      <p style="color:var(--color-text-muted);font-size:0.85rem;margin:20px 0 0;text-align:center;">AI-generierte Produktclips mit Wan 2.2 I2V — Professionelle Video-Qualität für Social Media</p>
-    </div>
-
-    <!-- Newsletter -->
-    <div class="newsletter-section">
-      <h3 class="newsletter-title">📬 Bleib auf dem Laufenden</h3>
-      <p class="newsletter-desc">Erhalte die neuesten AI-News, DIY-Anleitungen und Produkt-Tipps direkt in dein Postfach.</p>
-      <div class="newsletter-form">
-        <input type="email" id="nl-email" placeholder="Deine E-Mail-Adresse">
-        <button type="button" onclick="location.href='mailto:kontakt@mmofinds.de?subject=Newsletter-Anmeldung&body='+encodeURIComponent('Bitte nehmt mich in den Newsletter auf: '+(document.getElementById('nl-email').value||''))">Abonnieren</button>
-      </div>
-    </div>
-  </div>
+  </section>
+  <section class="sec"><div class="nl">
+    <div><h2>Die besten Tech-Deals &amp; KI-News</h2>
+      <p>Ein kurzer Newsletter pro Woche: die stärksten Produkt-Deals, ehrliche Reviews und die wichtigsten KI-Themen. Kostenlos, jederzeit abbestellbar.</p></div>
+    <div><form class="nl-form" action="mailto:kontakt@mmofinds.de" method="post" enctype="text/plain"><input type="email" name="email" placeholder="deine@email.de" required><button type="submit">Abonnieren</button></form>
+      <small>Double-Opt-In · kein Spam · DSGVO</small></div>
+  </div></section>
 </main>
-
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="footer-content">
-    <h3>MMOFinds</h3>
-    <p>Deine Quelle für KI-News, DIY-Projekte und ehrliche Produkt-Reviews.</p>
-    <div class="footer-links">
-      <a href="/">Start</a>
-      <a href="/news/">News</a>
-      <a href="/diy/">DIY</a>
-      <a href="/pages/">Reviews</a>
-      <a href="/impressum.html">Impressum</a>
-      <a href="/datenschutz.html">Datenschutz</a>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 MMOFinds</span>
-      <span>·</span>
-      <span>AI & Tech Magazin</span>
-    </div>
-  </div>
-</footer>
-
-<!-- Dark/Light Mode Toggle -->
-<button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>
-
-<script>
-// Theme Toggle
-(function() {
-    const toggle = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('theme');
-    
-    // Gespeichertes Theme anwenden
-    if (savedTheme === 'light') {
-        document.body.classList.add('light-mode');
-        toggle.textContent = '☀️';
-    }
-    
-    // Toggle Klick
-    toggle.addEventListener('click', function() {
-        document.body.classList.toggle('light-mode');
-        
-        if (document.body.classList.contains('light-mode')) {
-            localStorage.setItem('theme', 'light');
-            toggle.textContent = '☀️';
-        } else {
-            localStorage.setItem('theme', 'dark');
-            toggle.textContent = '🌙';
-        }
-    });
-})();
-</script>
-
-<script>
-    function toggleMobileMenu() {
-        const menu = document.getElementById('mobileMenu');
-        menu.classList.toggle('active');
-    }
-    
-    // Close menu when clicking a link
-    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            document.getElementById('mobileMenu').classList.remove('active');
-        });
-    });
-    
-    // Add scroll effect to nav bar
-    window.addEventListener('scroll', () => {
-        const navBar = document.querySelector('.nav-bar');
-        if (window.scrollY > 50) {
-            navBar.classList.add('scrolled');
-        } else {
-            navBar.classList.remove('scrolled');
-        }
-    });
-
-    // Card hover glow effect
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--mouse-x', x + 'px');
-            card.style.setProperty('--mouse-y', y + 'px');
-        });
-    });
-</script>
+<footer class="foot"><div class="wrap">
+  <div class="foot-in"><a class="logo" href="/">MMO<b>Finds</b><span class="dot"></span></a><span class="mono">© 2026 · AI &amp; Tech Magazin</span><span><a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></span></div>
+  <p class="disclosure">Als Amazon-Partner verdienen wir an qualifizierten Käufen — für dich ohne Mehrkosten. Preise und Verfügbarkeit können sich ändern.</p>
+</div></footer>
 </body>
-</html><!-- cache-bust: 1782372026 -->
+</html>
