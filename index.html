@@ -161,6 +161,38 @@
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 .tile img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;padding:14px;display:block}
+
+/* ===== Grafik-Layer v2.1 ===== */
+.top,main,.foot{position:relative;z-index:1}
+body{background:
+  radial-gradient(1100px 560px at 8% -8%, color-mix(in srgb,var(--c-phone) 12%,transparent), transparent 60%),
+  radial-gradient(940px 520px at 104% -4%, color-mix(in srgb,var(--c-audio) 11%,transparent), transparent 55%),
+  var(--paper);}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(color-mix(in srgb,var(--line-strong) 75%,transparent) 1px,transparent 1px);
+  background-size:24px 24px;opacity:.5;
+  -webkit-mask-image:linear-gradient(#000,transparent 60%);mask-image:linear-gradient(#000,transparent 60%);}
+.hero{position:relative;isolation:isolate}
+.hero>*{position:relative;z-index:1}
+.hero::before{content:"";position:absolute;z-index:0;left:-7%;top:-16%;width:440px;height:440px;border-radius:50%;
+  background:radial-gradient(circle at 32% 30%,color-mix(in srgb,var(--c-audio) 60%,transparent),transparent 62%);filter:blur(54px);opacity:.55}
+.hero::after{content:"";position:absolute;z-index:0;right:3%;top:28%;width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(circle at 60% 40%,color-mix(in srgb,var(--signal) 48%,transparent),transparent 60%);filter:blur(58px);opacity:.4}
+.feature-card{position:relative;overflow:hidden}
+.card{position:relative;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--cat,var(--accent));opacity:.92;z-index:3}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
+.tile{position:relative;background:linear-gradient(160deg,color-mix(in srgb,var(--cat) 18%,var(--surface)),var(--surface))}
+.ico-badge{position:absolute;top:10px;left:10px;z-index:2;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--cat) 16%,#fff);border:1px solid color-mix(in srgb,var(--cat) 34%,transparent);box-shadow:0 2px 7px rgba(18,26,43,.10)}
+.ico-badge svg{width:17px;height:17px;stroke:var(--cat);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.stat{position:relative;overflow:hidden}
+.stat .n{color:var(--sc,var(--accent))}
+.stat::after{content:"";position:absolute;right:-16px;bottom:-16px;width:58px;height:58px;border-radius:50%;background:color-mix(in srgb,var(--sc,var(--accent)) 15%,transparent)}
+.nl{position:relative;overflow:hidden}
+.nl::before{content:"";position:absolute;right:-46px;top:-46px;width:190px;height:190px;border-radius:50%;background:rgba(255,255,255,.10)}
+.nl::after{content:"";position:absolute;right:70px;bottom:-64px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.08)}
+@media (prefers-color-scheme:dark){ .ico-badge{background:color-mix(in srgb,var(--cat) 24%,var(--surface))} }
 </style>
 </head>
 <body>
@@ -182,7 +214,7 @@
       </div>
     </div>
     <a class="feature-card" href="/pages/sony-wh-1000xm5.html" style="text-decoration:none;color:inherit;display:block">
-      <div class="tile" style="--cat:var(--c-audio)"><img src="/images/sony-wh-1000xm5.jpg" alt="Sony WH-1000XM5"></div>
+      <div class="tile" style="--cat:var(--c-audio)"><div class="ico-badge"><svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="2.5" y="13" width="4" height="7.5" rx="1.6"/><rect x="17.5" y="13" width="4" height="7.5" rx="1.6"/></svg></div><img src="/images/sony-wh-1000xm5.jpg" alt="Sony WH-1000XM5"></div>
       <div class="feature-body"><h3>Sony WH-1000XM5</h3>
         <p>Branchenführendes ANC, 30 h Akku, kristallklare Telefonate — der Allrounder für unterwegs.</p>
         <span class="price-pill">→ Preis bei Amazon prüfen</span></div>
@@ -196,14 +228,14 @@
   </section>
   <section class="sec" id="reviews">
     <div class="sec-head"><div><span class="h-accent"></span><br><h2>Aktuelle Reviews</h2></div><a class="more" href="/pages/">Alle Reviews →</a></div>
-    <div class="grid"><a class="card" href="/pages/apple-airpods-pro-2.html" style="--cat:var(--c-audio)"><div class="tile" style="--cat:var(--c-audio)"><img src="/images/apple-airpods-pro-2.jpg" alt="Apple AirPods Pro 2" loading="lazy"></div><div class="card-body"><span class="cat2">In-Ear</span><h3>Apple AirPods Pro 2</h3><div class="rt"><span class="stars">★</span> 4.8 · 9.230 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
-<a class="card" href="/pages/iphone-16-pro.html" style="--cat:var(--c-phone)"><div class="tile" style="--cat:var(--c-phone)"><img src="/images/iphone-16-pro.jpg" alt="iPhone 16 Pro" loading="lazy"></div><div class="card-body"><span class="cat2">Smartphone</span><h3>iPhone 16 Pro</h3><div class="rt"><span class="stars">★</span> 4.9 · 5.410 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
-<a class="card" href="/pages/macbook-air-m4.html" style="--cat:var(--c-laptop)"><div class="tile" style="--cat:var(--c-laptop)"><img src="/images/macbook-air-m4.jpg" alt="MacBook Air M4" loading="lazy"></div><div class="card-body"><span class="cat2">Laptop</span><h3>MacBook Air M4</h3><div class="rt"><span class="stars">★</span> 4.9 · 3.980 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
-<a class="card" href="/pages/dyson-v15-detect.html" style="--cat:var(--c-vac)"><div class="tile" style="--cat:var(--c-vac)"><img src="/images/dyson-v15-detect.jpg" alt="Dyson V15 Detect" loading="lazy"></div><div class="card-body"><span class="cat2">Staubsauger</span><h3>Dyson V15 Detect</h3><div class="rt"><span class="stars">★</span> 4.7 · 6.120 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
-<a class="card" href="/pages/sony-alpha-7c-ii.html" style="--cat:var(--c-cam)"><div class="tile" style="--cat:var(--c-cam)"><img src="/images/sony-alpha-7c-ii.jpg" alt="Sony Alpha 7C II" loading="lazy"></div><div class="card-body"><span class="cat2">Kamera</span><h3>Sony Alpha 7C II</h3><div class="rt"><span class="stars">★</span> 4.8 · 1.740 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
-<a class="card" href="/pages/roborock-s8.html" style="--cat:var(--c-vac)"><div class="tile" style="--cat:var(--c-vac)"><img src="/images/roborock-s8.jpg" alt="Roborock S8" loading="lazy"></div><div class="card-body"><span class="cat2">Saugroboter</span><h3>Roborock S8</h3><div class="rt"><span class="stars">★</span> 4.6 · 4.860 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
-<a class="card" href="/pages/samsung-galaxy-s25-ultra.html" style="--cat:var(--c-phone)"><div class="tile" style="--cat:var(--c-phone)"><img src="/images/samsung-galaxy-s25-ultra.jpg" alt="Samsung Galaxy S25 Ultra" loading="lazy"></div><div class="card-body"><span class="cat2">Smartphone</span><h3>Samsung Galaxy S25 Ultra</h3><div class="rt"><span class="stars">★</span> 4.7 · 7.310 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
-<a class="card" href="/pages/bose-quietcomfort-ultra.html" style="--cat:var(--c-audio)"><div class="tile" style="--cat:var(--c-audio)"><img src="/images/bose-quietcomfort-ultra.jpg" alt="Bose QuietComfort Ultra" loading="lazy"></div><div class="card-body"><span class="cat2">Kopfhörer</span><h3>Bose QuietComfort Ultra</h3><div class="rt"><span class="stars">★</span> 4.7 · 5.090 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a></div>
+    <div class="grid"><a class="card" href="/pages/apple-airpods-pro-2.html" style="--cat:var(--c-audio)"><div class="tile" style="--cat:var(--c-audio)"><div class="ico-badge"><svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="2.5" y="13" width="4" height="7.5" rx="1.6"/><rect x="17.5" y="13" width="4" height="7.5" rx="1.6"/></svg></div><img src="/images/apple-airpods-pro-2.jpg" alt="Apple AirPods Pro 2" loading="lazy"></div><div class="card-body"><span class="cat2">In-Ear</span><h3>Apple AirPods Pro 2</h3><div class="rt"><span class="stars">★</span> 4.8 · 9.230 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/iphone-16-pro.html" style="--cat:var(--c-phone)"><div class="tile" style="--cat:var(--c-phone)"><div class="ico-badge"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><line x1="10.5" y1="18.6" x2="13.5" y2="18.6"/></svg></div><img src="/images/iphone-16-pro.jpg" alt="iPhone 16 Pro" loading="lazy"></div><div class="card-body"><span class="cat2">Smartphone</span><h3>iPhone 16 Pro</h3><div class="rt"><span class="stars">★</span> 4.9 · 5.410 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/macbook-air-m4.html" style="--cat:var(--c-laptop)"><div class="tile" style="--cat:var(--c-laptop)"><div class="ico-badge"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1.6"/><path d="M2 20h20"/></svg></div><img src="/images/macbook-air-m4.jpg" alt="MacBook Air M4" loading="lazy"></div><div class="card-body"><span class="cat2">Laptop</span><h3>MacBook Air M4</h3><div class="rt"><span class="stars">★</span> 4.9 · 3.980 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/dyson-v15-detect.html" style="--cat:var(--c-vac)"><div class="tile" style="--cat:var(--c-vac)"><div class="ico-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.3"/><path d="M12 4v3.2"/></svg></div><img src="/images/dyson-v15-detect.jpg" alt="Dyson V15 Detect" loading="lazy"></div><div class="card-body"><span class="cat2">Staubsauger</span><h3>Dyson V15 Detect</h3><div class="rt"><span class="stars">★</span> 4.7 · 6.120 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/sony-alpha-7c-ii.html" style="--cat:var(--c-cam)"><div class="tile" style="--cat:var(--c-cam)"><div class="ico-badge"><svg viewBox="0 0 24 24"><path d="M3 8.6A1.6 1.6 0 0 1 4.6 7H8l1.3-2.2h5.4L16 7h3.4A1.6 1.6 0 0 1 21 8.6v9.8A1.6 1.6 0 0 1 19.4 20H4.6A1.6 1.6 0 0 1 3 18.4z"/><circle cx="12" cy="13" r="3.4"/></svg></div><img src="/images/sony-alpha-7c-ii.jpg" alt="Sony Alpha 7C II" loading="lazy"></div><div class="card-body"><span class="cat2">Kamera</span><h3>Sony Alpha 7C II</h3><div class="rt"><span class="stars">★</span> 4.8 · 1.740 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/roborock-s8.html" style="--cat:var(--c-vac)"><div class="tile" style="--cat:var(--c-vac)"><div class="ico-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.3"/><path d="M12 4v3.2"/></svg></div><img src="/images/roborock-s8.jpg" alt="Roborock S8" loading="lazy"></div><div class="card-body"><span class="cat2">Saugroboter</span><h3>Roborock S8</h3><div class="rt"><span class="stars">★</span> 4.6 · 4.860 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/samsung-galaxy-s25-ultra.html" style="--cat:var(--c-phone)"><div class="tile" style="--cat:var(--c-phone)"><div class="ico-badge"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><line x1="10.5" y1="18.6" x2="13.5" y2="18.6"/></svg></div><img src="/images/samsung-galaxy-s25-ultra.jpg" alt="Samsung Galaxy S25 Ultra" loading="lazy"></div><div class="card-body"><span class="cat2">Smartphone</span><h3>Samsung Galaxy S25 Ultra</h3><div class="rt"><span class="stars">★</span> 4.7 · 7.310 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a>
+<a class="card" href="/pages/bose-quietcomfort-ultra.html" style="--cat:var(--c-audio)"><div class="tile" style="--cat:var(--c-audio)"><div class="ico-badge"><svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="2.5" y="13" width="4" height="7.5" rx="1.6"/><rect x="17.5" y="13" width="4" height="7.5" rx="1.6"/></svg></div><img src="/images/bose-quietcomfort-ultra.jpg" alt="Bose QuietComfort Ultra" loading="lazy"></div><div class="card-body"><span class="cat2">Kopfhörer</span><h3>Bose QuietComfort Ultra</h3><div class="rt"><span class="stars">★</span> 4.7 · 5.090 Bew.</div><span class="cta2">→ Preis prüfen</span></div></a></div>
   </section>
   <section class="sec" id="news">
     <div class="sec-head"><div><span class="h-accent"></span><br><h2>AI-News &amp; DIY</h2></div><a class="more" href="/news/">Alle News →</a></div>
