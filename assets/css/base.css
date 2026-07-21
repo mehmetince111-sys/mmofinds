@@ -891,3 +891,33 @@ body.light-mode::before {
 .newsletter-form button:hover {
     background: var(--color-primary-hover);
 }
+
+
+/* ============================================================
+   Social-Share — 2026 Refresh (Opus): runde Icon-Buttons,
+   theme-aware, Marken-Hover. Ersetzt den altbackenen Icon+Text-Look.
+   ============================================================ */
+.social-share{display:flex;align-items:center;gap:10px;margin:22px 0;flex-wrap:wrap}
+.social-share > span{color:var(--text-muted,#8a94a3)!important;font-size:11px!important;
+  font-weight:700!important;letter-spacing:.09em!important;text-transform:uppercase!important;margin-right:4px!important}
+.social-share a{
+  font-size:0!important;line-height:0!important;text-indent:0!important;
+  width:40px!important;height:40px!important;padding:0!important;border-radius:50%!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  background:var(--surface,#ffffff)!important;border:1px solid var(--border,#e3e7ec)!important;
+  color:var(--text-secondary,#5a6472)!important;box-shadow:0 1px 2px rgba(16,21,34,.05);
+  transition:transform .18s ease,background .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease}
+.social-share a:hover{transform:translateY(-2px);color:#fff!important;
+  background:var(--accent,#2563eb)!important;border-color:var(--accent,#2563eb)!important}
+.social-share a svg,.social-share a svg.social-icon,.social-share .social-icon{
+  width:19px!important;height:19px!important;font-size:initial!important;fill:currentColor!important;
+  stroke:none!important;display:block!important}
+.social-share a.social-whatsapp:hover{background:#25D366!important;border-color:#25D366!important;box-shadow:0 8px 18px -8px rgba(37,211,102,.7)}
+.social-share a.social-facebook:hover{background:#1877F2!important;border-color:#1877F2!important;box-shadow:0 8px 18px -8px rgba(24,119,242,.7)}
+.social-share a.social-twitter:hover,.social-share a.social-x:hover{background:#0f1419!important;border-color:#0f1419!important;box-shadow:0 8px 18px -8px rgba(0,0,0,.55)}
+.social-share a.social-telegram:hover{background:#229ED9!important;border-color:#229ED9!important}
+.social-share a.social-linkedin:hover{background:#0A66C2!important;border-color:#0A66C2!important}
+@media (prefers-color-scheme:dark){
+  .social-share a{background:var(--surface,#182131)!important;border-color:var(--border,#2a3444)!important;color:var(--text-secondary,#9aa6b6)!important}
+}
+:root[data-theme="dark"] .social-share a{background:var(--surface,#182131)!important;border-color:var(--border,#2a3444)!important;color:var(--text-secondary,#9aa6b6)!important}
