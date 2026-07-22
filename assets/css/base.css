@@ -1009,3 +1009,20 @@ header .nav a{color:var(--color-text-secondary) !important;text-decoration:none;
 header .nav a:hover, header .nav a.active{color:var(--color-primary) !important;}
 header nav[aria-label="Breadcrumb"]{justify-content:center;display:flex;}
 
+/* ===== v2-Skin KONTRAST-KORREKTUR (Lesbarkeit; Alt-design-v*.css setzte helle Schrift) ===== */
+/* Navigation: weiße Alt-Schrift -> dunkel */
+.nav-inner a, .nav-bar a, .nav-links a, .nav-link, .nav-logo{color:var(--color-text) !important;}
+.nav-inner a:hover, .nav-bar a:hover, .nav-link:hover, .nav-inner a.active, .nav-link.active, .nav-links a.active{color:var(--color-primary) !important;}
+/* Artikel-Text (news/diy Detailseiten via design-v7 etc.) */
+.article-header h1, .article-title,
+.article-content h1, .article-content h2, .article-content h3, .article-content h4, .article-content h5,
+.article-content strong, .article-content b{color:var(--color-text) !important;}
+.article-content, .article-content p, .article-content li, .article-content td, .article-content th, .article-content blockquote{color:var(--color-text-secondary) !important;}
+.article-content a{color:var(--color-primary) !important;}
+.article-meta{color:var(--color-text-muted) !important;}
+/* Card-Text der Alt-Themes (weiß) */
+.card-body h4, .card-body h3, .card-title{color:var(--color-text) !important;}
+.card-body p{color:var(--color-text-secondary) !important;}
+/* Gradient-Text-Überschriften konnten transparent/unsichtbar rendern -> solide, lesbar */
+.page-title, .review-headline, .hero-title{background:none !important; -webkit-text-fill-color:currentColor !important; color:var(--color-text) !important;}
+
