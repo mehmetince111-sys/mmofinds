@@ -1026,3 +1026,13 @@ header nav[aria-label="Breadcrumb"]{justify-content:center;display:flex;}
 /* Gradient-Text-Überschriften konnten transparent/unsichtbar rendern -> solide, lesbar */
 .page-title, .review-headline, .hero-title{background:none !important; -webkit-text-fill-color:currentColor !important; color:var(--color-text) !important;}
 
+/* ===== v2-Palette mit HÖHERER Spezifität (schlägt design-v5..v9 :root-Override) ===== */
+html:root{
+  --color-bg:#F3F6FC; --color-bg-secondary:#EEF2FA; --color-bg-card:#FFFFFF; --color-bg-card-hover:#F7F9FE;
+  --color-text:#121A2B; --color-text-secondary:#586176; --color-text-muted:#8A93A6;
+  --color-primary:#2D5BFF; --color-primary-hover:#244FE0; --color-accent:#FF6A3D;
+  --color-success:#28B073; --color-warning:#F0A020; --color-danger:#E5484D;
+  --color-purple:#7C5CFF; --color-pink:#F0568C;
+  --color-border:#E6EBF4; --color-border-hover:#2D5BFF;
+}
+
