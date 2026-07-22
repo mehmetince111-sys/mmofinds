@@ -921,3 +921,91 @@ body.light-mode::before {
   .social-share a{background:var(--surface,#182131)!important;border-color:var(--border,#2a3444)!important;color:var(--text-secondary,#9aa6b6)!important}
 }
 :root[data-theme="dark"] .social-share a{background:var(--surface,#182131)!important;border-color:var(--border,#2a3444)!important;color:var(--text-secondary,#9aa6b6)!important}
+
+/* =====================================================================
+   v2-SKIN — harmonisiert alle mmofinds-Unterseiten mit der neuen
+   Startseite: helles Editorial-Theme, Kobalt-Akzent, dezente Grafik.
+   Rein CSS (keine GPU). Wird an base.css angehängt (gewinnt via Cascade).
+   ===================================================================== */
+:root{
+  --color-bg:#F3F6FC; --color-bg-secondary:#EEF2FA; --color-bg-card:#FFFFFF; --color-bg-card-hover:#F7F9FE;
+  --color-text:#121A2B; --color-text-secondary:#586176; --color-text-muted:#8A93A6;
+  --color-primary:#2D5BFF; --color-primary-hover:#244FE0; --color-accent:#FF6A3D;
+  --color-success:#28B073; --color-warning:#F0A020; --color-danger:#E5484D;
+  --color-purple:#7C5CFF; --color-pink:#F0568C;
+  --color-border:#E6EBF4; --color-border-hover:#2D5BFF;
+  --shadow-sm:0 1px 2px rgba(18,26,43,.05),0 6px 16px -10px rgba(18,26,43,.14);
+  --shadow-md:0 2px 6px rgba(18,26,43,.07),0 16px 34px -16px rgba(18,26,43,.20);
+  --shadow-lg:0 10px 44px -14px rgba(45,91,255,.26);
+  --shadow-glow:0 0 0 1px rgba(45,91,255,.12); --shadow-glow-lg:0 12px 40px -12px rgba(45,91,255,.30);
+}
+/* Heller Untergrund + weicher Farbschimmer + dezente Punkt-Textur (wie Startseite) */
+body{background:
+  radial-gradient(1100px 560px at 8% -8%, rgba(45,91,255,.06), transparent 60%),
+  radial-gradient(940px 520px at 104% -4%, rgba(124,92,255,.055), transparent 55%),
+  var(--color-bg) !important; color:var(--color-text) !important;}
+body::before{background:
+  radial-gradient(rgba(18,26,43,.055) 1px, transparent 1px) 0 0/24px 24px !important;
+  opacity:.55 !important; -webkit-mask-image:linear-gradient(#000,transparent 62%); mask-image:linear-gradient(#000,transparent 62%);}
+.main-content{position:relative; z-index:1;}
+/* Navigation hell + Glas */
+.nav-bar, .top-app-bar{background:rgba(255,255,255,.82) !important; -webkit-backdrop-filter:saturate(160%) blur(12px); backdrop-filter:saturate(160%) blur(12px); border-bottom:1px solid var(--color-border) !important; box-shadow:0 1px 0 rgba(18,26,43,.04);}
+.nav-links a, .nav-link, .nav-logo{color:var(--color-text) !important;}
+.nav-links a:hover, .nav-link:hover{color:var(--color-primary) !important;}
+/* Hero-Titel: v2-Gradient (Kobalt) */
+.hero-title, .review-headline, body.light-mode .hero-title{
+  background:linear-gradient(135deg,#121A2B 0%,#2D5BFF 100%) !important;
+  -webkit-background-clip:text !important; background-clip:text !important; -webkit-text-fill-color:transparent;}
+.hero-subtitle, .review-subheadline, .review-intro{color:var(--color-text-secondary) !important;}
+/* Textfarben allgemein */
+h1,h2,h3,h4,.product-name,.benefit-title,.use-case-title,.section-header,.footer-content h3,.verdict-text,.rating-score{color:var(--color-text) !important;}
+p,li,.product-desc,.benefit-text,.use-case-text,.newsletter-desc{color:var(--color-text-secondary);}
+a{color:var(--color-primary);}
+/* Karten: weiß, weicher Schatten, Akzentbalken oben */
+.product-card,.use-case-card,.benefit-card,.offer-card,.card,.card-featured,.rating-section,.verdict-section,.pros-cons-section,.review-hero-image{
+  background:var(--color-bg-card) !important; border:1px solid var(--color-border) !important; box-shadow:var(--shadow-md); border-radius:var(--radius-lg);}
+.product-card{position:relative; overflow:hidden;}
+.product-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--color-primary),var(--color-purple));opacity:.9;z-index:2;}
+.product-card:hover,.card:hover,.offer-card:hover,.use-case-card:hover,.benefit-card:hover{
+  border-color:color-mix(in srgb,var(--color-primary) 40%,var(--color-border)) !important; box-shadow:var(--shadow-lg); transform:translateY(-3px); transition:all .18s ease;}
+/* Pro/Contra: helle semantische Tönung statt dunkel */
+.pros-card{background:color-mix(in srgb,var(--color-success) 9%,#fff) !important; border:1px solid color-mix(in srgb,var(--color-success) 30%,var(--color-border)) !important;}
+.cons-card{background:color-mix(in srgb,var(--color-danger) 8%,#fff) !important; border:1px solid color-mix(in srgb,var(--color-danger) 28%,var(--color-border)) !important;}
+/* Buttons/Links: Kobalt-Pille */
+.product-btn,.btn,.amazon-link,.newsletter-form button{
+  background:linear-gradient(180deg,var(--color-primary),#244FE0) !important; color:#fff !important; border:none !important;
+  border-radius:12px !important; box-shadow:0 6px 16px -6px rgba(45,91,255,.5); font-weight:700;}
+.product-btn:hover,.btn:hover,.amazon-link:hover,.newsletter-form button:hover{filter:brightness(1.06); transform:translateY(-1px);}
+.offer-link{color:var(--color-primary) !important; font-weight:600;}
+/* Aktions-/Preis-Block + Newsletter: Kobalt-Verlauf wie Startseite */
+.price-card,.newsletter-section{background:linear-gradient(135deg,#2D5BFF 0%,#6C4BFF 100%) !important; border:none !important; color:#fff !important; box-shadow:var(--shadow-lg);}
+.price-card *,.newsletter-section .newsletter-title,.newsletter-section .newsletter-desc{color:#fff !important;}
+.price-value{color:#fff !important;}
+.newsletter-form input{background:rgba(255,255,255,.95) !important; border:none !important; color:#121A2B !important; border-radius:10px !important;}
+/* Section-Header: Akzent-Unterstrich */
+.section-header{border-bottom:2px solid var(--color-border) !important;}
+.section-header a{color:var(--color-primary) !important;}
+/* Footer hell */
+.site-footer, body.light-mode .site-footer{background:#fff !important; border-top:1px solid var(--color-border) !important; color:var(--color-text-muted) !important;}
+/* Rating-Sterne in Signal-Farbe */
+.rating-stars{color:var(--color-accent) !important;}
+/* Bild-Container: dunkles Navy-Gradient -> hell */
+.product-image, .card-image{background:linear-gradient(160deg,#EEF2FA 0%,#FFFFFF 100%) !important;}
+.card-image::after{color:rgba(18,26,43,.55) !important;}
+/* Seiten-Titel (H1) stylen — war ungestylt/riesig-schwarz */
+header{text-align:center;}
+.page-title{max-width:900px;margin:6px auto 2px;text-align:center;font-weight:800;line-height:1.22;
+  font-size:clamp(1.35rem,3.4vw,2.05rem);
+  background:linear-gradient(135deg,#121A2B 0%,#2D5BFF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.social-share{justify-content:center;}
+/* Nav-Logo in Marke */
+.nav-logo{font-weight:800;} .nav-logo b, .nav-logo span{color:var(--color-primary) !important;}
+/* Header-Navigation der Produktseiten (header > .main-content > .logo + .nav) */
+header .main-content{max-width:1100px;margin:0 auto;padding:6px 20px 0;}
+header .logo{font-weight:800;font-size:1.15rem;color:var(--color-text) !important;text-decoration:none;}
+header .logo span{color:var(--color-primary) !important;}
+header .nav{display:inline-flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;margin-top:8px;}
+header .nav a{color:var(--color-text-secondary) !important;text-decoration:none;font-weight:600;font-size:.95rem;}
+header .nav a:hover, header .nav a.active{color:var(--color-primary) !important;}
+header nav[aria-label="Breadcrumb"]{justify-content:center;display:flex;}
+
