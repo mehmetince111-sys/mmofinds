@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokaler LLM-Server auf dem NAS: Ollama auf Synology und QNAP | DIY Projekte | MMOFinds</title>
+    <meta name="description" content="Nutze dein NAS als KI-Server. Ollama auf Synology Docker oder QNAP Container Station installieren und von überall auf lokale LLMs zugreifen.">
+    <meta property="og:title" content="Lokaler LLM-Server auf dem NAS: Ollama auf Synology und QNAP">
+    <meta property="og:description" content="Nutze dein NAS als KI-Server. Ollama auf Synology Docker oder QNAP Container Station installieren und von überall auf lokale LLMs zugreifen.">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="canonical" href="https://mmofinds.de/diy/local-llm-nas-ollama-2026.html">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Lokaler LLM-Server auf dem NAS: Ollama auf Synology und QNAP", "datePublished": "2026-08-31", "author": {"@type": "Organization", "name": "MMOFinds"}, "description": "Nutze dein NAS als KI-Server. Ollama auf Synology Docker oder QNAP Container Station installieren und von überall auf lokale LLMs zugreifen."}</script>
+</head>
+<body>
+    <header class="top-app-bar">
+        <div class="main-content">
+            <a href="/" class="logo">MMO<span>Finds</span></a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/news/">News</a>
+                <a href="/diy/" class="active">DIY</a>
+                <a href="/pages/">Reviews</a>
+                <a href="/impressum.html">Impressum</a>
+                <a href="/datenschutz.html">Datenschutz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <article class="news-article">
+            <div class="news-meta">
+                <span class="news-category" style="background:#06b6d420;color:#06b6d4">🖥️ Local LLM</span>
+                <time datetime="2026-08-31">31.08.2026</time>
+            </div>
+            <h1 class="news-title">Lokaler LLM-Server auf dem NAS: Ollama auf Synology und QNAP</h1>
+            <div class="news-body">
+                <p class="news-lead">Nutze dein NAS als KI-Server. Ollama auf Synology Docker oder QNAP Container Station installieren und von überall auf lokale LLMs zugreifen.</p>
+                <pre style="background:#1e1e1e;color:#d4d4d4;padding:20px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.5;">Dein NAS steht die meiste Zeit rum — warum nicht als AI-Server nutzen? Mit Ollama wird jedes NAS zum lokalen LLM-Server, auf den du von überall zugreifen kannst.
+
+**Synology DSM (Docker):**
+1. Docker-Paket installieren
+2. Container erstellen: Ollama-Image `ollama/ollama` nutzen
+3. Port 11434 freigeben
+4. SSH-Zugriff auf das NAS und `ollama pull qwen2.5:14b`
+5. Web-Interface mit Open WebUI (Docker-Container `openwebui/openwebui`)
+
+**QNAP Container Station:**
+1. LXC-Container mit Ubuntu 24.04 erstellen
+2. Ollama installieren: `curl -fsSL https://ollama.ai/install.sh | sh`
+3. Modelle ziehen: `ollama pull phi4:14b` (für NAS perfekt)
+4. QNAP myQNAPcloud für Fernzugriff konfigurieren
+
+**Was du erwarten kannst (Synology DS923+ mit 16GB RAM):**
+- Phi-4 14B: ~8 Tokens/Sekunde (brauchbar für Chat)
+- Qwen 2.5 7B: ~12 Tokens/Sekunde (gut für schnelle Antworten)
+- Llama 3.3 8B: ~15 Tokens/Sekunde (flüssig)
+
+**Privatsphäre-Garantie:** Kein Prompt verlässt dein Netzwerk. Perfekt für vertrauliche Dokumente und Geschäfts-Kommunikation.</pre>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 MMOFinds — AI & Tech Magazin | <a href="/datenschutz.html">Datenschutz</a> | <a href="/impressum.html">Impressum</a></p>
+    </footer>
+</body>
+</html>

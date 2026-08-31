@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent auf dem eigenen Server: Home Assistant mit AutoGPT und LangChain verbinden | DIY Projekte | MMOFinds</title>
+    <meta name="description" content="Verbinde Home Assistant mit einem lokalen LLM und AutoGPT. So baust du einen AI Agenten, der dein Smart Home wirklich versteht — ohne Cloud, ohne Abo.">
+    <meta property="og:title" content="AI Agent auf dem eigenen Server: Home Assistant mit AutoGPT und LangChain verbinden">
+    <meta property="og:description" content="Verbinde Home Assistant mit einem lokalen LLM und AutoGPT. So baust du einen AI Agenten, der dein Smart Home wirklich versteht — ohne Cloud, ohne Abo.">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="canonical" href="https://mmofinds.de/diy/ai-agent-homeassistant-autoagent-2026.html">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI Agent auf dem eigenen Server: Home Assistant mit AutoGPT und LangChain verbinden", "datePublished": "2026-08-31", "author": {"@type": "Organization", "name": "MMOFinds"}, "description": "Verbinde Home Assistant mit einem lokalen LLM und AutoGPT. So baust du einen AI Agenten, der dein Smart Home wirklich versteht — ohne Cloud, ohne Abo."}</script>
+</head>
+<body>
+    <header class="top-app-bar">
+        <div class="main-content">
+            <a href="/" class="logo">MMO<span>Finds</span></a>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/news/">News</a>
+                <a href="/diy/" class="active">DIY</a>
+                <a href="/pages/">Reviews</a>
+                <a href="/impressum.html">Impressum</a>
+                <a href="/datenschutz.html">Datenschutz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <article class="news-article">
+            <div class="news-meta">
+                <span class="news-category" style="background:#8b5cf620;color:#8b5cf6">🤖 AI Assistant</span>
+                <time datetime="2026-08-31">31.08.2026</time>
+            </div>
+            <h1 class="news-title">AI Agent auf dem eigenen Server: Home Assistant mit AutoGPT und LangChain verbinden</h1>
+            <div class="news-body">
+                <p class="news-lead">Verbinde Home Assistant mit einem lokalen LLM und AutoGPT. So baust du einen AI Agenten, der dein Smart Home wirklich versteht — ohne Cloud, ohne Abo.</p>
+                <pre style="background:#1e1e1e;color:#d4d4d4;padding:20px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.5;">In diesem Projekt verbinden wir Home Assistant mit einem lokalen Large Language Model über LangChain, um einen AI Agenten zu bauen, der wirklich versteht was in deinem Smart Home passiert.
+
+**Was du brauchst:**
+- Home Assistant auf Raspberry Pi 5 oder NAS
+- Ollama oder LM Studio mit Llama 3.3 70B
+- LangChain Python-Bibliothek
+- Ngrok oder Cloudflare Tunnel (für Fernzugriff)
+
+**Schritt 1: Ollama installieren**
+```
+curl -fsSL https://ollama.ai/install.sh | sh
+ollama pull llama3.3:70b
+```
+
+**Schritt 2: LangChain Agent konfigurieren**
+```python
+from langchain.agents import AgentType, Tool, initialize_agent
+from langchain_community.chat_models import ChatOllama
+from langchain_community.tools import DuckDuckGoSearchRun
+
+llm = ChatOllama(model="llama3.3:70b", temperature=0.7)
+
+tools = [
+    Tool(name="HomeAssistant", func=ha_api_call,
+         description="Steuere Smart Home Geräte"),
+    DuckDuckGoSearchRun(),
+]
+
+agent = initialize_agent(
+    tools, llm, agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
+    verbose=True
+)
+```
+
+**Schritt 3: Automatisierungen erstellen**
+Jetzt kannst du natürliche Sprache nutzen: "Schalte das Licht im Wohnzimmer auf 50% und mach das Fenster im Bad zu wenn es regnet" — der Agent versteht und führt aus.
+
+**Sicherheit:** Nutze HTTPS und prüfe jeden Agent-Befehl gegen eine Whitelist, bevor du Aktoren schaltest.</pre>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 MMOFinds — AI & Tech Magazin | <a href="/datenschutz.html">Datenschutz</a> | <a href="/impressum.html">Impressum</a></p>
+    </footer>
+</body>
+</html>
