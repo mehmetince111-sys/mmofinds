@@ -45,6 +45,29 @@ PROGRESS_FILE = REPO_DIR / '.pipeline_progress.json'
 # Produktdaten: (filename, name, category, search_term, default_asin)
 # Nur aktuelle, relevante Produkte — keine Nische, keine veralteten Modelle
 PRODUCTS = [
+    # Neu 02.09.2026 (Playwright-verifizierte ASINs)
+    ('sony-wh-1000xm6', 'Sony WH-1000XM6', 'Kopfhörer',
+     'Sony WH-1000XM6', 'B0F2TT8Q7M'),
+    ('apple-iphone-17-pro', 'Apple iPhone 17 Pro', 'Smartphone',
+     'Apple iPhone 17 Pro', 'B0FQG15YVP'),
+    ('google-pixel-10-pro', 'Google Pixel 10 Pro', 'Smartphone',
+     'Google Pixel 10 Pro', 'B0FHL2XPXS'),
+    ('samsung-galaxy-z-fold8', 'Samsung Galaxy Z Fold8', 'Smartphone',
+     'Samsung Galaxy Z Fold8', 'B0H2D8PRWQ'),
+    ('ray-ban-meta-gen-2', 'Ray-Ban Meta (Gen 2)', 'Smart Glasses',
+     'Ray-Ban Meta Gen 2', 'B0FLYDJHB4'),
+    ('apple-watch-series-11', 'Apple Watch Series 11', 'Smartwatch',
+     'Apple Watch Series 11', 'B0FQFL725Q'),
+    ('nothing-phone-4b', 'Nothing Phone (4b)', 'Smartphone',
+     'Nothing Phone 4b', 'B0H36HL54Z'),
+    ('dji-osmo-pocket-3', 'DJI Osmo Pocket 3', 'Kamera',
+     'DJI Osmo Pocket 3', 'B0CG19QXWD'),
+    ('anker-prime-250w', 'Anker Prime Powerbank 250 W', 'Zubehör',
+     'Anker Prime Powerbank 250W', 'B0BYP2F3SG'),
+    ('sonos-ace', 'Sonos Ace', 'Kopfhörer',
+     'Sonos Ace', 'B0D37R7X6Z'),
+    ('samsung-galaxy-buds3-pro', 'Samsung Galaxy Buds3 Pro', 'In-Ear',
+     'Samsung Galaxy Buds3 Pro', 'B0D47MDKVP'),
     # Smartphones (2024/2025)
     ('iphone-16-pro', 'iPhone 16 Pro', 'Smartphone',
      'iPhone 16 Pro', 'B0DHYDMJ1W'),
