@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Home Assistant auf dem Raspberry Pi 5 installieren und Matter-Geräte einbinden — MMOFinds">
+    <meta property="og:description" content="Schritt für Schritt: Home Assistant OS per Raspberry Pi Imager auf den Pi 5 bringen, Onboarding, Matter-Integration mit Companion-App, Thread-Border-Router und die häufigsten Fehler. Ohne Cloud, ohne Abo.">
+    <meta property="og:image" content="https://mmofinds.de/images/diy/home-assistant-raspberry-pi-5-matter-einrichten.jpg">
+    <meta property="og:url" content="https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Home Assistant auf dem Raspberry Pi 5 installieren und Matter-Geräte einbinden — MMOFinds">
+    <meta name="twitter:description" content="Schritt für Schritt: Home Assistant OS per Raspberry Pi Imager auf den Pi 5 bringen, Onboarding, Matter-Integration mit Companion-App, Thread-Border-Router und die häufigsten Fehler. Ohne Cloud, ohne Abo.">
+    <meta name="twitter:image" content="https://mmofinds.de/images/diy/home-assistant-raspberry-pi-5-matter-einrichten.jpg">
+    <meta name="description" content="Schritt für Schritt: Home Assistant OS per Raspberry Pi Imager auf den Pi 5 bringen, Onboarding, Matter-Integration mit Companion-App, Thread-Border-Router und die häufigsten Fehler. Ohne Cloud, ohne Abo.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Assistant auf dem Raspberry Pi 5 installieren und Matter-Geräte einbinden — MMOFinds</title>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "Home Assistant auf dem Raspberry Pi 5 installieren und Matter-Geräte einbinden", "description": "Schritt für Schritt: Home Assistant OS per Raspberry Pi Imager auf den Pi 5 bringen, Onboarding, Matter-Integration mit Companion-App, Thread-Border-Router und die häufigsten Fehler. Ohne Cloud, ohne Abo.", "image": ["https://mmofinds.de/images/diy/home-assistant-raspberry-pi-5-matter-einrichten.jpg"], "totalTime": "PT1H", "inLanguage": "de", "datePublished": "2026-09-24", "author": {"@type": "Organization", "name": "MMOFinds Redaktion", "url": "https://mmofinds.de/ueber-uns.html"}, "supply": [{"@type": "HowToSupply", "name": "Raspberry Pi 5"}, {"@type": "HowToSupply", "name": "Offizielles 27-W-USB-C-Netzteil"}, {"@type": "HowToSupply", "name": "microSD-Karte"}, {"@type": "HowToSupply", "name": "Gehäuse mit aktiver Kühlung"}, {"@type": "HowToSupply", "name": "Ethernet-Kabel"}, {"@type": "HowToSupply", "name": "Optional: Home Assistant Connect ZBT-1"}, {"@type": "HowToSupply", "name": "Ein Matter-Gerät"}], "step": [{"@type": "HowToStep", "position": 1, "name": "Raspberry Pi Imager laden und Home Assistant wählen", "text": "Lade den Raspberry Pi Imager von raspberrypi.com/software und starte ihn. Wähle dein\n         Modell (Raspberry Pi 5), dann unter Betriebssystem: Other specific-purpose OS → Home automation →\n         Home Assistant → Home Assistant OS (RPi 5). Stecke die microSD-Karte ein, wähle sie als Speicher und klicke auf\n         Weiter und Schreiben. Der Imager lädt das Abbild selbst herunter – ein separater Download ist nicht nötig.", "url": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html#schritt-1"}, {"@type": "HowToStep", "position": 2, "name": "Erster Start per LAN", "text": "Karte in den Pi stecken, Ethernet-Kabel zum Router, dann Netzteil anschließen. Laut Doku ist das\n         System auf dem Pi 5 innerhalb einer Minute erreichbar, bei langsamen Karten dauert es einige Minuten. Öffne im Browser:\n         http://homeassistant.local:8123\n         Klappt der Name nicht (manche Router lösen .local nicht auf), schau in der Router-Oberfläche nach der\n         IP-Adresse des Geräts „homeassistant“ und rufe http://&lt;IP&gt;:8123 auf. Ist nach fünf Minuten nichts zu\n         sehen, empfiehlt die Doku, die Karte neu zu beschreiben.", "url": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html#schritt-2"}, {"@type": "HowToStep", "position": 3, "name": "Onboarding: Konto, Standort, Geräte", "text": "Lege ein lokales Benutzerkonto an (das ist kein Cloud-Konto), setze Standort und Zeitzone – sie\n         steuern später Sonnenauf- und -untergang für Automationen – und entscheide, ob du anonyme Nutzungsdaten teilen willst.\n         Home Assistant zeigt danach automatisch gefundene Geräte im Netz an: Drucker, Fernseher, Router. Du kannst sie jetzt\n         oder später hinzufügen.", "url": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html#schritt-3"}, {"@type": "HowToStep", "position": 4, "name": "Updates und Backups einschalten", "text": "Unter Einstellungen → System → Updates siehst du, ob Core und Betriebssystem aktuell sind. Richte unter\n         Einstellungen → System → Backups ein automatisches Backup ein – am besten auf einen Netzwerkspeicher, nicht nur\n         auf die SD-Karte. microSD-Karten sind das häufigste Ausfallteil eines Pi-basierten Smart Homes.", "url": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html#schritt-4"}, {"@type": "HowToStep", "position": 5, "name": "Matter-Integration hinzufügen", "text": "Gehe zu Einstellungen → Geräte &amp; Dienste → Integration hinzufügen und suche Matter.\n         Auf Home Assistant OS installiert sich der benötigte Matter Server als App automatisch. Prüfe außerdem\n         unter Einstellungen → System → Netzwerk, dass IPv6 aktiviert ist – Matter setzt IPv6-Multicast\n         im Heimnetz voraus.", "url": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html#schritt-5"}, {"@type": "HowToStep", "position": 6, "name": "Gerät mit der Companion-App koppeln", "text": "Matter-Geräte lassen sich nur über die Home-Assistant-Companion-App (iOS 16+ oder Android 8.1+,\n         empfohlen Android 12+) hinzufügen, nicht im Browser. Bluetooth am Handy einschalten; auf Android zusätzlich die\n         Standortberechtigung auf „Immer zulassen“ setzen und Google-Play-Dienste aktuell halten. In der App:\n         Einstellungen → Geräte &amp; Dienste → Gerät hinzufügen → Matter-Gerät hinzufügen, dann den\n         QR-Code auf dem Gerät scannen. Die App überträgt die WLAN-Daten per Bluetooth; danach spricht das Gerät\n         direkt über WLAN oder Thread.", "url": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html#schritt-6"}, {"@type": "HowToStep", "position": 7, "name": "Thread-Geräte: Border-Router bereitstellen", "text": "Trägt das Gerät ein Thread-Logo, braucht es einen Thread-Border-Router in Reichweite. Das kann\n         ein HomePod mini, ein Apple TV 4K oder ein Nest Hub (2. Gen.) sein – oder Home Assistant selbst mit dem\n         Connect-ZBT-1-Stick und der App OpenThread Border Router. Achtung laut Doku: Über Apple-Border-Router\n         gekoppelte Geräte erhalten keine Matter-Firmware-Updates aus Home Assistant heraus.", "url": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html#schritt-7"}, {"@type": "HowToStep", "position": 8, "name": "Dashboard und erste Automation", "text": "Das neue Gerät erscheint unter Geräte &amp; Dienste → Matter. Ziehe es auf das Übersichts-Dashboard und\n         lege eine erste Automation an, etwa „Steckdose aus, wenn alle Personen das Haus verlassen“. Mit Home Assistant 2026.9\n         zeigt der Knopf „Show map“ im Matter-Bereich, wie deine Geräte vernetzt sind – praktisch, wenn ein\n         Thread-Gerät am Rand des Netzes immer wieder abreißt.", "url": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html#schritt-8"}], "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mmofinds.de/"}, {"@type": "ListItem", "position": 2, "name": "DIY", "item": "https://mmofinds.de/diy/"}, {"@type": "ListItem", "position": 3, "name": "Home Assistant auf dem Raspberry Pi 5 installieren und Matter-Geräte einbinden", "item": "https://mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Reicht ein Raspberry Pi 4?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, Home Assistant OS unterstützt auch den Pi 4. Der Pi 5 ist spürbar schneller beim Start und bei Datenbankabfragen."}}, {"@type": "Question", "name": "Kann ich Matter-Geräte im Browser hinzufügen?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Das Koppeln funktioniert laut Doku nur über die Companion-App auf iOS oder Android, weil Bluetooth benötigt wird."}}, {"@type": "Question", "name": "Brauche ich eine Cloud oder ein Abo?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Home Assistant OS, die Matter-Integration und das Onboarding laufen vollständig lokal."}}]}</script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8NB2X96FH7', {'page_path': window.location.pathname});
+</script>
+<!-- Ende Google Analytics 4 -->
+
+</head>
+<body>
+    <div class="nav-bar">
+<nav aria-label="Breadcrumb" style="margin:20px 0;font-size:0.9rem;color:#666;"><a href="/" style="color:#4a9eff;text-decoration:none;">Home</a> / <a href="/news/" style="color:#4a9eff;text-decoration:none;">News</a> / <span style="color:#999;">Home Assistant auf dem Raspberry Pi 5 installieren und Matte</span></nav>
+
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                
+<a href="/" class="nav-link">Start</a>
+<a href="/news/" class="nav-link">News</a>
+<a href="/diy/" class="nav-link">DIY</a>
+<a href="/pages/" class="nav-link">Reviews</a>
+<a href="/impressum.html" class="nav-link">Impressum</a>
+<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+
+            </div>
+        </div>
+    </div>
+  <div class="nav">
+    <div class="nav-inner">
+      <a href="/" style="font-weight: bold; font-size: 1.2rem;">MMOFinds</a>
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <div class="container">
+    <article>
+      <div class="meta">
+        <span class="tag">DIY</span>
+        <span>24. September 2026</span>
+        <span>·</span>
+        <span>12 Min. Lesezeit</span>
+      </div>
+      <h1>Home Assistant auf dem Raspberry Pi 5 installieren und Matter-Geräte einbinden</h1>
+
+<!-- Social Sharing -->
+<div class="social-share" style="display:flex;gap:8px;margin:16px 0;flex-wrap:wrap;">
+    <span style="color:#666;font-size:0.9rem;margin-right:10px;">Teilen:</span>
+    <a href="https://api.whatsapp.com/send?text=Home%20Assistant%20auf%20dem%20Raspberry%20Pi%205%20installieren%20und%20Matter-Ger%C3%A4te%20einbinden%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-whatsapp">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.488 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.781.99.991-3.681-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html" target="_blank" rel="noopener" class="social-facebook">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A//mmofinds.de/diy/home-assistant-raspberry-pi-5-matter-einrichten.html&text=Home%20Assistant%20auf%20dem%20Raspberry%20Pi%205%20installieren%20und%20Matter-Ger%C3%A4te%20einbinden%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-twitter">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X (Twitter)
+    </a>
+</div>
+
+      <div class="article-image"><img width="1200" height="630" src="/images/diy/home-assistant-raspberry-pi-5-matter-einrichten.jpg" alt="Home Assistant auf dem Raspberry Pi 5 installieren und Matter-Geräte einbinden – Titelgrafik MMOFinds" class="article-img" style="max-width:100%;height:auto;border-radius:12px;" fetchpriority="high"></div>
+
+<p><strong>Home Assistant ist das offene Betriebssystem fürs Smart Home – und der Raspberry Pi 5 die
+      offiziell unterstützte, günstigste Plattform dafür.</strong> In dieser Anleitung installieren wir Home Assistant OS
+      (HAOS) auf einer microSD-Karte, richten das System ein und binden ein erstes Matter-Gerät ein. Alles läuft lokal;
+      kein Konto bei einem Hersteller ist nötig. Rechne mit etwa einer Stunde, die meiste Zeit davon wartet man auf
+      Downloads.</p>
+      <div class="info-box"><h4>Auf einen Blick</h4><p>Dauer: ca. 1 Std. · Schwierigkeit: Einsteiger · Kosten: siehe Materialliste (Preise bei Amazon prüfen)</p></div>
+
+      <div class="materials-list"><h4>📦 Material (ohne Preisangaben – bitte bei Amazon prüfen)</h4>
+        <ul>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Raspberry+Pi+5+8GB&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Raspberry Pi 5</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>mindestens 2 GB RAM, empfohlen 4 oder 8 GB</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Raspberry+Pi+27W+USB-C+Netzteil&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Offizielles 27-W-USB-C-Netzteil</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>schwächere Netzteile führen zu Unterspannungswarnungen</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=microSD+64GB+A2&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">microSD-Karte</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>mindestens 32 GB, Klasse A2 (Application Class 2) laut Home-Assistant-Doku</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Raspberry+Pi+5+Geh%C3%A4use+L%C3%BCfter&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Gehäuse mit aktiver Kühlung</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>der Pi 5 drosselt ohne Lüfter</span></li>
+          <li><span class="material-name">Ethernet-Kabel</span><span>für die Erstinstallation ist LAN Pflicht</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Home+Assistant+Connect+ZBT-1&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Optional: Home Assistant Connect ZBT-1</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>USB-Stick als Thread-Border-Router für Thread-Geräte</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Matter+Steckdose&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Ein Matter-Gerät</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>mit Matter-Logo auf der Verpackung, z. B. eine Matter-Steckdose</span></li>
+        </ul>
+      </div>
+
+      <h2>Schritt für Schritt</h2>
+
+      <div class="step" id="schritt-1"><span class="step-number">1</span><h3>Raspberry Pi Imager laden und Home Assistant wählen</h3>
+        <p>Lade den <strong>Raspberry Pi Imager</strong> von <code>raspberrypi.com/software</code> und starte ihn. Wähle dein
+         Modell (Raspberry Pi 5), dann unter <em>Betriebssystem</em>: <strong>Other specific-purpose OS → Home automation →
+         Home Assistant → Home Assistant OS (RPi 5)</strong>. Stecke die microSD-Karte ein, wähle sie als Speicher und klicke auf
+         <em>Weiter</em> und <em>Schreiben</em>. Der Imager lädt das Abbild selbst herunter – ein separater Download ist nicht nötig.</p>
+      </div>
+
+      <div class="step" id="schritt-2"><span class="step-number">2</span><h3>Erster Start per LAN</h3>
+        <p>Karte in den Pi stecken, <strong>Ethernet-Kabel</strong> zum Router, dann Netzteil anschließen. Laut Doku ist das
+         System auf dem Pi 5 innerhalb einer Minute erreichbar, bei langsamen Karten dauert es einige Minuten. Öffne im Browser:</p>
+         <pre><code>http://homeassistant.local:8123</code></pre>
+         <p>Klappt der Name nicht (manche Router lösen <code>.local</code> nicht auf), schau in der Router-Oberfläche nach der
+         IP-Adresse des Geräts „homeassistant“ und rufe <code>http://&lt;IP&gt;:8123</code> auf. Ist nach fünf Minuten nichts zu
+         sehen, empfiehlt die Doku, die Karte neu zu beschreiben.</p>
+      </div>
+
+      <div class="step" id="schritt-3"><span class="step-number">3</span><h3>Onboarding: Konto, Standort, Geräte</h3>
+        <p>Lege ein <strong>lokales Benutzerkonto</strong> an (das ist kein Cloud-Konto), setze Standort und Zeitzone – sie
+         steuern später Sonnenauf- und -untergang für Automationen – und entscheide, ob du anonyme Nutzungsdaten teilen willst.
+         Home Assistant zeigt danach automatisch gefundene Geräte im Netz an: Drucker, Fernseher, Router. Du kannst sie jetzt
+         oder später hinzufügen.</p>
+      </div>
+
+      <div class="step" id="schritt-4"><span class="step-number">4</span><h3>Updates und Backups einschalten</h3>
+        <p>Unter <em>Einstellungen → System → Updates</em> siehst du, ob Core und Betriebssystem aktuell sind. Richte unter
+         <em>Einstellungen → System → Backups</em> ein automatisches Backup ein – am besten auf einen Netzwerkspeicher, nicht nur
+         auf die SD-Karte. microSD-Karten sind das häufigste Ausfallteil eines Pi-basierten Smart Homes.</p>
+      </div>
+
+      <div class="step" id="schritt-5"><span class="step-number">5</span><h3>Matter-Integration hinzufügen</h3>
+        <p>Gehe zu <em>Einstellungen → Geräte &amp; Dienste → Integration hinzufügen</em> und suche <strong>Matter</strong>.
+         Auf Home Assistant OS installiert sich der benötigte <strong>Matter Server</strong> als App automatisch. Prüfe außerdem
+         unter <em>Einstellungen → System → Netzwerk</em>, dass <strong>IPv6</strong> aktiviert ist – Matter setzt IPv6-Multicast
+         im Heimnetz voraus.</p>
+      </div>
+
+      <div class="step" id="schritt-6"><span class="step-number">6</span><h3>Gerät mit der Companion-App koppeln</h3>
+        <p>Matter-Geräte lassen sich <strong>nur über die Home-Assistant-Companion-App</strong> (iOS 16+ oder Android 8.1+,
+         empfohlen Android 12+) hinzufügen, nicht im Browser. Bluetooth am Handy einschalten; auf Android zusätzlich die
+         Standortberechtigung auf „Immer zulassen“ setzen und Google-Play-Dienste aktuell halten. In der App:
+         <em>Einstellungen → Geräte &amp; Dienste → Gerät hinzufügen → Matter-Gerät hinzufügen</em>, dann den
+         <strong>QR-Code</strong> auf dem Gerät scannen. Die App überträgt die WLAN-Daten per Bluetooth; danach spricht das Gerät
+         direkt über WLAN oder Thread.</p>
+      </div>
+
+      <div class="step" id="schritt-7"><span class="step-number">7</span><h3>Thread-Geräte: Border-Router bereitstellen</h3>
+        <p>Trägt das Gerät ein Thread-Logo, braucht es einen <strong>Thread-Border-Router</strong> in Reichweite. Das kann
+         ein HomePod mini, ein Apple TV 4K oder ein Nest Hub (2. Gen.) sein – oder Home Assistant selbst mit dem
+         Connect-ZBT-1-Stick und der App <strong>OpenThread Border Router</strong>. Achtung laut Doku: Über Apple-Border-Router
+         gekoppelte Geräte erhalten keine Matter-Firmware-Updates aus Home Assistant heraus.</p>
+      </div>
+
+      <div class="step" id="schritt-8"><span class="step-number">8</span><h3>Dashboard und erste Automation</h3>
+        <p>Das neue Gerät erscheint unter <em>Geräte &amp; Dienste → Matter</em>. Ziehe es auf das Übersichts-Dashboard und
+         lege eine erste Automation an, etwa „Steckdose aus, wenn alle Personen das Haus verlassen“. Mit Home Assistant 2026.9
+         zeigt der Knopf <strong>„Show map“</strong> im Matter-Bereich, wie deine Geräte vernetzt sind – praktisch, wenn ein
+         Thread-Gerät am Rand des Netzes immer wieder abreißt.</p>
+      </div>
+
+      <h2>Typische Probleme</h2>
+      <ul>
+        <li><strong>Koppeln bricht ab (Android):</strong> laut Doku der häufigste Fall. App aktualisieren, Bluetooth und Standort prüfen, Gerät auf Werkseinstellungen setzen und neu versuchen.</li>
+        <li><strong>Gerät wird nicht gefunden:</strong> VLANs, Multicast-Filter oder ein Gast-WLAN blockieren IPv6-Multicast. Pi und Gerät ins selbe Netz hängen. Matter-Geräte nutzen meist das 2,4-GHz-Band.</li>
+        <li><strong>Nur Grundfunktionen:</strong> Matter liefert Ein/Aus, Helligkeit, Farbe. Herstellerspezifische Extras (Hue-Szenen, Effekte) gibt es nur über die native Integration – beides parallel ist erlaubt.</li>
+      </ul>
+      <p>Wer zusätzlich Zigbee-Geräte hat, ergänzt das System mit unserer Anleitung
+      <a href="/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html">Zigbee2MQTT in Home Assistant</a>; eigene Sensoren baust du mit
+      <a href="/diy/esp32-esphome-klimasensor-bme280-home-assistant.html">ESP32 und ESPHome</a>. Für Lichtschalter ohne Neutralleiter
+      lohnt ein Blick in den <a href="/vergleich/smarte-unterputzschalter.html">Vergleich smarter Unterputzschalter</a>.</p>
+
+      <h2>Häufige Fragen</h2>
+      <h3>Reicht ein Raspberry Pi 4?</h3>
+      <p>Ja, Home Assistant OS unterstützt auch den Pi 4. Der Pi 5 ist spürbar schneller beim Start und bei Datenbankabfragen.</p>
+      <h3>Kann ich Matter-Geräte im Browser hinzufügen?</h3>
+      <p>Nein. Das Koppeln funktioniert laut Doku nur über die Companion-App auf iOS oder Android, weil Bluetooth benötigt wird.</p>
+      <h3>Brauche ich eine Cloud oder ein Abo?</h3>
+      <p>Nein. Home Assistant OS, die Matter-Integration und das Onboarding laufen vollständig lokal.</p>
+
+      <h2>Quellen</h2>
+      <ul>
+        <li><a href="https://www.home-assistant.io/installation/raspberrypi" target="_blank" rel="noopener">Home Assistant: Installation auf dem Raspberry Pi (offizielle Doku)</a></li>
+        <li><a href="https://www.home-assistant.io/integrations/matter/" target="_blank" rel="noopener">Home Assistant: Matter-Integration – Voraussetzungen und Koppeln</a></li>
+        <li><a href="https://www.home-assistant.io/blog/2026/09/02/release-20269/" target="_blank" rel="noopener">Home Assistant 2026.9: Matter-Netzwerkkarte</a></li>
+      </ul>
+
+      <p class="ki-hinweis"><em>Transparenz: Dieser Beitrag wurde mit KI-Unterstützung recherchiert und verfasst und redaktionell geprüft (Kennzeichnung nach Art. 50 KI-VO). Alle Angaben stammen aus den genannten Quellen, Stand 24. September 2026. Links zu Amazon sind Affiliate-Links (Werbung).</em></p>
+
+      <div class="read-more">
+        <h3>Weiterlesen</h3>
+        <a href="/news/home-assistant-2026-9-neuerungen.html">📰 NEWS Home Assistant 2026.9</a>
+        <a href="/news/matter-ifa-2026-smart-home-bilanz.html">📰 NEWS Matter nach der IFA 2026</a>
+        <a href="/diy/raspberry-pi-smart-home-hub.html">🏠 DIY Smart Home Hub mit Raspberry Pi 5</a>
+      </div>
+    </article>
+  </div>
+  <div class="footer">
+    <p>© 2026 MMOFinds — <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></p>
+  </div>
+
+    <footer class="site-footer">
+<p class="amz-hinweis">Werbung: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Links zu Amazon sind Affiliate-Links; für dich ändert sich der Preis nicht. Preise und Verfügbarkeit bitte direkt bei Amazon prüfen.</p>
+        <div class="footer-content">
+            <h3>MMOFINDS</h3>
+            <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Startseite</a>
+                <a href="/news/">AI & Tech-News</a>
+                <a href="/diy/">DIY Projekte</a>
+                <a href="/pages/">Produkt-Reviews</a>
+            </div>
+            <p class="copyright">&copy; 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    
+      <a href="/kontakt.html">Kontakt</a>
+    
+      <a href="/ueber-uns.html">Über uns</a>
+    
+      <a href="/affiliate-info.html">Amazon Affiliate</a>
+    </footer>
+
+
+<!-- Dark/Light Mode Toggle -->
+<button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>
+
+<script>
+// Theme Toggle
+(function() {
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Gespeichertes Theme anwenden
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        toggle.textContent = '☀️';
+    }
+    
+    // Toggle Klick
+    toggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            toggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            toggle.textContent = '🌙';
+        }
+    });
+})();
+</script>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+</html>
