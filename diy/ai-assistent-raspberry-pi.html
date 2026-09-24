@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Eigenen AI-Assistenten mit Raspberry Pi bauen — MMOFinds DIY">
     <meta name="twitter:description" content="Baue deinen eigenen Offline AI-Assistenten mit dem Raspberry Pi 5 und Open-Source LLMs — komplett lokal, ohne Cloud..">
-    <meta name="twitter:image" content="/images/diy-ai-assistent-pi.svg">
+    <meta name="twitter:image" content="https://mmofinds.de/images/diy-ai-assistent-pi.svg">
     <meta property="og:type" content="article">
 
   <meta property="og:title" content="Eigenen AI-Assistenten mit Raspberry Pi bauen">
@@ -27,9 +27,7 @@
 
   <meta property="og:site_name" content="MMOFinds">
 
-  <script type="application/ld+json">
-  {"@context": "https://schema.org", "@type": "Article", "headline": "Eigenen AI-Assistenten mit Raspberry Pi bauen", "description": "Baue deinen eigenen Offline AI-Assistenten mit dem Raspberry Pi 5 und Open-Source LLMs \u2014 komplett lokal, ohne Cloud.", "datePublished": "2026-05-14", "author": {"@type": "Organization", "name": "MMOFinds"}, "publisher": {"@type": "Organization", "name": "MMOFinds", "url": "https://mmofinds.de"}}
-  </script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Eigenen AI-Assistenten mit Raspberry Pi bauen", "description": "Baue deinen eigenen Offline AI-Assistenten mit dem Raspberry Pi 5 und Open-Source LLMs — komplett lokal, ohne Cloud.", "datePublished": "2026-05-14", "author": {"@type": "Organization", "name": "MMOFinds"}, "publisher": {"@type": "Organization", "name": "MMOFinds", "url": "https://mmofinds.de"}}</script>
 
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/mobile.css">
@@ -49,6 +47,7 @@
 </script>
 <!-- Ende Google Analytics 4 -->
 
+<meta property="og:image" content="https://mmofinds.de/images/og-home.jpg">
 </head>
 <body>
     <div class="nav-bar">
@@ -97,7 +96,7 @@
     </a>
 </div>
 
-      <div class="article-image"><img loading="lazy" src="/images/diy-ai-assistent-pi.svg" alt="DIY Projekt" class="article-img" style="max-width:100%;height:auto;object-fit:contain;"></div>
+      <div class="article-image"><img width="800" height="450" loading="lazy" src="/images/diy-ai-assistent-pi.svg" alt="DIY Projekt" class="article-img" style="max-width:100%;height:auto;object-fit:contain;"></div>
 
       <p class="article-subtitle">Baue deinen eigenen Offline AI-Assistenten mit dem Raspberry Pi 5 und Open-Source LLMs — komplett lokal, ohne Cloud.</p>
 
@@ -114,11 +113,11 @@
       <h2>Was du brauchst</h2>
 
       <div class="materials-list"><h4>📦 Materialliste</h4><ul>
-          <li><a href="https://www.amazon.de/dp/B0CX23V2ZK?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">Raspberry Pi 5 (8GB)</a> <span class="material-price">~75€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0B9CST2B6?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">NVMe SSD M.2 256GB</a> <span class="material-price">~30€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0CX4F8TPK?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">Pi 5 Gehäuse mit Kühlung</a> <span class="material-price">~15€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0CX31FQVN?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">USB-C Netzteil 27W</a> <span class="material-price">~12€</span></li>
-          <li><a href="https://www.amazon.de/dp/B0B7CPS2ZV?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow sponsored noopener" class="material-name">M.2 NVMe zu USB Adapter</a> <span class="material-price">~15€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0CX23V2ZK?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow noopener sponsored" class="material-name">Raspberry Pi 5 (8GB)</a> <span class="material-price">~75€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0B9CST2B6?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow noopener sponsored" class="material-name">NVMe SSD M.2 256GB</a> <span class="material-price">~30€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0CX4F8TPK?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow noopener sponsored" class="material-name">Pi 5 Gehäuse mit Kühlung</a> <span class="material-price">~15€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0CX31FQVN?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow noopener sponsored" class="material-name">USB-C Netzteil 27W</a> <span class="material-price">~12€</span></li>
+          <li><a href="https://www.amazon.de/dp/B0B7CPS2ZV?tag=mmofinds-21&linkCode=ogi&th=1" target="_blank" rel="nofollow noopener sponsored" class="material-name">M.2 NVMe zu USB Adapter</a> <span class="material-price">~15€</span></li>
       </ul>
 
       <p style="margin-top: 16px; font-weight: 700;">Gesamtkosten: ~147€</p>
@@ -165,6 +164,7 @@
 
 
     <footer class="site-footer">
+<p class="amz-hinweis">Werbung: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Links zu Amazon sind Affiliate-Links; für dich ändert sich der Preis nicht. Preise und Verfügbarkeit bitte direkt bei Amazon prüfen.</p>
         <div class="footer-content">
             <h3>MMOFINDS</h3>
             <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
