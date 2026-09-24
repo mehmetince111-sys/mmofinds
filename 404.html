@@ -1,77 +1,55 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 — Seite nicht gefunden — MMOFinds</title>
-    <meta name="description" content="Die gesuchte Seite wurde nicht gefunden.">
-    <link rel="stylesheet" href="/assets/css/base.css">
-
-<!-- Google Analytics 4 -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Seite nicht gefunden — MMOFinds</title>
+<meta name="description" content="Die gesuchte Seite wurde nicht gefunden.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2D5BFF">
+<link rel="stylesheet" href="/assets/css/base.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag{{data}}{{}} {{
-    dataLayer.push(arguments);
-  }}
-  gtag('js', new Date());
-  gtag('config', 'G-8NB2X96FH7', {{
-    'page_path': window.location.pathname,
-  }});
-</script>
-<!-- Ende Google Analytics 4 -->
-
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8NB2X96FH7',{'page_path':window.location.pathname});</script>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
-            <div class="nav-links">
-                <a href="/">Start</a>
-                <a href="/news/">News</a>
-                <a href="/diy/">DIY</a>
-                <a href="/pages/">Reviews</a>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <div class="error-container">
-            <div class="error-code">404</div>
-            <h1 class="error-title">Seite nicht gefunden</h1>
-            <p class="error-message">
-                Die gesuchte Seite existiert nicht oder wurde verschoben.<br>
-                Kein Problem — hier sind einige hilfreiche Links:
-            </p>
-            
-            <div class="error-links">
-                <a href="/" class="error-link">🏠 Startseite</a>
-                <a href="/pages/" class="error-link secondary">⭐ Alle Reviews</a>
-                <a href="/diy/" class="error-link secondary">🔧 DIY-Anleitungen</a>
-                <a href="/news/" class="error-link secondary">📰 News</a>
-            </div>
-            
-            <div class="popular-links">
-                <h3>🔥 Beliebte Artikel</h3>
-                <a href="/pages/apple-airpods-pro-2.html">Apple AirPods Pro 2</a>
-                <a href="/pages/macbook-air-m4.html">MacBook Air M4</a>
-                <a href="/pages/playstation-5-pro.html">PlayStation 5 Pro</a>
-                <a href="/pages/playstation-5-pro.html">Nintendo Switch 2</a>
-                <a href="/diy/ai-assistent-raspberry-pi.html">KI-Assistent bauen</a>
-                <a href="/diy/smart-mirror.html">Smart Mirror bauen</a>
-            </div>
-        </div>
+<div class="nav-bar"><div class="nav-inner">
+  <a class="nav-logo" href="/">MMO<span>Finds</span></a>
+  <div class="nav-links"><a class="nav-link" href="/">Start</a><a class="nav-link" href="/pages/">Reviews</a><a class="nav-link" href="/deals/">Deals</a><a class="nav-link" href="/news/">News</a><a class="nav-link" href="/diy/">DIY</a><a class="nav-link" href="/assets/search.html">Suche</a></div>
+</div></div>
+<main class="container">
+  <div class="error-container">
+    <svg class="error-art" viewBox="0 0 320 220" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#2D5BFF"/><stop offset="1" stop-color="#7C5CFF"/></linearGradient></defs>
+      <circle cx="160" cy="110" r="96" fill="url(#g)" opacity=".1"/>
+      <g fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="140" cy="100" r="46"/><path d="M174 134l44 44"/>
+        <path d="M120 92q20-22 40 0" opacity=".55"/>
+      </g>
+      <circle cx="248" cy="52" r="8" fill="#F5A524"/><circle cx="66" cy="160" r="6" fill="#28B073"/><circle cx="262" cy="176" r="5" fill="#0FA79A"/>
+    </svg>
+    <div class="error-code">404</div>
+    <h1 class="error-title">Seite nicht gefunden</h1>
+    <p class="error-message">Die gesuchte Seite existiert nicht oder wurde verschoben. Kein Problem — hier geht es weiter:</p>
+    <div class="error-links">
+      <a href="/" class="error-link">Zur Startseite</a>
+      <a href="/pages/" class="error-link secondary">Alle Reviews</a>
+      <a href="/deals/" class="error-link secondary">Deals</a>
+      <a href="/assets/search.html" class="error-link secondary">Suche</a>
     </div>
-    
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2025 MMOFinds. Alle Rechte vorbehalten.</p>
-            <div class="footer-links">
-                <a href="/impressum.html">Impressum</a>
-                <a href="/datenschutz.html">Datenschutz</a>
-                <a href="/affiliate-info.html">Affiliate-Hinweis</a>
-            </div>
-        </div>
-    </footer>
+    <div class="popular-links">
+      <h3>Beliebte Seiten</h3>
+      <a href="/pages/sony-wh-1000xm6.html">Sony WH-1000XM6</a>
+      <a href="/pages/apple-airpods-pro-2.html">Apple AirPods Pro 2</a>
+      <a href="/pages/apple-iphone-17-pro.html">Apple iPhone 17 Pro</a>
+      <a href="/pages/macbook-air-m4.html">MacBook Air M4</a>
+      <a href="/diy/ai-assistent-raspberry-pi.html">KI-Assistent bauen</a>
+      <a href="/vergleich/mundtape.html">Mundtape-Vergleich</a>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="footer-links"><a href="/">Start</a><a href="/pages/">Reviews</a><a href="/news/">News</a><a href="/diy/">DIY</a><a href="/impressum.html">Impressum</a><a href="/datenschutz.html">Datenschutz</a><a href="/affiliate-info.html">Affiliate-Hinweis</a></div>
+  <p class="copyright">© 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+</footer>
 </body>
 </html>
