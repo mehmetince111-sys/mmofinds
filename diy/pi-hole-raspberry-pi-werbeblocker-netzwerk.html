@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Pi-hole auf dem Raspberry Pi: Werbung und Tracker für alle Geräte im Heimnetz blockieren — MMOFinds">
+    <meta property="og:description" content="Pi-hole in 30 Minuten: Raspberry Pi OS Lite installieren, feste IP setzen, Pi-hole mit dem offiziellen Installer einrichten, FRITZ!Box als DNS umstellen, Blocklisten pflegen. Schützt Smart-TV, Handy und Konsole gleichzeitig.">
+    <meta property="og:image" content="https://mmofinds.de/images/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.jpg">
+    <meta property="og:url" content="https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pi-hole auf dem Raspberry Pi: Werbung und Tracker für alle Geräte im Heimnetz blockieren — MMOFinds">
+    <meta name="twitter:description" content="Pi-hole in 30 Minuten: Raspberry Pi OS Lite installieren, feste IP setzen, Pi-hole mit dem offiziellen Installer einrichten, FRITZ!Box als DNS umstellen, Blocklisten pflegen. Schützt Smart-TV, Handy und Konsole gleichzeitig.">
+    <meta name="twitter:image" content="https://mmofinds.de/images/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.jpg">
+    <meta name="description" content="Pi-hole in 30 Minuten: Raspberry Pi OS Lite installieren, feste IP setzen, Pi-hole mit dem offiziellen Installer einrichten, FRITZ!Box als DNS umstellen, Blocklisten pflegen. Schützt Smart-TV, Handy und Konsole gleichzeitig.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pi-hole auf dem Raspberry Pi: Werbung und Tracker für alle Geräte im Heimnetz blockieren — MMOFinds</title>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "Pi-hole auf dem Raspberry Pi: Werbung und Tracker für alle Geräte im Heimnetz blockieren", "description": "Pi-hole in 30 Minuten: Raspberry Pi OS Lite installieren, feste IP setzen, Pi-hole mit dem offiziellen Installer einrichten, FRITZ!Box als DNS umstellen, Blocklisten pflegen. Schützt Smart-TV, Handy und Konsole gleichzeitig.", "image": ["https://mmofinds.de/images/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.jpg"], "totalTime": "PT30M", "inLanguage": "de", "datePublished": "2026-09-24", "author": {"@type": "Organization", "name": "MMOFinds Redaktion", "url": "https://mmofinds.de/ueber-uns.html"}, "supply": [{"@type": "HowToSupply", "name": "Raspberry Pi"}, {"@type": "HowToSupply", "name": "microSD-Karte"}, {"@type": "HowToSupply", "name": "Passendes Netzteil"}, {"@type": "HowToSupply", "name": "Ethernet-Kabel"}, {"@type": "HowToSupply", "name": "Zugang zur Router-Oberfläche"}], "step": [{"@type": "HowToStep", "position": 1, "name": "Raspberry Pi OS Lite installieren", "text": "Mit dem Raspberry Pi Imager Raspberry Pi OS Lite (64-bit) auf die Karte schreiben. Im Imager unter\n         Einstellungen bearbeiten Hostname (pihole), Benutzer, WLAN (falls nötig) und\n         SSH aktivieren setzen. Karte in den Pi, starten, per SSH verbinden:\n         ssh pi@pihole.local\nsudo apt update &amp;&amp; sudo apt full-upgrade -y", "url": "https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html#schritt-1"}, {"@type": "HowToStep", "position": 2, "name": "Feste IP-Adresse vergeben", "text": "Ein DNS-Server darf seine Adresse nicht wechseln. Am einfachsten in der FRITZ!Box: Heimnetz → Netzwerk →\n         Netzwerkverbindungen → beim Pi auf Bearbeiten → „Diesem Netzwerkgerät immer die gleiche\n         IPv4-Adresse zuweisen“. Notiere die Adresse, z. B. 192.168.178.50.", "url": "https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html#schritt-2"}, {"@type": "HowToStep", "position": 3, "name": "Pi-hole mit dem offiziellen Installer einrichten", "text": "curl -sSL https://install.pi-hole.net | bash\n         Das ist der in der Pi-hole-Doku genannte Ein-Zeilen-Installer. Wer Skripte vor dem Ausführen lesen möchte,\n         lädt sie erst herunter (ebenfalls laut Doku):\n         wget -O basic-install.sh https://install.pi-hole.net\nsudo bash basic-install.sh\n         Der Assistent fragt nach Netzwerkschnittstelle, Upstream-DNS (z. B. Quad9 oder Cloudflare), der Standard-Blockliste\n         und ob die Weboberfläche installiert werden soll – überall die Vorgaben bestätigen.", "url": "https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html#schritt-3"}, {"@type": "HowToStep", "position": 4, "name": "Passwort setzen und Weboberfläche öffnen", "text": "Am Ende zeigt der Installer ein zufälliges Passwort. Setze ein eigenes:\n         sudo pihole setpassword\n         (Bei älteren Pi-hole-Versionen vor v6 lautet der Befehl pihole -a -p.) Die Oberfläche erreichst du unter\n         http://192.168.178.50/admin – mit deiner IP-Adresse. Damit CLI-Befehle ohne Passwortabfrage laufen, fügt die\n         Doku den Nutzer zur Gruppe hinzu: sudo usermod -aG pihole $USER.", "url": "https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html#schritt-4"}, {"@type": "HowToStep", "position": 5, "name": "Router auf Pi-hole umstellen", "text": "Die Pi-hole-Doku empfiehlt, den Router so einzustellen, dass alle DHCP-Clients Pi-hole als DNS-Server bekommen.\n         FRITZ!Box: Heimnetz → Netzwerk → Netzwerkeinstellungen → IPv4-Einstellungen → bei „Lokaler\n         DNS-Server“ die Pi-hole-IP eintragen. Geräte übernehmen die Änderung beim nächsten Verbinden (WLAN aus/an).\n         Alternativ kannst du einzelne Geräte manuell auf die Pi-hole-IP setzen oder den DHCP-Server von Pi-hole nutzen –\n         dann aber den DHCP im Router abschalten.", "url": "https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html#schritt-5"}, {"@type": "HowToStep", "position": 6, "name": "Prüfen, Blocklisten pflegen, Ausnahmen setzen", "text": "Im Dashboard steigen die Zähler unter „Queries“ und „Blocked“, sobald Geräte anfragen. Weitere Listen fügst du\n         unter Lists hinzu (nach jeder Änderung Tools → Update Gravity). Lädt eine Seite oder App nicht mehr,\n         schau in Query Log, welche Domain geblockt wurde, und setze sie über Domains → Allow frei. Typische\n         Kandidaten: Links aus Newslettern und einige Shopping-Apps.", "url": "https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html#schritt-6"}, {"@type": "HowToStep", "position": 7, "name": "Aktuell halten", "text": "pihole -up        # Pi-hole aktualisieren\npihole -g         # Blocklisten neu laden\n         Einmal im Monat reicht. Fällt der Pi aus, hat das Heimnetz keinen DNS mehr – als Sicherheitsnetz kannst du im\n         Router einen zweiten DNS (z. B. Quad9) hinterlegen; dann geht ein Teil der Anfragen allerdings an Pi-hole vorbei.", "url": "https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html#schritt-7"}], "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mmofinds.de/"}, {"@type": "ListItem", "position": 2, "name": "DIY", "item": "https://mmofinds.de/diy/"}, {"@type": "ListItem", "position": 3, "name": "Pi-hole auf dem Raspberry Pi: Werbung und Tracker für alle Geräte im Heimnetz blockieren", "item": "https://mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Reicht ein Raspberry Pi Zero 2 W?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Pi-hole braucht wenig Rechenleistung. Am Zero 2 W fehlt nur ein LAN-Anschluss – WLAN funktioniert, ein USB-LAN-Adapter ist stabiler."}}, {"@type": "Question", "name": "Bremst Pi-hole das Internet?", "acceptedAnswer": {"@type": "Answer", "text": "Nein, im Gegenteil: Geblockte Anfragen werden gar nicht erst geladen; Seiten mit viel Werbung bauen sich schneller auf."}}, {"@type": "Question", "name": "Kann ich Pi-hole auch in Docker betreiben?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, die Pi-hole-Doku bietet ein offizielles Docker-Image – etwa für NAS oder Home Assistant."}}]}</script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8NB2X96FH7', {'page_path': window.location.pathname});
+</script>
+<!-- Ende Google Analytics 4 -->
+
+</head>
+<body>
+    <div class="nav-bar">
+<nav aria-label="Breadcrumb" style="margin:20px 0;font-size:0.9rem;color:#666;"><a href="/" style="color:#4a9eff;text-decoration:none;">Home</a> / <a href="/news/" style="color:#4a9eff;text-decoration:none;">News</a> / <span style="color:#999;">Pi-hole auf dem Raspberry Pi: Werbung und Tracker für alle G</span></nav>
+
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                
+<a href="/" class="nav-link">Start</a>
+<a href="/news/" class="nav-link">News</a>
+<a href="/diy/" class="nav-link">DIY</a>
+<a href="/pages/" class="nav-link">Reviews</a>
+<a href="/impressum.html" class="nav-link">Impressum</a>
+<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+
+            </div>
+        </div>
+    </div>
+  <div class="nav">
+    <div class="nav-inner">
+      <a href="/" style="font-weight: bold; font-size: 1.2rem;">MMOFinds</a>
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <div class="container">
+    <article>
+      <div class="meta">
+        <span class="tag">DIY</span>
+        <span>24. September 2026</span>
+        <span>·</span>
+        <span>9 Min. Lesezeit</span>
+      </div>
+      <h1>Pi-hole auf dem Raspberry Pi: Werbung und Tracker für alle Geräte im Heimnetz blockieren</h1>
+
+<!-- Social Sharing -->
+<div class="social-share" style="display:flex;gap:8px;margin:16px 0;flex-wrap:wrap;">
+    <span style="color:#666;font-size:0.9rem;margin-right:10px;">Teilen:</span>
+    <a href="https://api.whatsapp.com/send?text=Pi-hole%20auf%20dem%20Raspberry%20Pi%3A%20Werbung%20und%20Tracker%20f%C3%BCr%20alle%20Ger%C3%A4te%20im%20Heimnetz%20blockieren%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-whatsapp">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.488 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.781.99.991-3.681-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html" target="_blank" rel="noopener" class="social-facebook">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A//mmofinds.de/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.html&text=Pi-hole%20auf%20dem%20Raspberry%20Pi%3A%20Werbung%20und%20Tracker%20f%C3%BCr%20alle%20Ger%C3%A4te%20im%20Heimnetz%20blockieren%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-twitter">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X (Twitter)
+    </a>
+</div>
+
+      <div class="article-image"><img width="1200" height="630" src="/images/diy/pi-hole-raspberry-pi-werbeblocker-netzwerk.jpg" alt="Pi-hole auf dem Raspberry Pi: Werbung und Tracker für alle Geräte im Heimnetz blockieren – Titelgrafik MMOFinds" class="article-img" style="max-width:100%;height:auto;border-radius:12px;" fetchpriority="high"></div>
+
+<p><strong>Ein Werbeblocker im Browser schützt nur den Browser. Pi-hole schützt das ganze Netz</strong> –
+      Smart-TV, Spielkonsole, Smartphone-Apps und alle Smart-Home-Geräte, die nach Hause telefonieren. Der Trick: Pi-hole
+      ist ein DNS-Server, der Anfragen an bekannte Werbe- und Tracking-Domains einfach ins Leere laufen lässt. Ein
+      Raspberry Pi Zero 2 W reicht dafür; ein alter Pi 3 oder 4 aus der Schublade ebenso.</p>
+      <div class="info-box"><h4>Auf einen Blick</h4><p>Dauer: ca. 30 Min. · Schwierigkeit: Einsteiger · Kosten: siehe Materialliste (Preise bei Amazon prüfen)</p></div>
+
+      <div class="materials-list"><h4>📦 Material (ohne Preisangaben – bitte bei Amazon prüfen)</h4>
+        <ul>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Raspberry+Pi+Zero+2+W&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Raspberry Pi</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>Zero 2 W, 3, 4 oder 5 – Pi-hole braucht kaum Leistung</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=microSD+16GB&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">microSD-Karte</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>8 GB genügen, 16 GB sind entspannter</span></li>
+          <li><span class="material-name">Passendes Netzteil</span><span>beim Zero 2 W micro-USB, beim Pi 4/5 USB-C</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=USB+Ethernet+Adapter+Raspberry+Pi&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Ethernet-Kabel</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>empfohlen; ein DNS-Server sollte nicht am WLAN hängen (beim Zero 2 W geht nur WLAN oder ein USB-LAN-Adapter)</span></li>
+          <li><span class="material-name">Zugang zur Router-Oberfläche</span><span>z. B. FRITZ!Box unter fritz.box</span></li>
+        </ul>
+      </div>
+
+      <h2>Schritt für Schritt</h2>
+
+      <div class="step" id="schritt-1"><span class="step-number">1</span><h3>Raspberry Pi OS Lite installieren</h3>
+        <p>Mit dem Raspberry Pi Imager <strong>Raspberry Pi OS Lite (64-bit)</strong> auf die Karte schreiben. Im Imager unter
+         <em>Einstellungen bearbeiten</em> Hostname (<code>pihole</code>), Benutzer, WLAN (falls nötig) und
+         <strong>SSH aktivieren</strong> setzen. Karte in den Pi, starten, per SSH verbinden:</p>
+         <pre><code>ssh pi@pihole.local
+sudo apt update &amp;&amp; sudo apt full-upgrade -y</code></pre>
+      </div>
+
+      <div class="step" id="schritt-2"><span class="step-number">2</span><h3>Feste IP-Adresse vergeben</h3>
+        <p>Ein DNS-Server darf seine Adresse nicht wechseln. Am einfachsten in der FRITZ!Box: <em>Heimnetz → Netzwerk →
+         Netzwerkverbindungen</em> → beim Pi auf <em>Bearbeiten</em> → <strong>„Diesem Netzwerkgerät immer die gleiche
+         IPv4-Adresse zuweisen“</strong>. Notiere die Adresse, z. B. <code>192.168.178.50</code>.</p>
+      </div>
+
+      <div class="step" id="schritt-3"><span class="step-number">3</span><h3>Pi-hole mit dem offiziellen Installer einrichten</h3>
+        <pre><code>curl -sSL https://install.pi-hole.net | bash</code></pre>
+         <p>Das ist der in der Pi-hole-Doku genannte Ein-Zeilen-Installer. Wer Skripte vor dem Ausführen lesen möchte,
+         lädt sie erst herunter (ebenfalls laut Doku):</p>
+         <pre><code>wget -O basic-install.sh https://install.pi-hole.net
+sudo bash basic-install.sh</code></pre>
+         <p>Der Assistent fragt nach Netzwerkschnittstelle, Upstream-DNS (z. B. Quad9 oder Cloudflare), der Standard-Blockliste
+         und ob die Weboberfläche installiert werden soll – überall die Vorgaben bestätigen.</p>
+      </div>
+
+      <div class="step" id="schritt-4"><span class="step-number">4</span><h3>Passwort setzen und Weboberfläche öffnen</h3>
+        <p>Am Ende zeigt der Installer ein zufälliges Passwort. Setze ein eigenes:</p>
+         <pre><code>sudo pihole setpassword</code></pre>
+         <p>(Bei älteren Pi-hole-Versionen vor v6 lautet der Befehl <code>pihole -a -p</code>.) Die Oberfläche erreichst du unter
+         <code>http://192.168.178.50/admin</code> – mit deiner IP-Adresse. Damit CLI-Befehle ohne Passwortabfrage laufen, fügt die
+         Doku den Nutzer zur Gruppe hinzu: <code>sudo usermod -aG pihole $USER</code>.</p>
+      </div>
+
+      <div class="step" id="schritt-5"><span class="step-number">5</span><h3>Router auf Pi-hole umstellen</h3>
+        <p>Die Pi-hole-Doku empfiehlt, den Router so einzustellen, dass alle DHCP-Clients Pi-hole als DNS-Server bekommen.
+         FRITZ!Box: <em>Heimnetz → Netzwerk → Netzwerkeinstellungen → IPv4-Einstellungen</em> → bei <strong>„Lokaler
+         DNS-Server“</strong> die Pi-hole-IP eintragen. Geräte übernehmen die Änderung beim nächsten Verbinden (WLAN aus/an).
+         Alternativ kannst du einzelne Geräte manuell auf die Pi-hole-IP setzen oder den DHCP-Server von Pi-hole nutzen –
+         dann aber den DHCP im Router abschalten.</p>
+      </div>
+
+      <div class="step" id="schritt-6"><span class="step-number">6</span><h3>Prüfen, Blocklisten pflegen, Ausnahmen setzen</h3>
+        <p>Im Dashboard steigen die Zähler unter „Queries“ und „Blocked“, sobald Geräte anfragen. Weitere Listen fügst du
+         unter <em>Lists</em> hinzu (nach jeder Änderung <em>Tools → Update Gravity</em>). Lädt eine Seite oder App nicht mehr,
+         schau in <em>Query Log</em>, welche Domain geblockt wurde, und setze sie über <em>Domains → Allow</em> frei. Typische
+         Kandidaten: Links aus Newslettern und einige Shopping-Apps.</p>
+      </div>
+
+      <div class="step" id="schritt-7"><span class="step-number">7</span><h3>Aktuell halten</h3>
+        <pre><code>pihole -up        # Pi-hole aktualisieren
+pihole -g         # Blocklisten neu laden</code></pre>
+         <p>Einmal im Monat reicht. Fällt der Pi aus, hat das Heimnetz keinen DNS mehr – als Sicherheitsnetz kannst du im
+         Router einen zweiten DNS (z. B. Quad9) hinterlegen; dann geht ein Teil der Anfragen allerdings an Pi-hole vorbei.</p>
+      </div>
+
+      <h2>Tipps und Grenzen</h2>
+      <ul>
+        <li><strong>YouTube- und Twitch-Werbung</strong> lässt sich per DNS nicht zuverlässig blocken – sie kommt von denselben Servern wie die Videos.</li>
+        <li><strong>Nicht den Pi selbst als eigenen Upstream</strong> eintragen: Laut Doku verliert der Host sonst bei einem Pi-hole-Ausfall komplett die Namensauflösung.</li>
+        <li><strong>Datenschutz:</strong> Das Query-Log zeigt, welche Geräte welche Domains aufrufen. In Mehrpersonenhaushalten unter <em>Settings → Privacy</em> die Protokollstufe reduzieren.</li>
+      </ul>
+      <p>Für stabile Abdeckung im ganzen Haus lohnt ein Blick auf unseren Review zum
+      <a href="/pages/fritz-repeater-1200-ax.html">FRITZ!Repeater 1200 AX</a>. Was der Pi sonst noch kann, zeigen unsere Anleitungen
+      <a href="/diy/nas-raspberry-pi.html">NAS mit Raspberry Pi</a> und
+      <a href="/diy/home-assistant-raspberry-pi-5-matter-einrichten.html">Home Assistant auf dem Pi 5</a>.</p>
+
+      <h2>Häufige Fragen</h2>
+      <h3>Reicht ein Raspberry Pi Zero 2 W?</h3>
+      <p>Ja. Pi-hole braucht wenig Rechenleistung. Am Zero 2 W fehlt nur ein LAN-Anschluss – WLAN funktioniert, ein USB-LAN-Adapter ist stabiler.</p>
+      <h3>Bremst Pi-hole das Internet?</h3>
+      <p>Nein, im Gegenteil: Geblockte Anfragen werden gar nicht erst geladen; Seiten mit viel Werbung bauen sich schneller auf.</p>
+      <h3>Kann ich Pi-hole auch in Docker betreiben?</h3>
+      <p>Ja, die Pi-hole-Doku bietet ein offizielles Docker-Image – etwa für NAS oder Home Assistant.</p>
+
+      <h2>Quellen</h2>
+      <ul>
+        <li><a href="https://docs.pi-hole.net/main/basic-install/" target="_blank" rel="noopener">Pi-hole: Basic Install (offizieller Installer-Befehl und Alternativen)</a></li>
+        <li><a href="https://docs.pi-hole.net/main/post-install/" target="_blank" rel="noopener">Pi-hole: Post-Install (Router-DNS, Gruppe pihole, Warnung Upstream)</a></li>
+        <li><a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener">Raspberry Pi Imager</a></li>
+      </ul>
+
+      <p class="ki-hinweis"><em>Transparenz: Dieser Beitrag wurde mit KI-Unterstützung recherchiert und verfasst und redaktionell geprüft (Kennzeichnung nach Art. 50 KI-VO). Alle Angaben stammen aus den genannten Quellen, Stand 24. September 2026. Links zu Amazon sind Affiliate-Links (Werbung).</em></p>
+
+      <div class="read-more">
+        <h3>Weiterlesen</h3>
+        <a href="/news/raspberry-pi-desktop-update-needle-llm-september-2026.html">📰 NEWS Raspberry Pi im September 2026</a>
+        <a href="/diy/nas-raspberry-pi.html">💾 DIY NAS mit Raspberry Pi</a>
+        <a href="/pages/fritz-repeater-1200-ax.html">📶 REVIEW FRITZ!Repeater 1200 AX</a>
+      </div>
+    </article>
+  </div>
+  <div class="footer">
+    <p>© 2026 MMOFinds — <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></p>
+  </div>
+
+    <footer class="site-footer">
+<p class="amz-hinweis">Werbung: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Links zu Amazon sind Affiliate-Links; für dich ändert sich der Preis nicht. Preise und Verfügbarkeit bitte direkt bei Amazon prüfen.</p>
+        <div class="footer-content">
+            <h3>MMOFINDS</h3>
+            <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Startseite</a>
+                <a href="/news/">AI & Tech-News</a>
+                <a href="/diy/">DIY Projekte</a>
+                <a href="/pages/">Produkt-Reviews</a>
+            </div>
+            <p class="copyright">&copy; 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    
+      <a href="/kontakt.html">Kontakt</a>
+    
+      <a href="/ueber-uns.html">Über uns</a>
+    
+      <a href="/affiliate-info.html">Amazon Affiliate</a>
+    </footer>
+
+
+<!-- Dark/Light Mode Toggle -->
+<button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>
+
+<script>
+// Theme Toggle
+(function() {
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Gespeichertes Theme anwenden
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        toggle.textContent = '☀️';
+    }
+    
+    // Toggle Klick
+    toggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            toggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            toggle.textContent = '🌙';
+        }
+    });
+})();
+</script>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+</html>
