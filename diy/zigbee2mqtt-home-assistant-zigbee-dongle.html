@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Zigbee2MQTT in Home Assistant einrichten: Zigbee-Dongle, Mosquitto und das erste Gerät koppeln — MMOFinds">
+    <meta property="og:description" content="Zigbee-Geräte ohne Hersteller-Hub: Mosquitto-Broker und Zigbee2MQTT als Home-Assistant-Apps installieren, Dongle per /dev/serial/by-id einbinden, Adapter-Typ wählen, Pairing aktivieren. Mit Tipps gegen Funkstörungen.">
+    <meta property="og:image" content="https://mmofinds.de/images/diy/zigbee2mqtt-home-assistant-zigbee-dongle.jpg">
+    <meta property="og:url" content="https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zigbee2MQTT in Home Assistant einrichten: Zigbee-Dongle, Mosquitto und das erste Gerät koppeln — MMOFinds">
+    <meta name="twitter:description" content="Zigbee-Geräte ohne Hersteller-Hub: Mosquitto-Broker und Zigbee2MQTT als Home-Assistant-Apps installieren, Dongle per /dev/serial/by-id einbinden, Adapter-Typ wählen, Pairing aktivieren. Mit Tipps gegen Funkstörungen.">
+    <meta name="twitter:image" content="https://mmofinds.de/images/diy/zigbee2mqtt-home-assistant-zigbee-dongle.jpg">
+    <meta name="description" content="Zigbee-Geräte ohne Hersteller-Hub: Mosquitto-Broker und Zigbee2MQTT als Home-Assistant-Apps installieren, Dongle per /dev/serial/by-id einbinden, Adapter-Typ wählen, Pairing aktivieren. Mit Tipps gegen Funkstörungen.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zigbee2MQTT in Home Assistant einrichten: Zigbee-Dongle, Mosquitto und das erste Gerät koppeln — MMOFinds</title>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "Zigbee2MQTT in Home Assistant einrichten: Zigbee-Dongle, Mosquitto und das erste Gerät koppeln", "description": "Zigbee-Geräte ohne Hersteller-Hub: Mosquitto-Broker und Zigbee2MQTT als Home-Assistant-Apps installieren, Dongle per /dev/serial/by-id einbinden, Adapter-Typ wählen, Pairing aktivieren. Mit Tipps gegen Funkstörungen.", "image": ["https://mmofinds.de/images/diy/zigbee2mqtt-home-assistant-zigbee-dongle.jpg"], "totalTime": "PT45M", "inLanguage": "de", "datePublished": "2026-09-24", "author": {"@type": "Organization", "name": "MMOFinds Redaktion", "url": "https://mmofinds.de/ueber-uns.html"}, "supply": [{"@type": "HowToSupply", "name": "Zigbee-Koordinator (USB-Dongle)"}, {"@type": "HowToSupply", "name": "USB-2.0-Verlängerungskabel"}, {"@type": "HowToSupply", "name": "Home Assistant OS"}, {"@type": "HowToSupply", "name": "Ein Zigbee-Gerät zum Ausprobieren"}], "step": [{"@type": "HowToStep", "position": 1, "name": "Mosquitto-Broker installieren", "text": "Zigbee2MQTT spricht über MQTT mit Home Assistant, deshalb zuerst den Broker: Einstellungen → Apps → App-Store\n         → Mosquitto broker installieren und starten. Lege unter Einstellungen → Personen → Benutzer einen eigenen\n         Benutzer (z. B. mqtt) an – die MQTT-Integration erscheint danach automatisch unter Geräte &amp; Dienste;\n         dort Konfigurieren klicken.", "url": "https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html#schritt-1"}, {"@type": "HowToStep", "position": 2, "name": "Zigbee2MQTT-Repository hinzufügen", "text": "Unter Einstellungen → Apps → App-Store → ⋮ (oben rechts) → Repositories folgende Adresse einfügen:\n         https://github.com/zigbee2mqtt/hassio-zigbee2mqtt\n         Danach erscheinen zwei Apps: Zigbee2MQTT (stabil, empfohlen) und Zigbee2MQTT Edge\n         (Entwicklungsstand). Die stabile Version installieren, noch nicht starten.", "url": "https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html#schritt-2"}, {"@type": "HowToStep", "position": 3, "name": "Dongle einstecken und Port ermitteln", "text": "Dongle per Verlängerungskabel an einen USB-2.0-Port stecken. Den eindeutigen Gerätepfad zeigt\n         Einstellungen → System → Hardware → Alle Hardware (nach „tty“ suchen) oder das Terminal:\n         ha hardware info\nls /dev/serial/by-id/\n         Verwende den langen /dev/serial/by-id/usb-…-Pfad, nicht /dev/ttyUSB0 – letzterer kann sich\n         nach einem Neustart ändern.", "url": "https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html#schritt-3"}, {"@type": "HowToStep", "position": 4, "name": "Zigbee2MQTT konfigurieren", "text": "In der App-Konfiguration (Reiter Konfiguration) den Bereich serial ausfüllen. Beispiel\n         für den ZBDongle-E:\n         serial:\n  port: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_XXXXXXXX-if00-port0\n  adapter: ember\n         Für den ZBDongle-P und andere Texas-Instruments-Sticks lautet der Adapter zstack, für ConBee/RaspBee\n         deconz. Die MQTT-Verbindung zum Mosquitto-Broker trägt die App auf Home Assistant OS automatisch ein.\n         Speichern und die App starten; im Protokoll sollte „Zigbee2MQTT started!“ erscheinen.", "url": "https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html#schritt-4"}, {"@type": "HowToStep", "position": 5, "name": "Funkkanal prüfen", "text": "Zigbee und WLAN teilen sich das 2,4-GHz-Band. Nutzt dein WLAN Kanal 1, ist Zigbee-Kanal 11 ungünstig; bei WLAN-Kanal\n         11 meide Zigbee 26. Der Kanal steht in der Zigbee2MQTT-Oberfläche unter Settings → Advanced → Channel – und\n         sollte vor dem Koppeln der Geräte festgelegt werden, weil ein späterer Wechsel alle Geräte neu koppeln\n         lässt.", "url": "https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html#schritt-5"}, {"@type": "HowToStep", "position": 6, "name": "Erstes Gerät koppeln", "text": "Öffne die Zigbee2MQTT-Oberfläche (Seitenleiste). Klicke oben auf „Permit join (All)“ – das Netz\n         nimmt jetzt 254 Sekunden lang neue Geräte auf. Versetze das Gerät in den Kopplungsmodus (meist Taste 5 Sekunden\n         halten, bei Lampen sechsmal ein/aus). Es erscheint in der Geräteliste, wird erkannt („Interviewing“) und danach mit\n         Modellname angezeigt. Vergib einen sprechenden Namen wie tuer_haustuer.", "url": "https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html#schritt-6"}, {"@type": "HowToStep", "position": 7, "name": "In Home Assistant nutzen", "text": "Dank MQTT-Discovery tauchen die Geräte ohne weiteres Zutun unter Geräte &amp; Dienste → MQTT auf – mit\n         allen Entitäten (Kontakt, Batterie, Verbindungsqualität). Ab hier funktionieren Dashboards und Automationen wie mit\n         jedem anderen Gerät. Netzstromgeräte wie Steckdosen und Lampen arbeiten zusätzlich als Router und vergrößern die\n         Reichweite des Zigbee-Netzes.", "url": "https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html#schritt-7"}], "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mmofinds.de/"}, {"@type": "ListItem", "position": 2, "name": "DIY", "item": "https://mmofinds.de/diy/"}, {"@type": "ListItem", "position": 3, "name": "Zigbee2MQTT in Home Assistant einrichten: Zigbee-Dongle, Mosquitto und das erste Gerät koppeln", "item": "https://mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Zigbee2MQTT oder ZHA?", "acceptedAnswer": {"@type": "Answer", "text": "Beide funktionieren mit denselben Dongles. ZHA ist in Home Assistant eingebaut und einfacher; Zigbee2MQTT unterstützt mehr Geräte, zeigt mehr Details und hat eine eigene Oberfläche mit Netzwerkkarte."}}, {"@type": "Question", "name": "Welcher Dongle ist der richtige?", "acceptedAnswer": {"@type": "Answer", "text": "Weit verbreitet sind der SONOFF ZBDongle-E (Adapter ember) und ZBDongle-P (Adapter zstack). Wichtig ist, den zum Chip passenden Adapter-Typ einzutragen."}}, {"@type": "Question", "name": "Kann ich später den Kanal wechseln?", "acceptedAnswer": {"@type": "Answer", "text": "Technisch ja, aber alle Geräte müssen dann neu gekoppelt werden – deshalb den Kanal vor dem ersten Pairing festlegen."}}]}</script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8NB2X96FH7', {'page_path': window.location.pathname});
+</script>
+<!-- Ende Google Analytics 4 -->
+
+</head>
+<body>
+    <div class="nav-bar">
+<nav aria-label="Breadcrumb" style="margin:20px 0;font-size:0.9rem;color:#666;"><a href="/" style="color:#4a9eff;text-decoration:none;">Home</a> / <a href="/news/" style="color:#4a9eff;text-decoration:none;">News</a> / <span style="color:#999;">Zigbee2MQTT in Home Assistant einrichten: Zigbee-Dongle, Mos</span></nav>
+
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                
+<a href="/" class="nav-link">Start</a>
+<a href="/news/" class="nav-link">News</a>
+<a href="/diy/" class="nav-link">DIY</a>
+<a href="/pages/" class="nav-link">Reviews</a>
+<a href="/impressum.html" class="nav-link">Impressum</a>
+<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+
+            </div>
+        </div>
+    </div>
+  <div class="nav">
+    <div class="nav-inner">
+      <a href="/" style="font-weight: bold; font-size: 1.2rem;">MMOFinds</a>
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <div class="container">
+    <article>
+      <div class="meta">
+        <span class="tag">DIY</span>
+        <span>24. September 2026</span>
+        <span>·</span>
+        <span>10 Min. Lesezeit</span>
+      </div>
+      <h1>Zigbee2MQTT in Home Assistant einrichten: Zigbee-Dongle, Mosquitto und das erste Gerät koppeln</h1>
+
+<!-- Social Sharing -->
+<div class="social-share" style="display:flex;gap:8px;margin:16px 0;flex-wrap:wrap;">
+    <span style="color:#666;font-size:0.9rem;margin-right:10px;">Teilen:</span>
+    <a href="https://api.whatsapp.com/send?text=Zigbee2MQTT%20in%20Home%20Assistant%20einrichten%3A%20Zigbee-Dongle%2C%20Mosquitto%20und%20das%20erste%20Ger%C3%A4t%20koppeln%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-whatsapp">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.488 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.781.99.991-3.681-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html" target="_blank" rel="noopener" class="social-facebook">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A//mmofinds.de/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html&text=Zigbee2MQTT%20in%20Home%20Assistant%20einrichten%3A%20Zigbee-Dongle%2C%20Mosquitto%20und%20das%20erste%20Ger%C3%A4t%20koppeln%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-twitter">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X (Twitter)
+    </a>
+</div>
+
+      <div class="article-image"><img width="1200" height="630" src="/images/diy/zigbee2mqtt-home-assistant-zigbee-dongle.jpg" alt="Zigbee2MQTT in Home Assistant einrichten: Zigbee-Dongle, Mosquitto und das erste Gerät koppeln – Titelgrafik MMOFinds" class="article-img" style="max-width:100%;height:auto;border-radius:12px;" fetchpriority="high"></div>
+
+<p><strong>Zigbee-Sensoren, -Schalter und -Lampen gehören zu den günstigsten und stromsparendsten Smart-Home-Geräten
+      – nur brauchte bisher jede Marke ihren eigenen Hub.</strong> Zigbee2MQTT ersetzt sie alle durch einen USB-Dongle und
+      unterstützt Tausende Geräte von Aqara, IKEA, Philips Hue, Sonoff, Tuya und anderen. Voraussetzung ist ein Home
+      Assistant OS, etwa nach unserer <a href="/diy/home-assistant-raspberry-pi-5-matter-einrichten.html">Pi-5-Anleitung</a>.
+      Laut Zigbee2MQTT-Doku wird ein Raspberry Pi 4 oder besser empfohlen; auf einem Pi 3 kann es instabil werden.</p>
+      <div class="info-box"><h4>Auf einen Blick</h4><p>Dauer: ca. 45 Min. · Schwierigkeit: Fortgeschritten · Kosten: siehe Materialliste (Preise bei Amazon prüfen)</p></div>
+
+      <div class="materials-list"><h4>📦 Material (ohne Preisangaben – bitte bei Amazon prüfen)</h4>
+        <ul>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=SONOFF+Zigbee+3.0+USB+Dongle+Plus&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Zigbee-Koordinator (USB-Dongle)</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>z. B. SONOFF Zigbee 3.0 USB Dongle Plus – ZBDongle-E (Adapter „ember“) oder ZBDongle-P (Adapter „zstack“)</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=USB+Verl%C3%A4ngerung+1m&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">USB-2.0-Verlängerungskabel</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>hält den Dongle von USB-3-Ports und dem Pi fern – USB 3 stört das 2,4-GHz-Band</span></li>
+          <li><span class="material-name">Home Assistant OS</span><span>auf Raspberry Pi 4/5 oder x86 (64-Bit erforderlich)</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Aqara+T%C3%BCrsensor+Zigbee&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Ein Zigbee-Gerät zum Ausprobieren</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>z. B. Aqara Tür-/Fenstersensor oder IKEA Tradfri-Lampe</span></li>
+        </ul>
+      </div>
+
+      <h2>Schritt für Schritt</h2>
+
+      <div class="step" id="schritt-1"><span class="step-number">1</span><h3>Mosquitto-Broker installieren</h3>
+        <p>Zigbee2MQTT spricht über MQTT mit Home Assistant, deshalb zuerst den Broker: <em>Einstellungen → Apps → App-Store
+         → Mosquitto broker</em> installieren und starten. Lege unter <em>Einstellungen → Personen → Benutzer</em> einen eigenen
+         Benutzer (z. B. <code>mqtt</code>) an – die MQTT-Integration erscheint danach automatisch unter <em>Geräte &amp; Dienste</em>;
+         dort <em>Konfigurieren</em> klicken.</p>
+      </div>
+
+      <div class="step" id="schritt-2"><span class="step-number">2</span><h3>Zigbee2MQTT-Repository hinzufügen</h3>
+        <p>Unter <em>Einstellungen → Apps → App-Store → ⋮ (oben rechts) → Repositories</em> folgende Adresse einfügen:</p>
+         <pre><code>https://github.com/zigbee2mqtt/hassio-zigbee2mqtt</code></pre>
+         <p>Danach erscheinen zwei Apps: <strong>Zigbee2MQTT</strong> (stabil, empfohlen) und <em>Zigbee2MQTT Edge</em>
+         (Entwicklungsstand). Die stabile Version installieren, noch nicht starten.</p>
+      </div>
+
+      <div class="step" id="schritt-3"><span class="step-number">3</span><h3>Dongle einstecken und Port ermitteln</h3>
+        <p>Dongle per Verlängerungskabel an einen <strong>USB-2.0-Port</strong> stecken. Den eindeutigen Gerätepfad zeigt
+         <em>Einstellungen → System → Hardware → Alle Hardware</em> (nach „tty“ suchen) oder das Terminal:</p>
+         <pre><code>ha hardware info
+ls /dev/serial/by-id/</code></pre>
+         <p>Verwende den langen <code>/dev/serial/by-id/usb-…</code>-Pfad, nicht <code>/dev/ttyUSB0</code> – letzterer kann sich
+         nach einem Neustart ändern.</p>
+      </div>
+
+      <div class="step" id="schritt-4"><span class="step-number">4</span><h3>Zigbee2MQTT konfigurieren</h3>
+        <p>In der App-Konfiguration (Reiter <em>Konfiguration</em>) den Bereich <code>serial</code> ausfüllen. Beispiel
+         für den ZBDongle-E:</p>
+         <pre><code>serial:
+  port: /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_XXXXXXXX-if00-port0
+  adapter: ember</code></pre>
+         <p>Für den ZBDongle-P und andere Texas-Instruments-Sticks lautet der Adapter <code>zstack</code>, für ConBee/RaspBee
+         <code>deconz</code>. Die MQTT-Verbindung zum Mosquitto-Broker trägt die App auf Home Assistant OS automatisch ein.
+         Speichern und die App <strong>starten</strong>; im Protokoll sollte „Zigbee2MQTT started!“ erscheinen.</p>
+      </div>
+
+      <div class="step" id="schritt-5"><span class="step-number">5</span><h3>Funkkanal prüfen</h3>
+        <p>Zigbee und WLAN teilen sich das 2,4-GHz-Band. Nutzt dein WLAN Kanal 1, ist Zigbee-Kanal 11 ungünstig; bei WLAN-Kanal
+         11 meide Zigbee 26. Der Kanal steht in der Zigbee2MQTT-Oberfläche unter <em>Settings → Advanced → Channel</em> – und
+         sollte <strong>vor</strong> dem Koppeln der Geräte festgelegt werden, weil ein späterer Wechsel alle Geräte neu koppeln
+         lässt.</p>
+      </div>
+
+      <div class="step" id="schritt-6"><span class="step-number">6</span><h3>Erstes Gerät koppeln</h3>
+        <p>Öffne die Zigbee2MQTT-Oberfläche (Seitenleiste). Klicke oben auf <strong>„Permit join (All)“</strong> – das Netz
+         nimmt jetzt 254 Sekunden lang neue Geräte auf. Versetze das Gerät in den Kopplungsmodus (meist Taste 5 Sekunden
+         halten, bei Lampen sechsmal ein/aus). Es erscheint in der Geräteliste, wird erkannt („Interviewing“) und danach mit
+         Modellname angezeigt. Vergib einen sprechenden Namen wie <code>tuer_haustuer</code>.</p>
+      </div>
+
+      <div class="step" id="schritt-7"><span class="step-number">7</span><h3>In Home Assistant nutzen</h3>
+        <p>Dank MQTT-Discovery tauchen die Geräte ohne weiteres Zutun unter <em>Geräte &amp; Dienste → MQTT</em> auf – mit
+         allen Entitäten (Kontakt, Batterie, Verbindungsqualität). Ab hier funktionieren Dashboards und Automationen wie mit
+         jedem anderen Gerät. Netzstromgeräte wie Steckdosen und Lampen arbeiten zusätzlich als Router und vergrößern die
+         Reichweite des Zigbee-Netzes.</p>
+      </div>
+
+      <h2>Wenn es hakt</h2>
+      <ul>
+        <li><strong>App startet nicht:</strong> falscher Adapter-Typ (ember vs. zstack) oder Port. Bei manchen Dongles muss zuerst die Firmware aktualisiert werden – die Zigbee2MQTT-Doku listet je Adapter die empfohlene Firmware.</li>
+        <li><strong>Gerät fällt ständig ab:</strong> Dongle direkt am Pi oder an USB 3 → Verlängerung nutzen; Router-Geräte (Steckdosen) zwischen Pi und Sensor setzen.</li>
+        <li><strong>Kein Permit-join-Erfolg:</strong> Gerät vollständig zurücksetzen; Aqara-Sensoren während des Interviews alle paar Sekunden kurz antippen, damit sie nicht einschlafen.</li>
+      </ul>
+      <p>Zigbee und Matter schließen sich nicht aus: Beides kann parallel im selben Home Assistant laufen. Welche Unterputz-Schalter
+      sich für Zigbee oder Matter eignen, zeigt unser <a href="/vergleich/smarte-unterputzschalter.html">Vergleich smarter Unterputzschalter</a>.</p>
+
+      <h2>Häufige Fragen</h2>
+      <h3>Zigbee2MQTT oder ZHA?</h3>
+      <p>Beide funktionieren mit denselben Dongles. ZHA ist in Home Assistant eingebaut und einfacher; Zigbee2MQTT unterstützt mehr Geräte, zeigt mehr Details und hat eine eigene Oberfläche mit Netzwerkkarte.</p>
+      <h3>Welcher Dongle ist der richtige?</h3>
+      <p>Weit verbreitet sind der SONOFF ZBDongle-E (Adapter ember) und ZBDongle-P (Adapter zstack). Wichtig ist, den zum Chip passenden Adapter-Typ einzutragen.</p>
+      <h3>Kann ich später den Kanal wechseln?</h3>
+      <p>Technisch ja, aber alle Geräte müssen dann neu gekoppelt werden – deshalb den Kanal vor dem ersten Pairing festlegen.</p>
+
+      <h2>Quellen</h2>
+      <ul>
+        <li><a href="https://www.zigbee2mqtt.io/guide/installation/03_ha_addon.html" target="_blank" rel="noopener">Zigbee2MQTT: Installation als Home Assistant Add-on (Voraussetzungen)</a></li>
+        <li><a href="https://github.com/zigbee2mqtt/hassio-zigbee2mqtt" target="_blank" rel="noopener">Zigbee2MQTT Add-on: Repository-URL, Konfiguration serial/adapter, by-id-Pfad</a></li>
+        <li><a href="https://www.zigbee2mqtt.io/guide/adapters/" target="_blank" rel="noopener">Zigbee2MQTT: Unterstützte Adapter und Adapter-Typen</a></li>
+      </ul>
+
+      <p class="ki-hinweis"><em>Transparenz: Dieser Beitrag wurde mit KI-Unterstützung recherchiert und verfasst und redaktionell geprüft (Kennzeichnung nach Art. 50 KI-VO). Alle Angaben stammen aus den genannten Quellen, Stand 24. September 2026. Links zu Amazon sind Affiliate-Links (Werbung).</em></p>
+
+      <div class="read-more">
+        <h3>Weiterlesen</h3>
+        <a href="/diy/home-assistant-raspberry-pi-5-matter-einrichten.html">🏠 DIY Home Assistant auf dem Raspberry Pi 5</a>
+        <a href="/vergleich/smarte-unterputzschalter.html">🔌 VERGLEICH Smarte Unterputzschalter</a>
+        <a href="/pages/sonoff-minir4m.html">🔌 REVIEW Sonoff MINIR4M mit Matter</a>
+      </div>
+    </article>
+  </div>
+  <div class="footer">
+    <p>© 2026 MMOFinds — <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></p>
+  </div>
+
+    <footer class="site-footer">
+<p class="amz-hinweis">Werbung: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Links zu Amazon sind Affiliate-Links; für dich ändert sich der Preis nicht. Preise und Verfügbarkeit bitte direkt bei Amazon prüfen.</p>
+        <div class="footer-content">
+            <h3>MMOFINDS</h3>
+            <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Startseite</a>
+                <a href="/news/">AI & Tech-News</a>
+                <a href="/diy/">DIY Projekte</a>
+                <a href="/pages/">Produkt-Reviews</a>
+            </div>
+            <p class="copyright">&copy; 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    
+      <a href="/kontakt.html">Kontakt</a>
+    
+      <a href="/ueber-uns.html">Über uns</a>
+    
+      <a href="/affiliate-info.html">Amazon Affiliate</a>
+    </footer>
+
+
+<!-- Dark/Light Mode Toggle -->
+<button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>
+
+<script>
+// Theme Toggle
+(function() {
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Gespeichertes Theme anwenden
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        toggle.textContent = '☀️';
+    }
+    
+    // Toggle Klick
+    toggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            toggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            toggle.textContent = '🌙';
+        }
+    });
+})();
+</script>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+</html>
