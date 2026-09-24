@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="ESP32 + BME280: Eigener Temperatur-, Luftfeuchte- und Luftdrucksensor für Home Assistant mit ESPHome — MMOFinds">
+    <meta property="og:description" content="In 30 Minuten zum eigenen WLAN-Klimasensor: ESP32 und BME280 verkabeln, ESPHome-Konfiguration schreiben, per Browser flashen und in Home Assistant einbinden. Mit geprüftem YAML und Fehlersuche.">
+    <meta property="og:image" content="https://mmofinds.de/images/diy/esp32-esphome-klimasensor-bme280-home-assistant.jpg">
+    <meta property="og:url" content="https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ESP32 + BME280: Eigener Temperatur-, Luftfeuchte- und Luftdrucksensor für Home Assistant mit ESPHome — MMOFinds">
+    <meta name="twitter:description" content="In 30 Minuten zum eigenen WLAN-Klimasensor: ESP32 und BME280 verkabeln, ESPHome-Konfiguration schreiben, per Browser flashen und in Home Assistant einbinden. Mit geprüftem YAML und Fehlersuche.">
+    <meta name="twitter:image" content="https://mmofinds.de/images/diy/esp32-esphome-klimasensor-bme280-home-assistant.jpg">
+    <meta name="description" content="In 30 Minuten zum eigenen WLAN-Klimasensor: ESP32 und BME280 verkabeln, ESPHome-Konfiguration schreiben, per Browser flashen und in Home Assistant einbinden. Mit geprüftem YAML und Fehlersuche.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP32 + BME280: Eigener Temperatur-, Luftfeuchte- und Luftdrucksensor für Home Assistant mit ESPHome — MMOFinds</title>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "ESP32 + BME280: Eigener Temperatur-, Luftfeuchte- und Luftdrucksensor für Home Assistant mit ESPHome", "description": "In 30 Minuten zum eigenen WLAN-Klimasensor: ESP32 und BME280 verkabeln, ESPHome-Konfiguration schreiben, per Browser flashen und in Home Assistant einbinden. Mit geprüftem YAML und Fehlersuche.", "image": ["https://mmofinds.de/images/diy/esp32-esphome-klimasensor-bme280-home-assistant.jpg"], "totalTime": "PT45M", "inLanguage": "de", "datePublished": "2026-09-24", "author": {"@type": "Organization", "name": "MMOFinds Redaktion", "url": "https://mmofinds.de/ueber-uns.html"}, "supply": [{"@type": "HowToSupply", "name": "ESP32-Entwicklungsboard"}, {"@type": "HowToSupply", "name": "BME280-Sensormodul"}, {"@type": "HowToSupply", "name": "4 Jumperkabel Buchse-Buchse"}, {"@type": "HowToSupply", "name": "USB-Kabel mit Datenleitungen"}, {"@type": "HowToSupply", "name": "Home Assistant"}, {"@type": "HowToSupply", "name": "Optional: kleines Gehäuse"}], "step": [{"@type": "HowToStep", "position": 1, "name": "Sensor verkabeln", "text": "Vier Verbindungen, alle stromlos herstellen:\n         BME280 VCC/VIN → ESP32 3V3\nBME280 GND     → ESP32 GND\nBME280 SDA     → ESP32 GPIO21\nBME280 SCL     → ESP32 GPIO22\n         GPIO21 und GPIO22 sind die Standard-I²C-Pins des ESP32. Der BME280 verträgt maximal 3,6 V am Chip – Module mit\n         eigenem Spannungsregler dürfen an 5 V, ohne Regler nur an 3V3. Im Zweifel 3V3 nehmen.", "url": "https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html#schritt-1"}, {"@type": "HowToStep", "position": 2, "name": "ESPHome in Home Assistant installieren", "text": "In Home Assistant unter Einstellungen → Apps → App-Store nach ESPHome suchen, installieren,\n         starten und die Weboberfläche öffnen (Option „In der Seitenleiste anzeigen“ hilft). Das ist der ESPHome Device Builder,\n         in dem alle Geräte verwaltet werden.", "url": "https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html#schritt-2"}, {"@type": "HowToStep", "position": 3, "name": "Neues Gerät anlegen", "text": "Klicke auf „New Device“, vergib einen Namen wie klima-wohnzimmer, wähle als Plattform\n         ESP32 und dein Board. WLAN-Name und Passwort landen in der Datei secrets.yaml, aus der alle\n         Geräte lesen. ESPHome erzeugt ein Grundgerüst mit esphome:, esp32:, wifi:,\n         api:, ota: und logger:.", "url": "https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html#schritt-3"}, {"@type": "HowToStep", "position": 4, "name": "Sensor in der YAML-Datei eintragen", "text": "Öffne die Konfiguration mit Edit und ergänze unter dem Grundgerüst den I²C-Bus und den Sensor. Der\n         Abschnitt entspricht der offiziellen ESPHome-Doku:\n         i2c:\n  sda: GPIO21\n  scl: GPIO22\n  scan: true\n  id: bus_a\n\nsensor:\n  - platform: bme280_i2c\n    i2c_id: bus_a\n    address: 0x76\n    update_interval: 60s\n    temperature:\n      name: \"Wohnzimmer Temperatur\"\n      oversampling: 16x\n    pressure:\n      name: \"Wohnzimmer Luftdruck\"\n    humidity:\n      name: \"Wohnzimmer Luftfeuchte\"\n         Die meisten günstigen Module melden sich unter 0x76; der Doku-Standard ist 0x77. Dank\n         scan: true listet das Log beim Start alle gefundenen Adressen – dann einfach die richtige eintragen.\n         Mit Save speichern.", "url": "https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html#schritt-4"}, {"@type": "HowToStep", "position": 5, "name": "Erstes Flashen per USB im Browser", "text": "Verbinde den ESP32 per USB mit dem Rechner, auf dem der Browser läuft. Klicke im Device Builder auf\n         Install → Plug into this computer. Chrome oder Edge flashen über Web Serial direkt aus dem\n         Browser – ohne Treiber-Installation. Beim ersten Mal kompiliert ESPHome die Firmware, das dauert einige Minuten.\n         Danach startet der ESP32 neu und verbindet sich mit dem WLAN. Alle weiteren Updates laufen drahtlos (OTA).", "url": "https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html#schritt-5"}, {"@type": "HowToStep", "position": 6, "name": "Gerät in Home Assistant übernehmen", "text": "Home Assistant entdeckt das Gerät meist von selbst: Unter Einstellungen → Geräte &amp; Dienste erscheint\n         eine ESPHome-Meldung – Konfigurieren klicken. Alternativ Integration ESPHome manuell hinzufügen und den\n         Hostnamen klima-wohnzimmer.local eingeben. Die drei Sensoren stehen dann als Entitäten bereit und\n         schreiben Verlauf.", "url": "https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html#schritt-6"}, {"@type": "HowToStep", "position": 7, "name": "Dashboard-Karte und Automation", "text": "Lege auf dem Dashboard eine Verlaufsdiagramm-Karte mit den drei Entitäten an. Eine sinnvolle erste\n         Automation: Benachrichtigung aufs Handy, wenn die Luftfeuchte länger als 30 Minuten über 65 Prozent liegt – ein\n         praktischer Schimmel-Frühwarner fürs Schlafzimmer.", "url": "https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html#schritt-7"}], "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mmofinds.de/"}, {"@type": "ListItem", "position": 2, "name": "DIY", "item": "https://mmofinds.de/diy/"}, {"@type": "ListItem", "position": 3, "name": "ESP32 + BME280: Eigener Temperatur-, Luftfeuchte- und Luftdrucksensor für Home Assistant mit ESPHome", "item": "https://mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "BME280 oder BMP280?", "acceptedAnswer": {"@type": "Answer", "text": "Der BMP280 misst nur Temperatur und Luftdruck. Für Luftfeuchte brauchst du den BME280; beide Module sehen fast gleich aus, also die Beschriftung des Chips prüfen."}}, {"@type": "Question", "name": "Muss ich löten?", "acceptedAnswer": {"@type": "Answer", "text": "Nicht, wenn das Modul mit bestückter Stiftleiste geliefert wird. Dann reichen Jumperkabel."}}, {"@type": "Question", "name": "Funktioniert das auch mit dem ESP8266?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, ESPHome unterstützt ESP8266 (z. B. Wemos D1 mini). Dort sind die I²C-Pins standardmäßig D2 (SDA) und D1 (SCL)."}}]}</script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8NB2X96FH7', {'page_path': window.location.pathname});
+</script>
+<!-- Ende Google Analytics 4 -->
+
+</head>
+<body>
+    <div class="nav-bar">
+<nav aria-label="Breadcrumb" style="margin:20px 0;font-size:0.9rem;color:#666;"><a href="/" style="color:#4a9eff;text-decoration:none;">Home</a> / <a href="/news/" style="color:#4a9eff;text-decoration:none;">News</a> / <span style="color:#999;">ESP32 + BME280: Eigener Temperatur-, Luftfeuchte- und Luftdr</span></nav>
+
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                
+<a href="/" class="nav-link">Start</a>
+<a href="/news/" class="nav-link">News</a>
+<a href="/diy/" class="nav-link">DIY</a>
+<a href="/pages/" class="nav-link">Reviews</a>
+<a href="/impressum.html" class="nav-link">Impressum</a>
+<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+
+            </div>
+        </div>
+    </div>
+  <div class="nav">
+    <div class="nav-inner">
+      <a href="/" style="font-weight: bold; font-size: 1.2rem;">MMOFinds</a>
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <div class="container">
+    <article>
+      <div class="meta">
+        <span class="tag">DIY</span>
+        <span>24. September 2026</span>
+        <span>·</span>
+        <span>10 Min. Lesezeit</span>
+      </div>
+      <h1>ESP32 + BME280: Eigener Temperatur-, Luftfeuchte- und Luftdrucksensor für Home Assistant mit ESPHome</h1>
+
+<!-- Social Sharing -->
+<div class="social-share" style="display:flex;gap:8px;margin:16px 0;flex-wrap:wrap;">
+    <span style="color:#666;font-size:0.9rem;margin-right:10px;">Teilen:</span>
+    <a href="https://api.whatsapp.com/send?text=ESP32%20%2B%20BME280%3A%20Eigener%20Temperatur-%2C%20Luftfeuchte-%20und%20Luftdrucksensor%20f%C3%BCr%20Home%20Assistant%20mit%20ESPHome%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-whatsapp">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.488 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.781.99.991-3.681-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html" target="_blank" rel="noopener" class="social-facebook">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A//mmofinds.de/diy/esp32-esphome-klimasensor-bme280-home-assistant.html&text=ESP32%20%2B%20BME280%3A%20Eigener%20Temperatur-%2C%20Luftfeuchte-%20und%20Luftdrucksensor%20f%C3%BCr%20Home%20Assistant%20mit%20ESPHome%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-twitter">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X (Twitter)
+    </a>
+</div>
+
+      <div class="article-image"><img width="1200" height="630" src="/images/diy/esp32-esphome-klimasensor-bme280-home-assistant.jpg" alt="ESP32 + BME280: Eigener Temperatur-, Luftfeuchte- und Luftdrucksensor für Home Assistant mit ESPHome – Titelgrafik MMOFinds" class="article-img" style="max-width:100%;height:auto;border-radius:12px;" fetchpriority="high"></div>
+
+<p><strong>Ein Klimasensor für jeden Raum, ohne Cloud und ohne Batteriewechsel-Abo: Das geht mit einem ESP32
+      und einem BME280 für kleines Geld.</strong> ESPHome übernimmt die Firmware – man beschreibt den Sensor in ein paar
+      Zeilen YAML, den Rest erledigt das Werkzeug. Am Ende liefert der Sensor Temperatur, Luftfeuchte und Luftdruck direkt an
+      Home Assistant. Gearbeitet wird ausschließlich mit 3,3 Volt – keine Netzspannung, kein Löten nötig, wenn du ein
+      Modul mit Stiftleiste nimmst.</p>
+      <div class="info-box"><h4>Auf einen Blick</h4><p>Dauer: ca. 45 Min. · Schwierigkeit: Einsteiger · Kosten: siehe Materialliste (Preise bei Amazon prüfen)</p></div>
+
+      <div class="materials-list"><h4>📦 Material (ohne Preisangaben – bitte bei Amazon prüfen)</h4>
+        <ul>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=ESP32+DevKit+C&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">ESP32-Entwicklungsboard</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>z. B. ESP32 DevKit C mit USB-Anschluss</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=BME280+Sensor+Modul+I2C&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">BME280-Sensormodul</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>I²C-Version mit 3,3-V-Regler; Achtung: BMP280 misst keine Luftfeuchte</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Jumper+Kabel+female+female&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">4 Jumperkabel Buchse-Buchse</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>für VCC, GND, SDA, SCL</span></li>
+          <li><span class="material-name">USB-Kabel mit Datenleitungen</span><span>reine Ladekabel funktionieren nicht</span></li>
+          <li><span class="material-name">Home Assistant</span><span>mit installierter ESPHome-App (siehe Schritt 2)</span></li>
+          <li><span class="material-name">Optional: kleines Gehäuse</span><span>mit Lüftungsschlitzen, sonst misst der Sensor die Eigenwärme des ESP32</span></li>
+        </ul>
+      </div>
+
+      <h2>Schritt für Schritt</h2>
+
+      <div class="step" id="schritt-1"><span class="step-number">1</span><h3>Sensor verkabeln</h3>
+        <p>Vier Verbindungen, alle stromlos herstellen:</p>
+         <pre><code>BME280 VCC/VIN → ESP32 3V3
+BME280 GND     → ESP32 GND
+BME280 SDA     → ESP32 GPIO21
+BME280 SCL     → ESP32 GPIO22</code></pre>
+         <p>GPIO21 und GPIO22 sind die Standard-I²C-Pins des ESP32. Der BME280 verträgt maximal 3,6 V am Chip – Module mit
+         eigenem Spannungsregler dürfen an 5 V, ohne Regler <strong>nur an 3V3</strong>. Im Zweifel 3V3 nehmen.</p>
+      </div>
+
+      <div class="step" id="schritt-2"><span class="step-number">2</span><h3>ESPHome in Home Assistant installieren</h3>
+        <p>In Home Assistant unter <em>Einstellungen → Apps → App-Store</em> nach <strong>ESPHome</strong> suchen, installieren,
+         starten und die Weboberfläche öffnen (Option „In der Seitenleiste anzeigen“ hilft). Das ist der ESPHome Device Builder,
+         in dem alle Geräte verwaltet werden.</p>
+      </div>
+
+      <div class="step" id="schritt-3"><span class="step-number">3</span><h3>Neues Gerät anlegen</h3>
+        <p>Klicke auf <strong>„New Device“</strong>, vergib einen Namen wie <code>klima-wohnzimmer</code>, wähle als Plattform
+         <strong>ESP32</strong> und dein Board. WLAN-Name und Passwort landen in der Datei <code>secrets.yaml</code>, aus der alle
+         Geräte lesen. ESPHome erzeugt ein Grundgerüst mit <code>esphome:</code>, <code>esp32:</code>, <code>wifi:</code>,
+         <code>api:</code>, <code>ota:</code> und <code>logger:</code>.</p>
+      </div>
+
+      <div class="step" id="schritt-4"><span class="step-number">4</span><h3>Sensor in der YAML-Datei eintragen</h3>
+        <p>Öffne die Konfiguration mit <em>Edit</em> und ergänze unter dem Grundgerüst den I²C-Bus und den Sensor. Der
+         Abschnitt entspricht der offiziellen ESPHome-Doku:</p>
+         <pre><code>i2c:
+  sda: GPIO21
+  scl: GPIO22
+  scan: true
+  id: bus_a
+
+sensor:
+  - platform: bme280_i2c
+    i2c_id: bus_a
+    address: 0x76
+    update_interval: 60s
+    temperature:
+      name: "Wohnzimmer Temperatur"
+      oversampling: 16x
+    pressure:
+      name: "Wohnzimmer Luftdruck"
+    humidity:
+      name: "Wohnzimmer Luftfeuchte"</code></pre>
+         <p>Die meisten günstigen Module melden sich unter <code>0x76</code>; der Doku-Standard ist <code>0x77</code>. Dank
+         <code>scan: true</code> listet das Log beim Start alle gefundenen Adressen – dann einfach die richtige eintragen.
+         Mit <em>Save</em> speichern.</p>
+      </div>
+
+      <div class="step" id="schritt-5"><span class="step-number">5</span><h3>Erstes Flashen per USB im Browser</h3>
+        <p>Verbinde den ESP32 per USB mit dem Rechner, auf dem der Browser läuft. Klicke im Device Builder auf
+         <strong>Install → Plug into this computer</strong>. Chrome oder Edge flashen über <em>Web Serial</em> direkt aus dem
+         Browser – ohne Treiber-Installation. Beim ersten Mal kompiliert ESPHome die Firmware, das dauert einige Minuten.
+         Danach startet der ESP32 neu und verbindet sich mit dem WLAN. Alle weiteren Updates laufen drahtlos (OTA).</p>
+      </div>
+
+      <div class="step" id="schritt-6"><span class="step-number">6</span><h3>Gerät in Home Assistant übernehmen</h3>
+        <p>Home Assistant entdeckt das Gerät meist von selbst: Unter <em>Einstellungen → Geräte &amp; Dienste</em> erscheint
+         eine ESPHome-Meldung – <em>Konfigurieren</em> klicken. Alternativ Integration ESPHome manuell hinzufügen und den
+         Hostnamen <code>klima-wohnzimmer.local</code> eingeben. Die drei Sensoren stehen dann als Entitäten bereit und
+         schreiben Verlauf.</p>
+      </div>
+
+      <div class="step" id="schritt-7"><span class="step-number">7</span><h3>Dashboard-Karte und Automation</h3>
+        <p>Lege auf dem Dashboard eine <em>Verlaufsdiagramm</em>-Karte mit den drei Entitäten an. Eine sinnvolle erste
+         Automation: Benachrichtigung aufs Handy, wenn die Luftfeuchte länger als 30 Minuten über 65 Prozent liegt – ein
+         praktischer Schimmel-Frühwarner fürs Schlafzimmer.</p>
+      </div>
+
+      <h2>Fehlersuche</h2>
+      <ul>
+        <li><strong>„Communication with BME280 failed“:</strong> Adresse prüfen (0x76/0x77), SDA/SCL vertauscht, oder das Modul hängt an 5 V ohne Regler. Laut Doku hilft es bei manchen Modulen, den Pin <code>CSB</code> auf 3,3 V zu legen.</li>
+        <li><strong>Kein Port beim Flashen:</strong> USB-Kabel ohne Datenleitungen oder fehlender USB-Seriell-Treiber (CP210x/CH340) auf dem Rechner. Bei manchen Boards beim Einstecken die <em>BOOT</em>-Taste halten.</li>
+        <li><strong>Temperatur zu hoch:</strong> Der ESP32 heizt den Sensor. Sensor am Kabel etwas vom Board weg montieren oder in der YAML einen <code>filters: - offset: -1.5</code> ergänzen.</li>
+      </ul>
+      <p>Wer den Sensor per Akku betreiben will, ergänzt <code>deep_sleep:</code> mit <code>run_duration: 30s</code> und
+      <code>sleep_duration: 10min</code> – dann hält eine 18650-Zelle Monate. Weitere Projekte: unser
+      <a href="/diy/home-assistant-raspberry-pi-5-matter-einrichten.html">Home-Assistant-Einstieg auf dem Raspberry Pi 5</a> und die
+      <a href="/diy/ai-smart-home-dashboard.html">KI-Dashboard-Anleitung</a>.</p>
+
+      <h2>Häufige Fragen</h2>
+      <h3>BME280 oder BMP280?</h3>
+      <p>Der BMP280 misst nur Temperatur und Luftdruck. Für Luftfeuchte brauchst du den BME280; beide Module sehen fast gleich aus, also die Beschriftung des Chips prüfen.</p>
+      <h3>Muss ich löten?</h3>
+      <p>Nicht, wenn das Modul mit bestückter Stiftleiste geliefert wird. Dann reichen Jumperkabel.</p>
+      <h3>Funktioniert das auch mit dem ESP8266?</h3>
+      <p>Ja, ESPHome unterstützt ESP8266 (z. B. Wemos D1 mini). Dort sind die I²C-Pins standardmäßig D2 (SDA) und D1 (SCL).</p>
+
+      <h2>Quellen</h2>
+      <ul>
+        <li><a href="https://esphome.io/components/sensor/bme280.html" target="_blank" rel="noopener">ESPHome: BME280 Temperature+Pressure+Humidity Sensor (offizielle Doku, YAML-Beispiel)</a></li>
+        <li><a href="https://esphome.io/guides/getting_started_hassio.html" target="_blank" rel="noopener">ESPHome: Getting Started with Home Assistant (Add-on, Web-Serial-Flashen, Adoption)</a></li>
+        <li><a href="https://esphome.io/components/i2c.html" target="_blank" rel="noopener">ESPHome: I²C Bus (sda/scl/scan)</a></li>
+      </ul>
+
+      <p class="ki-hinweis"><em>Transparenz: Dieser Beitrag wurde mit KI-Unterstützung recherchiert und verfasst und redaktionell geprüft (Kennzeichnung nach Art. 50 KI-VO). Alle Angaben stammen aus den genannten Quellen, Stand 24. September 2026. Links zu Amazon sind Affiliate-Links (Werbung).</em></p>
+
+      <div class="read-more">
+        <h3>Weiterlesen</h3>
+        <a href="/diy/home-assistant-raspberry-pi-5-matter-einrichten.html">🏠 DIY Home Assistant auf dem Raspberry Pi 5</a>
+        <a href="/diy/energie-dashboard-home-assistant-tapo-p110m.html">⚡ DIY Energie-Dashboard mit Tapo P110M</a>
+        <a href="/diy/ai-security-camera.html">📷 DIY KI-Sicherheitskamera mit Raspberry Pi</a>
+      </div>
+    </article>
+  </div>
+  <div class="footer">
+    <p>© 2026 MMOFinds — <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></p>
+  </div>
+
+    <footer class="site-footer">
+<p class="amz-hinweis">Werbung: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Links zu Amazon sind Affiliate-Links; für dich ändert sich der Preis nicht. Preise und Verfügbarkeit bitte direkt bei Amazon prüfen.</p>
+        <div class="footer-content">
+            <h3>MMOFINDS</h3>
+            <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Startseite</a>
+                <a href="/news/">AI & Tech-News</a>
+                <a href="/diy/">DIY Projekte</a>
+                <a href="/pages/">Produkt-Reviews</a>
+            </div>
+            <p class="copyright">&copy; 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    
+      <a href="/kontakt.html">Kontakt</a>
+    
+      <a href="/ueber-uns.html">Über uns</a>
+    
+      <a href="/affiliate-info.html">Amazon Affiliate</a>
+    </footer>
+
+
+<!-- Dark/Light Mode Toggle -->
+<button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>
+
+<script>
+// Theme Toggle
+(function() {
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Gespeichertes Theme anwenden
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        toggle.textContent = '☀️';
+    }
+    
+    // Toggle Klick
+    toggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            toggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            toggle.textContent = '🌙';
+        }
+    });
+})();
+</script>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+</html>
