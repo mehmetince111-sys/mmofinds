@@ -1036,3 +1036,19 @@ html:root{
   --color-border:#E6EBF4; --color-border-hover:#2D5BFF;
 }
 
+/* === 24.09.2026 Optimierung: Overflow, CTA, Video, Hinweise === */
+html{overflow-x:hidden}
+.nav .nav-inner{flex-wrap:wrap;row-gap:6px}
+.article-content table,main table,article table{display:block;overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+code{white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word}
+pre{max-width:100%;overflow-x:auto}
+pre code{white-space:pre;overflow-wrap:normal;word-break:normal}
+.hero-cta,a.product-btn.hero-cta{display:inline-block;margin:14px 0 2px;padding:13px 24px;border-radius:12px;background:#FF9900 !important;background-image:none !important;color:#111 !important;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(255,153,0,.28);transition:transform .15s,background .15s}
+.hero-cta:hover,a.product-btn.hero-cta:hover{background:#F08804 !important;transform:translateY(-1px)}
+.review-hero .hero-image,.review-hero .review-hero-image,.review-hero-image{max-height:440px;width:auto;max-width:100%;margin-left:auto;margin-right:auto;object-fit:contain}
+@media (max-width:640px){.review-hero .hero-image,.review-hero .review-hero-image,.review-hero-image{max-height:300px}}
+.hero-cta-note{display:block;font-size:.78rem;opacity:.72;margin:4px 0 10px}
+.amz-hinweis{font-size:.8rem;opacity:.8;max-width:var(--max-width,1100px);margin:0 auto 12px;padding:0 16px;line-height:1.45}
+.ki-hinweis{display:block;font-size:.78rem;opacity:.7;margin-top:2px}
+video.product-video{min-height:200px}
+img{max-width:100%;height:auto}
