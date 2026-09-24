@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Stromverbrauch sichtbar machen: Energie-Dashboard in Home Assistant mit der Tapo P110M — MMOFinds">
+    <meta property="og:description" content="Mit einer Messsteckdose wie der Tapo P110M den Verbrauch von Waschmaschine, Kühlschrank oder Wallbox in Home Assistant erfassen: TP-Link-Integration, Energie-Dashboard, Riemann-Helfer für reine Leistungssensoren und eine „Waschmaschine fertig“-Automation.">
+    <meta property="og:image" content="https://mmofinds.de/images/diy/energie-dashboard-home-assistant-tapo-p110m.jpg">
+    <meta property="og:url" content="https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stromverbrauch sichtbar machen: Energie-Dashboard in Home Assistant mit der Tapo P110M — MMOFinds">
+    <meta name="twitter:description" content="Mit einer Messsteckdose wie der Tapo P110M den Verbrauch von Waschmaschine, Kühlschrank oder Wallbox in Home Assistant erfassen: TP-Link-Integration, Energie-Dashboard, Riemann-Helfer für reine Leistungssensoren und eine „Waschmaschine fertig“-Automation.">
+    <meta name="twitter:image" content="https://mmofinds.de/images/diy/energie-dashboard-home-assistant-tapo-p110m.jpg">
+    <meta name="description" content="Mit einer Messsteckdose wie der Tapo P110M den Verbrauch von Waschmaschine, Kühlschrank oder Wallbox in Home Assistant erfassen: TP-Link-Integration, Energie-Dashboard, Riemann-Helfer für reine Leistungssensoren und eine „Waschmaschine fertig“-Automation.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stromverbrauch sichtbar machen: Energie-Dashboard in Home Assistant mit der Tapo P110M — MMOFinds</title>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "Stromverbrauch sichtbar machen: Energie-Dashboard in Home Assistant mit der Tapo P110M", "description": "Mit einer Messsteckdose wie der Tapo P110M den Verbrauch von Waschmaschine, Kühlschrank oder Wallbox in Home Assistant erfassen: TP-Link-Integration, Energie-Dashboard, Riemann-Helfer für reine Leistungssensoren und eine „Waschmaschine fertig“-Automation.", "image": ["https://mmofinds.de/images/diy/energie-dashboard-home-assistant-tapo-p110m.jpg"], "totalTime": "PT30M", "inLanguage": "de", "datePublished": "2026-09-24", "author": {"@type": "Organization", "name": "MMOFinds Redaktion", "url": "https://mmofinds.de/ueber-uns.html"}, "supply": [{"@type": "HowToSupply", "name": "Messende Smart-Steckdose"}, {"@type": "HowToSupply", "name": "Home Assistant"}, {"@type": "HowToSupply", "name": "Tapo-App und TP-Link-Konto"}, {"@type": "HowToSupply", "name": "Optional: weitere Steckdosen"}], "step": [{"@type": "HowToStep", "position": 1, "name": "Steckdose in der Tapo-App einrichten", "text": "Steckdose einstecken, Tapo-App öffnen, Gerät hinzufügen und mit dem 2,4-GHz-WLAN verbinden.\n         Vergib einen Namen wie „Waschmaschine“. Laut Home-Assistant-Doku verlangen einige Firmware-Versionen, dass in der\n         Tapo-App die Option „Third-Party Compatibility“ (Drittanbieter-Kompatibilität) aktiviert wird – zu finden\n         in den Geräteeinstellungen bzw. unter Konto → Tapo Lab.", "url": "https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html#schritt-1"}, {"@type": "HowToStep", "position": 2, "name": "TP-Link-Integration in Home Assistant", "text": "Home Assistant findet die Steckdose in der Regel selbst: Unter Einstellungen → Geräte &amp; Dienste\n         erscheint „TP-Link Smart Home“ → Konfigurieren. Tapo-Geräte verlangen laut Doku eine Anmeldung: Gib die\n         E-Mail-Adresse deines TP-Link-Kontos (Groß-/Kleinschreibung beachten) und das Passwort ein. Wird das Gerät\n         nicht gefunden, Integration manuell hinzufügen und die IP-Adresse der Steckdose eintragen (im Router nachsehen und dort\n         fest zuweisen).", "url": "https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html#schritt-2"}, {"@type": "HowToStep", "position": 3, "name": "Sensoren prüfen", "text": "Die P110M liefert einen Schalter und mehrere Sensoren, darunter aktuelle Leistung (W) und Energie (kWh). Öffne das\n         Gerät und prüfe unter Sensoren, dass ein Wert in kWh vorhanden ist und steigt – typischerweise\n         „Heute“ und „Gesamt“. Für das Energie-Dashboard braucht der Sensor die Geräteklasse energy und die\n         Zustandsklasse total_increasing; die Integration setzt beides automatisch.", "url": "https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html#schritt-3"}, {"@type": "HowToStep", "position": 4, "name": "Gerät ins Energie-Dashboard aufnehmen", "text": "Einstellungen → Dashboards → Energie öffnen. Im Abschnitt „Einzelne Geräte“ auf\n         Gerät hinzufügen klicken und den kWh-Sensor der Steckdose wählen. Nach etwa zwei Stunden erscheinen die\n         ersten Balken; das Dashboard rechnet stündlich. Optional trägst du oben den Netzbezug deines Stromzählers ein – dann\n         zeigt Home Assistant, welchen Anteil das Gerät am Gesamtverbrauch hat.", "url": "https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html#schritt-4"}, {"@type": "HowToStep", "position": 5, "name": "Nur ein Leistungssensor? Riemann-Helfer anlegen", "text": "Liefert ein Gerät nur Watt statt kWh, empfiehlt die Doku den Integral-Helfer (Riemann-Summe):\n         Einstellungen → Geräte &amp; Dienste → Helfer → Helfer erstellen → Integral. Als Eingang den Leistungssensor,\n         als Einheitenpräfix k, Zeiteinheit h und Methode left wählen. Der neue Sensor zählt in kWh\n         und lässt sich wie oben ins Dashboard aufnehmen.", "url": "https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html#schritt-5"}, {"@type": "HowToStep", "position": 6, "name": "Automation: „Waschmaschine ist fertig“", "text": "Der praktischste Nutzen der Messung: Benachrichtigung, wenn ein Gerät fertig ist. Als Automation im UI-Editor:\n         alias: Waschmaschine fertig\ntriggers:\n  - trigger: numeric_state\n    entity_id: sensor.waschmaschine_leistung\n    below: 5\n    for:\n      minutes: 3\nconditions:\n  - condition: state\n    entity_id: input_boolean.waschmaschine_laeuft\n    state: \"on\"\nactions:\n  - action: notify.mobile_app_dein_handy\n    data:\n      message: \"Die Wäsche ist fertig.\"\n  - action: input_boolean.turn_off\n    target:\n      entity_id: input_boolean.waschmaschine_laeuft\n         Eine zweite Automation setzt den Schalter input_boolean.waschmaschine_laeuft auf „an“, sobald die\n         Leistung über 20 W steigt. Die Schwellen (5 W / 20 W) an dein Gerät anpassen – im Verlaufsdiagramm sieht man sie gut.", "url": "https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html#schritt-6"}], "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mmofinds.de/"}, {"@type": "ListItem", "position": 2, "name": "DIY", "item": "https://mmofinds.de/diy/"}, {"@type": "ListItem", "position": 3, "name": "Stromverbrauch sichtbar machen: Energie-Dashboard in Home Assistant mit der Tapo P110M", "item": "https://mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Brauche ich ein TP-Link-Konto?", "acceptedAnswer": {"@type": "Answer", "text": "Für Tapo-Steckdosen ja – laut Home-Assistant-Doku ist die Anmeldung mit den Konto-Daten erforderlich. Die Messdaten laufen danach lokal zwischen Steckdose und Home Assistant."}}, {"@type": "Question", "name": "Warum zeigt das Energie-Dashboard nichts an?", "acceptedAnswer": {"@type": "Answer", "text": "Es rechnet stündlich; die ersten Werte erscheinen nach ein bis zwei Stunden. Außerdem muss der Sensor in kWh mit Zustandsklasse total_increasing vorliegen."}}, {"@type": "Question", "name": "Geht das auch mit Zigbee-Steckdosen?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, sofern sie Energie messen. Über Zigbee2MQTT liefern viele Modelle einen kWh-Sensor, der genauso ins Dashboard passt."}}]}</script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8NB2X96FH7', {'page_path': window.location.pathname});
+</script>
+<!-- Ende Google Analytics 4 -->
+
+</head>
+<body>
+    <div class="nav-bar">
+<nav aria-label="Breadcrumb" style="margin:20px 0;font-size:0.9rem;color:#666;"><a href="/" style="color:#4a9eff;text-decoration:none;">Home</a> / <a href="/news/" style="color:#4a9eff;text-decoration:none;">News</a> / <span style="color:#999;">Stromverbrauch sichtbar machen: Energie-Dashboard in Home As</span></nav>
+
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                
+<a href="/" class="nav-link">Start</a>
+<a href="/news/" class="nav-link">News</a>
+<a href="/diy/" class="nav-link">DIY</a>
+<a href="/pages/" class="nav-link">Reviews</a>
+<a href="/impressum.html" class="nav-link">Impressum</a>
+<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+
+            </div>
+        </div>
+    </div>
+  <div class="nav">
+    <div class="nav-inner">
+      <a href="/" style="font-weight: bold; font-size: 1.2rem;">MMOFinds</a>
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <div class="container">
+    <article>
+      <div class="meta">
+        <span class="tag">DIY</span>
+        <span>24. September 2026</span>
+        <span>·</span>
+        <span>8 Min. Lesezeit</span>
+      </div>
+      <h1>Stromverbrauch sichtbar machen: Energie-Dashboard in Home Assistant mit der Tapo P110M</h1>
+
+<!-- Social Sharing -->
+<div class="social-share" style="display:flex;gap:8px;margin:16px 0;flex-wrap:wrap;">
+    <span style="color:#666;font-size:0.9rem;margin-right:10px;">Teilen:</span>
+    <a href="https://api.whatsapp.com/send?text=Stromverbrauch%20sichtbar%20machen%3A%20Energie-Dashboard%20in%20Home%20Assistant%20mit%20der%20Tapo%20P110M%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-whatsapp">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.488 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.781.99.991-3.681-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html" target="_blank" rel="noopener" class="social-facebook">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A//mmofinds.de/diy/energie-dashboard-home-assistant-tapo-p110m.html&text=Stromverbrauch%20sichtbar%20machen%3A%20Energie-Dashboard%20in%20Home%20Assistant%20mit%20der%20Tapo%20P110M%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-twitter">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X (Twitter)
+    </a>
+</div>
+
+      <div class="article-image"><img width="1200" height="630" src="/images/diy/energie-dashboard-home-assistant-tapo-p110m.jpg" alt="Stromverbrauch sichtbar machen: Energie-Dashboard in Home Assistant mit der Tapo P110M – Titelgrafik MMOFinds" class="article-img" style="max-width:100%;height:auto;border-radius:12px;" fetchpriority="high"></div>
+
+<p><strong>Welches Gerät frisst eigentlich den Strom?</strong> Mit einer messenden Zwischensteckdose und dem
+      Energie-Dashboard von Home Assistant siehst du es auf die Kilowattstunde genau – pro Gerät, pro Tag, pro Monat. Wir
+      nehmen die TP-Link Tapo P110M als Beispiel, die wir im <a href="/pages/tapo-p110m.html">Review zur Tapo P110M</a> vorgestellt
+      haben; jede andere Steckdose, die in Home Assistant einen Energiesensor liefert, funktioniert genauso. Kein Eingriff in die
+      Elektroinstallation – die Steckdose wird nur zwischengesteckt.</p>
+      <div class="info-box"><h4>Auf einen Blick</h4><p>Dauer: ca. 30 Min. · Schwierigkeit: Einsteiger · Kosten: siehe Materialliste (Preise bei Amazon prüfen)</p></div>
+
+      <div class="materials-list"><h4>📦 Material (ohne Preisangaben – bitte bei Amazon prüfen)</h4>
+        <ul>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Tapo+P110M&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Messende Smart-Steckdose</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>z. B. TP-Link Tapo P110M (mit Matter) oder P110</span></li>
+          <li><span class="material-name">Home Assistant</span><span>auf Raspberry Pi, NAS oder Mini-PC</span></li>
+          <li><span class="material-name">Tapo-App und TP-Link-Konto</span><span>für die Ersteinrichtung der Steckdose</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Smart+Steckdose+Strommessung+Matter&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Optional: weitere Steckdosen</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>für jedes Großgerät eine</span></li>
+        </ul>
+      </div>
+
+      <h2>Schritt für Schritt</h2>
+
+      <div class="step" id="schritt-1"><span class="step-number">1</span><h3>Steckdose in der Tapo-App einrichten</h3>
+        <p>Steckdose einstecken, Tapo-App öffnen, Gerät hinzufügen und mit dem <strong>2,4-GHz-WLAN</strong> verbinden.
+         Vergib einen Namen wie „Waschmaschine“. Laut Home-Assistant-Doku verlangen einige Firmware-Versionen, dass in der
+         Tapo-App die Option <strong>„Third-Party Compatibility“</strong> (Drittanbieter-Kompatibilität) aktiviert wird – zu finden
+         in den Geräteeinstellungen bzw. unter Konto → Tapo Lab.</p>
+      </div>
+
+      <div class="step" id="schritt-2"><span class="step-number">2</span><h3>TP-Link-Integration in Home Assistant</h3>
+        <p>Home Assistant findet die Steckdose in der Regel selbst: Unter <em>Einstellungen → Geräte &amp; Dienste</em>
+         erscheint „TP-Link Smart Home“ → <em>Konfigurieren</em>. Tapo-Geräte verlangen laut Doku eine Anmeldung: Gib die
+         E-Mail-Adresse deines TP-Link-Kontos (<strong>Groß-/Kleinschreibung beachten</strong>) und das Passwort ein. Wird das Gerät
+         nicht gefunden, Integration manuell hinzufügen und die IP-Adresse der Steckdose eintragen (im Router nachsehen und dort
+         fest zuweisen).</p>
+      </div>
+
+      <div class="step" id="schritt-3"><span class="step-number">3</span><h3>Sensoren prüfen</h3>
+        <p>Die P110M liefert einen Schalter und mehrere Sensoren, darunter aktuelle Leistung (W) und Energie (kWh). Öffne das
+         Gerät und prüfe unter <em>Sensoren</em>, dass ein Wert in <strong>kWh</strong> vorhanden ist und steigt – typischerweise
+         „Heute“ und „Gesamt“. Für das Energie-Dashboard braucht der Sensor die Geräteklasse <em>energy</em> und die
+         Zustandsklasse <em>total_increasing</em>; die Integration setzt beides automatisch.</p>
+      </div>
+
+      <div class="step" id="schritt-4"><span class="step-number">4</span><h3>Gerät ins Energie-Dashboard aufnehmen</h3>
+        <p><em>Einstellungen → Dashboards → Energie</em> öffnen. Im Abschnitt <strong>„Einzelne Geräte“</strong> auf
+         <em>Gerät hinzufügen</em> klicken und den kWh-Sensor der Steckdose wählen. Nach etwa zwei Stunden erscheinen die
+         ersten Balken; das Dashboard rechnet stündlich. Optional trägst du oben den Netzbezug deines Stromzählers ein – dann
+         zeigt Home Assistant, welchen Anteil das Gerät am Gesamtverbrauch hat.</p>
+      </div>
+
+      <div class="step" id="schritt-5"><span class="step-number">5</span><h3>Nur ein Leistungssensor? Riemann-Helfer anlegen</h3>
+        <p>Liefert ein Gerät nur Watt statt kWh, empfiehlt die Doku den <strong>Integral-Helfer</strong> (Riemann-Summe):
+         <em>Einstellungen → Geräte &amp; Dienste → Helfer → Helfer erstellen → Integral</em>. Als Eingang den Leistungssensor,
+         als Einheitenpräfix <code>k</code>, Zeiteinheit <code>h</code> und Methode <em>left</em> wählen. Der neue Sensor zählt in kWh
+         und lässt sich wie oben ins Dashboard aufnehmen.</p>
+      </div>
+
+      <div class="step" id="schritt-6"><span class="step-number">6</span><h3>Automation: „Waschmaschine ist fertig“</h3>
+        <p>Der praktischste Nutzen der Messung: Benachrichtigung, wenn ein Gerät fertig ist. Als Automation im UI-Editor:</p>
+         <pre><code>alias: Waschmaschine fertig
+triggers:
+  - trigger: numeric_state
+    entity_id: sensor.waschmaschine_leistung
+    below: 5
+    for:
+      minutes: 3
+conditions:
+  - condition: state
+    entity_id: input_boolean.waschmaschine_laeuft
+    state: "on"
+actions:
+  - action: notify.mobile_app_dein_handy
+    data:
+      message: "Die Wäsche ist fertig."
+  - action: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.waschmaschine_laeuft</code></pre>
+         <p>Eine zweite Automation setzt den Schalter <code>input_boolean.waschmaschine_laeuft</code> auf „an“, sobald die
+         Leistung über 20 W steigt. Die Schwellen (5 W / 20 W) an dein Gerät anpassen – im Verlaufsdiagramm sieht man sie gut.</p>
+      </div>
+
+      <h2>Was sich zu messen lohnt</h2>
+      <ul>
+        <li><strong>Kühl- und Gefriergeräte:</strong> Ein altes Gerät verrät sich durch hohen Tagesverbrauch – oft die günstigste Einsparung im Haushalt.</li>
+        <li><strong>Standby-Sammler:</strong> TV-Ecke, Router, Konsole an einer Steckdose – überraschend oft 20 bis 40 W rund um die Uhr.</li>
+        <li><strong>Wallbox oder Ladeziegel:</strong> Wer ein gefördertes E-Auto lädt (siehe <a href="/news/e-auto-foerderung-2026-neuzulassungen-august.html">E-Auto-Boom im August 2026</a>), sieht, was ein Ladevorgang tatsächlich kostet.</li>
+      </ul>
+      <p><strong>Sicherheitshinweis:</strong> Messsteckdosen sind bis zu ihrer angegebenen Maximallast (bei der P110M 16 A) ausgelegt.
+      Heizlüfter oder Wallboxen an der Haushaltssteckdose nur, wenn Leistung und Steckdose dafür freigegeben sind – im Zweifel
+      Elektrofachkraft fragen. Für Heizkörper lohnt der Blick auf unseren Review zum
+      <a href="/pages/tado-heizkoerperthermostat-x.html">tado° Thermostat X</a>.</p>
+
+      <h2>Häufige Fragen</h2>
+      <h3>Brauche ich ein TP-Link-Konto?</h3>
+      <p>Für Tapo-Steckdosen ja – laut Home-Assistant-Doku ist die Anmeldung mit den Konto-Daten erforderlich. Die Messdaten laufen danach lokal zwischen Steckdose und Home Assistant.</p>
+      <h3>Warum zeigt das Energie-Dashboard nichts an?</h3>
+      <p>Es rechnet stündlich; die ersten Werte erscheinen nach ein bis zwei Stunden. Außerdem muss der Sensor in kWh mit Zustandsklasse total_increasing vorliegen.</p>
+      <h3>Geht das auch mit Zigbee-Steckdosen?</h3>
+      <p>Ja, sofern sie Energie messen. Über Zigbee2MQTT liefern viele Modelle einen kWh-Sensor, der genauso ins Dashboard passt.</p>
+
+      <h2>Quellen</h2>
+      <ul>
+        <li><a href="https://www.home-assistant.io/integrations/tplink/" target="_blank" rel="noopener">Home Assistant: TP-Link Smart Home – unterstützte Tapo-Geräte, Anmeldung, Third-Party Compatibility</a></li>
+        <li><a href="https://www.home-assistant.io/docs/energy/individual-devices/" target="_blank" rel="noopener">Home Assistant: Energy – Individual devices und Integral-Helfer</a></li>
+        <li><a href="https://www.home-assistant.io/integrations/integration/" target="_blank" rel="noopener">Home Assistant: Integration (Riemann sum integral)</a></li>
+      </ul>
+
+      <p class="ki-hinweis"><em>Transparenz: Dieser Beitrag wurde mit KI-Unterstützung recherchiert und verfasst und redaktionell geprüft (Kennzeichnung nach Art. 50 KI-VO). Alle Angaben stammen aus den genannten Quellen, Stand 24. September 2026. Links zu Amazon sind Affiliate-Links (Werbung).</em></p>
+
+      <div class="read-more">
+        <h3>Weiterlesen</h3>
+        <a href="/pages/tapo-p110m.html">🔌 REVIEW TP-Link Tapo P110M</a>
+        <a href="/diy/zigbee2mqtt-home-assistant-zigbee-dongle.html">📡 DIY Zigbee2MQTT in Home Assistant</a>
+        <a href="/pages/tado-heizkoerperthermostat-x.html">🌡️ REVIEW tado° Heizkörperthermostat X</a>
+      </div>
+    </article>
+  </div>
+  <div class="footer">
+    <p>© 2026 MMOFinds — <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></p>
+  </div>
+
+    <footer class="site-footer">
+<p class="amz-hinweis">Werbung: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Links zu Amazon sind Affiliate-Links; für dich ändert sich der Preis nicht. Preise und Verfügbarkeit bitte direkt bei Amazon prüfen.</p>
+        <div class="footer-content">
+            <h3>MMOFINDS</h3>
+            <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Startseite</a>
+                <a href="/news/">AI & Tech-News</a>
+                <a href="/diy/">DIY Projekte</a>
+                <a href="/pages/">Produkt-Reviews</a>
+            </div>
+            <p class="copyright">&copy; 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    
+      <a href="/kontakt.html">Kontakt</a>
+    
+      <a href="/ueber-uns.html">Über uns</a>
+    
+      <a href="/affiliate-info.html">Amazon Affiliate</a>
+    </footer>
+
+
+<!-- Dark/Light Mode Toggle -->
+<button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>
+
+<script>
+// Theme Toggle
+(function() {
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Gespeichertes Theme anwenden
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        toggle.textContent = '☀️';
+    }
+    
+    // Toggle Klick
+    toggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            toggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            toggle.textContent = '🌙';
+        }
+    });
+})();
+</script>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+</html>
