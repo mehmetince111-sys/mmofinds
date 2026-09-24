@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="canonical" href="https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Lokale KI in 20 Minuten: Ollama und Open WebUI per Docker – dein eigener ChatGPT-Ersatz ohne Cloud — MMOFinds">
+    <meta property="og:description" content="Ollama und Open WebUI per Docker auf PC, Mini-PC oder NAS einrichten: offizielle Befehle für CPU, NVIDIA und AMD, erstes Modell laden, Weboberfläche im Browser, Dokumente hochladen. Keine Daten verlassen dein Netz.">
+    <meta property="og:image" content="https://mmofinds.de/images/diy/lokale-ki-ollama-open-webui-docker.jpg">
+    <meta property="og:url" content="https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lokale KI in 20 Minuten: Ollama und Open WebUI per Docker – dein eigener ChatGPT-Ersatz ohne Cloud — MMOFinds">
+    <meta name="twitter:description" content="Ollama und Open WebUI per Docker auf PC, Mini-PC oder NAS einrichten: offizielle Befehle für CPU, NVIDIA und AMD, erstes Modell laden, Weboberfläche im Browser, Dokumente hochladen. Keine Daten verlassen dein Netz.">
+    <meta name="twitter:image" content="https://mmofinds.de/images/diy/lokale-ki-ollama-open-webui-docker.jpg">
+    <meta name="description" content="Ollama und Open WebUI per Docker auf PC, Mini-PC oder NAS einrichten: offizielle Befehle für CPU, NVIDIA und AMD, erstes Modell laden, Weboberfläche im Browser, Dokumente hochladen. Keine Daten verlassen dein Netz.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lokale KI in 20 Minuten: Ollama und Open WebUI per Docker – dein eigener ChatGPT-Ersatz ohne Cloud — MMOFinds</title>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/mobile.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "Lokale KI in 20 Minuten: Ollama und Open WebUI per Docker – dein eigener ChatGPT-Ersatz ohne Cloud", "description": "Ollama und Open WebUI per Docker auf PC, Mini-PC oder NAS einrichten: offizielle Befehle für CPU, NVIDIA und AMD, erstes Modell laden, Weboberfläche im Browser, Dokumente hochladen. Keine Daten verlassen dein Netz.", "image": ["https://mmofinds.de/images/diy/lokale-ki-ollama-open-webui-docker.jpg"], "totalTime": "PT30M", "inLanguage": "de", "datePublished": "2026-09-24", "author": {"@type": "Organization", "name": "MMOFinds Redaktion", "url": "https://mmofinds.de/ueber-uns.html"}, "supply": [{"@type": "HowToSupply", "name": "Rechner mit Docker"}, {"@type": "HowToSupply", "name": "Arbeitsspeicher"}, {"@type": "HowToSupply", "name": "Optional: Grafikkarte"}, {"@type": "HowToSupply", "name": "Freier Speicherplatz"}, {"@type": "HowToSupply", "name": "Optional: Mini-PC als Dauerläufer"}], "step": [{"@type": "HowToStep", "position": 1, "name": "Ollama-Container starten", "text": "Nur CPU (funktioniert überall):\n         docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama\n         Mit NVIDIA-Grafikkarte zuerst das NVIDIA Container Toolkit installieren, Docker konfigurieren und dann starten:\n         sudo nvidia-ctk runtime configure --runtime=docker\nsudo systemctl restart docker\ndocker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama\n         Mit AMD-Grafikkarte (ROCm) das spezielle Image verwenden:\n         docker run -d --device /dev/kfd --device /dev/dri -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama:rocm\n         Das Volume ollama speichert die Modelle dauerhaft; Port 11434 ist die Ollama-API.", "url": "https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html#schritt-1"}, {"@type": "HowToStep", "position": 2, "name": "Erstes Modell laden und testen", "text": "docker exec -it ollama ollama run llama3.2\n         Ollama lädt das Modell beim ersten Aufruf herunter und öffnet danach einen Chat im Terminal. Mit /bye\n         beendest du ihn. Weitere Modelle findest du in der Ollama-Bibliothek; für deutschsprachige Aufgaben sind Modelle\n         der Qwen- und Gemma-Familien beliebt. Faustregel: Ein Modell mit 8 Milliarden Parametern braucht rund 5 GB RAM\n         oder VRAM, mit 3 Milliarden etwa 2 GB.", "url": "https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html#schritt-2"}, {"@type": "HowToStep", "position": 3, "name": "Open WebUI starten", "text": "Die Oberfläche läuft als zweiter Container und verbindet sich mit Ollama auf demselben Rechner:\n         docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main\n         Wer alles in einem Container möchte, nimmt das gebündelte Image (enthält Ollama gleich mit; CPU-Variante):\n         docker run -d -p 3000:8080 -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama\n         Für GPU-Systeme ergänzt man --gpus=all. Die Doku empfiehlt zusätzlich einen festen Schlüssel per\n         -e WEBUI_SECRET_KEY=… (erzeugen mit openssl rand -hex 32), damit Anmeldungen einen Neustart überleben.", "url": "https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html#schritt-3"}, {"@type": "HowToStep", "position": 4, "name": "Anmelden und Modell wählen", "text": "Öffne http://localhost:3000 (vom NAS aus: dessen IP-Adresse). Beim ersten Aufruf legst du ein\n         Administratorkonto an – es liegt nur lokal in der Datenbank des Containers. Oben links wählst du das\n         Modell; fehlt eines, kannst du es in Admin → Einstellungen → Modelle direkt aus der Oberfläche laden.", "url": "https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html#schritt-4"}, {"@type": "HowToStep", "position": 5, "name": "Dokumente einbinden (RAG)", "text": "Über das Büroklammer-Symbol im Chat lädst du PDFs oder Textdateien hoch; Open WebUI zerlegt sie und lässt das\n         Modell darauf antworten. Unter Workspace → Knowledge legst du dauerhafte Sammlungen an – etwa deine\n         Bedienungsanleitungen oder Notizen. Nichts davon verlässt den Rechner.", "url": "https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html#schritt-5"}, {"@type": "HowToStep", "position": 6, "name": "Zugriff aus dem Heimnetz und Updates", "text": "Andere Geräte erreichen die Oberfläche über http://&lt;IP-des-Rechners&gt;:3000. Öffne den Port\n         nicht im Router nach außen – wer von unterwegs zugreifen will, nutzt ein VPN (z. B. WireGuard auf der FRITZ!Box).\n         Updates: Container stoppen, Image neu ziehen, Container mit demselben Befehl neu anlegen; die Volumes bleiben erhalten.\n         docker pull ollama/ollama\ndocker pull ghcr.io/open-webui/open-webui:main", "url": "https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html#schritt-6"}], "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://mmofinds.de/"}, {"@type": "ListItem", "position": 2, "name": "DIY", "item": "https://mmofinds.de/diy/"}, {"@type": "ListItem", "position": 3, "name": "Lokale KI in 20 Minuten: Ollama und Open WebUI per Docker – dein eigener ChatGPT-Ersatz ohne Cloud", "item": "https://mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Brauche ich eine Grafikkarte?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Ollama läuft auf der CPU; kleine Modelle (3 B) sind dann noch flüssig, größere langsam. Eine GPU beschleunigt um ein Vielfaches."}}, {"@type": "Question", "name": "Wo liegen meine Daten?", "acceptedAnswer": {"@type": "Answer", "text": "Modelle im Docker-Volume „ollama“, Chats und Konten im Volume „open-webui“ – beides nur auf deinem Rechner."}}, {"@type": "Question", "name": "Läuft das unter Windows?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, mit Docker Desktop (WSL2). Alternativ gibt es Ollama auch als nativen Windows-Installer; Open WebUI verbindet sich dann mit http://host.docker.internal:11434."}}]}</script>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8NB2X96FH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8NB2X96FH7', {'page_path': window.location.pathname});
+</script>
+<!-- Ende Google Analytics 4 -->
+
+</head>
+<body>
+    <div class="nav-bar">
+<nav aria-label="Breadcrumb" style="margin:20px 0;font-size:0.9rem;color:#666;"><a href="/" style="color:#4a9eff;text-decoration:none;">Home</a> / <a href="/news/" style="color:#4a9eff;text-decoration:none;">News</a> / <span style="color:#999;">Lokale KI in 20 Minuten: Ollama und Open WebUI per Docker – </span></nav>
+
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">MMO<span>Finds</span></a>
+            <div class="nav-links"><a href="/assets/search.html" class="nav-link">🔍 Suche</a>
+                
+<a href="/" class="nav-link">Start</a>
+<a href="/news/" class="nav-link">News</a>
+<a href="/diy/" class="nav-link">DIY</a>
+<a href="/pages/" class="nav-link">Reviews</a>
+<a href="/impressum.html" class="nav-link">Impressum</a>
+<a href="/datenschutz.html" class="nav-link">Datenschutz</a>
+
+            </div>
+        </div>
+    </div>
+  <div class="nav">
+    <div class="nav-inner">
+      <a href="/" style="font-weight: bold; font-size: 1.2rem;">MMOFinds</a>
+      <a href="/">Start</a>
+      <a href="/news/">News</a>
+      <a href="/diy/">DIY</a>
+      <a href="/pages/">Reviews</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+    </div>
+  </div>
+  <div class="container">
+    <article>
+      <div class="meta">
+        <span class="tag">DIY</span>
+        <span>24. September 2026</span>
+        <span>·</span>
+        <span>9 Min. Lesezeit</span>
+      </div>
+      <h1>Lokale KI in 20 Minuten: Ollama und Open WebUI per Docker – dein eigener ChatGPT-Ersatz ohne Cloud</h1>
+
+<!-- Social Sharing -->
+<div class="social-share" style="display:flex;gap:8px;margin:16px 0;flex-wrap:wrap;">
+    <span style="color:#666;font-size:0.9rem;margin-right:10px;">Teilen:</span>
+    <a href="https://api.whatsapp.com/send?text=Lokale%20KI%20in%2020%20Minuten%3A%20Ollama%20und%20Open%20WebUI%20per%20Docker%20%E2%80%93%20dein%20eigener%20ChatGPT-Ersatz%20ohne%20Cloud%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-whatsapp">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.488 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.781.99.991-3.681-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html" target="_blank" rel="noopener" class="social-facebook">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?url=https%3A//mmofinds.de/diy/lokale-ki-ollama-open-webui-docker.html&text=Lokale%20KI%20in%2020%20Minuten%3A%20Ollama%20und%20Open%20WebUI%20per%20Docker%20%E2%80%93%20dein%20eigener%20ChatGPT-Ersatz%20ohne%20Cloud%20%E2%80%94%20MMOFinds" target="_blank" rel="noopener" class="social-twitter">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        X (Twitter)
+    </a>
+</div>
+
+      <div class="article-image"><img width="1200" height="630" src="/images/diy/lokale-ki-ollama-open-webui-docker.jpg" alt="Lokale KI in 20 Minuten: Ollama und Open WebUI per Docker – dein eigener ChatGPT-Ersatz ohne Cloud – Titelgrafik MMOFinds" class="article-img" style="max-width:100%;height:auto;border-radius:12px;" fetchpriority="high"></div>
+
+<p><strong>Ein Sprachmodell, das Fragen beantwortet, Texte zusammenfasst und Code erklärt – und dabei kein
+      Wort nach außen schickt.</strong> Mit Ollama (Modell-Server) und Open WebUI (Chat-Oberfläche) ist das in zwei
+      Docker-Befehlen erledigt. Diese Anleitung nutzt ausschließlich die Kommandos aus den offiziellen Dokumentationen,
+      damit nichts an einer veralteten Option scheitert. Läuft auf Windows (mit Docker Desktop), Linux, macOS, Mini-PCs
+      und den meisten NAS mit Docker.</p>
+      <div class="info-box"><h4>Auf einen Blick</h4><p>Dauer: ca. 30 Min. · Schwierigkeit: Einsteiger · Kosten: siehe Materialliste (Preise bei Amazon prüfen)</p></div>
+
+      <div class="materials-list"><h4>📦 Material (ohne Preisangaben – bitte bei Amazon prüfen)</h4>
+        <ul>
+          <li><span class="material-name">Rechner mit Docker</span><span>Docker Desktop (Windows/macOS) oder Docker Engine (Linux); NAS mit Container-Station/Container Manager</span></li>
+          <li><span class="material-name">Arbeitsspeicher</span><span>mindestens 8 GB für Modelle mit rund 3 Milliarden Parametern, 16 GB für 7–8 B</span></li>
+          <li><span class="material-name">Optional: Grafikkarte</span><span>NVIDIA mit Container Toolkit oder AMD mit ROCm – beschleunigt deutlich, ist aber nicht Pflicht</span></li>
+          <li><span class="material-name">Freier Speicherplatz</span><span>5–10 GB je Modell</span></li>
+          <li><span class="material-name"><a href="https://www.amazon.de/s?k=Mini+PC+32GB+RAM&amp;tag=mmofinds-21" target="_blank" rel="nofollow noopener sponsored">Optional: Mini-PC als Dauerläufer</a> <span class="werbung-hinweis" style="font-size:.8em;color:#666">(Werbung)</span></span><span>ein sparsamer Mini-PC mit 32 GB RAM ist eine gute lokale KI-Basis</span></li>
+        </ul>
+      </div>
+
+      <h2>Schritt für Schritt</h2>
+
+      <div class="step" id="schritt-1"><span class="step-number">1</span><h3>Ollama-Container starten</h3>
+        <p>Nur CPU (funktioniert überall):</p>
+         <pre><code>docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</code></pre>
+         <p>Mit NVIDIA-Grafikkarte zuerst das <em>NVIDIA Container Toolkit</em> installieren, Docker konfigurieren und dann starten:</p>
+         <pre><code>sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama</code></pre>
+         <p>Mit AMD-Grafikkarte (ROCm) das spezielle Image verwenden:</p>
+         <pre><code>docker run -d --device /dev/kfd --device /dev/dri -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama:rocm</code></pre>
+         <p>Das Volume <code>ollama</code> speichert die Modelle dauerhaft; Port 11434 ist die Ollama-API.</p>
+      </div>
+
+      <div class="step" id="schritt-2"><span class="step-number">2</span><h3>Erstes Modell laden und testen</h3>
+        <pre><code>docker exec -it ollama ollama run llama3.2</code></pre>
+         <p>Ollama lädt das Modell beim ersten Aufruf herunter und öffnet danach einen Chat im Terminal. Mit <code>/bye</code>
+         beendest du ihn. Weitere Modelle findest du in der Ollama-Bibliothek; für deutschsprachige Aufgaben sind Modelle
+         der Qwen- und Gemma-Familien beliebt. Faustregel: Ein Modell mit 8 Milliarden Parametern braucht rund 5 GB RAM
+         oder VRAM, mit 3 Milliarden etwa 2 GB.</p>
+      </div>
+
+      <div class="step" id="schritt-3"><span class="step-number">3</span><h3>Open WebUI starten</h3>
+        <p>Die Oberfläche läuft als zweiter Container und verbindet sich mit Ollama auf demselben Rechner:</p>
+         <pre><code>docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</code></pre>
+         <p>Wer alles in einem Container möchte, nimmt das gebündelte Image (enthält Ollama gleich mit; CPU-Variante):</p>
+         <pre><code>docker run -d -p 3000:8080 -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama</code></pre>
+         <p>Für GPU-Systeme ergänzt man <code>--gpus=all</code>. Die Doku empfiehlt zusätzlich einen festen Schlüssel per
+         <code>-e WEBUI_SECRET_KEY=…</code> (erzeugen mit <code>openssl rand -hex 32</code>), damit Anmeldungen einen Neustart überleben.</p>
+      </div>
+
+      <div class="step" id="schritt-4"><span class="step-number">4</span><h3>Anmelden und Modell wählen</h3>
+        <p>Öffne <code>http://localhost:3000</code> (vom NAS aus: dessen IP-Adresse). Beim ersten Aufruf legst du ein
+         <strong>Administratorkonto</strong> an – es liegt nur lokal in der Datenbank des Containers. Oben links wählst du das
+         Modell; fehlt eines, kannst du es in <em>Admin → Einstellungen → Modelle</em> direkt aus der Oberfläche laden.</p>
+      </div>
+
+      <div class="step" id="schritt-5"><span class="step-number">5</span><h3>Dokumente einbinden (RAG)</h3>
+        <p>Über das Büroklammer-Symbol im Chat lädst du PDFs oder Textdateien hoch; Open WebUI zerlegt sie und lässt das
+         Modell darauf antworten. Unter <em>Workspace → Knowledge</em> legst du dauerhafte Sammlungen an – etwa deine
+         Bedienungsanleitungen oder Notizen. Nichts davon verlässt den Rechner.</p>
+      </div>
+
+      <div class="step" id="schritt-6"><span class="step-number">6</span><h3>Zugriff aus dem Heimnetz und Updates</h3>
+        <p>Andere Geräte erreichen die Oberfläche über <code>http://&lt;IP-des-Rechners&gt;:3000</code>. Öffne den Port
+         <strong>nicht</strong> im Router nach außen – wer von unterwegs zugreifen will, nutzt ein VPN (z. B. WireGuard auf der FRITZ!Box).
+         Updates: Container stoppen, Image neu ziehen, Container mit demselben Befehl neu anlegen; die Volumes bleiben erhalten.</p>
+         <pre><code>docker pull ollama/ollama
+docker pull ghcr.io/open-webui/open-webui:main</code></pre>
+      </div>
+
+      <h2>Was realistisch ist – und was nicht</h2>
+      <p>Auf einer reinen CPU antworten 3-B-Modelle flüssig, 8-B-Modelle gemächlich, alles darüber wird zäh. Eine
+      Grafikkarte mit 8 GB VRAM macht 8-B-Modelle schnell; 12–16 GB reichen für 14-B-Modelle. Die großen Cloud-Modelle,
+      die wir in <a href="/news/ki-modelle-september-2026-fable-gemini-astra.html">unserem September-Überblick</a> beschreiben,
+      erreicht man lokal nicht – für Zusammenfassungen, Übersetzungen, Code-Hilfe und Fragen zu eigenen Dokumenten sind die
+      offenen Modelle aber längst gut genug. Wer Ollama lieber auf dem NAS betreibt, findet Hinweise in
+      <a href="/diy/local-llm-nas-ollama-2026.html">Ollama auf Synology und QNAP</a>; für den Raspberry Pi 5 zeigt
+      <a href="/diy/künstliche-intelligenz-auf-dem-raspberry-pi-5-mit-llama-3.html">unsere Llama-Anleitung</a> die Grenzen.</p>
+
+      <h2>Häufige Fragen</h2>
+      <h3>Brauche ich eine Grafikkarte?</h3>
+      <p>Nein. Ollama läuft auf der CPU; kleine Modelle (3 B) sind dann noch flüssig, größere langsam. Eine GPU beschleunigt um ein Vielfaches.</p>
+      <h3>Wo liegen meine Daten?</h3>
+      <p>Modelle im Docker-Volume „ollama“, Chats und Konten im Volume „open-webui“ – beides nur auf deinem Rechner.</p>
+      <h3>Läuft das unter Windows?</h3>
+      <p>Ja, mit Docker Desktop (WSL2). Alternativ gibt es Ollama auch als nativen Windows-Installer; Open WebUI verbindet sich dann mit http://host.docker.internal:11434.</p>
+
+      <h2>Quellen</h2>
+      <ul>
+        <li><a href="https://docs.ollama.com/docker" target="_blank" rel="noopener">Ollama: Docker-Dokumentation (CPU, NVIDIA, AMD, ollama run)</a></li>
+        <li><a href="https://docs.openwebui.com/getting-started/quick-start/" target="_blank" rel="noopener">Open WebUI: Quick Start (docker run, Ports, Volumes, Secret Key)</a></li>
+        <li><a href="https://ollama.com/library" target="_blank" rel="noopener">Ollama: Modellbibliothek</a></li>
+      </ul>
+
+      <p class="ki-hinweis"><em>Transparenz: Dieser Beitrag wurde mit KI-Unterstützung recherchiert und verfasst und redaktionell geprüft (Kennzeichnung nach Art. 50 KI-VO). Alle Angaben stammen aus den genannten Quellen, Stand 24. September 2026. Links zu Amazon sind Affiliate-Links (Werbung).</em></p>
+
+      <div class="read-more">
+        <h3>Weiterlesen</h3>
+        <a href="/news/ki-modelle-september-2026-fable-gemini-astra.html">🧠 NEWS KI-Modelle im September 2026</a>
+        <a href="/diy/local-llm-nas-ollama-2026.html">🖥️ DIY Ollama auf Synology und QNAP</a>
+        <a href="/diy/ki-sprachassistent-raspberry-pi-5-localai.html">🎤 DIY Sprachassistent mit LocalAI</a>
+      </div>
+    </article>
+  </div>
+  <div class="footer">
+    <p>© 2026 MMOFinds — <a href="/impressum.html">Impressum</a> · <a href="/datenschutz.html">Datenschutz</a></p>
+  </div>
+
+    <footer class="site-footer">
+<p class="amz-hinweis">Werbung: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen. Links zu Amazon sind Affiliate-Links; für dich ändert sich der Preis nicht. Preise und Verfügbarkeit bitte direkt bei Amazon prüfen.</p>
+        <div class="footer-content">
+            <h3>MMOFINDS</h3>
+            <p>AI & Tech-Magazin für Technik-Enthusiasten. News aus der KI-Forschung, coole DIY-Projekte und ehrliche Produkt-Reviews.</p>
+            <div class="footer-links">
+                <a href="/">Startseite</a>
+                <a href="/news/">AI & Tech-News</a>
+                <a href="/diy/">DIY Projekte</a>
+                <a href="/pages/">Produkt-Reviews</a>
+            </div>
+            <p class="copyright">&copy; 2026 MMOFinds. Alle Rechte vorbehalten.</p>
+        </div>
+    
+      <a href="/kontakt.html">Kontakt</a>
+    
+      <a href="/ueber-uns.html">Über uns</a>
+    
+      <a href="/affiliate-info.html">Amazon Affiliate</a>
+    </footer>
+
+
+<!-- Dark/Light Mode Toggle -->
+<button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">🌙</button>
+
+<script>
+// Theme Toggle
+(function() {
+    const toggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Gespeichertes Theme anwenden
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        toggle.textContent = '☀️';
+    }
+    
+    // Toggle Klick
+    toggle.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        
+        if (document.body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            toggle.textContent = '☀️';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            toggle.textContent = '🌙';
+        }
+    });
+})();
+</script>
+
+<script>
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    });
+    
+    // Add scroll effect to nav bar
+    window.addEventListener('scroll', () => {
+        const navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 50) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+</html>
