@@ -1,7 +1,5 @@
 # robots.txt für MMOFinds.de
-
 User-agent: *
 Allow: /
-Disallow: /assets/
 
 Sitemap: https://mmofinds.de/sitemap.xml
