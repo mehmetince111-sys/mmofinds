@@ -467,3 +467,109 @@ div.footer,.site-footer+div.footer{margin-top:0;padding:.9rem var(--sp-3);border
 
 /* ---------- 13. Druck ---------- */
 @media print{.nav-bar,.theme-toggle,.social-share,.share-buttons,.price-section,.hero-cta,.site-footer{display:none!important}body{background:#fff;color:#000}}
+
+/* ---------- 14. Grafik-Layer v3.1 (24.09.2026) – nur CSS, kein JS, kein Font-Download ---------- */
+/* Sanfter Mesh-Verlauf am Seitenkopf (statisch, in beiden Themes) */
+body{background-color:var(--paper);background-image:
+  radial-gradient(52% 34% at 6% -8%,color-mix(in srgb,var(--accent) 13%,transparent),transparent 72%),
+  radial-gradient(40% 30% at 96% -6%,color-mix(in srgb,var(--c-audio) 12%,transparent),transparent 72%);
+  background-repeat:no-repeat;background-attachment:scroll}
+@media (prefers-color-scheme:dark){body:not(.light-mode){background-image:
+  radial-gradient(52% 34% at 6% -8%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 72%),
+  radial-gradient(40% 30% at 96% -6%,color-mix(in srgb,var(--c-audio) 16%,transparent),transparent 72%)}}
+/* Kopfzeile: Glas + oben kleben (Desktop) */
+@media (min-width:841px){.nav-bar:not(:has(.card)),header.top-app-bar{position:sticky;top:0}}
+.nav-bar:not(:has(.card)),header.top-app-bar,header.top-bar,body>nav.nav,body>div.nav{box-shadow:0 1px 0 var(--line),0 12px 30px -24px rgba(15,23,42,.35)}
+/* Lesefortschritt (scroll-getrieben, ohne JS) auf Artikeln und Reviews */
+@supports (animation-timeline:scroll()){
+  html:has(.article-content,.news-body,article.article,.review-intro,main.article-page,.container>article,.vgl main)::before{
+    content:"";position:fixed;top:0;left:0;right:0;height:3px;z-index:300;pointer-events:none;
+    background:linear-gradient(90deg,var(--accent),var(--c-audio));transform-origin:0 50%;transform:scaleX(0);
+    animation:mmo-progress linear both;animation-timeline:scroll(root)}
+  @keyframes mmo-progress{to{transform:scaleX(1)}}
+}
+/* Scroll-Einblendung: nur opacity + translate (transform bleibt fuer Hover frei) */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .cards-grid>.card,.products-grid>.product-card,.related-grid>.related-card,.affiliate-grid>.affiliate-card,.benefit-card,.use-case-card,.pros-card,.cons-card,.step,.stat,.stat-card,
+    .how>div,.trust>div,.cat-grid>.cat-card,.mini-grid>.mini,.deal-grid>.deal,.grid>.card,.karten>.karte,.dl-grid>.dl-card,.offer-card,.contact-item{
+      animation:mmo-reveal .5s ease-out both;animation-timeline:view();animation-range:entry 0% entry 30%}
+  }
+  @keyframes mmo-reveal{from{opacity:0;translate:0 22px}to{opacity:1;translate:0 0}}
+}
+/* Mikro-Interaktionen: Schimmer auf Buttons, Druck-Feedback, Touch-Lift */
+.product-btn,.btn,.amazon-link,.verdict-cta,.cta-btn,.error-link,.newsletter-form button,.nl-form button,.dl-card .b{position:relative;overflow:hidden;isolation:isolate}
+.product-btn::after,.btn::after,.amazon-link::after,.verdict-cta::after,.cta-btn::after,.error-link::after,.newsletter-form button::after,.nl-form button::after,.dl-card .b::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.38) 50%,transparent 65%);translate:-130% 0;transition:translate .55s ease}
+.product-btn:hover::after,.btn:hover::after,.amazon-link:hover::after,.verdict-cta:hover::after,.cta-btn:hover::after,.error-link:hover::after,.newsletter-form button:hover::after,.nl-form button:hover::after,.dl-card .b:hover::after{translate:130% 0}
+.product-btn:active,.btn:active,.amazon-link:active,.verdict-cta:active,.cta-btn:active,.error-link:active,.dl-card .b:active{transform:translateY(0) scale(.97)!important;transition-duration:.08s}
+@media (hover:none){a.card:active,.product-card:active,a.related-card:active,a.affiliate-card:active,.cat-card:active,.deal:active,.mini:active,.dl-card:active{transform:scale(.985);transition-duration:.1s}}
+a.card,.product-card,a.related-card,a.affiliate-card,.cat-card,.dl-card{will-change:transform}
+.price-card .amazon-link,.hero-cta{flex:0 0 auto;min-width:max-content}
+/* Karten: feiner Licht-Rand oben, Bildkachel mit sanftem Verlauf */
+.card,.product-card,.related-card,.affiliate-card,.benefit-card,.use-case-card,.dl-card{background-image:linear-gradient(180deg,color-mix(in srgb,var(--surface) 92%,#fff),var(--surface) 38%)}
+@media (prefers-color-scheme:dark){body:not(.light-mode) :is(.card,.product-card,.related-card,.affiliate-card,.benefit-card,.use-case-card,.dl-card){background-image:linear-gradient(180deg,color-mix(in srgb,var(--surface) 88%,#fff),var(--surface) 42%)}}
+.card-image,.product-image{background:radial-gradient(120% 90% at 50% 100%,#fff 58%,#F5F7FA 100%)!important}
+/* Wertung: Score als Kachel mit Verlauf */
+.rating-section{gap:.9rem 1.1rem;padding:.7rem .9rem .7rem .7rem}
+.rating-score{display:grid;place-items:center;min-width:3.3rem;height:3.3rem;padding:0 .45rem;border-radius:13px;
+  background:linear-gradient(135deg,var(--accent),var(--c-audio));color:#fff!important;font-size:1.5rem;letter-spacing:-.03em;
+  box-shadow:0 10px 20px -10px color-mix(in srgb,var(--accent) 75%,transparent)}
+/* Pro/Contra: Ueberschriften mit Icon */
+.pros-card h3,.cons-card h3,.pros-title,.cons-title{display:flex;align-items:center;gap:.55rem}
+.pros-card h3::before,.cons-card h3::before,.pros-title::before,.cons-title::before{content:"";width:1.5rem;height:1.5rem;border-radius:50%;flex:0 0 auto;background-repeat:no-repeat;background-position:center;background-size:62%}
+.pros-card h3::before,.pros-title::before{background-color:var(--ok);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E")}
+.cons-card h3::before,.cons-title::before{background-color:var(--bad);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E")}
+.pros-title::before+*,.pros-card h3>*{margin:0}
+/* Fazit-Kasten mit Anfuehrungs-Ornament */
+.verdict-section,.verdict{position:relative;overflow:hidden}
+.verdict-section::after,.verdict::after{content:"";position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 14%,transparent),transparent 70%)}
+/* Schritte / Statistiken: Nummern in Verlauf */
+.step-number{background:linear-gradient(135deg,var(--accent),var(--c-audio))}
+.stat::before,.stat-card::before{background:linear-gradient(180deg,var(--accent),var(--c-audio))}
+/* Ueberschriften-Akzent in Artikeln */
+.article-content h2::before,.container>article>h2::before,.news-body h2::before{content:"";display:block;width:2.2rem;height:4px;border-radius:2px;margin:0 0 .55rem;background:linear-gradient(90deg,var(--accent),var(--c-audio))}
+/* Bild-Kacheln in News/DIY (SVG-Illustrationen) auf sanftem Verlauf */
+.article-image{background:linear-gradient(135deg,var(--accent-soft),var(--sunk))!important}
+/* Fusszeile: feine Verlaufslinie */
+.site-footer,footer.footer{position:relative}
+.site-footer::before,footer.footer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:3px;background:linear-gradient(90deg,var(--c-phone),var(--c-audio),var(--c-laptop),var(--c-cam),var(--c-vac));opacity:.9}
+/* Uebersichtsseite Reviews: Sektionstitel ohne Testbehauptung */
+.nav-links:has(>.card)::before{content:"Neu im Magazin"}
+/* Deals-Seite (deals/index.html) */
+.dl-head{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--sp-4);align-items:center;padding:var(--sp-4) 0 var(--sp-3)}
+.dl-head h1{margin:0 0 .5rem;font-size:var(--fs-6)}
+.dl-head p{color:var(--muted);font-size:var(--fs-3);max-width:46ch;margin:0 0 1rem}
+.dl-note{display:inline-flex;gap:.5rem;align-items:center;padding:.55rem .9rem;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:var(--fs-0);color:var(--muted);box-shadow:var(--sh-1)}
+.dl-note b{color:var(--accent-ink)}
+.dl-art{justify-self:end;width:min(100%,360px);aspect-ratio:1.15;display:block}
+.dl-filter{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 var(--sp-3)}
+.dl-filter a{padding:.45rem .9rem;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:var(--fs-0);text-decoration:none!important}
+.dl-filter a:hover{border-color:var(--accent);color:var(--accent)}
+.dl-sec{margin:0 0 var(--sp-5)}
+.dl-sec>h2{display:flex;align-items:center;gap:.6rem;margin:0 0 var(--sp-2);padding-bottom:.6rem;border-bottom:2px solid var(--line);font-size:var(--fs-4)}
+.dl-sec>h2 span{margin-left:auto;font-family:var(--mono);font-size:var(--fs-0);font-weight:600;color:var(--muted)}
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--sp-2)}
+.dl-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:var(--sh-1);overflow:hidden;position:relative;transition:transform var(--transition-normal),box-shadow var(--transition-normal),border-color var(--transition-normal)}
+.dl-card:hover{transform:translateY(-4px);box-shadow:var(--sh-3);border-color:color-mix(in srgb,var(--accent) 35%,var(--line))}
+.dl-card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--cat,var(--accent));z-index:2}
+.dl-card .pic{padding:1rem;display:block;background:radial-gradient(120% 90% at 50% 100%,#fff 58%,#F5F7FA 100%);border-bottom:1px solid var(--line)}
+.dl-card .pic img{display:block;width:100%;aspect-ratio:1;height:auto;object-fit:contain;transition:transform var(--transition-slow)}
+.dl-card:hover .pic img{transform:scale(1.05)}
+.dl-card .t{padding:.9rem 1rem .4rem;display:grid;gap:.25rem}
+.dl-card .t b{font-size:var(--fs-1);line-height:1.3;color:var(--ink)}
+.dl-card .t span{font-size:var(--fs-0);color:var(--muted)}
+.dl-card .k{display:grid;gap:.45rem;padding:.6rem 1rem 1rem;margin-top:auto}
+.dl-card .b{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.6rem .8rem;border-radius:10px;font-weight:700;font-size:var(--fs-0);text-decoration:none!important;
+  background:var(--accent-soft);color:var(--accent-ink)!important;transition:background var(--transition-fast),color var(--transition-fast),transform var(--transition-fast)}
+.dl-card .b:hover{background:var(--accent);color:var(--on-accent)!important}
+.dl-card .b.amz{background:var(--amazon)!important;color:var(--on-amazon)!important;box-shadow:0 8px 18px -10px rgba(245,165,36,.8)}
+.dl-card .b.amz:hover{background:var(--amazon-hover)!important}
+.dl-card .b svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:840px){.dl-head{grid-template-columns:1fr;padding-top:var(--sp-3)}.dl-art{justify-self:center;width:min(100%,260px)}}
+@media (max-width:560px){.dl-grid{grid-template-columns:repeat(2,1fr);gap:.7rem}.dl-card .t,.dl-card .k{padding-left:.7rem;padding-right:.7rem}.dl-card .pic{padding:.7rem}}
+/* 404 */
+.error-art{width:min(100%,320px);margin:0 auto var(--sp-2);display:block}
+.error-container .error-code{background:linear-gradient(135deg,var(--accent),var(--c-audio));-webkit-background-clip:text;background-clip:text;color:transparent}
