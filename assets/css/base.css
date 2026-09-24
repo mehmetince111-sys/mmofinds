@@ -462,7 +462,7 @@ div.footer,.site-footer+div.footer{margin-top:0;padding:.9rem var(--sp-3);border
 .nav-bar:has(.card)~header.top-bar .logo,.nav-bar:has(.card)~header.top-bar nav.nav{display:flex}
 .nav-bar:has(.card)~header.top-bar .top-bar-inner{min-height:64px;padding-top:0}
 .nav-bar:has(.card)~header.top-bar .top-bar-inner>nav[style]{width:100%}
-.nav-links:has(>.card)::before{content:"Neu getestet";grid-column:1/-1;font-size:var(--fs-4);font-weight:800;letter-spacing:-.02em;color:var(--ink);padding-bottom:.6rem;border-bottom:2px solid var(--line);margin-bottom:.2rem}
+.nav-links:has(>.card)::before{content:"Neu im Magazin";grid-column:1/-1;font-size:var(--fs-4);font-weight:800;letter-spacing:-.02em;color:var(--ink);padding-bottom:.6rem;border-bottom:2px solid var(--line);margin-bottom:.2rem}
 @media (max-width:720px){.nav-links:has(>.card){padding:var(--sp-2) var(--sp-2) 0}}
 
 /* ---------- 13. Druck ---------- */
