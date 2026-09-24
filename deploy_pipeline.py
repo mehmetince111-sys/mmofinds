@@ -45,6 +45,31 @@ PROGRESS_FILE = REPO_DIR / '.pipeline_progress.json'
 # Produktdaten: (filename, name, category, search_term, default_asin)
 # Nur aktuelle, relevante Produkte — keine Nische, keine veralteten Modelle
 PRODUCTS = [
+    # Neu 24.09.2026 (Playwright-verifizierte ASINs, Inhalte-Agent)
+    ('apple-airtag-2', 'Apple AirTag (2. Generation)', 'Tracker',
+     'Apple AirTag 2. Generation', 'B0GJTCB2QM'),
+    ('samsung-galaxy-smarttag2', 'Samsung Galaxy SmartTag2', 'Tracker',
+     'Samsung Galaxy SmartTag2', 'B0CG7JHFKY'),
+    ('tapo-p110m', 'TP-Link Tapo P110M', 'Smart Home',
+     'Tapo P110M Matter Steckdose', 'B0CJ9R466Z'),
+    ('dreo-solaris-slim-h3', 'Dreo Solaris Slim H3 Heizlüfter', 'Haushalt',
+     'Dreo Solaris Slim H3 Heizlüfter', 'B09W9CGD3J'),
+    ('philips-wake-up-light', 'Philips Wake-up Light HF3519', 'Schlaf & Wohnen',
+     'Philips Wake-up Light HF3519', 'B08FHXWZPR'),
+    ('kindle-paperwhite', 'Amazon Kindle Paperwhite (2024)', 'E-Reader',
+     'Kindle Paperwhite 2024', 'B0CFPWLGF2'),
+    ('kobo-clara-bw', 'Kobo Clara BW', 'E-Reader',
+     'Kobo Clara BW', 'B0CZXYV8GT'),
+    ('tado-heizkoerperthermostat-x', 'tado° Heizkörperthermostat X', 'Smart Home',
+     'tado Heizkörperthermostat X', 'B0CWPGN3YG'),
+    ('fritz-repeater-1200-ax', 'FRITZ!Repeater 1200 AX', 'Netzwerk',
+     'FRITZ!Repeater 1200 AX', 'B09N4SJLWM'),
+    ('anker-zolo-powerbank-20000', 'Anker Zolo Powerbank 20.000 mAh (45 W)', 'Zubehör',
+     'Anker Zolo Powerbank 20000mAh 45W', 'B0DSZKKJTK'),
+    ('jbl-tune-beam-2', 'JBL Tune Beam 2', 'In-Ear',
+     'JBL Tune Beam 2', 'B0DK3W2XK3'),
+    ('iniu-powerbank-10000', 'INIU Powerbank 10.000 mAh (22,5 W)', 'Zubehör',
+     'INIU Powerbank 10000mAh 22.5W', 'B08VD632WJ'),
     # Neu 02.09.2026 (Playwright-verifizierte ASINs)
     ('sony-wh-1000xm6', 'Sony WH-1000XM6', 'Kopfhörer',
      'Sony WH-1000XM6', 'B0F2TT8Q7M'),
